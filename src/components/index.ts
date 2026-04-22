@@ -1,0 +1,9 @@
+export { default as Nav } from "./Nav";
+export { default as MobileMenu } from "./MobileMenu";
+export { default as HeroSection } from "./HeroSection";
+export { default as AboutSection } from "./AboutSection";
+export { default as WhySection } from "./WhySection";
+export { default as ServicesSection } from "./ServicesSection";
+export { default as WorksSection } from "./WorksSection";
+export { default as ReviewsSection } from "./ReviewsSection";
+export { default as FooterSection } from "./FooterSection";

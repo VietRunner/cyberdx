@@ -1,0 +1,926 @@
+/* ============================================================
+   BREAKPOINTS REFERENCE
+   2560+  : 4K / ultrawide
+   1920   : Full HD desktop
+   1440   : Large laptop / external monitor
+   1280   : Standard laptop
+   1024   : Small laptop / large tablet landscape
+   768    : Tablet portrait (iPad)
+   480    : Large phone (iPhone Plus/Pro Max)
+   375    : Standard phone (iPhone)
+   320    : Small phone
+   ============================================================ */
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  background: #181818;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: var(--dx-accent) #181818;
+  scrollbar-width: thin;
+}
+
+:root {
+  --dx-accent:        #d85b6a;
+  --dx-accent-soft:   rgba(216, 91, 106, 0.18);
+  --dx-accent-border: rgba(216, 91, 106, 0.28);
+  --header-h: 72px;
+  --container-pad: clamp(16px, 4vw, 80px);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  background-image: none !important;
+}
+
+svg image,
+[style*="background-image"],
+[style*="background: url"],
+[style*="background:url"] {
+  background-image: none !important;
+}
+
+/* ============================================================
+   ACCENT OVERRIDES  (Webflow teal → soft red)
+   ============================================================ */
+.green,
+.txt160 .green,
+.txt180 .green,
+.txt24 .green { color: var(--dx-accent) !important; }
+
+.btn, .btn-white, .btn-hover-white {
+  background: var(--dx-accent) !important;
+  border-color: var(--dx-accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.btn * { color: #fff !important; }
+
+.why-card, .service-card, .work-card, .rev-card, .revs-card,
+.sec-title-card, .contacts-card, .work-top-wrp, .service-bot,
+.service-top, .about-cont-wrp, .footer-cont, .nav, .sticky-work {
+  border-color: var(--dx-accent-border) !important;
+}
+.abt-hr, .mob-hr, .why-card-dec-square {
+  background: var(--dx-accent) !important;
+  opacity: 0.45;
+}
+.service-card, .rev-card { background: rgba(216,91,106,0.14) !important; }
+.revs-card { background: transparent !important; }
+.service-top, .service-bot { background: transparent !important; }
+.service-card, .rev-card, .why-card, .sec-title-card {
+  border-color: rgba(216,91,106,0.32) !important;
+}
+
+/* ============================================================
+   IMAGE PLACEHOLDERS
+   ============================================================ */
+.image-placeholder {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  border: 1px dashed rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.02);
+  border-radius: 16px;
+}
+.nav-logo.image-placeholder,
+.footer-logo.image-placeholder,
+.logo-img.image-placeholder,
+.mob-arr-ico.image-placeholder {
+  min-height: 40px;
+  width: 140px;
+  border-color: var(--dx-accent-border);
+}
+.work-img.image-placeholder { min-height: 220px; }
+
+@media screen and (max-width: 767px) {
+  .image-placeholder { border-radius: 10px; }
+  .work-img.image-placeholder { min-height: 160px; }
+}
+
+/* ============================================================
+   LOGO SVG
+   ============================================================ */
+.site-logo { display: block; width: 100%; height: auto; object-fit: contain; }
+.nav-logo-img    { max-width: 140px; max-height: 40px; }
+.footer-logo-img { max-width: 140px; max-height: 52px; }
+
+/* ============================================================
+   ABOUT DIVIDER
+   ============================================================ */
+.about-cont-wrp {
+  position: relative !important;
+  opacity: 1 !important;
+}
+
+/* Force abt-hr always visible */
+.about-cont-wrp .abt-hr {
+  background: #d85b6a !important;
+  opacity: 1 !important;
+  display: block !important;
+  visibility: visible !important;
+}
+.about-cont-wrp .abt-hr.mob { display: none !important; }
+
+/* Gạch — flex item co giãn giữa tên và text */
+.about-cont-wrp .abt-hr {
+  display: block !important;
+  flex: 1 !important;
+  height: 1px !important;
+  min-height: 1px !important;
+  background: var(--dx-accent) !important;
+  opacity: 0.7 !important;
+  visibility: visible !important;
+  align-self: center !important;
+  margin: 0 clamp(16px, 2vw, 32px) !important;
+  min-width: 40px !important;
+  border-radius: 0 !important;
+}
+
+/* Ẩn cái mob duplicate */
+.about-cont-wrp .abt-hr.mob { display: none !important; }
+
+@media screen and (max-width: 767px) {
+  .about-cont-wrp .abt-hr { display: none !important; }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.dx-header {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Mobile — fixed khi scroll */
+@media screen and (max-width: 768px) {
+  .dx-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Đẩy hero xuống để không bị header đè */
+  .dx-hero {
+    padding-top: var(--header-h);
+  }
+}
+
+.dx-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  height: var(--header-h);
+  gap: 20px;
+}
+
+.dx-logo-link { text-decoration: none; flex-shrink: 0; }
+.dx-logo-text {
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.dx-nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.6vw, 48px);
+  flex: 1;
+  justify-content: center;
+}
+.dx-nav-link {
+  font-size: clamp(11px, 0.85vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s;
+}
+.dx-nav-link:hover { color: #fff; }
+
+.dx-cta-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 20px;
+  background: #2a8f8f;
+  color: #fff !important;
+  font-size: clamp(11px, 0.85vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 0.18s;
+}
+.dx-cta-btn:hover { background: #217070; }
+
+/* Hamburger — hidden on desktop */
+.dx-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px 4px;
+  flex-shrink: 0;
+}
+.dx-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: opacity 0.2s;
+}
+
+/* Header responsive */
+@media screen and (max-width: 1024px) {
+  :root { --header-h: 64px; }
+  .dx-nav-links { gap: clamp(16px, 2vw, 32px); }
+}
+
+@media screen and (max-width: 768px) {
+  :root { --header-h: 60px; }
+  .dx-nav-links { display: none; }
+  .dx-cta-btn   { display: none; }
+  .dx-hamburger { display: flex; }
+}
+
+@media screen and (max-width: 480px) {
+  :root { --header-h: 56px; }
+  --container-pad: 16px;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+/* ── FONT SIZE TOKEN — change ONE value to resize all hero words ──
+   Desktop default: clamp(min, fluid, max)
+   min  = smallest size on very small screens
+   fluid= scales with viewport width (vw)
+   max  = caps on large screens
+   ─────────────────────────────────────────────────────────────── */
+:root {
+  --hero-fs: clamp(79px, 11.1vw, 179px);  /* ← EDIT THIS to resize hero words */
+  --hero-fw: 600;                          /* ← EDIT THIS: 400=thin 600=semi 700=bold 800=heavy */
+  --hero-lh: 0.94;                         /* ← line-height */
+  --hero-ls: -0.04em;                      /* ← letter-spacing */
+}
+
+.dx-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* ── Background image — đặt ảnh vào public/hero-bg.jpg ── */
+  background-image: url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay — chỉnh opacity để tối/sáng hơn */
+.dx-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62); /* ← tăng số này để tối hơn, giảm để sáng hơn */
+  z-index: 1;
+}
+
+/* Đảm bảo nội dung nằm trên overlay */
+.dx-hero > .dx-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.dx-hero-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(480px, calc(100svh - var(--header-h)), 960px);
+  padding: clamp(20px, 3vh, 48px) var(--container-pad);
+  padding-top: clamp(60px, 8vh, 100px);
+}
+
+/* Logo — absolute center */
+.dx-hero-logo {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  width: clamp(80px, 11vw, 180px);
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── GRID: 2 columns, 2 rows ──────────────────────────────────
+   Col 1 (auto): DYNAMIX / SPEED
+   Col 2 (auto): tagline / INNOVATIONS
+   ──────────────────────────────────────────────────────────── */
+.dx-hero-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: end;
+  row-gap: 0;
+  z-index: 3;
+  position: relative;
+}
+
+.dx-hero-cell {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Row 1, Col 1 — DYNAMIX */
+.dx-cell-dynamix {
+  grid-column: 1;
+  grid-row: 1;
+  align-items: flex-end;
+}
+
+/* Row 1, Col 2 — tagline: sits top-right, aligned bottom of row 1 */
+.dx-cell-tagline {
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 0.12em;
+  padding-left: 24px;
+}
+
+/* Row 2, Col 1 — SPEED */
+.dx-cell-speed {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Row 2, Col 2 — INNOVATIONS */
+.dx-cell-innovations {
+  grid-column: 2;
+  grid-row: 2;
+  justify-content: flex-end;
+}
+
+/* ── Hero word ── */
+.dx-hero-word {
+  font-family: "Manrope", sans-serif;
+  font-size: var(--hero-fs);
+  font-weight: var(--hero-fw);
+  line-height: var(--hero-lh);
+  letter-spacing: var(--hero-ls);
+  color: #fff;
+  white-space: nowrap;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.dx-dot {
+  color: var(--dx-accent);
+}
+
+/* ── Tagline ── */
+.dx-hero-tagline {
+  margin: 0;
+  text-align: right;
+  font-size: clamp(12px, 0.9vw, 15px);
+  line-height: 1.55;
+  color: rgba(255,255,255,0.62);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — only font-size and layout adjustments
+   ══════════════════════════════════════════════════════════════ */
+
+/* 4K / Ultrawide 2560+ */
+@media screen and (min-width: 2560px) {
+  :root { --hero-fs: clamp(143px, 7.1vw, 232px); }
+  .dx-hero-logo { width: clamp(180px, 9vw, 280px); }
+  .dx-hero-tagline { font-size: 20px; }
+}
+
+/* Large desktop 1441–1920 */
+@media screen and (max-width: 1920px) and (min-width: 1441px) {
+  :root { --hero-fs: clamp(107px, 8.1vw, 161px); }
+}
+
+/* Standard laptop 1281–1440 */
+@media screen and (max-width: 1440px) and (min-width: 1281px) {
+  :root { --hero-fs: clamp(89px, 8.9vw, 143px); }
+  .dx-hero-logo { width: clamp(100px, 10vw, 160px); }
+}
+
+/* Small laptop 1025–1280 */
+@media screen and (max-width: 1280px) and (min-width: 1025px) {
+  :root { --hero-fs: clamp(79px, 8.9vw, 125px); }
+  .dx-hero-logo { width: clamp(88px, 9.5vw, 140px); }
+  .dx-hero-tagline { font-size: clamp(11px, 0.8vw, 13px); }
+}
+
+/* Tablet landscape 769–1024 */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  :root { --hero-fs: clamp(57px, 8.1vw, 99px); }
+  .dx-hero-logo { width: clamp(80px, 11vw, 130px); top: 40%; }
+  .dx-hero-tagline { font-size: 12px; }
+}
+
+/* Tablet portrait 481–768 — stack tagline above, keep grid */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  :root { --hero-fs: clamp(43px, 7.6vw, 79px); }
+  .dx-hero-inner {
+    min-height: clamp(400px, 75svh, 640px);
+    padding: 20px 24px 28px;
+    padding-top: 48px;
+  }
+  .dx-hero-logo { width: clamp(70px, 14vw, 110px); top: 38%; }
+  .dx-cell-tagline {
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 12px;
+    padding-bottom: 0.1em;
+  }
+  .dx-hero-tagline { font-size: 11px; }
+}
+
+
+
+
+/* ── PHONE (≤480px) — theo mẫu: logo giữa trên, tagline phải, chữ dọc dưới ── */
+@media screen and (max-width: 480px) {
+  :root { --hero-fs: clamp(48px, 14vw, 72px); }
+
+  .dx-hero-inner {
+    min-height: 88svh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 16px 20px 24px;
+  }
+
+  /* Logo: absolute center of hero section */
+  .dx-hero-logo {
+    position: absolute !important;
+    left: 50% !important;
+    top: 28% !important;
+    transform: translate(-50%, -50%) !important;
+    width: clamp(130px, 44vw, 180px);
+    flex-shrink: 0;
+  }
+
+  /* Grid: dọc, margin-top auto để dồn xuống dưới */
+  .dx-hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 0;
+    margin-top: auto;
+  }
+
+  /* Thứ tự: tagline → SPEED → DYNAMIX → INNOVATIONS */
+  .dx-cell-tagline     { grid-column: 1; grid-row: 1; justify-content: flex-end; padding: 0 0 8px; }
+  .dx-cell-speed       { grid-column: 1; grid-row: 2; justify-content: flex-start; }
+  .dx-cell-dynamix     { grid-column: 1; grid-row: 3; justify-content: flex-start; }
+  /* Fix: innovations căn trái giống SPEED và DYNAMIX */
+  .dx-cell-innovations { grid-column: 1; grid-row: 4; justify-content: flex-start !important; }
+
+  .dx-hero-word        { white-space: nowrap; line-height: 0.88; }
+  .dx-hero-tagline     { text-align: right; font-size: 13px; width: 100%; color: rgba(255,255,255,0.75); }
+}
+
+/* Landscape phone */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  :root { --hero-fs: clamp(36px, 7vw, 64px); }
+  .dx-hero-inner {
+    min-height: 320px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+  }
+  .dx-hero-logo { width: clamp(52px, 9vw, 76px); top: 36%; }
+  .dx-hero-tagline { font-size: 10px; }
+}
+
+
+/* ============================================================
+   MOBILE MENU OVERLAY
+   ============================================================ */
+.dx-hamburger {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Hamburger → X animation */
+.dx-hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.dx-hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+.dx-hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.dx-hamburger span {
+  transition: transform 0.22s ease, opacity 0.18s ease;
+}
+
+/* Full-screen overlay */
+.dx-mob-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  animation: dx-fade-in 0.22s ease;
+}
+
+@keyframes dx-fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dx-mob-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 clamp(20px, 6vw, 40px) clamp(24px, 5vh, 40px);
+}
+
+/* Top bar */
+.dx-mob-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  flex-shrink: 0;
+}
+
+.dx-mob-close {
+  background: #2a8f8f;
+  border: none;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.dx-mob-close:hover { background: #217070; }
+
+/* Nav links */
+.dx-mob-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 0;
+  margin-top: clamp(16px, 4vh, 32px);
+}
+
+.dx-mob-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(18px, 3.5vh, 28px) 0;
+  border-bottom: 1px solid rgba(42, 143, 143, 0.25);
+  text-decoration: none;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(20px, 5vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: color 0.18s;
+}
+.dx-mob-link:hover { color: #2a8f8f; }
+
+.dx-mob-link svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+/* Bottom CTA */
+.dx-mob-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(20px, 4vh, 36px);
+  padding: 18px;
+  background: #2a8f8f;
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.18s;
+}
+.dx-mob-cta:hover { background: #217070; }
+
+
+
+
+
+
+/* ============================================================
+   WORK CARD — image + mobile layout
+   ============================================================ */
+
+.work-card { background: #0d0d0d !important; }
+
+/* Image wrapper: absolute 60% centered — desktop */
+.work-img-wrap {
+  position: absolute !important;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+.work-img-real {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+  border-radius: 10px 10px 0 0;
+  filter: brightness(0.88);
+  transition: filter 0.3s;
+}
+.work-card:hover .work-img-real { filter: brightness(0.55); }
+
+/* Mobile info — hidden on desktop */
+.dx-mob-card-info { display: none; }
+
+/* ── MOBILE ≤768px ── */
+@media screen and (max-width: 768px) {
+
+  /* Giữ nguyên Webflow elements, chỉ reposition */
+  .work-card {
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* work-abs (description) — ẩn trên mobile, dùng dx-mob-card-desc thay */
+  .work-card .work-abs {
+    display: none !important;
+  }
+
+  /* work-hover-div — để Webflow animate, chỉ reposition về cuối */
+  .work-card .work-hover-div {
+    position: static !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px !important;
+    order: 1;
+  }
+
+  /* Tên project trong hover-div */
+  .work-card .work-hover-div .txt18.pc-hide {
+    display: block !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+  }
+
+  /* Image: in flow */
+  .work-img-wrap {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    pointer-events: auto;
+    order: 3;
+  }
+  .work-img-real {
+    width: 100% !important;
+    max-height: 200px;
+    object-fit: cover !important;
+    object-position: top !important;
+    border-radius: 0 !important;
+    filter: brightness(0.9) !important;
+  }
+
+  /* Mobile desc block */
+  .dx-mob-card-info {
+    display: block;
+    order: 2;
+    padding: 0 16px 12px;
+  }
+  .dx-mob-card-desc {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.62);
+  }
+}
+
+/* ============================================================
+   FOOTER — matches reference design
+   ============================================================ */
+.dx-footer {
+  background: #0d0d0d;
+  padding: clamp(48px, 6vw, 80px) var(--container-pad) 0;
+  margin-top: clamp(40px, 6vw, 80px);
+}
+
+/* ── TOP ROW ── */
+.dx-footer-top {
+  display: grid;
+  grid-template-columns: 160px 1fr 160px 160px;
+  gap: clamp(24px, 4vw, 64px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+  align-items: start;
+}
+
+.dx-footer-col { display: flex; flex-direction: column; gap: 16px; }
+
+/* Logo col */
+.dx-footer-logo {
+  width: clamp(80px, 8vw, 120px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* CTA col */
+.dx-footer-cta-title {
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.dx-footer-cta-text {
+  margin: 0;
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+  max-width: 420px;
+}
+.dx-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 14px 28px;
+  background: var(--dx-accent);
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+}
+.dx-footer-btn:hover { opacity: 0.85; }
+
+/* Menu / Contact cols */
+.dx-footer-col-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.dx-footer-link {
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.dx-footer-link:hover { color: #fff; }
+.dx-footer-link-ul { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── BOTTOM ROW ── */
+.dx-footer-bottom {
+  display: grid;
+  grid-template-columns: 160px 1fr auto 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.dx-footer-clutch { min-height: 50px; }
+
+.dx-footer-bottom-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dx-footer-email-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+}
+.dx-footer-email {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+.dx-footer-email:hover { color: var(--dx-accent); }
+
+.dx-footer-backtop {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.dx-footer-backtop:hover { color: #fff; }
+
+.dx-footer-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.dx-footer-copy,
+.dx-footer-rights {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+}
+.dx-footer-policy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+.dx-footer-policy:hover { color: #fff; }
+
+/* ── Responsive ── */
+@media screen and (max-width: 1024px) {
+  .dx-footer-top { grid-template-columns: 120px 1fr 140px 140px; }
+}
+
+@media screen and (max-width: 768px) {
+  .dx-footer-top {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .dx-footer-col-logo { grid-column: 1 / -1; }
+  .dx-footer-col-cta  { grid-column: 1 / -1; }
+  .dx-footer-bottom {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .dx-footer-bottom-right { align-items: flex-start; }
+}
+
+@media screen and (max-width: 480px) {
+  .dx-footer-top { grid-template-columns: 1fr; }
+  .dx-footer-bottom { grid-template-columns: 1fr; }
+  .dx-footer-bottom-right { align-items: flex-start; }
+}
