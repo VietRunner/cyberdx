@@ -20,7 +20,7 @@ const WORK_CARDS: WorkCard[] = [
     title: "VietRunner",
     href: "https://vietrunner.com",
     img: "/project-vietrunner.jpg",
-    description: "In joint partnership with VietRunner LLC, our dedicated cross-platform team has created the ultimate AI tool for creating multi-channel content and research analysis specifically for Wealth Management Professionals.",
+    description: "VietRunner is a community-driven platform designed to connect and grow the running ecosystem in Vietnam. It brings together runners, coaches, and local communities into one unified space, enabling smarter training, stronger connections, and sustainable motivation across multiple channels.",
     descriptionClass: "l",
   },
   {
