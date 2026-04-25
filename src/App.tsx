@@ -55,11 +55,17 @@ export default function App() {
 
   // Scroll to hash on reload
   useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
         document.querySelector(hash)?.scrollIntoView({ behavior: "instant" });
-      }, 50);
+      }, 300);
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
   }, []);
 
