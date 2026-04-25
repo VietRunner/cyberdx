@@ -1,4 +1,5 @@
 export { default as Nav } from "./Nav";
+export { default as ContactModal } from "./ContactModal";
 export { default as MobileMenu } from "./MobileMenu";
 export { default as HeroSection } from "./HeroSection";
 export { default as AboutSection } from "./AboutSection";

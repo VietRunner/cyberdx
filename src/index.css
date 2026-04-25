@@ -300,11 +300,35 @@ svg image,
   position: relative;
   width: 100%;
   overflow: hidden;
-  /* ── Background image — đặt ảnh vào public/hero-bg.jpg ── */
   background-image: url('/hero-bg.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
+}
+
+/* Video background */
+.dx-hero--video {
+  background-image: none;
+  background: #0d0d0f;
+}
+
+.dx-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+}
+
+.dx-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  z-index: 2;
 }
 
 /* Dark overlay — chỉnh opacity để tối/sáng hơn */
@@ -319,7 +343,7 @@ svg image,
 /* Đảm bảo nội dung nằm trên overlay */
 .dx-hero > .dx-hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .dx-hero-inner {
@@ -659,6 +683,199 @@ svg image,
 
 
 /* ============================================================
+   SEC-HEAD-WRP — section header (Products & Cases, etc.)
+   ============================================================ */
+.sec-head-wrp {
+display: flex;
+align-items: flex-start;
+justify-content: flex-start;  /* ← đổi từ space-between */
+gap: 24px;                    /* ← kéo lại gần */
+padding-bottom: clamp(32px, 4vw, 56px);
+}
+
+.works-wd {
+  max-width: 360px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .sec-head-wrp {
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 24px;
+  }
+  .works-wd { max-width: 100%; }
+}
+
+/* ============================================================
+   CONTACT MODAL
+   ============================================================ */
+.dx-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: dx-fade-in 0.22s ease;
+}
+
+.dx-modal {
+  position: relative;
+  background: #181818;
+  border: 1px solid rgba(216, 91, 106, 0.22);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 580px;
+  padding: clamp(28px, 5vw, 48px);
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: dx-modal-in 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes dx-modal-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dx-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.55);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.dx-modal-close:hover { background: rgba(216,91,106,0.15); color: #fff; }
+
+.dx-modal-header { margin-bottom: 28px; }
+
+.dx-modal-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--dx-accent);
+  margin: 0 0 8px;
+}
+
+.dx-modal-title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.dx-modal-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.dx-modal-form { display: flex; flex-direction: column; gap: 18px; }
+
+.dx-modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media screen and (max-width: 480px) {
+  .dx-modal-row { grid-template-columns: 1fr; }
+}
+
+.dx-modal-field { display: flex; flex-direction: column; gap: 6px; }
+
+.dx-modal-field-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+}
+.dx-modal-field-label span { color: var(--dx-accent); }
+
+.dx-modal-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.18s, background 0.18s;
+  width: 100%;
+}
+.dx-modal-input::placeholder { color: rgba(255,255,255,0.25); }
+.dx-modal-input:focus {
+  border-color: var(--dx-accent);
+  background: rgba(216,91,106,0.04);
+}
+
+.dx-modal-textarea { resize: vertical; min-height: 120px; }
+
+.dx-modal-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--dx-accent);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+.dx-modal-submit:hover:not(:disabled) { opacity: 0.85; }
+.dx-modal-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* Success state */
+.dx-modal-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 0;
+  gap: 16px;
+}
+.dx-modal-success-icon { margin-bottom: 8px; }
+.dx-modal-success-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+.dx-modal-success-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 300px;
+}
+
+/* ============================================================
    WORK CARD — image + mobile layout
    ============================================================ */
 
@@ -924,3 +1141,18 @@ svg image,
   .dx-footer-bottom { grid-template-columns: 1fr; }
   .dx-footer-bottom-right { align-items: flex-start; }
 }
+/* ============================================================
+   SERVICES — mobile reorder 01→02→03→04→05
+   ============================================================ */
+   @media screen and (max-width: 768px) {
+    .services-hor-scroll {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+  
+    .service-card:nth-child(1) { order: 1; } /* 01 */
+    .service-card:nth-child(2) { order: 3; } /* 03 */
+    .service-card:nth-child(3) { order: 5; } /* 05 */
+    .service-card:nth-child(4) { order: 2; } /* 02 */
+    .service-card:nth-child(5) { order: 4; } /* 04 */
+  }

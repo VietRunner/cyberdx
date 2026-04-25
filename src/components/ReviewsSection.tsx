@@ -9,48 +9,51 @@ interface Review {
 const REVIEWS: Review[] = [
   {
     number: "01",
-    name: "Huỳnh Quang Trung",
+    name: "Huynh Quang Trung",
     role: "Founder",
     quote:
-      '"Since working with CyberDX, we saw the bugs complaints of our main test client almost disappear. The agency is also capable of advising us on technical points. They are not simply executants, they are very involved in our product. Definitely great ethics, transparency, and honest collaboration. As well as great professionalism and competence"',
+      "Defines product vision, strategic direction, and long-term roadmap. Ensures the platform evolves in line with the mission of building a strong running community.",
   },
   {
     number: "02",
-    name: "Nguyễn Minh Anh Hào",
+    name: "Nguyen Minh Anh Hao",
     role: "CEO",
     quote:
-      '"I\'ve worked with dev teams across the globe. CyberDX has a unique ability to think through the problems and offer alternatives/solutions that others simply don\'t. I trust the MD team to help us solve complex problems both quickly and efficiently"',
+      "Leads business operations, execution strategy, and ecosystem growth. Aligns product, community, and partnerships to drive sustainable development.",
     topMarginClass: "mar-top1",
   },
   {
     number: "03",
-    name: "Nguyễn Hữu Nhất",
+    name: "Nguyen Huu Nhat",
     role: "Backend Tech Lead",
     quote:
-      '"CyberDX delivered user stories and features that aligned with the client\'s specifications, ensuring a successful partnership. They led a seamless process by promptly responding to needs and concerns. Their flexibility, clear communication, and ability to work with minimal oversight stood out."',
+      "Designs and maintains backend systems, APIs, and data architecture. Ensures scalability, performance, and reliability across the platform.",
     topMarginClass: "mar-top3",
   },
   {
     number: "04",
-    name: "Lê Trung Kiên",
+    name: "Le Trung Kien",
     role: "Frontend Tech Lead",
-    quote: "Driving modern frontend experiences with usability, clarity, and maintainable delivery.",
+    quote:
+      "Leads frontend development with a focus on usability, responsiveness, and seamless user experience for all platform users.",
     topMarginClass: "mar-top4",
   },
   {
     number: "05",
-    name: "Phạm Văn Khánh",
+    name: "Pham Van Khanh",
     role: "Full-stack Tech Lead",
-    quote: "Building robust, scalable full-stack solutions that bridge product vision and technical execution.",
+    quote:
+      "Oversees end-to-end feature development and system integration. Ensures code quality, consistency, and effective delivery across the platform.",
     topMarginClass: "mar-top1",
   },
   {
     number: "06",
-    name: "Trần Phi Tường",
+    name: "Tran Phi Tuong",
     role: "Full-stack Developer",
-    quote: "Delivering end-to-end features with clean code, fast iteration, and a focus on real user impact.",
+    quote:
+      "Implements features across frontend and backend. Supports integration, debugging, and continuous improvement to maintain stable product delivery.",
     topMarginClass: "mar-top2",
-  }
+  },
 ];
 
 function ReviewCard({ review }: { review: Review }) {

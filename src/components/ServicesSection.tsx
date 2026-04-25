@@ -39,7 +39,7 @@ const SERVICES: Service[] = [
   },
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({ onContact }: { onContact?: () => void }) {
   return (
     <section id="services" className="services">
       <div className="container">
@@ -67,7 +67,8 @@ export default function ServicesSection() {
                         {service.description}
                       </div>
                       <a
-                        href="/form"
+                        href="#"
+                        onClick={(e) => { e.preventDefault(); onContact?.(); }}
                         className="btn btn-white mob-hide w-inline-block"
                       >
                         <div className="txt24">LET'S CONNECT</div>
@@ -78,7 +79,7 @@ export default function ServicesSection() {
                 <div className="txt130 upper services-abs">
                   {" "}Connected<span className="green">.</span>
                 </div>
-                <a href="/form" className="btn btn-white mob w-inline-block">
+                <a href="#" onClick={(e) => { e.preventDefault(); onContact?.(); }} className="btn btn-white mob w-inline-block">
                   <div className="txt24">LET'S CONNECT</div>
                 </a>
               </div>

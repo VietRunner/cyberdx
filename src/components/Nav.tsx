@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "CONTACTS",   href: "#contacts" },
 ];
 
-export default function Nav() {
+export default function Nav({ onContact }: { onContact?: () => void }) {
   const [open, setOpen] = useState(false);
 
   const close = () => setOpen(false);
@@ -27,7 +27,7 @@ export default function Nav() {
             ))}
           </nav>
 
-          <a href="/form" className="dx-cta-btn">GET IN TOUCH</a>
+          <a href="#" className="dx-cta-btn" onClick={(e) => { e.preventDefault(); onContact?.(); }}>GET IN TOUCH</a>
 
           {/* Hamburger */}
           <button
@@ -67,7 +67,7 @@ export default function Nav() {
             </nav>
 
             {/* CTA */}
-            <a href="/form" className="dx-mob-cta" onClick={close}>
+            <a href="#" className="dx-mob-cta" onClick={(e) => { e.preventDefault(); close(); onContact?.(); }}>
               LET'S DISCUSS
             </a>
           </div>

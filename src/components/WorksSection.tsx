@@ -11,7 +11,7 @@ const WORK_CARDS: WorkCard[] = [
   {
     ariaLabel: "KIOSIFY",
     title: "KIOSIFY",
-    href: "#",
+    href: "https://kiosify.com",
     img: "/project-kiosify.jpg",
     description: "KIOSIFY is a modern self-service kiosk solution for retail and F&B. It streamlines ordering, payment, and operations while improving customer experience across branches.",
   },

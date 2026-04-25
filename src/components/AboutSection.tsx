@@ -14,8 +14,8 @@ export default function AboutSection() {
             We design &amp; build robust software solutions that transform
             industries and drive innovation.
           </div>
-          <div className="abt-hr" />
-          <div className="abt-hr mob" />
+          {/* <div className="abt-hr" />
+          <div className="abt-hr mob" /> */}
         </div>
       </div>
     </section>

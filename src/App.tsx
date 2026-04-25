@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Nav,
+  ContactModal,
   MobileMenu,
   HeroSection,
   AboutSection,
@@ -50,6 +51,27 @@ function loadScript(src: string): Promise<void> {
 }
 
 export default function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // Scroll to hash on reload
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: "instant" });
+      }, 50);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleOpenModal = (e: Event) => {
+      e.preventDefault();
+      setModalOpen(true);
+    };
+    document.addEventListener("dx:open-contact", handleOpenModal);
+    return () => document.removeEventListener("dx:open-contact", handleOpenModal);
+  }, []);
+
   useEffect(() => {
     document.documentElement.setAttribute("data-wf-domain", "www.masterdynamix.com");
     document.documentElement.setAttribute("data-wf-page", "66b10772b408864698370170");
@@ -88,15 +110,16 @@ export default function App() {
 
   return (
     <>
-      <Nav />
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <Nav onContact={() => setModalOpen(true)} />
       <MobileMenu />
       <HeroSection />
       <AboutSection />
       <WhySection />
-      <ServicesSection />
+      <ServicesSection onContact={() => setModalOpen(true)} />
       <WorksSection />
       <ReviewsSection />
-      <FooterSection />
+      <FooterSection onContact={() => setModalOpen(true)} />
     </>
   );
 }
