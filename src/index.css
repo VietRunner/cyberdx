@@ -342,10 +342,19 @@ svg image,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   z-index: 1;
   display: block;
   pointer-events: none;
+  transform: scale(1.18);
+  transform-origin: center top;
+}
+
+@media screen and (max-width: 768px) {
+  .dx-hero-video {
+    transform: scale(1.1);
+    object-position: center top;
+  }
 }
 
 .dx-hero-overlay {
