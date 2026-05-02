@@ -213,6 +213,24 @@ svg image,
   white-space: nowrap;
 }
 
+.dx-nav-logo-img {
+  display: block;
+  width: auto;
+  height: 120px;
+  object-fit: contain;
+  object-position: left center;
+  transform: scale(1);
+  transform-origin: left center;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.3));
+}
+
+@media screen and (max-width: 768px) {
+  .dx-nav-logo-img {
+    height: 90px;
+    transform: scale(1);
+  }
+}
+
 .dx-nav-links {
   display: flex;
   align-items: center;

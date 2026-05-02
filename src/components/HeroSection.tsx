@@ -20,8 +20,6 @@ export default function HeroSection() {
 
       {/* ── Content ── */}
       <div className="dx-hero-inner">
-        <img src="/logo.png" alt="Logo" className="dx-hero-logo" />
-
         <div className="dx-hero-grid">
           <div className="dx-hero-cell dx-cell-dynamix">
             <span className="dx-hero-word">DYNAMIX<span className="dx-dot">.</span></span>
