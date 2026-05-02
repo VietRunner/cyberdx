@@ -169,7 +169,10 @@ svg image,
    ============================================================ */
 .dx-header {
   position: relative;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   width: 100%;
   z-index: 10;
 }
@@ -181,7 +184,7 @@ svg image,
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.85);
+    background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -202,6 +205,7 @@ svg image,
   padding: 0 var(--container-pad);
   height: var(--header-h);
   gap: 20px;
+  position: relative;
 }
 
 .dx-logo-link { text-decoration: none; flex-shrink: 0; }
@@ -215,19 +219,21 @@ svg image,
 
 .dx-nav-logo-img {
   display: block;
-  width: auto;
-  height: 120px;
+  width: 380px;
+  height: auto;
+  max-height: 128px;
   object-fit: contain;
   object-position: left center;
-  transform: scale(1);
-  transform-origin: left center;
+  transform: none;
   filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.3));
+  mix-blend-mode: screen;
 }
 
 @media screen and (max-width: 768px) {
   .dx-nav-logo-img {
-    height: 90px;
-    transform: scale(1);
+    width: 300px;
+    height: auto;
+    max-height: 100px;
   }
 }
 
@@ -235,8 +241,10 @@ svg image,
   display: flex;
   align-items: center;
   gap: clamp(20px, 2.6vw, 48px);
-  flex: 1;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .dx-nav-link {
   font-size: clamp(11px, 0.85vw, 13px);
@@ -264,6 +272,7 @@ svg image,
   border-radius: 4px;
   white-space: nowrap;
   transition: background 0.18s;
+  margin-left: auto;
 }
 .dx-cta-btn:hover { background: #217070; }
 
@@ -299,8 +308,10 @@ svg image,
 }
 
 @media screen and (max-width: 480px) {
-  :root { --header-h: 56px; }
-  --container-pad: 16px;
+  :root {
+    --header-h: 56px;
+    --container-pad: 16px;
+  }
 }
 
 /* ============================================================
@@ -342,18 +353,24 @@ svg image,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: 50% 6%;
   z-index: 1;
   display: block;
   pointer-events: none;
-  transform: scale(1.18);
+  transform: scale(1.08);
   transform-origin: center top;
+}
+
+@media screen and (min-width: 1600px) {
+  .dx-hero-video {
+    transform: scale(1.12);
+  }
 }
 
 @media screen and (max-width: 768px) {
   .dx-hero-video {
-    transform: scale(1.1);
-    object-position: center top;
+    transform: scale(1.02);
+    object-position: 50% 2%;
   }
 }
 
@@ -1036,9 +1053,12 @@ padding-bottom: clamp(32px, 4vw, 56px);
 
 /* Logo col */
 .dx-footer-logo {
-  width: clamp(80px, 8vw, 120px);
+  width: clamp(480px, 39vw, 660px);
   height: auto;
+  max-height: clamp(186px, 15vw, 252px);
   object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: screen;
 }
 
 /* CTA col */

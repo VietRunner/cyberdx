@@ -6,7 +6,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
 
         {/* Col 1: Logo */}
         <div className="dx-footer-col dx-footer-col-logo">
-          <img src="/logo_cyberdx.jpg" alt="CyberDX" className="dx-footer-logo" />
+          <img src="/logo_cyberdx-removebg-preview.png" alt="CyberDX" className="dx-footer-logo" />
         </div>
 
         {/* Col 2: CTA */}
