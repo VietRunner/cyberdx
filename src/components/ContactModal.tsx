@@ -6,9 +6,45 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ open, onClose }: ContactModalProps) {
+  const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL || "https://form.cyberdx.tech/api/contact";
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [toast, setToast] = useState<{ type: "success" | "error"; message: string } | null>(null);
+
+  const showToast = (type: "success" | "error", message: string) => {
+    setToast({ type, message });
+  };
+
+  const isValidEmail = (email: string) => {
+    const value = email.trim();
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+  };
+
+  const validateForm = () => {
+    const fullName = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+
+    if (fullName.length < 2) {
+      return "Full name must be at least 2 characters.";
+    }
+
+    if (!isValidEmail(email)) {
+      return "Please enter a valid email address.";
+    }
+
+    if (message.length < 2) {
+      return "Message must be at least 2 characters.";
+    }
+
+    if (message.length > 2000) {
+      return "Message is too long (max 2000 characters).";
+    }
+
+    return "";
+  };
 
   useEffect(() => {
     if (open) {
@@ -16,24 +52,101 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     } else {
       document.body.style.overflow = "";
       // reset after close animation
-      setTimeout(() => { setSent(false); setForm({ name: "", email: "", company: "", message: "" }); }, 300);
+      setTimeout(() => {
+        setSent(false);
+        setErrorMessage("");
+        setToast(null);
+        setForm({ name: "", email: "", company: "", message: "" });
+      }, 300);
     }
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const id = window.setTimeout(() => setToast(null), 2800);
+    return () => window.clearTimeout(id);
+  }, [toast]);
 
   if (!open) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
+
+    if (!contactApiUrl) {
+      const message = "Contact form is not configured.";
+      setErrorMessage(message);
+      showToast("error", message);
+      return;
+    }
+
+    const validationError = validateForm();
+    if (validationError) {
+      setErrorMessage(validationError);
+      showToast("error", validationError);
+      return;
+    }
+
+    const payload = {
+      fullName: form.name.trim(),
+      email: form.email.trim(),
+      company: form.company.trim(),
+      message: form.message.trim(),
+    };
+
     setSending(true);
-    await new Promise((r) => setTimeout(r, 1000)); // simulate send
-    setSending(false);
-    setSent(true);
+    try {
+      const response = await fetch(contactApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        let serverMessage = "";
+        try {
+          const data = await response.json();
+          serverMessage = data?.message || data?.error || "";
+        } catch {
+          try {
+            serverMessage = await response.text();
+          } catch {
+            serverMessage = "";
+          }
+        }
+        const detail = serverMessage ? `: ${serverMessage}` : "";
+        throw new Error(`Request failed with status ${response.status}${detail}`);
+      }
+
+      setSent(true);
+      showToast("success", "Message sent successfully.");
+      setForm({ name: "", email: "", company: "", message: "" });
+    } catch (error) {
+      console.error("Failed to submit contact form:", error);
+      const message = error instanceof TypeError
+        ? "Unable to send request from browser (likely CORS). Please try again later."
+        : error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again.";
+      setErrorMessage(message);
+      showToast("error", message);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="dx-modal-overlay" onClick={onClose}>
       <div className="dx-modal" onClick={(e) => e.stopPropagation()}>
+        {toast ? (
+          <div className={`dx-toast dx-toast-${toast.type}`} role="status" aria-live="polite">
+            {toast.message}
+          </div>
+        ) : null}
         <button className="dx-modal-close" onClick={onClose} aria-label="Close">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M2 2L16 16M16 2L2 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -109,6 +222,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
               <button className="dx-modal-submit" type="submit" disabled={sending}>
                 {sending ? "Sending..." : "SEND MESSAGE"}
               </button>
+              {errorMessage ? <p className="dx-modal-error">{errorMessage}</p> : null}
             </form>
           </>
         )}
