@@ -22,6 +22,10 @@ export default function MobileMenu() {
           <div className="txt18">Services</div>
           <div aria-label="Image placeholder" className="image-placeholder mob-arr-ico" />
         </a>
+        <a href="#blog" className="mob-nav-link w-inline-block">
+          <div className="txt18">Blog</div>
+          <div aria-label="Image placeholder" className="image-placeholder mob-arr-ico" />
+        </a>
         <a href="#cases" className="mob-nav-link w-inline-block">
           <div className="txt18">Projects</div>
           <div aria-label="Image placeholder" className="image-placeholder mob-arr-ico" />
