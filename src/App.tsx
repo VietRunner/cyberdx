@@ -9,6 +9,7 @@ import {
   ServicesSection,
   WorksSection,
   ReviewsSection,
+  BlogSection,
   FooterSection,
 } from "./components";
 import VideoSectionWrapper from "./components/VideoSectionWrapper";
@@ -130,7 +131,7 @@ export default function App() {
       <HeroSection />
 
       {/* About + Why — wrapped with HLS video background */}
-      <VideoSectionWrapper hlsSrc={HLS_HOW_IT_WORKS}>
+      <VideoSectionWrapper hlsSrc={HLS_HOW_IT_WORKS} staticFrame>
         <AboutSection />
         <WhySection />
       </VideoSectionWrapper>
@@ -144,8 +145,11 @@ export default function App() {
       <WorksSection />
       <ReviewsSection />
 
+      {/* Blog highlights */}
+      <BlogSection />
+
       {/* Footer — wrapped with CTA HLS video background */}
-      <VideoSectionWrapper hlsSrc={HLS_FOOTER}>
+      <VideoSectionWrapper hlsSrc={HLS_FOOTER} staticFrame>
         <FooterSection onContact={() => setModalOpen(true)} />
       </VideoSectionWrapper>
     </>
