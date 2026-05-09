@@ -15,7 +15,6 @@ import {
 import VideoSectionWrapper from "./components/VideoSectionWrapper";
 
 // HLS video sources for section backgrounds
-const HLS_HOW_IT_WORKS = "https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8";
 const HLS_STATS        = "https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8";
 
 const EXTERNAL_SCRIPTS: string[] = [
@@ -129,10 +128,8 @@ export default function App() {
       {/* Hero — has its own CloudFront MP4 video background */}
       <HeroSection />
 
-      {/* About — wrapped with HLS video background */}
-      <VideoSectionWrapper hlsSrc={HLS_HOW_IT_WORKS} staticFrame>
-        <AboutSection />
-      </VideoSectionWrapper>
+      {/* About — plain section (no video background) */}
+      <AboutSection />
 
       {/* Core Values — plain section (no video background) */}
       <WhySection />

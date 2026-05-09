@@ -1049,6 +1049,21 @@ padding-bottom: clamp(32px, 4vw, 56px);
   align-items: start;
 }
 
+.dx-footer-top > .dx-footer-col {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.dx-footer--in .dx-footer-top > .dx-footer-col {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dx-footer--in .dx-footer-col-cta { transition-delay: 0.05s; }
+.dx-footer--in .dx-footer-col-menu { transition-delay: 0.12s; }
+.dx-footer--in .dx-footer-col-contact { transition-delay: 0.2s; }
+
 .dx-footer-col { display: flex; flex-direction: column; gap: 16px; }
 
 /* Logo col */

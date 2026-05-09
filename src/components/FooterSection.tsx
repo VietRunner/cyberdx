@@ -1,6 +1,29 @@
+import { useEffect, useRef, useState } from "react";
+
 export default function FooterSection({ onContact }: { onContact?: () => void }) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="contacts" className="dx-footer">
+    <section id="contacts" className={`dx-footer${isVisible ? " dx-footer--in" : ""}`} ref={sectionRef}>
       {/* Top row */}
       <div className="dx-footer-top">
         {/* Col 1: CTA */}
