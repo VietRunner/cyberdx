@@ -1059,8 +1059,16 @@ padding-bottom: clamp(32px, 4vw, 56px);
   object-fit: contain;
   object-position: left center;
   mix-blend-mode: screen;
-  margin-top: -20px;
-  margin-bottom: 10px;
+  position: absolute;
+  left: 0;
+  top: -120px;
+  margin: 0;
+}
+
+.dx-footer-col-cta {
+  position: relative;
+  margin-top: 0;
+  gap: 10px;
 }
 
 /* CTA col */
@@ -1069,6 +1077,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   font-weight: 700;
   color: #fff;
   letter-spacing: 0.04em;
+  margin-top: 0;
   margin-bottom: 8px;
 }
 .dx-footer-cta-text {
@@ -1490,4 +1499,85 @@ padding-bottom: clamp(32px, 4vw, 56px);
     margin-top: 0;
   }
 
+}
+
+/* Reviews marquee — continuous conveyor style */
+.dx-reviews-shell {
+  overflow: hidden;
+  width: 100%;
+}
+
+.dx-reviews-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: dx-reviews-marquee 60s linear infinite;
+  will-change: transform;
+}
+
+.dx-reviews-group {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.dx-review-card {
+  flex: 0 0 clamp(320px, 34vw, 520px);
+  max-width: clamp(320px, 34vw, 520px);
+  min-width: 0;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dx-review-card .txt24.light {
+  margin-top: 40px;
+}
+
+.dx-review-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dx-review-card-name {
+  min-width: 0;
+}
+
+@keyframes dx-reviews-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.dx-review-mar-top1,
+.dx-review-mar-top2,
+.dx-review-mar-top3,
+.dx-review-mar-top4 {
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .dx-reviews-track {
+    animation-duration: 60s;
+  }
+
+  .dx-reviews-group {
+    gap: 14px;
+    padding-right: 14px;
+  }
+
+  .dx-review-card {
+    flex-basis: min(88vw, 420px);
+    max-width: min(88vw, 420px);
+    min-height: 480px;
+  }
+
+  .dx-review-mar-top1,
+  .dx-review-mar-top2,
+  .dx-review-mar-top3,
+  .dx-review-mar-top4 {
+    margin-top: 0;
+  }
 }

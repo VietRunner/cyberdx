@@ -17,7 +17,6 @@ import VideoSectionWrapper from "./components/VideoSectionWrapper";
 // HLS video sources for section backgrounds
 const HLS_HOW_IT_WORKS = "https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8";
 const HLS_STATS        = "https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8";
-const HLS_FOOTER       = "https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8";
 
 const EXTERNAL_SCRIPTS: string[] = [
   "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
@@ -130,11 +129,13 @@ export default function App() {
       {/* Hero — has its own CloudFront MP4 video background */}
       <HeroSection />
 
-      {/* About + Why — wrapped with HLS video background */}
+      {/* About — wrapped with HLS video background */}
       <VideoSectionWrapper hlsSrc={HLS_HOW_IT_WORKS} staticFrame>
         <AboutSection />
-        <WhySection />
       </VideoSectionWrapper>
+
+      {/* Core Values — plain section (no video background) */}
+      <WhySection />
 
       {/* Services — wrapped with Stats HLS video background (desaturated) */}
       <VideoSectionWrapper hlsSrc={HLS_STATS} desaturate>
@@ -148,10 +149,8 @@ export default function App() {
       {/* Blog highlights */}
       <BlogSection />
 
-      {/* Footer — wrapped with CTA HLS video background */}
-      <VideoSectionWrapper hlsSrc={HLS_FOOTER} staticFrame>
-        <FooterSection onContact={() => setModalOpen(true)} />
-      </VideoSectionWrapper>
+      {/* Footer — plain section (no video background) */}
+      <FooterSection onContact={() => setModalOpen(true)} />
     </>
   );
 }
