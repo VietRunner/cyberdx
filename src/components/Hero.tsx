@@ -33,7 +33,6 @@ export default function Hero() {
         loop
         muted
         playsInline
-        poster="/images/hero_bg.jpeg"
         style={{
           position: 'absolute',
           left: 0,

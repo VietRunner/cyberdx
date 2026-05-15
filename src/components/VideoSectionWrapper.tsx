@@ -5,6 +5,7 @@ interface VideoSectionWrapperProps {
   children: React.ReactNode;
   desaturate?: boolean;
   className?: string;
+  staticFrame?: boolean;
 }
 
 export default function VideoSectionWrapper({
@@ -12,6 +13,7 @@ export default function VideoSectionWrapper({
   children,
   desaturate = false,
   className = '',
+  staticFrame = false,
 }: VideoSectionWrapperProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hlsRef = useRef<any>(null);
@@ -34,37 +36,55 @@ export default function VideoSectionWrapper({
           hls.loadSource(hlsSrc);
           hls.attachMedia(video);
           hls.on(Hls.Events.MANIFEST_PARSED, () => {
-            if (!cancelled) video.play().catch(() => {});
+            if (cancelled || staticFrame) return;
+            video.play().catch(() => {});
           });
         } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
           video.src = hlsSrc;
-          video.play().catch(() => {});
+          if (!staticFrame) {
+            video.play().catch(() => {});
+          }
         }
       } catch {
         // hls.js not available — fallback
         video.src = hlsSrc;
-        video.play().catch(() => {});
+        if (!staticFrame) {
+          video.play().catch(() => {});
+        }
       }
     };
+
+    let holdFirstFrame: (() => void) | null = null;
+    if (staticFrame) {
+      holdFirstFrame = () => {
+        video.currentTime = 0;
+        video.pause();
+      };
+      video.addEventListener('loadeddata', holdFirstFrame);
+    }
 
     initHls();
 
     return () => {
       cancelled = true;
+      if (holdFirstFrame) {
+        video.removeEventListener('loadeddata', holdFirstFrame);
+      }
       hlsRef.current?.destroy();
       hlsRef.current = null;
     };
-  }, [hlsSrc]);
+  }, [hlsSrc, staticFrame]);
 
   return (
     <div className={className} style={{ position: 'relative', overflow: 'hidden' }}>
       {/* HLS video background */}
       <video
         ref={videoRef}
-        autoPlay
-        loop
+        autoPlay={!staticFrame}
+        loop={!staticFrame}
         muted
         playsInline
+        preload="auto"
         style={{
           position: 'absolute',
           inset: 0,
