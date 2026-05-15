@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-// import logoIcon from '../assets/logo-icon.png';
+import logoIcon from '../assets/logo-icon.png';
 
 const NAV_LINKS = ['Home', 'Services', 'Work', 'Process', 'Pricing'];
 
@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex-shrink-0">
           <img
-           // src={logoIcon}
+            src={logoIcon}
             alt="Studio Logo"
             className="h-12 w-12 object-contain rounded-xl"
             style={{ height: '48px', width: '48px' }}
