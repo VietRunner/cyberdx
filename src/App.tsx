@@ -7,6 +7,7 @@ import {
   AboutSection,
   WhySection,
   ServicesSection,
+  AgentBuildSection,
   WorksSection,
   ReviewsSection,
   BlogSection,
@@ -138,6 +139,8 @@ export default function App() {
       <VideoSectionWrapper hlsSrc={HLS_STATS} desaturate>
         <ServicesSection onContact={() => setModalOpen(true)} />
       </VideoSectionWrapper>
+
+      <AgentBuildSection />
 
       {/* Works + Reviews — plain black */}
       <WorksSection />
