@@ -38,6 +38,13 @@ const WORK_CARDS: WorkCard[] = [
     description: "REVER is one of Vietnam's leading PropTech platforms, using technology and data to standardize property buying, selling, and rental transactions through an end-to-end digital experience.",
     descriptionClass: "l wd",
   },
+  {
+    ariaLabel: "AIProvera",
+    title: "AIProvera",
+    href: "https://aiprovera.com/",
+    img: "/logo_premium.png",
+    description: "AIProvera is an AI-driven platform focused on practical business solutions. It helps teams automate workflows, improve decisions, and scale digital operations efficiently.",
+  },
 ];
 
 export default function WorksSection() {

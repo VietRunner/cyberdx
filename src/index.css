@@ -1009,6 +1009,18 @@ padding-bottom: clamp(32px, 4vw, 56px);
 }
 .work-card:hover .work-img-real { filter: brightness(0.55); }
 
+/* Desktop: show CTA only on hover */
+.work-card .work-hover-div {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.work-card:hover .work-hover-div {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* Mobile info — hidden on desktop */
 .dx-mob-card-info { display: none; }
 
