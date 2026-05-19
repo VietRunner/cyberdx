@@ -997,6 +997,21 @@ padding-bottom: clamp(32px, 4vw, 56px);
   pointer-events: none;
   z-index: 1;
 }
+.work-img-wrap-vistax {
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  bottom: 18px;
+}
+.work-img-wrap-vistax .work-img-real {
+  width: 520px;
+  max-width: 86vw;
+  border-radius: 8px;
+}
 .work-img-real {
   width: 100%;
   height: auto;
@@ -1008,6 +1023,30 @@ padding-bottom: clamp(32px, 4vw, 56px);
   transition: filter 0.3s;
 }
 .work-card:hover .work-img-real { filter: brightness(0.55); }
+
+.work-vistax-label {
+  position: static;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(70px, 5vw, 90px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+
+/* Desktop: show CTA only on hover */
+.work-card .work-hover-div {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.work-card:hover .work-hover-div {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* Mobile info — hidden on desktop */
 .dx-mob-card-info { display: none; }
@@ -1055,6 +1094,27 @@ padding-bottom: clamp(32px, 4vw, 56px);
     width: 100% !important;
     pointer-events: auto;
     order: 3;
+  }
+  .work-img-wrap-vistax {
+    width: auto !important;
+    margin: 0 auto;
+    gap: 8px;
+    bottom: 10px;
+  }
+  .work-img-wrap-vistax .work-img-real {
+    width: 360px !important;
+    max-width: none;
+    max-height: none;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  .work-vistax-label {
+    font-size: 60px;
+    letter-spacing: 0.06em;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
   }
   .work-img-real {
     width: 100% !important;
