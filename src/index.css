@@ -998,19 +998,22 @@ padding-bottom: clamp(32px, 4vw, 56px);
   z-index: 1;
 }
 .work-img-wrap-vistax {
-  width: auto;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: 0;
+  width: 100%;
+  left: 0;
+  transform: none;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: 12px;
-  bottom: 18px;
+  bottom: 0;
 }
 .work-img-wrap-vistax .work-img-real {
-  width: 520px;
-  max-width: 86vw;
-  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center;
 }
 .work-img-real {
   width: 100%;
@@ -1096,16 +1099,16 @@ padding-bottom: clamp(32px, 4vw, 56px);
     order: 3;
   }
   .work-img-wrap-vistax {
-    width: auto !important;
-    margin: 0 auto;
-    gap: 8px;
-    bottom: 10px;
+    width: 100% !important;
+    margin: 0;
+    bottom: 0;
   }
   .work-img-wrap-vistax .work-img-real {
-    width: 360px !important;
+    width: 100% !important;
+    height: 260px;
     max-width: none;
     max-height: none;
-    object-fit: contain !important;
+    object-fit: cover !important;
     object-position: center !important;
   }
   .work-vistax-label {

@@ -42,14 +42,14 @@ const WORK_CARDS: WorkCard[] = [
     ariaLabel: "AIProvera",
     title: "AIProvera",
     href: "https://aiprovera.com/",
-    img: "/logo_premium.png",
+    img: "/aip.png",
     description: "AIProvera is an AI-driven platform focused on practical business solutions. It helps teams automate workflows, improve decisions, and scale digital operations efficiently.",
   },
   {
     ariaLabel: "VISTAX",
     title: "VISTAX",
     href: "https://develop.cyber-vistax.online/login",
-    img: "/vistaX.jpg",
+    img: "/vistax.png",
     description: "VISTAX is a digital platform developed to streamline business workflows and improve operational visibility. It helps teams centralize processes, reduce manual effort, and accelerate day-to-day execution.",
   },
 ];
@@ -75,9 +75,8 @@ export default function WorksSection() {
                 <div key={card.ariaLabel} className="work-card">
 
                   {/* Image — desktop: absolute 60% center, mobile: in flow */}
-                  <div className={`work-img-wrap${card.ariaLabel === "VISTAX" ? " work-img-wrap-vistax" : ""}`}>
+                  <div className="work-img-wrap">
                     <img src={card.img} alt={card.title} className="work-img-real" loading="lazy" />
-                    {card.ariaLabel === "VISTAX" && <span className="work-vistax-label">VISTAX</span>}
                   </div>
 
                   {/* Webflow hover div — desktop: hover center, mobile: top bar với tên + btn */}
