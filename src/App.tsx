@@ -1,80 +1,91 @@
 import { useEffect, useState } from "react";
 import {
-  Nav,
   ContactModal,
-  MobileMenu,
-  HeroSection,
-  AboutSection,
-  WhySection,
-  ServicesSection,
-  AgentBuildSection,
-  WorksSection,
-  ReviewsSection,
-  BlogSection,
-  FooterSection,
+  ModernNav,
+  ModernHero,
+  ProblemSection,
+  SolutionSection,
+  BentoFeatures,
+  WorkflowSection,
+  StatsSection,
+  ConsciousInnovation,
+  FinalCTA,
+  ModernFooter,
+  DetailPage,
 } from "./components";
-import VideoSectionWrapper from "./components/VideoSectionWrapper";
-
-// HLS video sources for section backgrounds
-const HLS_STATS        = "https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8";
-
-const EXTERNAL_SCRIPTS: string[] = [
-  "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
-  "https://widget.clutch.co/static/js/widget.js",
-  "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66b10772b40886469837016a",
-  "https://cdn.prod.website-files.com/66b10772b40886469837016a/js/webflow.schunk.36b8fb49256177c8.js",
-  "https://cdn.prod.website-files.com/66b10772b40886469837016a/js/webflow.schunk.70329ed9bc18497c.js",
-  "https://cdn.prod.website-files.com/66b10772b40886469837016a/js/webflow.0e6cdd0e.45cc50d342a9fba2.js",
-];
-
-function loadScript(src: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const existing = document.querySelector(
-      `script[data-dx-src="${src}"]`
-    ) as HTMLScriptElement | null;
-    if (existing) {
-      if (existing.dataset.loaded === "true") return resolve();
-      existing.addEventListener("load", () => resolve(), { once: true });
-      existing.addEventListener(
-        "error",
-        () => reject(new Error(`Failed to load ${src}`)),
-        { once: true }
-      );
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = src;
-    script.async = false;
-    script.dataset.dxSrc = src;
-    script.onload = () => {
-      script.dataset.loaded = "true";
-      resolve();
-    };
-    script.onerror = () => reject(new Error(`Failed to load ${src}`));
-    document.body.appendChild(script);
-  });
-}
+import { DETAIL_DATA } from "./utils/detailData";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeDetailSlug, setActiveDetailSlug] = useState<string | null>(null);
 
-  // Scroll to hash on reload
+  // Parse path on initial load & handle browser back/forward routing
   useEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
 
-    const hash = window.location.hash;
-    if (hash) {
-      setTimeout(() => {
-        document.querySelector(hash)?.scrollIntoView({ behavior: "instant" });
-      }, 300);
-    } else {
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }
+    const handlePathRouting = () => {
+      const pathname = window.location.pathname;
+      const slug = pathname.replace(/^\/|\/$/g, ""); // strip leading/trailing slashes
+
+      if (DETAIL_DATA[slug]) {
+        setActiveDetailSlug(slug);
+      } else {
+        setActiveDetailSlug(null);
+        
+        // Handle anchor scrolls on homepage reload (e.g. /#workflow)
+        const hash = window.location.hash;
+        if (hash) {
+          setTimeout(() => {
+            const element = document.querySelector(hash);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 300);
+        } else {
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }
+      }
+    };
+
+    // Run once on load
+    handlePathRouting();
+
+    // Listen to browser navigation popstate
+    window.addEventListener("popstate", handlePathRouting);
+    return () => window.removeEventListener("popstate", handlePathRouting);
   }, []);
 
+  // Sync activeDetailSlug state to browser path dynamically
+  useEffect(() => {
+    const currentSlug = window.location.pathname.replace(/^\/|\/$/g, "");
+    if (activeDetailSlug) {
+      if (currentSlug !== activeDetailSlug) {
+        window.history.pushState(null, "", `/${activeDetailSlug}/`);
+      }
+    } else {
+      // Revert back to root path if we were on a detail subpage
+      if (currentSlug !== "" && DETAIL_DATA[currentSlug]) {
+        window.history.pushState(null, "", "/");
+      }
+    }
+  }, [activeDetailSlug]);
+
+  // Catch dynamic custom events to open subpage detail page
+  useEffect(() => {
+    const handleOpenDetail = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail && DETAIL_DATA[customEvent.detail]) {
+        setActiveDetailSlug(customEvent.detail);
+      }
+    };
+
+    document.addEventListener("dx:open-detail", handleOpenDetail);
+    return () => document.removeEventListener("dx:open-detail", handleOpenDetail);
+  }, []);
+
+  // Listen to open request/contact modal events
   useEffect(() => {
     const handleOpenModal = (e: Event) => {
       e.preventDefault();
@@ -84,73 +95,60 @@ export default function App() {
     return () => document.removeEventListener("dx:open-contact", handleOpenModal);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-wf-domain", "www.masterdynamix.com");
-    document.documentElement.setAttribute("data-wf-page", "66b10772b408864698370170");
-    document.documentElement.setAttribute("data-wf-site", "66b10772b40886469837016a");
-    document.body.className = "body";
-
-    if ((window as any).WebFont?.load) {
-      (window as any).WebFont.load({
-        google: {
-          families: [
-            "Manrope:200,300,regular,500,600,700,800:cyrillic,cyrillic-ext,latin,latin-ext",
-          ],
-        },
-      });
-    }
-
-    let cancelled = false;
-
-    const initScripts = async () => {
-      try {
-        for (const src of EXTERNAL_SCRIPTS) {
-          if (cancelled) return;
-          await loadScript(src);
-        }
-      } catch (error) {
-        console.error("Failed to initialize external scripts:", error);
-      }
-    };
-
-    initScripts();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <>
+      {activeDetailSlug ? (
+        <>
+          {/* Subpage View: Fully replaces the landing page content with absolute path URL */}
+          <ModernNav onContact={() => setModalOpen(true)} />
+          
+          <DetailPage
+            slug={activeDetailSlug}
+            onBack={() => {
+              setActiveDetailSlug(null);
+            }}
+            onContact={() => setModalOpen(true)}
+          />
+
+          <ModernFooter onContact={() => setModalOpen(true)} />
+        </>
+      ) : (
+        <>
+          {/* Home / Landing Page View */}
+          {/* Modern floating capsule navigation */}
+          <ModernNav onContact={() => setModalOpen(true)} />
+
+          {/* Hero section with AI Recruitment dashboard mockup */}
+          <ModernHero onContact={() => setModalOpen(true)} />
+
+          {/* Pain points of traditional recruitment */}
+          <ProblemSection />
+
+          {/* CyberDX AI advanced recruitment solutions */}
+          <SolutionSection />
+
+          {/* Premium Bento Grid features (AI CV Matcher, Assessments, Hubs) */}
+          <BentoFeatures />
+
+          {/* Easy 3-step operational workflow for candidates & recruiters */}
+          <WorkflowSection />
+
+          {/* Real statistics showing platform efficiency and scale */}
+          <StatsSection />
+
+          {/* Philosophy pillar similar to cxview's conscious innovation */}
+          <ConsciousInnovation />
+
+          {/* Final Call to Action */}
+          <FinalCTA onContact={() => setModalOpen(true)} />
+
+          {/* Clean minimal footer */}
+          <ModernFooter onContact={() => setModalOpen(true)} />
+        </>
+      )}
+
+      {/* Persistent global contact modal for both home page and subpage CTAs */}
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
-      <Nav onContact={() => setModalOpen(true)} />
-      <MobileMenu />
-
-      {/* Hero — has its own CloudFront MP4 video background */}
-      <HeroSection />
-
-      {/* About — plain section (no video background) */}
-      <AboutSection />
-
-      {/* Core Values — plain section (no video background) */}
-      <WhySection />
-
-      {/* Services — wrapped with Stats HLS video background (desaturated) */}
-      <VideoSectionWrapper hlsSrc={HLS_STATS} desaturate>
-        <ServicesSection onContact={() => setModalOpen(true)} />
-      </VideoSectionWrapper>
-
-      <AgentBuildSection />
-
-      {/* Works + Reviews — plain black */}
-      <WorksSection />
-      <ReviewsSection />
-
-      {/* Blog highlights */}
-      <BlogSection />
-
-      {/* Footer — plain section (no video background) */}
-      <FooterSection onContact={() => setModalOpen(true)} />
     </>
   );
 }
