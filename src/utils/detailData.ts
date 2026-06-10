@@ -15,430 +15,480 @@ export const DETAIL_DATA: Record<string, DetailItem> = {
   "san-xuat-nha-may": {
     slug: "san-xuat-nha-may",
     category: "Ngành Nghề",
-    title: "Sản xuất Công nghiệp",
-    subtitle: "Tuyển dụng & Cung ứng Công nhân Nhà máy Quy mô lớn bằng AI",
-    description: "Các nhà máy sản xuất yêu cầu dòng cung nhân sự ổn định và nhanh chóng để duy trì băng chuyền hoạt động liên tục. CyberDX giúp tự động hóa khâu sàng lọc tay nghề lắp ráp, hàn, vận hành thiết bị cơ bản và kết nối trực tiếp với nguồn lao động dồi dào tại địa phương.",
+    title: "Sản xuất & Nhà máy",
+    subtitle: "Tối ưu hóa an toàn lao động và hiệu suất quy trình bằng AI Video",
+    description: "Môi trường sản xuất công nghiệp luôn tiềm ẩn nhiều rủi ro an toàn và thách thức trong kiểm soát quy trình. Hệ thống phân tích video AI thời gian thực giúp giám sát tự động việc chấp hành bảo hộ, kiểm soát khu vực hạn chế và phát hiện sớm các nguy cơ sự cố trên băng chuyền.",
     metrics: [
-      { value: "75%", label: "Giảm tỷ lệ trống ca" },
-      { value: "24h", label: "Thời gian lấp đầy vị trí" },
-      { value: "92%", label: "Độ gắn kết lâu dài" }
+      { value: "24/7", label: "Giám sát chủ động liên tục" },
+      { value: "99.2%", label: "Độ chính xác nhận diện PPE" },
+      { value: "< 2s", label: "Thời gian phát tín hiệu cảnh báo" }
     ],
     features: [
-      "Khớp lao động địa phương tối ưu theo tọa độ địa lý",
-      "Tổ chức bài kiểm tra tay nghề cơ khí tự động trên di động",
-      "Quản lý lịch ca làm việc thông minh cho quản đốc phân xưởng",
-      "Bảo hiểm tai nạn lao động tích hợp thời gian thực"
+      "Nhận diện không tuân thủ đồ bảo hộ (mũ, áo phản quang, găng tay)",
+      "Xác thực định danh nhân viên và khách ra vào khu vực nhạy cảm",
+      "Giám sát an toàn xung quanh xe nâng và máy móc nguy hiểm",
+      "Đếm sản phẩm tự động trên băng chuyền đóng gói xuất khẩu"
     ],
     workflow: [
-      "Nhà máy đăng mô tả công việc (JD) và chỉ tiêu tay nghề lên hệ thống",
-      "CyberDX quét radar định vị ứng viên phù hợp trong bán kính 10km",
-      "Ứng viên thực hiện bài test tay nghề nhanh trên điện thoại dưới sự giám sát của AI",
-      "Doanh nghiệp duyệt hồ sơ trực tuyến, ký hợp đồng số và ứng viên đi làm ngay"
+      "Khảo sát thực tế quy trình sản xuất và bố trí góc camera phù hợp",
+      "Thiết kế và cấu hình mô hình AI nhận diện PPE, khu vực cấm",
+      "Tích hợp luồng camera RTSP hiện có vào bộ xử lý Edge AI",
+      "Hệ thống gửi cảnh báo tức thì đến quản đốc khi phát hiện vi phạm"
     ],
-    conclusion: "Tối ưu hóa chi phí tuyển dụng hàng loạt, đảm bảo năng lực sản xuất luôn duy trì ở mức tối đa."
+    conclusion: "Bảo vệ tối đa tính mạng người lao động và giảm thiểu gián đoạn sản xuất do sự cố vận hành."
   },
-  "kho-bai-logistics": {
-    slug: "kho-bai-logistics",
+  "kho-van-hang-hoa": {
+    slug: "kho-van-hang-hoa",
     category: "Ngành Nghề",
-    title: "Kho bãi & Logistics",
-    subtitle: "Cung ứng Nhân sự Bốc xếp, Đóng gói & Tài xế Xe nâng Tức thời",
-    description: "Kho bãi và chuỗi cung ứng thường xuyên đối mặt với sự biến động nhân sự đột ngột theo mùa mua sắm. Giải pháp AI của chúng tôi cung cấp kết nối cung - cầu tức thời giúp doanh nghiệp logistics lấp đầy ca làm việc trong vòng vài tiếng đồng hồ.",
+    title: "Kho vận & Hàng hóa",
+    subtitle: "Giám sát chuỗi cung ứng minh bạch, ngăn ngừa thất thoát",
+    description: "Nhà kho và trung tâm phân phối diện tích lớn rất khó kiểm soát thủ công. Giải pháp AI Camera giúp quản lý xe ra vào tự động, theo dõi lộ trình bốc dỡ hàng hóa và gửi cảnh báo xâm nhập khu vực lưu trữ giá trị cao.",
     metrics: [
-      { value: "500+", label: "Lao động cung ứng ca cao điểm" },
-      { value: "< 4h", label: "Thời gian điều phối khẩn cấp" },
-      { value: "60%", label: "Tiết kiệm chi phí trung gian" }
+      { value: "98.5%", label: "Tự động hóa kiểm soát cổng xe" },
+      { value: "-45%", label: "Giảm tỷ lệ thất thoát hàng hóa" },
+      { value: "100%", label: "Báo cáo dòng lưu thông thời gian thực" }
     ],
     features: [
-      "Điều phối ca làm việc linh hoạt 24/7 theo thời gian thực",
-      "Kiểm tra nhanh hồ sơ sức khỏe và lý lịch tư pháp ứng viên",
-      "Bản đồ lộ trình di chuyển tối ưu giúp giảm thiểu đi trễ",
-      "Báo cáo chi ngân sách nhân sự chi tiết theo từng ca"
+      "Tự động nhận diện biển số xe (LPR) đối chiếu tải trọng trạm cân",
+      "Bản đồ nhiệt (Heatmap) tối ưu hóa lộ trình xe nâng di chuyển",
+      "Cảnh báo xâm nhập trái phép khu vực lưu trữ hàng hóa nhạy cảm",
+      "Phát hiện nhiệt độ bất thường và khói cháy giai đoạn sớm nhất"
     ],
     workflow: [
-      "Điều phối viên kho bãi phát lệnh tuyển 50 công nhân bốc xếp khẩn cấp",
-      "Thuật toán so khớp AI tự động gửi thông báo đến các ứng viên đang rảnh ca gần nhất",
-      "Ứng viên xác nhận đi làm trực tuyến bằng chữ ký điện tử một chạm",
-      "Hệ thống ghi nhận ca làm và tự động đối soát thanh toán sau khi hoàn thành công việc"
+      "Kết nối hệ thống camera tại trạm cân, cổng kho và khu vực kệ hàng",
+      "Cấu hình AI nhận diện biển số, phát hiện hàng rào ảo cấm xâm nhập",
+      "Đồng bộ hóa dữ liệu xe và tải trọng với phần mềm WMS/ERP của doanh nghiệp",
+      "Hiển thị trạng thái hoạt động của kho trên Dashboard quản trị tập trung"
     ],
-    conclusion: "Linh hoạt tối đa trong việc điều phối dòng nhân sự thời vụ, không còn nỗi lo đứt gãy chuỗi cung ứng."
+    conclusion: "Nâng cao năng lực giám sát kho bãi toàn diện, đảm bảo an toàn tuyệt đối cho tài sản doanh nghiệp."
   },
   "ban-le-dich-vu": {
     slug: "ban-le-dich-vu",
     category: "Ngành Nghề",
     title: "Bán lẻ & Dịch vụ",
-    subtitle: "Tuyển dụng Chuỗi Cửa hàng Tiện lợi, Siêu thị & Tư vấn viên",
-    description: "Nhà bán lẻ cần những nhân sự có kỹ năng giao tiếp tốt và thái độ phục vụ khách hàng chuẩn mực. CyberDX ứng dụng AI để phân tích hành vi và trắc nghiệm tính cách nhanh, đảm bảo lựa chọn ứng viên có độ tương thích cao nhất với văn hóa dịch vụ của bạn.",
+    subtitle: "Thấu hiểu hành vi khách hàng để tối đa hóa doanh số cửa hàng",
+    description: "Thay vì chỉ dựa vào dữ liệu bán hàng tại quầy POS, AI Video Analytics giúp các chuỗi cửa hàng giải mã hành trình mua sắm thực tế của khách hàng: từ lúc đi qua cửa, bước vào, tương tác với kệ hàng đến khi thanh toán.",
     metrics: [
-      { value: "85%", label: "Tăng mức độ hài lòng khách hàng" },
-      { value: "3 Lần", label: "Giảm số vòng phỏng vấn trực tiếp" },
-      { value: "98%", label: "Tỷ lệ đi làm đúng hẹn phỏng vấn" }
+      { value: "2.5 Lần", label: "Tăng hiệu quả trưng bày sản phẩm" },
+      { value: "90%", label: "Giảm thời gian chờ đợi tại quầy thu ngân" },
+      { value: "+18%", label: "Tăng tỷ lệ mua sắm ngẫu hứng" }
     ],
     features: [
-      "Bộ câu hỏi trắc nghiệm thái độ dịch vụ tự động",
-      "Trợ lý AI phỏng vấn sơ loại qua voice/chat thông minh",
-      "Sắp xếp lịch hẹn phỏng vấn tự động đồng bộ hóa lịch cá nhân",
-      "Hệ thống chấm điểm độ tin cậy ứng viên dựa trên lịch sử phỏng vấn"
+      "Đếm lượng khách vào/ra (People Counting) chính xác loại trừ nhân viên",
+      "Bản đồ nhiệt mật độ khách hàng (Heatmap) và đo lường thời gian dừng chân",
+      "Cảnh báo ùn tắc hàng đợi tại quầy thu ngân để điều phối hỗ trợ",
+      "Phân tích tỷ lệ chuyển đổi từ khách tham quan thành khách mua hàng"
     ],
     workflow: [
-      "Đăng tin tuyển dụng nhân viên bán hàng / thu ngân cho chuỗi cửa hàng",
-      "Ứng viên tham gia bài phỏng vấn sơ tuyển ngắn với AI Assistant",
-      "AI phân tích câu trả lời, đánh giá giọng nói và thái độ ứng xử",
-      "Hệ thống chuyển tiếp danh sách đạt yêu cầu kèm lịch phỏng vấn chốt trực tiếp"
+      "Lắp đặt camera góc thẳng đứng tại cửa ra vào để đếm lưu lượng",
+      "Kết nối camera góc rộng tại các gian hàng để vẽ bản đồ nhiệt hành vi",
+      "Xử lý dữ liệu Edge AI tại chỗ đảm bảo quyền riêng tư của khách hàng",
+      "Cung cấp báo cáo phân tích so sánh hiệu suất giữa các chi nhánh chuỗi"
     ],
-    conclusion: "Xây dựng đội ngũ dịch vụ tận tâm, mang lại trải nghiệm mua sắm hoàn hảo cho khách hàng."
+    conclusion: "Biến camera an ninh thành công cụ phân tích kinh doanh sắc bén tại từng điểm bán lẻ."
   },
-  "giao-duc-dao-tao": {
-    slug: "giao-duc-dao-tao",
+  "giao-duc-dao-tao-2": {
+    slug: "giao-duc-dao-tao-2",
     category: "Ngành Nghề",
     title: "Giáo dục & Đào tạo",
-    subtitle: "Tuyển dụng Giáo viên, Trợ giảng & Nhân sự Khối Hành chính",
-    description: "An toàn học đường và trình độ chuyên môn là hai yếu tố cốt lõi trong ngành giáo dục. CyberDX thiết lập bộ rà soát tự động thông tin bằng cấp, chứng chỉ hành nghề và lý lịch ứng viên một cách nghiêm ngặt, đảm bảo hồ sơ giáo dục luôn đạt chuẩn.",
+    subtitle: "Kiến tạo môi trường học đường an toàn, thông minh và tin cậy",
+    description: "An toàn học sinh và an ninh khuôn viên là nền tảng cốt lõi của các trường học. Hệ thống giám sát AI tự động phát hiện xâm nhập trái phép, theo dõi mật độ giao thông nội khu và phát hiện nhanh các tình huống khẩn cấp hoặc sự cố.",
     metrics: [
-      { value: "100%", label: "Xác thực bằng cấp & chứng chỉ" },
-      { value: "0 Rủi ro", label: "Về hồ sơ ứng viên ảo" },
-      { value: "90%", label: "Độ phù hợp năng lực sư phạm" }
+      { value: "100%", label: "Ngăn chặn người lạ đột nhập tự động" },
+      { value: "Zero", label: "Rủi ro an ninh trong giờ học" },
+      { value: "< 3s", label: "Cảnh báo khói lửa tại phòng lab, ký túc xá" }
     ],
     features: [
-      "Quét kiểm tra bằng cấp trực tuyến bằng OCR kết hợp AI",
-      "Tự động rà soát lý lịch tư pháp trên cơ sở dữ liệu quốc gia",
-      "Hệ thống lưu trữ hồ sơ giảng dạy bảo mật tuyệt đối",
-      "Báo cáo chỉ số đạo đức nghề nghiệp và cam kết sư phạm"
+      "Kiểm soát truy cập tại cổng trường học và các lối vào nội trú",
+      "Phát hiện hành vi xâm nhập ngoài giờ quy định bằng hàng rào ảo",
+      "Cảnh báo sớm khói và lửa tại các phòng thí nghiệm hoặc bếp ăn",
+      "Nhận diện phương tiện đỗ sai quy định gây cản trở lối thoát hiểm"
     ],
     workflow: [
-      "Trường học đăng tin tuyển giáo viên hợp đồng hoặc trợ giảng",
-      "Ứng viên tải ảnh bằng cấp và thực hiện eKYC để xác thực danh tính số",
-      "AI quét và kiểm duyệt tính pháp lý của toàn bộ chứng chỉ chuyên môn",
-      "Nhà trường tiếp nhận bộ hồ sơ giảng dạy hoàn hảo đã qua kiểm duyệt chuẩn xác"
+      "Thiết lập hàng rào ảo quanh chu vi trường học và khu vực hạn chế",
+      "Kết nối luồng camera với bộ xử lý an ninh trung tâm",
+      "AI tự động nhận diện các đối tượng di chuyển bất thường ngoài giờ học",
+      "Gửi cảnh báo tức thì kèm hình ảnh trực tiếp đến điện thoại đội bảo vệ"
     ],
-    conclusion: "Giữ vững uy tín giáo dục và sự an tâm của phụ huynh bằng quy trình sàng lọc hồ sơ tối tân."
+    conclusion: "Đảm bảo sự an tâm tuyệt đối cho phụ huynh và nâng tầm hình ảnh chuyên nghiệp của nhà trường."
   },
-  "nha-hang-khach-san": {
-    slug: "nha-hang-khach-san",
+  "khach-san-du-lich": {
+    slug: "khach-san-du-lich",
     category: "Ngành Nghề",
-    title: "Nhà hàng & Khách sạn",
-    subtitle: "Cung ứng Đầu bếp, Phục vụ & Lễ tân theo Giờ và theo Ca",
-    description: "Biến động lượng khách hàng tại các nhà hàng, khách sạn đòi hỏi lực lượng nhân viên phục vụ, lễ tân phải cực kỳ linh động. Chúng tôi kết nối bạn với hàng nghìn ứng viên có kinh nghiệm làm việc theo giờ trong khu vực lân cận.",
+    title: "Khách sạn & Du lịch",
+    subtitle: "Cá nhân hóa trải nghiệm khách hàng và tối ưu hóa vận hành dịch vụ",
+    description: "Nâng cao chất lượng phục vụ và đảm bảo an toàn chủ động cho du khách. AI Camera hỗ trợ nhận diện khách VIP tại sảnh, quản lý mật độ khu vực hồ bơi/nhà hàng và phát hiện nhanh các sự cố té ngã của khách lưu trú.",
     metrics: [
-      { value: "40%", label: "Giảm chi phí vận hành nhân sự" },
-      { value: "15 Phút", label: "Tìm thấy nhân viên thay thế ca" },
-      { value: "94%", label: "Tỷ lệ ứng viên hoàn thành ca tốt" }
+      { value: "95%", label: "Độ hài lòng trải nghiệm khách VIP" },
+      { value: "< 5s", label: "Phát hiện sự cố trượt ngã tại sảnh/hồ bơi" },
+      { value: "30%", label: "Tiết kiệm chi phí nhân lực tuần tra" }
     ],
     features: [
-      "Tìm kiếm nhân viên thay thế khẩn cấp khi có ca nghỉ đột xuất",
-      "Đối soát tiền lương ca tự động minh bạch, nhanh chóng",
-      "Hệ thống đánh giá chéo 5 sao giữa quản lý và nhân viên",
-      "Quản lý lịch làm việc chuỗi nhiều chi nhánh tập trung"
+      "Nhận diện khách VIP để thông báo ngay cho quản lý sảnh chào đón",
+      "Phát hiện và cảnh báo trượt ngã tại khu vực ẩm ướt, sảnh đá hoa cương",
+      "Theo dõi mật độ khách tại nhà hàng ăn sáng để phân bổ nhân viên",
+      "Giám sát an ninh bãi đỗ xe và tự động hóa barie lối ra vào"
     ],
     workflow: [
-      "Quản lý nhà hàng phát lệnh tuyển 5 nhân viên phục vụ bàn cho tối cuối tuần",
-      "AI gửi thông báo khẩn cấp kèm thông tin ca làm và mức lương thưởng",
-      "Ứng viên nhận ca, thực hiện check-in định vị GPS khi đến điểm làm",
-      "Hoàn thành ca làm, quản lý chấm điểm hiệu suất và duyệt lương ngay"
+      "Tích hợp camera tại quầy lễ tân và sảnh đón khách với AI nhận diện",
+      "Cấu hình mô hình phân tích hành vi té ngã cho các khu vực công cộng",
+      "Hệ thống gửi cảnh báo khẩn cấp đến đội ngũ y tế/bảo vệ khi phát hiện ngã",
+      "Phân tích dữ liệu mật độ theo giờ để tối ưu hóa lịch làm việc nhân sự"
     ],
-    conclusion: "Tối ưu hóa nhân sự theo giờ cao điểm thực tế, không lãng phí chi phí nhân công nhàn rỗi."
+    conclusion: "Mang lại dịch vụ tinh tế, chu đáo và bảo vệ an toàn cho du khách trong suốt kỳ nghỉ."
   },
-  "y-te-suc-khoe": {
-    slug: "y-te-suc-khoe",
+  "benh-vien-co-so-y-te": {
+    slug: "benh-vien-co-so-y-te",
     category: "Ngành Nghề",
-    title: "Y tế & Chăm sóc Sức khỏe",
-    subtitle: "Tuyển dụng Điều dưỡng viên, Hộ lý & Chăm sóc gia đình",
-    description: "Nhân sự ngành y tế đòi hỏi sự chính xác tuyệt đối về chứng chỉ y khoa và đạo đức nghề nghiệp. Giải pháp AI CyberDX hỗ trợ rà soát chuyên môn điều dưỡng, hộ lý và kết nối đáng tin cậy cho các bệnh viện, phòng khám, dịch vụ chăm sóc gia đình.",
+    title: "Bệnh viện & Cơ sở y tế",
+    subtitle: "Bảo vệ an toàn bệnh nhân, tối ưu quy trình kiểm soát nhiễm khuẩn",
+    description: "Trong môi trường y khoa áp lực cao, AI Video đóng vai trò như một trợ lý giám sát đắc lực. Hệ thống giúp phát hiện bệnh nhân tự ý rời giường, cảnh báo té ngã tại phòng chờ và kiểm tra việc tuân thủ khẩu trang/PPE tại khu vô trùng.",
     metrics: [
-      { value: "99.8%", label: "Hồ sơ xác thực chứng chỉ hành nghề" },
-      { value: "98%", label: "Độ hài lòng của bệnh nhân" },
-      { value: "30%", label: "Tối ưu thời gian sàng lọc y khoa" }
+      { value: "99.8%", label: "Độ tin cậy phát hiện té ngã bệnh nhân" },
+      { value: "100%", label: "Kiểm soát ra vào khu vô trùng/phòng thuốc" },
+      { value: "24/7", label: "Giám sát hành lang và lối thoát hiểm" }
     ],
     features: [
-      "Xác thực chứng chỉ hành nghề y tế chuyên sâu",
-      "Bài test đạo đức chăm sóc sức khỏe và xử lý tình huống khẩn cấp",
-      "Lưu trữ bảo mật hồ sơ ứng viên theo tiêu chuẩn Zero-Trust",
-      "Kết nối bán kính địa lý tối ưu phục vụ chăm sóc tại nhà"
+      "Nhận diện hành vi ngã té của bệnh nhân tại hành lang và phòng bệnh",
+      "Giám sát việc trang bị khẩu trang và đồ bảo hộ y tế bắt buộc",
+      "Kiểm soát truy cập tự động bằng khuôn mặt vào kho dược và phòng cách ly",
+      "Cảnh báo phương tiện đỗ cản trở lối xe cấp cứu 24/7"
     ],
     workflow: [
-      "Đơn vị y tế đăng tuyển điều dưỡng viên hoặc hộ lý chăm sóc sức khỏe",
-      "AI rà soát chứng chỉ hành nghề và lịch sử hoạt động y tế của ứng viên",
-      "Ứng viên làm bài kiểm tra tình huống y khoa mô phỏng trên nền tảng AI",
-      "Doanh nghiệp ký hợp đồng trực tuyến và bố trí lịch trực ca thông minh"
+      "Lắp đặt camera góc tối ưu tại các hành lang điều trị và phòng chờ lớn",
+      "Cấu hình AI nhận diện tư thế ngã và ranh giới cấm đỗ xe cấp cứu",
+      "Tích hợp hệ thống chuông cảnh báo tại phòng trực điều dưỡng",
+      "Phát âm thanh cảnh báo tự động tại khu vực cấm đỗ xe khi phát hiện vi phạm"
     ],
-    conclusion: "Nâng tầm chất lượng y khoa và chăm sóc sức khỏe bằng đội ngũ nhân sự chuẩn năng lực."
+    conclusion: "Đảm bảo sự an toàn tốt nhất cho bệnh nhân và nâng cao tiêu chuẩn kiểm soát chất lượng y tế."
   },
 
   // --- SOLUTIONS (GIẢI PHÁP AI) ---
-  "ekyc-verification": {
-    slug: "ekyc-verification",
+  "nhan-dien-khuon-mat": {
+    slug: "nhan-dien-khuon-mat",
     category: "Giải Pháp AI",
-    title: "Định danh eKYC Ứng Viên",
-    subtitle: "Bảo Vệ Doanh Nghiệp & Người Lao Động Bằng Định Danh Số",
-    description: "Xóa bỏ triệt để tình trạng hồ sơ giả danh, giấy tờ ảo trong thị trường lao động. CyberDX tích hợp giải pháp định danh eKYC ứng dụng AI sinh trắc học để xác thực danh tính chính xác của ứng viên trước khi giới thiệu tuyển dụng.",
+    title: "Nhận diện khuôn mặt",
+    subtitle: "Kiểm soát ra vào thông minh và chấm công tự động không tiếp xúc",
+    description: "Sử dụng công nghệ học sâu tiên tiến nhất để nhận diện khuôn mặt thời gian thực với độ chính xác vượt trội. Ứng dụng hiệu quả cho chấm công tự động, mở cửa văn phòng bảo mật và phát hiện đối tượng lạ đột nhập.",
     metrics: [
-      { value: "100%", label: "Ngăn chặn hồ sơ lừa đảo" },
-      { value: "< 10s", label: "Thời gian định danh số" },
-      { value: "Zero", label: "Rò rỉ dữ liệu (Zero-Trust)" }
+      { value: "99.9%", label: "Độ chính xác nhận diện khuôn mặt" },
+      { value: "< 200ms", label: "Tốc độ đối sánh cơ sở dữ liệu" },
+      { value: "Liveness", label: "Chống giả mạo bằng ảnh/video" }
     ],
     features: [
-      "Quét trích xuất thông tin giấy tờ tùy thân (OCR) siêu nhanh",
-      "Sinh trắc học nhận diện khuôn mặt và phát hiện ảnh động (Liveness)",
-      "Kiểm tra trùng khớp khuôn mặt ứng viên với ảnh chụp CCCD/CMND",
-      "Mã hóa thông tin cá nhân theo chuẩn an ninh cấp cao"
+      "Nhận diện chính xác ngay cả khi đeo khẩu trang hoặc điều kiện thiếu sáng",
+      "Phát hiện thực thể sống (Liveness detection) ngăn chặn gian lận bằng hình ảnh",
+      "Tích hợp trực tiếp mở khóa cổng Speed Gate hoặc cửa văn phòng số",
+      "Nhập dữ liệu nhanh chóng qua hình ảnh hoặc camera điện thoại"
     ],
     workflow: [
-      "Ứng viên tải ảnh CCCD/CMND khi đăng ký tài khoản CyberDX",
-      "Camera quét khuôn mặt trực tiếp của ứng viên để thực hiện so khớp",
-      "Hệ thống tự động phát hiện các dấu hiệu giả mạo hoặc giấy tờ hết hạn",
-      "Hồ sơ được đóng dấu 'Đã Xác Thực' giúp tăng 4 lần tỷ lệ duyệt phỏng vấn"
+      "Hệ thống camera ghi nhận hình ảnh khuôn mặt tại lối ra vào",
+      "Thuật toán AI trích xuất các điểm đặc trưng khuôn mặt tại chỗ (Edge)",
+      "So sánh và đối chiếu thời gian thực với dữ liệu nhân sự đã đăng ký",
+      "Kích hoạt mở cửa và ghi nhận giờ chấm công lên hệ thống quản trị"
     ],
-    conclusion: "Thiết lập môi trường tuyển dụng minh bạch, an toàn và đáng tin cậy hàng đầu Việt Nam."
+    conclusion: "Giải pháp bảo mật hiện đại, loại bỏ hoàn toàn thẻ từ vật lý và tình trạng chấm công hộ."
   },
-  "ai-matcher": {
-    slug: "ai-matcher",
+  "nhan-dien-bien-so-xe-tu-dong": {
+    slug: "nhan-dien-bien-so-xe-tu-dong",
     category: "Giải Pháp AI",
-    title: "Quét So Khớp AI (Matcher)",
-    subtitle: "Thuật Toán Đối Sánh Đa Chiều Siêu Tốc Dưới 100ms",
-    description: "Trái tim của hệ sinh thái CyberDX. Thay vì bộ lọc từ khóa tĩnh đơn giản, AI Matcher sử dụng mô hình học sâu (Deep Learning) để phân tích đồng thời kỹ năng thực tế, hành vi cam kết, mức lương mong muốn và khoảng cách di chuyển.",
+    title: "Nhận diện biển số xe tự động",
+    subtitle: "Quản lý bãi đỗ xe thông minh và kiểm soát giao thông ra vào",
+    description: "Giải pháp OCR chuyên sâu tích hợp AI cho phép nhận diện biển số xe ô tô, xe máy chính xác cực cao dưới mọi điều kiện thời tiết hay ánh sáng ban đêm, tối ưu hóa quy trình kiểm soát xe ra vào bãi đỗ, nhà máy, kho vận.",
     metrics: [
-      { value: "< 100ms", label: "Tốc độ xử lý so khớp" },
-      { value: "4 Lần", label: "Tăng tỷ lệ nhận việc thành công" },
-      { value: "95%", label: "Giảm thời gian đọc duyệt CV" }
+      { value: "98.9%", label: "Tỷ lệ nhận dạng ký tự biển số" },
+      { value: "100%", label: "Tự động ghi chép lịch sử xe ra vào" },
+      { value: "< 1s", label: "Tốc độ xử lý mở barie tự động" }
     ],
     features: [
-      "Mô hình đối sánh ngữ nghĩa mô tả công việc và hồ sơ ứng viên",
-      "Chấm điểm độ tương thích (%) chi tiết cho từng chỉ số năng lực",
-      "Tự động tính toán bán kính di chuyển lý tưởng giữa nhà và nơi làm",
-      "Cập nhật trạng thái dòng hồ sơ liên tục thời gian thực"
+      "Đọc được biển số xe máy, xe tải, ô tô (kể cả biển số dài/ngắn, biển nước ngoài)",
+      "Hoạt động ổn định bất kể ban đêm nhờ camera tích hợp hồng ngoại/starlight",
+      "Tự động đối chiếu danh sách trắng (Whitelist) để mở barrier tự động",
+      "Cảnh báo xe lạ đỗ quá thời gian quy định tại khu vực cấm"
     ],
     workflow: [
-      "Tin tuyển dụng và hồ sơ ứng viên được đưa vào mạng lưới neuron AI",
-      "Hệ thống tính toán ma trận độ phù hợp dựa trên 30 chỉ số đặc trưng",
-      "Tự động tạo danh sách ứng viên xuất sắc nhất sắp xếp theo điểm số",
-      "Gửi thông báo đề xuất việc làm cho ứng viên và hồ sơ cho nhà tuyển dụng"
+      "Camera LPR chụp ảnh biển số khi xe đến gần vòng cảm biến cổng",
+      "AI xử lý hình ảnh, tách lọc vùng biển số và trích xuất chuỗi văn bản",
+      "Đối soát dữ liệu với danh sách đăng ký thuê bao hoặc xe nội bộ",
+      "Điều khiển barie mở tự động và lưu trữ ảnh chụp phương tiện"
     ],
-    conclusion: "Kết nối chính xác tuyệt đối, tiết kiệm hàng nghìn giờ sàng lọc thủ công."
+    conclusion: "Tự động hóa hoàn toàn luồng xe, giảm ùn tắc giờ cao điểm tại các cổng cơ quan, nhà máy."
   },
-  "anti-fraud-recruitment": {
-    slug: "anti-fraud-recruitment",
+  "phat-hien-khoi-chay": {
+    slug: "phat-hien-khoi-chay",
     category: "Giải Pháp AI",
-    title: "Phát Hiện Tin Tuyển Dụng Ảo",
-    subtitle: "Lọc Sạch 99% Tin Lừa Đảo, Đa Cấp Và Spam Nhân Sự",
-    description: "Người lao động phổ thông thường là nạn nhân của các vụ lừa đảo việc làm, đa cấp biến tướng. CyberDX ứng dụng hệ thống NLP để quét và phân tích nội dung tin đăng, tự động phát hiện hành vi mờ ám trước khi hiển thị cho người dùng.",
+    title: "Phát hiện khói & cháy",
+    subtitle: "Cảnh báo hỏa hoạn sớm bằng hình ảnh trước khi đầu báo khói trần kích hoạt",
+    description: "Nhận diện đám khói hoặc tia lửa nhỏ từ camera an ninh thông thường chỉ trong vài giây. Giải pháp cực kỳ hiệu quả tại các nhà kho trần cao, bãi đỗ xe rộng hoặc khu sản xuất nơi các cảm biến truyền thống phản ứng rất chậm.",
     metrics: [
-      { value: "99%", label: "Tỷ lệ phát hiện tin ảo tự động" },
-      { value: "100%", label: "Tin tuyển dụng thật uy tín" },
-      { value: "Zero", label: "Rủi ro pháp lý cho ứng viên" }
+      { value: "< 10s", label: "Thời gian phát hiện từ khi có đám khói" },
+      { value: "-80%", label: "Giảm rủi ro thiệt hại do cháy nổ" },
+      { value: "95%", label: "Độ chính xác phân biệt khói thực tế" }
     ],
     features: [
-      "Quét tìm từ khóa nhạy cảm và mô hình trả lương bất thường",
-      "Kiểm tra chéo giấy phép đăng ký kinh doanh của nhà tuyển dụng",
-      "Hệ thống gắn cờ cảnh báo tin tuyển dụng có dấu hiệu khả nghi",
-      "Báo cáo vi phạm tin tuyển dụng thời gian thực từ cộng đồng ứng viên"
+      "Nhận diện cột khói mờ và tia lửa nhỏ ở khoảng cách xa",
+      "Phân biệt chính xác khói hỏa hoạn với khói bụi, sương mù thông thường",
+      "Giám sát liên tục 24/7 kể cả khu vực ngoài trời hoặc bán lộ thiên",
+      "Gửi cảnh báo khẩn cấp kèm đoạn clip cắt ngắn 5 giây mô tả sự cố"
     ],
     workflow: [
-      "Nhà tuyển dụng gửi mô tả công việc mới lên cổng đăng tin",
-      "AI phân tích cú pháp mô tả, phát hiện các điều khoản mập mờ hoặc phí ẩn",
-      "Hệ thống xác thực mã số thuế và tình trạng hoạt động doanh nghiệp",
-      "Phê duyệt tự động nếu tin an toàn, hoặc chuyển qua đội ngũ kiểm duyệt thủ công"
+      "AI quét liên tục luồng hình ảnh từ các camera giám sát an ninh",
+      "Phân tích sự thay đổi pixel của làn khói và sự phân bổ màu sắc của lửa",
+      "Kích hoạt còi hú báo động tại khu vực và gửi thông báo khẩn cho bảo vệ",
+      "Hiển thị vị trí xảy ra sự cố trên sơ đồ mặt bằng trực quan của tòa nhà"
     ],
-    conclusion: "Bảo vệ tuyệt đối uy tín của nền tảng và sự an toàn tài chính của người lao động."
+    conclusion: "Giải pháp phòng ngừa hỏa hoạn chủ động, bảo vệ tính mạng và tài sản quý giá trước khi quá muộn."
   },
-  "routing-geofence": {
-    slug: "routing-geofence",
+  "phat-hien-xam-nhap": {
+    slug: "phat-hien-xam-nhap",
     category: "Giải Pháp AI",
-    title: "Bản Đồ Bán Kính Tìm Việc",
-    subtitle: "Tối Ưu Hóa Quãng Đường Di Chuyển Giúp Hạn Chế Đi Trễ",
-    description: "Một trong những lý do lớn nhất khiến lao động phổ thông nghỉ việc là quãng đường di chuyển quá xa. CyberDX tích hợp bản đồ số thông minh giúp định vị và gợi ý các công việc nằm trong bán kính di chuyển lý tưởng nhất của ứng viên.",
+    title: "Phát hiện xâm nhập",
+    subtitle: "Thiết lập hàng rào ảo bảo vệ an ninh chu vi 24/7",
+    description: "Vẽ ranh giới an ninh ảo ngay trên màn hình giám sát camera. AI tự động phân biệt chuyển động của con người, phương tiện với động vật hoặc lá cây rơi, giúp loại bỏ 95% cảnh báo giả của các hệ thống an ninh cũ.",
     metrics: [
-      { value: "50%", label: "Tiết kiệm chi phí xăng xe di chuyển" },
-      { value: "90%", label: "Giảm tỷ lệ đi làm muộn" },
-      { value: "< 5km", label: "Bán kính công việc lý tưởng" }
+      { value: "95%", label: "Giảm thiểu tỷ lệ báo động giả" },
+      { value: "24/7", label: "Giám sát chu vi liên tục" },
+      { value: "Instant", label: "Thông báo đẩy kèm video sự kiện" }
     ],
     features: [
-      "Tính toán thời gian di chuyển thực tế dựa trên lưu lượng giao thông",
-      "Gợi ý phương tiện công cộng hoặc tuyến đường tối ưu nhất",
-      "Thiết lập Geofencing báo động check-in tại địa điểm làm việc",
-      "Giao diện bản đồ nhiệt (Heatmap) trực quan trên điện thoại"
+      "Thiết lập đường ranh giới (Virtual Line) và vùng cấm (Secure Zone) linh hoạt",
+      "Phân loại đối tượng thông minh (người đi bộ, xe máy, xe tải, động vật)",
+      "Tích hợp loa phóng thanh cảnh báo tự động khi có xâm nhập",
+      "Kết hợp camera hồng ngoại để giám sát ban đêm hoàn hảo"
     ],
     workflow: [
-      "Ứng viên bật định vị GPS trên điện thoại khi tìm kiếm việc làm",
-      "CyberDX vẽ vòng tròn bán kính 5km - 10km quanh vị trí hiện tại",
-      "Lọc và hiển thị các vị trí đang tuyển dụng nằm ngay trong khu vực",
-      "Hướng dẫn đường đi chi tiết và dự kiến thời gian di chuyển cho ứng viên"
+      "Quản trị viên vẽ vùng cấm trên phần mềm camera giám sát",
+      "AI phân tích luồng chuyển động đi qua ranh giới đã thiết lập",
+      "Xác định đối tượng là người/phương tiện có hành vi xâm nhập",
+      "Hệ thống gửi cảnh báo kèm video trực tiếp đến bộ phận an ninh trực ca"
     ],
-    conclusion: "Giúp người lao động tìm thấy công việc 'gần nhà - tiện đi lại', cải thiện chất lượng cuộc sống."
+    conclusion: "Thiết lập lá chắn an ninh chủ động xung quanh nhà máy, kho bãi và biệt thự riêng tư."
   },
-  "skills-assessment": {
-    slug: "skills-assessment",
+  "giam-sat-ppe-dong-phuc": {
+    slug: "giam-sat-ppe-dong-phuc",
     category: "Giải Pháp AI",
-    title: "Đánh Giá Tay Nghề Tự Động",
-    subtitle: "Chuẩn Hóa Chất Lượng Đầu Vào Bằng Trắc Nghiệm Mô Phỏng",
-    description: "Nhà tuyển dụng thường mất nhiều thời gian thử việc để đánh giá tay nghề thực tế. Nền tảng của chúng tôi cung cấp bộ bài test chuyên môn và tình huống thực hành mô phỏng tự động, chấm điểm bằng thuật toán AI chuẩn xác.",
+    title: "Giám sát PPE & Đồng phục",
+    subtitle: "Tự động hóa kiểm soát kỷ luật an toàn lao động tại công trường, nhà máy",
+    description: "Nhận diện tự động việc trang bị thiết bị bảo hộ cá nhân (PPE) như mũ bảo hiểm, áo phản quang, găng tay, ủng và khẩu trang của nhân công trước và trong suốt ca làm việc, đảm bảo tuân thủ nghiêm ngặt quy định an toàn.",
     metrics: [
-      { value: "95%", label: "Độ chính xác đánh giá tay nghề" },
-      { value: "3 Lần", label: "Tăng tốc quy trình thử việc" },
-      { value: "90%", label: "Ứng viên đạt yêu cầu phỏng vấn" }
+      { value: "99%", label: "Tỷ lệ tuân thủ bảo hộ tăng cao" },
+      { value: "100ms", label: "Tốc độ quét nhận dạng bảo hộ" },
+      { value: "Zero", label: "Sai sót bỏ sót từ giám sát thủ công" }
     ],
     features: [
-      "Thư viện bài test tay nghề đa dạng ngành nghề (hàn, may, lắp ráp, phục vụ...)",
-      "Chấm điểm tự động và nhận xét chi tiết điểm mạnh/yếu của ứng viên",
-      "Giám sát chống gian lận trong quá trình kiểm tra bằng camera AI",
-      "Hệ thống cấp chứng chỉ số hoàn thành kỹ năng trên CyberDX"
+      "Nhận dạng đồng thời nhiều thiết bị bảo hộ (mũ bảo hộ, áo phản quang, găng tay)",
+      "Kiểm duyệt an toàn tự động tại cổng soát vé/cửa xoay ra vào",
+      "Báo cáo thống kê chỉ số tuân thủ PPE chi tiết theo từng ca/phân xưởng",
+      "Cảnh báo tức thời qua loa tại chỗ khi phát hiện công nhân tháo mũ bảo hộ"
     ],
     workflow: [
-      "Doanh nghiệp lựa chọn bài test tay nghề đi kèm tin đăng tuyển dụng",
-      "Ứng viên nhận thử thách kiểm tra trực tuyến trên ứng dụng",
-      "AI ghi nhận kết quả thực hành, chấm điểm độ phù hợp của kỹ năng",
-      "Hồ sơ ứng viên được gửi đi kèm bảng phân tích tay nghề chi tiết"
+      "Công nhân đi qua khu vực camera quét nhận diện an toàn trước cửa xưởng",
+      "Hệ thống AI nhận diện khuôn mặt và quét tình trạng trang bị PPE",
+      "Mở cửa xoay tự động nếu đủ điều kiện, hoặc phát loa nhắc nhở tháo thiếu",
+      "Ghi nhận chỉ số tuân thủ của từng nhân sự vào hệ thống dữ liệu"
     ],
-    conclusion: "Đảm bảo tuyển đúng người có năng lực thật, giảm thiểu rủi ro thử việc thất bại."
+    conclusion: "Xây dựng văn hóa tuân thủ an toàn lao động chủ động, giảm thiểu rủi ro pháp lý cho doanh nghiệp."
   },
-  "smart-dashboard": {
-    slug: "smart-dashboard",
+  "giai-phap-dem-nguoi": {
+    slug: "giai-phap-dem-nguoi",
     category: "Giải Pháp AI",
-    title: "Báo Cáo Phân Tích Dashboard",
-    subtitle: "Trực Quan Hóa 100% Chỉ Số Nhân Sự & Chi Phí Cơ Hội",
-    description: "Cung cấp bảng phân tích dữ liệu hợp nhất dành cho Admin và doanh nghiệp. Hệ thống tự động theo dõi phễu chuyển đổi ứng viên từ lúc nộp hồ sơ, phỏng vấn, nhận việc đến báo cáo dòng tiền chi phí tuyển dụng thời gian thực.",
+    title: "Giải pháp đếm người",
+    subtitle: "Thống kê lưu lượng khách ra vào và quản lý mật độ không gian",
+    description: "Giải pháp People Counting sử dụng thuật toán học sâu để đếm chính xác số lượng người đi qua các lối cửa ra vào, tự động phân biệt và loại trừ nhân viên, giúp doanh nghiệp đo lường chính xác hiệu quả vận hành kinh doanh.",
     metrics: [
-      { value: "100%", label: "Dữ liệu cập nhật liên tục" },
-      { value: "2 Lần", label: "Ra quyết định tuyển dụng nhanh hơn" },
-      { value: "4.0", label: "Chỉ số hài lòng quản trị UI" }
+      { value: "98.8%", label: "Độ chính xác đếm người ra vào" },
+      { value: "100%", label: "Mã hóa danh tính khách hàng" },
+      { value: "Real-time", label: "Thống kê mật độ người trong phòng" }
     ],
     features: [
-      "Biểu đồ trực quan hóa dòng chảy hồ sơ và giao dịch tài chính",
-      "Dự báo xu hướng cung - cầu nhân sự tại từng khu vực địa lý",
-      "Xuất báo cáo tài chính, báo cáo nhân sự định dạng PDF/Excel một chạm",
-      "Tự động tính toán chi phí trung bình để tuyển thành công 1 nhân sự"
+      "Đếm người đi hai chiều (In/Out) độc lập cùng lúc tại nhiều lối cửa",
+      "Thuật toán thông minh tự động loại trừ nhân viên cửa hàng (qua đồng phục)",
+      "Cảnh báo quá tải mật độ người trong phòng họp hoặc khu vui chơi",
+      "Tích hợp báo cáo tự động gửi định kỳ hàng ngày, hàng tuần"
     ],
     workflow: [
-      "Mọi thao tác nhận hồ sơ, thanh toán hoa hồng được ghi nhận tự động",
-      "Hệ thống tổng hợp dữ liệu đưa vào kho phân tích tập trung",
-      "Smart Dashboard hiển thị các biểu đồ biến động dưới dạng thời gian thực",
-      "Admin và HR theo dõi báo cáo để tối ưu hóa chiến lược phân bổ nguồn lực"
+      "Lắp đặt camera giám sát hướng từ trên xuống tại các khu vực cửa",
+      "AI vẽ đường phân ranh giới đếm người ảo để bắt chuyển động",
+      "Hệ thống ghi nhận và đếm số lượt đi qua ranh giới theo thời gian thực",
+      "Xuất dữ liệu lưu lượng tích hợp với doanh thu POS để tính tỷ lệ mua hàng"
     ],
-    conclusion: "Nắm trọn dòng chảy dữ liệu nhân sự trong lòng bàn tay để đưa ra các quyết định chính xác."
+    conclusion: "Dữ liệu lưu lượng chính xác giúp tối ưu hóa nhân sự trực ca và đo lường marketing hiệu quả."
   },
-  "interactive-chat": {
-    slug: "interactive-chat",
+  "giam-sat-do-xe-sai-quy-dinh": {
+    slug: "giam-sat-do-xe-sai-quy-dinh",
     category: "Giải Pháp AI",
-    title: "Trò Chuyện Trực Tuyến AI",
-    subtitle: "Hỗ Trợ Giải Đáp 24/7 & Tự Động Lên Lịch Hẹn Phỏng Vấn",
-    description: "Nhà tuyển dụng tốn hàng giờ gọi điện xác nhận lịch hẹn. Trợ lý ảo AI Chatbot của CyberDX sẽ tự động thay thế khâu giao tiếp sơ bộ, trò chuyện và lên lịch hẹn phỏng vấn trực tiếp phù hợp với khung giờ trống của nhà tuyển dụng.",
+    title: "Giám sát đỗ xe sai quy định",
+    subtitle: "Phát hiện và cảnh báo phương tiện dừng đỗ trái phép",
+    description: "Tự động phát hiện phương tiện đỗ sai vị trí, đỗ quá thời gian quy định tại các khu vực cấm đỗ như cổng bệnh viện, lối thoát hiểm nhà máy, sảnh khách sạn hoặc lòng đường cấm đỗ, duy trì trật tự giao thông thông suốt.",
     metrics: [
-      { value: "90%", label: "Cuộc hội thoại được chatbot tự xử lý" },
-      { value: "24/7", label: "Phục vụ giải đáp thắc mắc liên tục" },
-      { value: "< 2s", label: "Tốc độ phản hồi ứng viên" }
+      { value: "24/7", label: "Giám sát khu vực cấm dừng đỗ" },
+      { value: "< 30s", label: "Thời gian phát cảnh báo đỗ xe trái phép" },
+      { value: "LPR", label: "Chụp ảnh lưu biển số xe vi phạm" }
     ],
     features: [
-      "Nhận diện ngôn ngữ tự nhiên hiểu đúng ý định của ứng viên",
-      "Tự động đặt câu hỏi sơ loại theo tiêu chuẩn của nhà tuyển dụng",
-      "Lên lịch hẹn và gửi tin nhắn nhắc nhở tự động qua SMS/Zalo",
-      "Hỗ trợ kênh trò chuyện bảo mật không chia sẻ dữ liệu nhạy cảm"
+      "Phát hiện mọi loại xe dừng đỗ trái phép (xe máy, taxi, ô tô con, xe tải)",
+      "Tự động trích xuất biển số xe vi phạm thông qua camera LPR",
+      "Kích hoạt còi loa phát thanh thông báo di dời xe tự động tại chỗ",
+      "Báo cáo lịch sử vi phạm chi tiết kèm hình ảnh làm bằng chứng"
     ],
     workflow: [
-      "Ứng viên click 'Ứng Tuyển Nhanh' và bắt đầu trò chuyện với AI Assistant",
-      "Trợ lý hỏi các thông tin cốt lõi (độ tuổi, kinh nghiệm, phương tiện đi lại...)",
-      "Đề xuất các khung giờ phỏng vấn trống của HR để ứng viên chọn lựa",
-      "Lịch hẹn được lưu vào Google Calendar và thông báo nhắc nhở tự động cho cả hai"
+      "AI khoanh vùng khu vực cấm dừng đỗ trên khung cảnh camera",
+      "Hệ thống phát hiện phương tiện đi vào vùng cấm và đứng im quá 30 giây",
+      "Tự động chụp biển số xe và kích hoạt loa phóng thanh cảnh báo tại chỗ",
+      "Gửi thông tin vi phạm đến thiết bị di động của bảo vệ hoặc đội trật tự"
     ],
-    conclusion: "Tinh giản khâu liên lạc, loại bỏ tình trạng 'quên lịch hẹn' hoặc 'bùng phỏng vấn'."
+    conclusion: "Giải quyết triệt để vấn nạn đỗ xe bừa bãi gây ùn tắc lối thoát hiểm và sảnh đón tiếp."
+  },
+  "nhan-dien-phan-tich-hanh-vi": {
+    slug: "nhan-dien-phan-tich-hanh-vi",
+    category: "Giải Pháp AI",
+    title: "Nhận diện hành vi",
+    subtitle: "Phân tích chuyển động để phát hiện sự cố té ngã và xô xát",
+    description: "Phân tích tư thế và chuyển động của cơ thể người để nhận diện tức thì các hành vi nguy hiểm như té ngã đột ngột, đánh nhau, tụ tập đông người bất thường hoặc rời vị trí làm việc quá lâu trong giờ trực ca.",
+    metrics: [
+      { value: "96.5%", label: "Độ chính xác nhận diện tư thế té ngã" },
+      { value: "< 3s", label: "Thời gian gửi cảnh báo khẩn cấp" },
+      { value: "24/7", label: "Giám sát liên tục các khu vực công cộng" }
+    ],
+    features: [
+      "Phát hiện té ngã nhanh chóng trong bệnh viện, viện dưỡng lão, lối đi bộ",
+      "Nhận diện hành vi đánh nhau, xô xát bằng cách phân tích nhịp chuyển động",
+      "Cảnh báo tụ tập đông người bất thường tại các khu vực nhạy cảm",
+      "Phát hiện rời vị trí làm việc hoặc ngủ gật của nhân viên an ninh trực ca"
+    ],
+    workflow: [
+      "AI liên tục phân tích bộ khung xương (skeletal model) của người trên video",
+      "Nhận diện sự thay đổi đột ngột về độ cao và tư thế cơ thể (hành vi ngã)",
+      "Phát tín hiệu cảnh báo khẩn cấp kèm vị trí chính xác đến phòng điều hành",
+      "Lưu trữ clip sự cố để phục vụ công tác rà soát và nâng cao chất lượng"
+    ],
+    conclusion: "Giải pháp nhân văn hỗ trợ phản ứng cấp cứu kịp thời trong các tình huống tai nạn khẩn cấp."
+  },
+  "ban-do-nhiet-lo-trinh": {
+    slug: "ban-do-nhiet-lo-trinh",
+    category: "Giải Pháp AI",
+    title: "Bản đồ nhiệt & Lộ trình",
+    subtitle: "Trực quan hóa mật độ di chuyển và luồng lưu thông khách hàng",
+    description: "Vẽ sơ đồ mật độ dừng chân (Heatmap) và lộ trình di chuyển (Pathway) của con người trong một không gian vật lý, giúp tối ưu hóa cách trưng bày sản phẩm, quy hoạch luồng giao thông và cải thiện trải nghiệm khách hàng.",
+    metrics: [
+      { value: "Real-time", label: "Trực quan hóa bản đồ nhiệt" },
+      { value: "Pathway", label: "Vẽ lộ trình di chuyển phổ biến" },
+      { value: "Dwell Time", label: "Đo lường thời gian tương tác sản phẩm" }
+    ],
+    features: [
+      "Biểu diễn mật độ dừng chân bằng dải màu trực quan (đỏ cho vùng nóng, xanh cho vùng lạnh)",
+      "Theo dõi thời gian dừng chân trung bình (Average Dwell Time) tại từng kệ hàng",
+      "Vẽ sơ đồ lộ trình di chuyển để phát hiện các 'điểm nghẽn' trong lối đi",
+      "So sánh hiệu quả thu hút khách hàng giữa các gian trưng bày khác nhau"
+    ],
+    workflow: [
+      "AI phân tích luồng di chuyển của toàn bộ khách hàng trong khu vực",
+      "Ghi nhận vị trí tọa độ dừng chân và thời gian lưu lại của từng người",
+      "Hợp nhất dữ liệu để tạo ra bản đồ nhiệt theo ngày, tuần, tháng",
+      "Cung cấp insight giúp nhà quản lý tối ưu hóa cách sắp đặt không gian"
+    ],
+    conclusion: "Ứng dụng khoa học dữ liệu hình ảnh để tối đa hóa giá trị thương mại của từng mét vuông mặt bằng."
   },
 
   // --- LIBRARY (THƯ VIỆN) ---
+  "cau-hoi-thuong-gap": {
+    slug: "cau-hoi-thuong-gap",
+    category: "Thư Viện",
+    title: "Câu Hỏi Thường Gặp (FAQs)",
+    subtitle: "Giải đáp các thắc mắc phổ biến về giải pháp AI Video Analytics",
+    description: "Tổng hợp các giải đáp chi tiết về công nghệ phân tích video AI, quy trình lắp đặt, yêu cầu phần cứng và chính sách bảo mật dữ liệu hình ảnh của chúng tôi dành cho khách hàng doanh nghiệp.",
+    metrics: [
+      { value: "15+", label: "Chủ đề giải đáp chi tiết" },
+      { value: "24/7", label: "Kênh hỗ trợ giải đáp trực tuyến" },
+      { value: "99.9%", label: "Mức độ hài lòng của khách hàng" }
+    ],
+    features: [
+      "Giải pháp có hoạt động được với hệ thống camera IP hiện có không? (Có, hỗ trợ RTSP/ONVIF)",
+      "Hệ thống Edge AI Box và Server hoạt động như thế nào?",
+      "Dữ liệu hình ảnh có được bảo mật không? (Xử lý Edge tại chỗ, không truyền hình ảnh ra ngoài)",
+      "Quy trình triển khai lắp đặt mất bao lâu? (Thông thường từ 3 - 5 ngày làm việc)"
+    ],
+    workflow: [
+      "Người dùng truy cập trang FAQs để tìm kiếm câu trả lời nhanh theo danh mục",
+      "Hệ thống chia sẵn các bộ câu hỏi dành cho Kỹ thuật, Vận hành và Bảo mật",
+      "Nếu cần tư vấn chi tiết hơn, khách hàng có thể gửi biểu mẫu liên hệ nhanh",
+      "Đội ngũ kỹ sư giải pháp sẽ liên hệ lại trong vòng 2 giờ làm việc"
+    ],
+    conclusion: "Cung cấp đầy đủ thông tin minh bạch giúp doanh nghiệp đưa ra quyết định nâng cấp hệ thống an ninh hiệu quả."
+  },
   "case-studies": {
     slug: "case-studies",
     category: "Thư Viện",
     title: "Dự Án Tiêu Biểu (Case Studies)",
-    subtitle: "Cách CyberDX Cung Ứng 200 Lao Động Logistics Trong 3 Ngày",
-    description: "Khám phá hành trình CyberDX đồng hành cùng tập đoàn Logistics hàng đầu miền Nam giải quyết nút thắt nhân sự thời vụ bốc xếp khẩn cấp trong đợt cao điểm mua sắm cuối năm, tối ưu hóa toàn diện ngân sách vận hành.",
+    subtitle: "Khám phá các dự án triển khai AI Camera thực tế thành công",
+    description: "Tổng hợp các dự án thực tế triển khai giải pháp phân tích video AI giúp các đối tác trong ngành sản xuất công nghiệp, kho vận logistics và chuỗi bán lẻ tối ưu hóa chi phí vận hành và nâng cao an toàn.",
     metrics: [
-      { value: "200", label: "Lao động cung ứng thành công" },
-      { value: "3 Ngày", label: "Thời gian hoàn thành mục tiêu" },
-      { value: "60%", label: "Tiết kiệm ngân sách nhân sự" }
+      { value: "50+", label: "Doanh nghiệp đã triển khai thành công" },
+      { value: "-45%", label: "Giảm rủi ro mất an toàn lao động" },
+      { value: "99.8%", label: "Độ chính xác kiểm soát thực tế" }
     ],
     features: [
-      "Bài toán: Sự thiếu hụt nhân sự bốc xếp khẩn cấp giờ cao điểm",
-      "Giải pháp: Áp dụng AI Matcher quét radar ứng viên tự do bán kính 5km",
-      "Kết quả: 100% ca làm được lấp đầy đúng giờ, không xảy ra trễ chuyến hàng",
-      "Đánh giá từ khách hàng: Năng lực điều phối vượt trội, minh bạch tài chính"
+      "Case Study 1: Tối ưu hóa vận hành & giảm thiểu rủi ro cho chuỗi Kho vận & Logistics lớn",
+      "Case Study 2: Triển khai giám sát an toàn PPE & đếm sản phẩm tại nhà máy nông sản xuất khẩu",
+      "Case Study 3: Hb Boutique: Tối ưu hóa trưng bày và tăng doanh thu chuỗi thời trang nhờ Heatmap",
+      "Case Study 4: Gifts From Nature: Cải thiện trải nghiệm phục vụ khách hàng nhờ People Counting"
     ],
     workflow: [
-      "Khách hàng gửi yêu cầu nhân sự khẩn cấp lên cổng thông tin CyberDX",
-      "Hệ thống tự động kích hoạt chiến dịch quét radar tìm kiếm lao động nhàn rỗi",
-      "Ứng viên nhận ca làm việc và check-in GPS trực tiếp tại bãi kho vận",
-      "Tự động tính toán lương và thanh toán hoa hồng sau ca hoàn thành"
+      "Khách hàng chia sẻ thách thức vận hành thực tế đang gặp phải",
+      "Chúng tôi tiến hành khảo sát, thiết kế giải pháp AI Camera demo thực tế",
+      "Đo lường các chỉ số hiệu suất (KPI) trước và sau khi triển khai hệ thống",
+      "Biên soạn và công bố Case Study chia sẻ kinh nghiệm thành công với cộng đồng"
     ],
-    conclusion: "Một minh chứng thực tế khẳng định sức mạnh điều phối vượt trội của trí tuệ nhân tạo."
+    conclusion: "Những con số thực tế chứng minh giá trị kinh tế to lớn mà công nghệ trí tuệ nhân tạo mang lại."
   },
-  "news-events": {
-    slug: "news-events",
+  "dieu-khoan-su-dung": {
+    slug: "dieu-khoan-su-dung",
     category: "Thư Viện",
-    title: "Tin Tức & Sự Kiện",
-    subtitle: "CyberDX Nhận Giải Thưởng Giải Pháp Công Nghệ Nhân Sự 2026",
-    description: "Cập nhật các sự kiện nổi bật của CyberDX. Nền tảng vừa vinh dự được Hiệp hội Nhân sự Việt Nam trao tặng giải thưởng đột phá công nghệ xuất sắc nhất năm 2026 nhờ giải quyết hiệu quả bài toán cung ứng lao động phổ thông.",
+    title: "Điều khoản sử dụng",
+    subtitle: "Quy định pháp lý khi sử dụng dịch vụ và thông tin trên website",
+    description: "Tài liệu quy định các điều khoản, quyền lợi và nghĩa vụ pháp lý của người sử dụng khi truy cập website và đăng ký tư vấn giải pháp AI Video Analytics của chúng tôi.",
     metrics: [
-      { value: "Top 1", label: "Giải thưởng TechHR Việt Nam" },
-      { value: "2026", label: "Năm vinh danh đột phá" },
-      { value: "50+", label: "Đơn vị báo chí đưa tin" }
+      { value: "2026", label: "Năm cập nhật phiên bản mới nhất" },
+      { value: "100%", label: "Tuân thủ quy định luật pháp Việt Nam" },
+      { value: "Bảo mật", label: "Cam kết quyền sở hữu trí tuệ công nghệ" }
     ],
     features: [
-      "CyberDX tham gia triển lãm Công nghệ Nhân sự Quốc tế",
-      "Chia sẻ triết lý 'Đổi mới có ý thức' trước 500 chuyên gia nhân sự",
-      "Ký kết hợp tác chiến lược cùng Hiệp hội Doanh nghiệp vừa và nhỏ",
-      "Công bố lộ trình nâng cấp AI Matcher thế hệ mới tích hợp bản đồ nhiệt"
+      "Chấp nhận điều khoản: Người dùng đồng ý tuân thủ khi truy cập website",
+      "Quyền sở hữu trí tuệ: Các công nghệ, mô hình AI, thương hiệu thuộc tài sản của chúng tôi",
+      "Giới hạn trách nhiệm: Dịch vụ thông tin cung cấp theo nguyên trạng ('as is')",
+      "Luật áp dụng: Mọi tranh chấp được điều chỉnh theo pháp luật nước CHXHCN Việt Nam"
     ],
     workflow: [
-      "Hội đồng thẩm định đánh giá thực tế năng lực giải quyết việc làm của CyberDX",
-      "Khảo sát ý kiến hài lòng của 10.000 ứng viên lao động tự do",
-      "Chính thức vinh danh CyberDX tại đêm Gala TechHR Awards",
-      "CyberDX cam kết tiếp tục đồng hành kiến tạo giá trị bền vững cho lao động Việt"
+      "Người dùng đọc kỹ các điều khoản sử dụng được công khai trên website",
+      "Bằng cách tiếp tục truy cập, người dùng xác nhận đồng ý với các điều khoản",
+      "Các bản cập nhật điều khoản mới sẽ được thông báo hiển thị trên trang chủ",
+      "Đội ngũ pháp lý sẵn sàng giải đáp các thắc mắc về quyền sở hữu và nghĩa vụ"
     ],
-    conclusion: "Cột mốc tự hào khẳng định vị thế dẫn đầu trong hành trình cách mạng hóa thị trường lao động."
+    conclusion: "Xây dựng môi trường hợp tác minh bạch, rõ ràng và tuân thủ đúng pháp luật."
   },
-  "blog-recruitment": {
-    slug: "blog-recruitment",
+  "chinh-sach-bao-mat": {
+    slug: "chinh-sach-bao-mat",
     category: "Thư Viện",
-    title: "Cẩm Nang Tuyển Dụng (Blog)",
-    subtitle: "Bí Quyết Viết JD Thu Hút 100% Lao Động Phổ Thông Đi Làm Ngay",
-    description: "Làm thế nào để tin tuyển dụng của bạn không bị trôi đi giữa hàng nghìn tin đăng khác? Blog chia sẻ cẩm nang chi tiết về cách tinh giản quy trình nộp hồ sơ, viết JD ngắn gọn, minh bạch mức lương và định danh eKYC tiện lợi.",
+    title: "Chính sách bảo mật",
+    subtitle: "Cam kết bảo mật dữ liệu thông tin khách hàng tuyệt đối",
+    description: "Chính sách bảo mật quy định cách thức chúng tôi thu thập, xử lý và bảo vệ thông tin cá nhân/doanh nghiệp khi khách hàng đăng ký tư vấn và sử dụng giải pháp an ninh của chúng tôi.",
     metrics: [
-      { value: "10 Vạn+", label: "Lượt đọc và chia sẻ từ HR" },
-      { value: "5 Phút", label: "Thời gian đọc áp dụng ngay" },
-      { value: "100%", label: "Miễn phí cẩm nang kiến thức" }
+      { value: "Zero-Trust", label: "Chuẩn an toàn dữ liệu áp dụng" },
+      { value: "100%", label: "Không chia sẻ dữ liệu cho bên thứ ba" },
+      { value: "Mã hóa", label: "Bảo vệ thông tin truyền tải cấp cao" }
     ],
     features: [
-      "Tại sao lao động phổ thông lười nộp những CV rườm rà?",
-      "Công thức vàng: Địa điểm rõ ràng + Lương minh bạch + Ứng tuyển một chạm",
-      "Cách viết mô tả công việc (JD) thu hút chuẩn SEO trên CyberDX",
-      "Ứng dụng AI Chatbot hỗ trợ sàng lọc ứng viên tự động giảm tải cho HR"
+      "Thu thập thông tin cá nhân cơ bản (họ tên, email, sđt) chỉ phục vụ tư vấn liên hệ",
+      "Cam kết không lưu trữ luồng hình ảnh/video camera của khách hàng trên máy chủ ngoài",
+      "Xử lý phân tích video AI trực tiếp tại Edge Box nội bộ của khách hàng",
+      "Quyền của chủ thể dữ liệu: Khách hàng có quyền truy cập, yêu cầu chỉnh sửa hoặc xóa thông tin"
     ],
     workflow: [
-      "Tìm hiểu thói quen và hành vi tìm kiếm việc làm của người lao động tự do",
-      "Tối ưu tiêu đề công việc ngắn gọn, tránh các thuật từ chuyên môn rườm rà",
-      "Đưa các quyền lợi cốt lõi (lương ca, phụ cấp, hỗ trợ xăng xe) lên hàng đầu",
-      "Tích hợp nút ứng tuyển nhanh bằng số điện thoại không cần tạo CV giấy"
+      "Khách hàng cung cấp thông tin liên hệ qua biểu mẫu yêu cầu tư vấn",
+      "Thông tin được lưu trữ bảo mật bằng hệ thống cơ sở dữ liệu mã hóa",
+      "Dữ liệu chỉ sử dụng để nhân viên kỹ thuật liên hệ hỗ trợ giải pháp",
+      "Chúng tôi thực hiện rà soát an toàn thông tin định kỳ để ngăn chặn xâm nhập trái phép"
     ],
-    conclusion: "Tuyển dụng thông minh bắt đầu từ việc thấu hiểu nhu cầu thực tế của ứng viên."
-  },
-  "faqs": {
-    slug: "faqs",
-    category: "Thư Viện",
-    title: "Câu Hỏi Thường Gặp (FAQs)",
-    subtitle: "Giải Đáp Tất Cả Thắc Mắc Về Nền Tảng Tuyển Dụng AI CyberDX",
-    description: "Tổng hợp các câu hỏi phổ biến nhất từ ứng viên tìm việc và doanh nghiệp tuyển dụng khi tham gia hệ sinh thái CyberDX. Từ quy trình bảo mật Zero-Trust, cách tính phí dịch vụ đến hướng dẫn xác thực tài khoản.",
-    metrics: [
-      { value: "24/7", label: "Kênh hỗ trợ giải đáp liên tục" },
-      { value: "99.9%", label: "Tỷ lệ khách hàng hài lòng" },
-      { value: "10+", label: "Chủ đề câu hỏi chi tiết" }
-    ],
-    features: [
-      "Câu hỏi 1: CyberDX có thu phí của người tìm việc không? (Trả lời: Hoàn toàn MIỄN PHÍ)",
-      "Câu hỏi 2: Dữ liệu định danh eKYC có bị chia sẻ không? (Bảo mật Zero-Trust tuyệt đối)",
-      "Câu hỏi 3: Làm thế nào doanh nghiệp đăng ký tài khoản tuyển dụng chuyên nghiệp?",
-      "Câu hỏi 4: Thuật toán AI so khớp dựa trên những yếu tố cốt lõi nào?"
-    ],
-    workflow: [
-      "Truy cập mục FAQs để tra cứu câu hỏi theo từng chủ đề (Ứng viên / Nhà tuyển dụng)",
-      "Nếu chưa tìm thấy câu trả lời, gửi thắc mắc trực tiếp qua cổng AI Chat trực tuyến",
-      "Hệ thống tự động phản hồi giải đáp trong vòng dưới 2 giây",
-      "Kết nối hỗ trợ viên trực tiếp nếu câu hỏi cần xử lý thủ tục y khoa / pháp lý chuyên sâu"
-    ],
-    conclusion: "Chúng tôi luôn ở đây để đồng hành và hỗ trợ bạn trên từng bước của hành trình tuyển dụng."
+    conclusion: "Chúng tôi luôn coi trọng sự riêng tư và đặt an toàn thông tin của bạn lên hàng đầu."
   }
 };

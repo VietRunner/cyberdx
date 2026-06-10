@@ -16,33 +16,35 @@ const NAV_LINKS: NavLinkItem[] = [
   {
     label: "Ngành Nghề",
     dropdownItems: [
-      { label: "Sản xuất Công nghiệp", slug: "san-xuat-nha-may", href: "/san-xuat-nha-may/" },
-      { label: "Kho bãi & Logistics", slug: "kho-bai-logistics", href: "/kho-bai-logistics/" },
+      { label: "Sản xuất & Nhà máy", slug: "san-xuat-nha-may", href: "/san-xuat-nha-may/" },
+      { label: "Kho vận & Hàng hóa", slug: "kho-van-hang-hoa", href: "/kho-van-hang-hoa/" },
       { label: "Bán lẻ & Dịch vụ", slug: "ban-le-dich-vu", href: "/ban-le-dich-vu/" },
-      { label: "Giáo dục & Đào tạo", slug: "giao-duc-dao-tao", href: "/giao-duc-dao-tao/" },
-      { label: "Nhà hàng & Khách sạn", slug: "nha-hang-khach-san", href: "/nha-hang-khach-san/" },
-      { label: "Y tế & Chăm sóc Sức khỏe", slug: "y-te-suc-khoe", href: "/y-te-suc-khoe/" },
+      { label: "Giáo dục & Đào tạo", slug: "giao-duc-dao-tao-2", href: "/giao-duc-dao-tao-2/" },
+      { label: "Khách sạn & Du lịch", slug: "khach-san-du-lich", href: "/khach-san-du-lich/" },
+      { label: "Bệnh viện & Y tế", slug: "benh-vien-co-so-y-te", href: "/benh-vien-co-so-y-te/" },
     ],
   },
   {
     label: "Giải Pháp AI",
     dropdownItems: [
-      { label: "Định danh eKYC Ứng Viên", slug: "ekyc-verification", href: "/ekyc-verification/" },
-      { label: "Quét So Khớp AI (Matcher)", slug: "ai-matcher", href: "/ai-matcher/" },
-      { label: "Phát Hiện Tin Tuyển Dụng Ảo", slug: "anti-fraud-recruitment", href: "/anti-fraud-recruitment/" },
-      { label: "Bản Đồ Bán Kính Tìm Việc", slug: "routing-geofence", href: "/routing-geofence/" },
-      { label: "Đánh Giá Tay Nghề Tự Động", slug: "skills-assessment", href: "/skills-assessment/" },
-      { label: "Báo Cáo Phân Tích Dashboard", slug: "smart-dashboard", href: "/smart-dashboard/" },
-      { label: "Trò Chuyện Trực Tuyến AI", slug: "interactive-chat", href: "/interactive-chat/" },
+      { label: "Nhận diện khuôn mặt", slug: "nhan-dien-khuon-mat", href: "/nhan-dien-khuon-mat/" },
+      { label: "Nhận diện biển số xe", slug: "nhan-dien-bien-so-xe-tu-dong", href: "/nhan-dien-bien-so-xe-tu-dong/" },
+      { label: "Phát hiện khói & cháy", slug: "phat-hien-khoi-chay", href: "/phat-hien-khoi-chay/" },
+      { label: "Phát hiện xâm nhập", slug: "phat-hien-xam-nhap", href: "/phat-hien-xam-nhap/" },
+      { label: "Giám sát PPE & Đồng phục", slug: "giam-sat-ppe-dong-phuc", href: "/giam-sat-ppe-dong-phuc/" },
+      { label: "Giải pháp đếm người", slug: "giai-phap-dem-nguoi", href: "/giai-phap-dem-nguoi/" },
+      { label: "Giám sát đỗ xe cấm", slug: "giam-sat-do-xe-sai-quy-dinh", href: "/giam-sat-do-xe-sai-quy-dinh/" },
+      { label: "Nhận diện hành vi", slug: "nhan-dien-phan-tich-hanh-vi", href: "/nhan-dien-phan-tich-hanh-vi/" },
+      { label: "Bản đồ nhiệt & Lộ trình", slug: "ban-do-nhiet-lo-trinh", href: "/ban-do-nhiet-lo-trinh/" },
     ],
   },
   {
     label: "Thư Viện",
     dropdownItems: [
-      { label: "Dự Án Tiêu Biểu (Case Studies)", slug: "case-studies", href: "/case-studies/" },
-      { label: "Tin Tức & Sự Kiện", slug: "news-events", href: "/news-events/" },
-      { label: "Cẩm Nang Tuyển Dụng (Blog)", slug: "blog-recruitment", href: "/blog-recruitment/" },
-      { label: "Câu Hỏi Thường Gặp (FAQs)", slug: "faqs", href: "/faqs/" },
+      { label: "Câu Hỏi Thường Gặp", slug: "cau-hoi-thuong-gap", href: "/cau-hoi-thuong-gap/" },
+      { label: "Dự Án Tiêu Biểu", slug: "case-studies", href: "/case-studies/" },
+      { label: "Điều khoản sử dụng", slug: "dieu-khoan-su-dung", href: "/dieu-khoan-su-dung/" },
+      { label: "Chính sách bảo mật", slug: "chinh-sach-bao-mat", href: "/chinh-sach-bao-mat/" },
     ],
   },
   { label: "Triết Lý", href: "#philosophy" },
@@ -54,7 +56,7 @@ export default function ModernNav({ onContact }: ModernNavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileActiveDropdown, setMobileActiveDropdown] = useState<string | null>(null);
-  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,6 +65,14 @@ export default function ModernNav({ onContact }: ModernNavProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
+    };
+  }, [hoverTimeout]);
 
   const closeMobile = () => {
     setMobileOpen(false);

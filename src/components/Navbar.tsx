@@ -1,18 +1,9 @@
-import { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import logoIcon from '../assets/logo-icon.png';
 
 const NAV_LINKS = ['Home', 'Services', 'Work', 'Process', 'Pricing'];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <nav
       className="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16"

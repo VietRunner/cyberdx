@@ -99,7 +99,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
         >
           <Sparkles size={14} className="text-[#d85b6a] animate-pulse" />
           <span className="text-xs font-black uppercase tracking-widest text-[#ff8a9a] font-mono">
-            Nền Tảng Tuyển Dụng AI Thế Hệ Mới
+            GIẢI PHÁP AI VIDEO & PHÂN TÍCH THỜI GIAN THỰC
           </span>
         </motion.div>
 
@@ -111,8 +111,8 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tight text-white leading-[0.95] max-w-5xl mb-8"
           style={{ letterSpacing: "-0.03em" }}
         >
-          NỀN TẢNG TUYỂN DỤNG <br />
-          <span className="text-gradient-peach">KỶ NGUYÊN AI</span>
+          WHERE VISION <br />
+          <span className="text-gradient-peach">DRIVES IMPACTS</span>
         </motion.h1>
 
         {/* Centered value proposition */}
@@ -120,9 +120,9 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl font-medium leading-relaxed mb-12"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl font-medium leading-relaxed mb-12"
         >
-          Kết nối người lao động với công việc phù hợp nhanh hơn, đồng thời giúp doanh nghiệp tuyển đúng người, giảm thời gian sàng lọc và tối ưu vận hành tuyển dụng.
+          Chúng tôi cung cấp các giải pháp phân tích video AI tiên tiến cho hệ thống giám sát an ninh. Chuyển đổi các camera thụ động thành mạng lưới dữ liệu chủ động giúp nâng cao an toàn, ngăn chặn thất thoát và tối ưu hiệu quả vận hành.
         </motion.p>
 
         {/* Centered pill CTA button - exact cxview.ai visual style */}

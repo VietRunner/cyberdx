@@ -20,7 +20,7 @@ export default function ModernFooter({ onContact }: ModernFooterProps) {
               />
             </a>
             <p className="text-white/50 text-sm lg:text-base leading-relaxed max-w-md">
-              Nền tảng tuyển dụng thông minh ứng dụng AI, giúp người lao động tìm việc nhanh hơn và giúp doanh nghiệp tuyển đúng người hiệu quả hơn.
+              Nền tảng camera giám sát thông minh ứng dụng AI, tối ưu hóa an ninh, kiểm soát rủi ro vận hành và bảo vệ tài sản doanh nghiệp thời gian thực.
             </p>
           </div>
 
@@ -52,10 +52,13 @@ export default function ModernFooter({ onContact }: ModernFooterProps) {
             </h4>
             <div className="flex flex-col gap-2.5">
               <span className="text-white/60 text-sm">
-                Email: support@cyberdx.tech
+                HOTLINE: +84 77 800 3426
               </span>
               <span className="text-white/60 text-sm">
-                Văn phòng: TP. Hồ Chí Minh, Việt Nam
+                Email: info@cxview.ai
+              </span>
+              <span className="text-white/60 text-sm leading-relaxed">
+                Văn phòng: Tầng G, Tòa nhà City House, 485B Nguyễn Đình Chiểu, Phường Bàn Cờ, Quận 3, TP. Hồ Chí Minh
               </span>
               <a
                 href="#contact"
@@ -63,9 +66,9 @@ export default function ModernFooter({ onContact }: ModernFooterProps) {
                   e.preventDefault();
                   onContact?.();
                 }}
-                className="text-[#d85b6a] hover:underline text-sm font-bold"
+                className="text-[#d85b6a] hover:underline text-sm font-bold mt-1"
               >
-                Đặt lịch hẹn phỏng vấn demo &rarr;
+                Đặt lịch tư vấn & demo &rarr;
               </a>
             </div>
           </div>

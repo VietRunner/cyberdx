@@ -1,32 +1,31 @@
 import { Users, Zap, Compass, CheckCircle2 } from "lucide-react";
-import { motion } from "motion/react";
 
 const STATS = [
   {
-    value: "75%",
-    label: "Tốc Độ Tuyển Dụng",
-    desc: "Tiết kiệm tối đa thời gian sàng lọc hồ sơ ứng viên và lên lịch phỏng vấn tự động.",
+    value: "< 2s",
+    label: "Tốc Độ Cảnh Báo",
+    desc: "Thời gian phát tín hiệu cảnh báo hỏa hoạn hoặc xâm nhập từ lúc phát hiện sự cố.",
     icon: Zap,
     color: "text-[#d85b6a] bg-[#d85b6a]/10 border-[#d85b6a]/20",
   },
   {
-    value: "94.2%",
-    label: "Độ Khớp Việc AI",
-    desc: "Độ chính xác của thuật toán so khớp dựa trên kỹ năng thực tế và bán kính địa lý.",
+    value: "99.2%",
+    label: "Độ Chính Xác AI",
+    desc: "Độ chính xác nhận diện biển số xe và nhận diện khuôn mặt trong các thử nghiệm thực tế.",
     icon: Compass,
     color: "text-purple-400 bg-purple-500/10 border-purple-500/20",
   },
   {
-    value: "12,840+",
-    label: "Lao Động Nhận Việc",
-    desc: "Số lượng ứng viên phổ thông đã kết nối và tìm thấy cơ hội việc làm thành công.",
+    value: "10,000+",
+    label: "Camera Đã Kết Nối",
+    desc: "Số lượng camera IP đã được tích hợp và vận hành ổn định trên nền tảng Edge AI.",
     icon: Users,
     color: "text-green-400 bg-green-500/10 border-green-500/20",
   },
   {
-    value: "60%",
-    label: "Tiết Kiệm Chi Phí",
-    desc: "Giảm thiểu chi phí đăng tuyển trung gian thông qua kết nối cung - cầu trực tiếp.",
+    value: "45%",
+    label: "Giảm Thiểu Thất Thoát",
+    desc: "Tỷ lệ giảm thiểu hao hụt hàng hóa và sự cố an toàn tại các cơ sở sản xuất.",
     icon: CheckCircle2,
     color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
   },
@@ -51,7 +50,7 @@ export default function StatsSection() {
             Đo Lường Bằng <span className="text-gradient-peach">Những Con Số</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl">
-            CyberDX chứng minh hiệu quả đột phá bằng cách giảm thiểu tối đa rào cản và chi phí cơ hội trong thị trường tuyển dụng Việt Nam.
+            Nền tảng của chúng tôi chứng minh hiệu quả đột phá bằng cách chuyển đổi hệ thống giám sát thụ động thành mạng lưới dữ liệu chủ động bảo vệ doanh nghiệp.
           </p>
         </div>
 

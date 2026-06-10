@@ -1,5 +1,4 @@
 import { ShieldAlert, HelpCircle, Ban, AlertTriangle, Users2, Timer } from "lucide-react";
-import { motion } from "motion/react";
 
 export default function ProblemSection() {
   return (
@@ -13,30 +12,30 @@ export default function ProblemSection() {
         {/* Section Header */}
         <div className="flex flex-col items-start gap-4 mb-16 max-w-3xl text-left">
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-4 py-1.5 text-sm font-bold text-yellow-500 uppercase tracking-wider font-mono">
-            Thực Trạng Thị Trường
+            Thách Thức Vận Hành
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-[1.05]">
-            Rào Cản Lớn Trong <br />
-            <span className="text-gradient-accent">Tuyển Dụng Truyền Thống</span>
+            Giới Hạn Của Hệ Thống <br />
+            <span className="text-gradient-accent">Giám Sát Thụ Động</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl">
-            Quy trình tuyển dụng thủ công đang gây lãng phí hàng nghìn giờ làm việc của doanh nghiệp và làm mất đi cơ hội việc làm quý báu của người lao động.
+            Hệ thống camera an ninh truyền thống chỉ ghi hình thụ động và lưu trữ dữ liệu, khiến doanh nghiệp bỏ lỡ cơ hội phòng ngừa rủi ro thời gian thực.
           </p>
         </div>
 
         {/* Split Grid: Recruiters vs Workers */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Box 1: For Recruiters */}
+          {/* Box 1: An Ninh & An Toàn */}
           <div className="p-8 rounded-2xl modern-glass flex flex-col justify-between gap-8 group">
             <div>
               <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-[#d85b6a] mb-6">
                 <AlertTriangle size={24} />
               </div>
               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide mb-4">
-                Đối Với Doanh Nghiệp & Nhà Tuyển Dụng
+                Rủi ro An ninh & An toàn Lao động
               </h3>
               <p className="text-white/60 text-base leading-relaxed mb-6">
-                Những nút thắt làm chậm dòng chảy tăng trưởng của doanh nghiệp.
+                Những lỗ hổng đe dọa sự an toàn của con người và tài sản doanh nghiệp.
               </p>
 
               {/* Problems list */}
@@ -44,9 +43,9 @@ export default function ProblemSection() {
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <Timer size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Tốn thời gian sàng lọc thủ công</h4>
+                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Ứng phó sự cố hỏa hoạn chậm trễ</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-                      Phải đọc hàng trăm CV không phù hợp hoặc hồ sơ ảo để chọn ra được 1 hồ sơ chất lượng.
+                      Cảm biến nhiệt trần nhà chỉ kích hoạt khi đám cháy đã bùng phát lớn, không thể phát hiện sớm cột khói nhỏ.
                     </p>
                   </div>
                 </div>
@@ -54,9 +53,9 @@ export default function ProblemSection() {
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <Users2 size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Tỷ lệ ứng viên ảo và bỏ cọc cao</h4>
+                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Không tuân thủ an toàn (PPE)</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-                      Thiếu sự cam kết từ ứng viên tự do, tỷ lệ hẹn phỏng vấn nhưng không đến lên tới 60%.
+                      Việc giám sát thủ công bảo hộ lao động (mũ, áo phản quang) luôn có kẽ hở, dẫn đến rủi ro tai nạn lao động cao.
                     </p>
                   </div>
                 </div>
@@ -64,9 +63,9 @@ export default function ProblemSection() {
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <Ban size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Chi phí đăng tin đắt đỏ</h4>
+                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Xâm nhập trái phép khu vực cấm</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-                      Chi phí đăng tin tuyển dụng trên các kênh lớn cao nhưng hiệu quả mang lại không ổn định.
+                      Kẻ xấu lợi dụng sơ hở của đội tuần tra để tiếp cận kho bãi hoặc khu vực kỹ thuật nhạy cảm mà không bị phát hiện.
                     </p>
                   </div>
                 </div>
@@ -74,21 +73,21 @@ export default function ProblemSection() {
             </div>
 
             <div className="border-t border-white/5 pt-4 text-xs font-mono text-white/30">
-              [ PHÂN HỆ RECRUITER KHÓ KHĂN ]
+              [ AN NINH & AN TOÀN ]
             </div>
           </div>
 
-          {/* Box 2: For Workers */}
+          {/* Box 2: Vận Hành & Quản Lý */}
           <div className="p-8 rounded-2xl modern-glass flex flex-col justify-between gap-8 group">
             <div>
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
                 <HelpCircle size={24} />
               </div>
               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide mb-4">
-                Đối Với Người Lao Động Phổ Thông
+                Hiệu Suất Vận Hành & Thất Thoát Tài Sản
               </h3>
               <p className="text-white/60 text-base leading-relaxed mb-6">
-                Những khó khăn làm nản lòng người đi tìm việc.
+                Những nút thắt làm lãng phí tài nguyên và chi phí cơ hội của doanh nghiệp.
               </p>
 
               {/* Problems list */}
@@ -96,9 +95,9 @@ export default function ProblemSection() {
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <ShieldAlert size={18} className="text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Khó tiếp cận công việc chất lượng</h4>
+                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Thiếu dữ liệu phân tích khách hàng</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-                      Thiếu thông tin minh bạch, dễ gặp phải các tin đăng tuyển lừa đảo hoặc đa cấp giả danh.
+                      Chuỗi bán lẻ chỉ biết doanh số cuối ngày mà không hiểu luồng di chuyển hay sản phẩm thu hút sự chú ý.
                     </p>
                   </div>
                 </div>
@@ -106,9 +105,9 @@ export default function ProblemSection() {
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <Timer size={18} className="text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Quy trình ứng tuyển phức tạp</h4>
+                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Ùn tắc và quản lý xe ra vào kém</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-                      Hồ sơ ứng tuyển rườm rà, thủ tục nộp giấy tờ phức tạp đối với lao động tay chân.
+                      Ghi chép biển số thủ công gây tắc nghẽn trạm cân, cổng nhà kho hoặc sảnh bãi đỗ xe trong giờ cao điểm.
                     </p>
                   </div>
                 </div>
@@ -116,9 +115,9 @@ export default function ProblemSection() {
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <Ban size={18} className="text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Bị động và thiếu phản hồi</h4>
+                    <h4 className="text-white font-bold text-base lg:text-lg mb-1">Dữ liệu rời rạc, không thể dự báo</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-                      Không nhận được phản hồi sau khi nộp hồ sơ, không biết trạng thái xét duyệt của mình.
+                      Hình ảnh lưu trữ phân mảnh trên các đầu ghi, gây khó khăn cho việc tra cứu sự cố hoặc tổng hợp thống kê.
                     </p>
                   </div>
                 </div>
@@ -126,7 +125,7 @@ export default function ProblemSection() {
             </div>
 
             <div className="border-t border-white/5 pt-4 text-xs font-mono text-white/30">
-              [ PHÂN HỆ WORKER KHÓ KHĂN ]
+              [ HIỆU SUẤT VẬN HÀNH ]
             </div>
           </div>
         </div>

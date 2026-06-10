@@ -1,53 +1,33 @@
-import { UserPlus, Cpu, Briefcase, FileText, CheckCircle2, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { Search, PenTool, Settings, Cpu, ChevronRight } from "lucide-react";
 
-const WORKER_STEPS = [
+const DEPLOYMENT_STEPS = [
   {
     step: "01",
-    title: "Đăng Ký & Nhập Hồ Sơ",
-    desc: "Đăng ký nhanh bằng số điện thoại và tải lên CV hoặc nhập thông tin kỹ năng cơ bản chỉ trong 1 phút.",
-    icon: UserPlus,
+    title: "Khảo Sát & Đánh Giá",
+    desc: "Khảo sát thực tế cơ sở hạ tầng camera, góc quay và nhu cầu nghiệp vụ để xác định vị trí và giải pháp tối ưu.",
+    icon: Search,
   },
   {
     step: "02",
-    title: "AI So Khớp Công Việc",
-    desc: "Thuật toán AI tự động đối sánh, chấm điểm độ phù hợp và đề xuất các tin tuyển dụng sát thực tế nhất trong khu vực.",
-    icon: Cpu,
+    title: "Thiết Kế Giải Pháp",
+    desc: "Các kỹ sư phát triển và cấu hình mô hình AI riêng biệt để đáp ứng chuẩn xác các mục tiêu cấm cản, nhận dạng hay cảnh báo.",
+    icon: PenTool,
   },
   {
     step: "03",
-    title: "Nhận Việc & Đi Làm Ngay",
-    desc: "Nhận lời mời phỏng vấn trực tiếp từ nhà tuyển dụng, xác nhận thông tin minh bạch và bắt đầu công việc mới.",
-    icon: Briefcase,
-  },
-];
-
-const RECRUITER_STEPS = [
-  {
-    step: "01",
-    title: "Đăng Tin Tuyển Dụng",
-    desc: "Nhập mô tả vị trí ứng tuyển. AI của CyberDX hỗ trợ tối ưu tiêu chuẩn hóa tin đăng để tiếp cận đúng nhóm lao động.",
-    icon: FileText,
+    title: "Tích Hợp Hệ Thống",
+    desc: "Tích hợp liền mạch thiết bị xử lý Edge AI Box hoặc AI Server vào luồng camera RTSP sẵn có mà không gián đoạn vận hành.",
+    icon: Settings,
   },
   {
-    step: "02",
-    title: "AI Sàng Lọc CV Tự Động",
-    desc: "Nhận ngay danh sách hồ sơ ứng viên chất lượng cao được AI chấm điểm độ phù hợp (%) và xác thực tay nghề.",
+    step: "04",
+    title: "Vận Hành & Tối Ưu",
+    desc: "Bàn giao Dashboard điều khiển, hướng dẫn đội ngũ và liên tục hiệu chuẩn mô hình AI dựa trên dữ liệu thực tế.",
     icon: Cpu,
-  },
-  {
-    step: "03",
-    title: "Kết Nối & Tuyển Dụng",
-    desc: "Tương tác trực tiếp qua cổng chat bảo mật, hẹn lịch phỏng vấn nhanh chóng và chốt nhân sự đi làm.",
-    icon: CheckCircle2,
   },
 ];
 
 export default function WorkflowSection() {
-  const [activeTab, setActiveTab] = useState<"worker" | "recruiter">("worker");
-
-  const steps = activeTab === "worker" ? WORKER_STEPS : RECRUITER_STEPS;
-
   return (
     <section
       id="workflow"
@@ -59,43 +39,19 @@ export default function WorkflowSection() {
         {/* Title */}
         <div className="flex flex-col items-center text-center gap-4 mb-16">
           <div className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-sm font-bold text-[#d85b6a] uppercase tracking-wider font-mono">
-            Quy Trình Vận Hành
+            Quy Trình Triển Khai
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-[1.05]">
-            Vận Hành Trơn Tru Trong <span className="text-gradient-peach">3 Bước</span>
+            Tích Hợp Nhanh Chóng Trong <span className="text-gradient-peach">4 Bước</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
-            Quy trình kết nối cung - cầu lao động thông minh được tinh giản tối đa nhờ sự hỗ trợ của trí tuệ nhân tạo.
+            Quy trình lắp đặt hệ thống phân tích video AI được tối ưu hóa để diễn ra nhanh chóng, chuyên nghiệp và hiệu quả nhất.
           </p>
-
-          {/* Tab buttons switcher */}
-          <div className="flex bg-white/5 border border-white/10 rounded-full p-1.5 mt-6">
-            <button
-              onClick={() => setActiveTab("worker")}
-              className={`px-8 py-3 rounded-full text-sm font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                activeTab === "worker"
-                  ? "bg-[#d85b6a] text-white shadow-lg"
-                  : "text-white/60 hover:text-white"
-              }`}
-            >
-              Người tìm việc (Worker)
-            </button>
-            <button
-              onClick={() => setActiveTab("recruiter")}
-              className={`px-8 py-3 rounded-full text-sm font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                activeTab === "recruiter"
-                  ? "bg-[#d85b6a] text-white shadow-lg"
-                  : "text-white/60 hover:text-white"
-              }`}
-            >
-              Nhà tuyển dụng (Recruiter)
-            </button>
-          </div>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {steps.map((item, index) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          {DEPLOYMENT_STEPS.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
@@ -114,17 +70,17 @@ export default function WorkflowSection() {
 
                 {/* Content */}
                 <div>
-                  <h3 className="text-2xl font-black text-white uppercase tracking-wide mb-3">
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-white/50 text-base leading-relaxed">
+                  <p className="text-white/50 text-sm leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Subtle line connection for desktop */}
-                {index < 2 && (
-                  <div className="hidden md:block absolute right-[-24px] top-1/2 -translate-y-1/2 z-20 text-white/10">
+                {index < 3 && (
+                  <div className="hidden lg:block absolute right-[-24px] top-1/2 -translate-y-1/2 z-20 text-white/10">
                     <ChevronRight size={24} />
                   </div>
                 )}

@@ -20,7 +20,7 @@ export default function SolutionSection() {
             <span className="text-gradient-peach">Hệ Thống Phân Tích Thông Minh</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed">
-            Chúng tôi định vị 3 dòng sản phẩm cột trụ tương tự tiêu chuẩn tối tân của `cxview.ai`, nhằm chuẩn hóa toàn diện thị trường nhân sự Việt Nam.
+            Chúng tôi cung cấp hệ sinh thái phân tích video AI gồm 3 dòng giải pháp cột trụ, giúp chuyển đổi hệ thống camera thành công cụ kiểm soát an toàn và tối ưu kinh doanh.
           </p>
         </div>
 
@@ -33,23 +33,23 @@ export default function SolutionSection() {
             </div>
             <h3 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-wide">
               Safety &amp; Security <br />
-              (An Toàn Tuyển Dụng)
+              (An Ninh &amp; An Toàn)
             </h3>
             <p className="text-white/60 text-base leading-relaxed">
-              Xác thực danh tính số bằng AI, rà soát lịch sử vi phạm, lọc sạch tin đăng tuyển ảo, bảo vệ quyền lợi pháp lý cho người lao động và uy tín doanh nghiệp.
+              Tự động hóa phát hiện không tuân thủ bảo hộ lao động (PPE), thiết lập hàng rào ảo chống xâm nhập khu vực cấm và phát hiện khói, cháy từ giai đoạn sớm nhất bằng AI.
             </p>
             <ul className="flex flex-col gap-2.5 mt-auto pt-6 border-t border-white/5 text-sm text-white/70 font-semibold">
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-[#d85b6a]" />
-                Định danh ứng viên eKYC
+                Nhận diện PPE &amp; Đồng phục
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-[#d85b6a]" />
-                Kiểm duyệt tin lừa đảo tự động
+                Phát hiện xâm nhập chu vi
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-[#d85b6a]" />
-                Mã hóa thông tin cá nhân
+                Cảnh báo khói cháy sớm bằng AI
               </li>
             </ul>
           </div>
@@ -64,48 +64,48 @@ export default function SolutionSection() {
               (Trí Tuệ Vận Hành)
             </h3>
             <p className="text-white/60 text-base leading-relaxed">
-              So khớp kỹ năng và kinh nghiệm thực tế của ứng viên với JD. Đo lường khoảng cách, tự động tối ưu hóa chi phí di chuyển và phân bổ nguồn lực.
+              Nhận diện biển số xe (LPR) thông minh, tự động hóa trạm cân xe và quản lý ra vào cho nhân sự, khách hàng mà không cần tiếp xúc vật lý.
             </p>
             <ul className="flex flex-col gap-2.5 mt-auto pt-6 border-t border-white/5 text-sm text-white/70 font-semibold">
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-purple-400" />
-                Khớp việc bán kính tối ưu
+                Nhận diện biển số xe LPR
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-purple-400" />
-                Dòng chảy hồ sơ thời gian thực
+                Kiểm soát cửa xoay ra vào
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-purple-400" />
-                Trò chuyện trực tuyến không trung gian
+                Cân xe tự động thông minh
               </li>
             </ul>
           </div>
 
-          {/* Card 3: Quality & Management */}
+          {/* Card 3: Business Analytics */}
           <div className="p-8 rounded-2xl modern-glass flex flex-col gap-6 text-left group hover:border-[#d85b6a]/40">
             <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
               <BarChart4 size={24} />
             </div>
             <h3 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-wide">
-              Quality &amp; Management <br />
-              (Quản Trị Chất Lượng)
+              Business Analytics <br />
+              (Phân Tích Kinh Doanh)
             </h3>
             <p className="text-white/60 text-base leading-relaxed">
-              Thiết lập bài đánh giá tay nghề tự động. Bảng dữ liệu Analytics cung cấp thông số trực quan về hiệu quả sàng lọc, tỷ lệ nhận việc, và ngân sách chiêu mộ.
+              Đếm lưu lượng khách (People counting), phân tích thời gian tương tác (Dwell time) và vẽ bản đồ nhiệt hành vi (Heatmap) phục vụ tối ưu hóa doanh số và bố cục trưng bày.
             </p>
             <ul className="flex flex-col gap-2.5 mt-auto pt-6 border-t border-white/5 text-sm text-white/70 font-semibold">
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-blue-400" />
-                Smart Dashboard đo lường chuyển đổi
+                Bản đồ nhiệt hành vi Heatmap
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-blue-400" />
-                Bài kiểm tra tay nghề tự động
+                Đếm người ra vào chính xác
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-blue-400" />
-                Xuất báo cáo tài chính &amp; nhân sự gọn nhẹ
+                Đo lường thời gian tương tác
               </li>
             </ul>
           </div>

@@ -1,5 +1,4 @@
 import { BrainCircuit, Landmark, ShieldCheck, Activity, ArrowRight, Check } from "lucide-react";
-import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 export default function BentoFeatures() {
@@ -37,13 +36,13 @@ export default function BentoFeatures() {
             Với <span className="text-gradient-peach">Hệ Sinh Thái Edge AI</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl">
-            Chúng tôi tích hợp các bộ phân tích dữ liệu trực tuyến và biểu đồ mô phỏng tự động, mang lại trải nghiệm quản trị trực quan như các hệ thống hàng đầu thế giới.
+            Sức mạnh của trí tuệ nhân tạo được xử lý cục bộ ngay tại biên, giúp tối ưu hóa băng thông mạng và mang lại tốc độ phản hồi cảnh báo tức thời.
           </p>
         </div>
 
         {/* Bento Grid */}
         <div className="bento-grid">
-          {/* Card 1: Edge AI Matcher (Radar Sweep Visual) */}
+          {/* Card 1: Edge AI Video Engine (Radar Sweep Visual) */}
           <div className="lg:col-span-8 p-8 rounded-2xl modern-glass flex flex-col md:flex-row justify-between min-h-[360px] relative overflow-hidden group hover:border-[#d85b6a]/30 text-left gap-8">
             <div className="flex flex-col justify-between z-10 md:w-1/2">
               <div>
@@ -51,10 +50,10 @@ export default function BentoFeatures() {
                   <BrainCircuit size={20} />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide mb-3">
-                  Edge AI Matcher (Bộ Quét So Khớp)
+                  Edge AI Video Engine (Xử Lý Tại Biên)
                 </h3>
                 <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6">
-                  So khớp kỹ năng, kinh nghiệm và bán kính tìm việc của ứng viên với nhà tuyển dụng một cách cục bộ siêu nhanh, trả kết quả tức thì dưới 100ms.
+                  Thuật toán Computer Vision phân tích trực tiếp các luồng video RTSP/ONVIF ngay tại thiết bị biên cục bộ, giảm độ trễ xử lý xuống dưới 100ms mà không tốn băng thông truyền đám mây.
                 </p>
               </div>
 
@@ -63,7 +62,7 @@ export default function BentoFeatures() {
                   Zero Data Leakage
                 </span>
                 <span className="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-white/70 uppercase">
-                  Edge Analytics
+                  Local Processing
                 </span>
               </div>
             </div>
@@ -99,7 +98,7 @@ export default function BentoFeatures() {
                 </svg>
 
                 <span className="text-[10px] font-mono text-white/30 absolute bottom-4 uppercase tracking-widest">
-                  AI RADAR SWEEPING
+                  AI SCANNING STREAM
                 </span>
               </div>
             </div>
@@ -112,25 +111,25 @@ export default function BentoFeatures() {
                 <ShieldCheck size={20} />
               </div>
               <h3 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-wide mb-3">
-                Anti-Intrusion (Lọc Hồ Sơ Ảo)
+                Intrusion &amp; Threat Detection
               </h3>
               <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6">
-                Công cụ tự động phát hiện hành vi gian lận hồ sơ, spam tin giả danh, lọc sạch 99% các hiểm họa xâm nhập.
+                Công cụ tự động phát hiện xâm nhập ngoài giờ quy định, vượt rào ảo cấm và lập tức gửi cảnh báo sự cố kèm video.
               </p>
 
               {/* Mini scan checklist */}
               <div className="flex flex-col gap-2 mt-2 bg-black/40 border border-white/5 p-4 rounded-xl font-mono text-xs text-white/60">
                 <div className="flex items-center gap-2">
                   <Check size={12} className="text-green-400" />
-                  <span>XÁC THỰC SỐ ĐIỆN THOẠI: OK</span>
+                  <span>HÀNG RÀO ẢO CHU VI: HOẠT ĐỘNG</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={12} className="text-green-400" />
-                  <span>PHÂN TÍCH SPAM: AN TOÀN</span>
+                  <span>NHẬN DIỆN NGƯỜI/PHƯƠNG TIỆN: ĐẠT</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={12} className="text-green-400" />
-                  <span>DUYỆT DOANH NGHIỆP: ĐẠT</span>
+                  <span>HỆ THỐNG PHÁT LOA CẢNH BÁO: OK</span>
                 </div>
               </div>
             </div>
@@ -140,17 +139,17 @@ export default function BentoFeatures() {
             </span>
           </div>
 
-          {/* Card 3: Real-Time Sourcing Feed (Animated Pulse Signal) */}
+          {/* Card 3: Real-Time Telemetry Feed (Animated Pulse Signal) */}
           <div className="lg:col-span-4 p-8 rounded-2xl modern-glass flex flex-col justify-between min-h-[360px] group hover:border-[#d85b6a]/30 text-left">
             <div>
               <div className="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 mb-6">
                 <Activity size={20} />
               </div>
               <h3 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-wide mb-3">
-                Real-Time Sourcing
+                Real-Time Telemetry Feed
               </h3>
               <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6">
-                Bộ báo cáo tần suất kết nối cung - cầu lao động trực tuyến, đồng bộ hóa thông tin và hiển thị ngay tức khắc.
+                Đồng bộ hóa dữ liệu sự kiện từ thiết bị Edge về máy chủ trung tâm thời gian thực, đảm bảo luồng thông tin không gián đoạn.
               </p>
 
               {/* Dynamic Animated Pulsewave Line Graphic */}
@@ -165,12 +164,12 @@ export default function BentoFeatures() {
             <div className="border-t border-white/5 pt-4 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
               <span className="text-xs text-white/50 font-semibold uppercase tracking-wider font-mono">
-                Đồng bộ hóa dữ liệu &lt; 200ms
+                Độ trễ truyền tải &lt; 200ms
               </span>
             </div>
           </div>
 
-          {/* Card 4: Smart Management Dashboard (Animated Bar Chart Visual) */}
+          {/* Card 4: Smart command Dashboard (Animated Bar Chart Visual) */}
           <div className="lg:col-span-8 p-8 rounded-2xl modern-glass flex flex-col md:flex-row justify-between min-h-[360px] relative overflow-hidden group hover:border-[#d85b6a]/30 text-left gap-8">
             <div className="absolute left-0 bottom-0 w-2/3 h-full opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-300 pointer-events-none">
               <div className="w-full h-full bg-radial-gradient from-white to-transparent blur-[60px]" />
@@ -182,19 +181,19 @@ export default function BentoFeatures() {
                   <Landmark size={20} />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide mb-3">
-                  Smart Dashboard (Báo Cáo Hợp Nhất)
+                  Smart Command Center (Báo Cáo Hợp Nhất)
                 </h3>
                 <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6">
-                  Toàn bộ chỉ số tuyển dụng ứng viên, giao dịch, số liệu tài chính được tích hợp mượt mà trong một Dashboard duy nhất cho Admin.
+                  Hiển thị toàn cảnh dữ liệu từ kiểm soát ra vào, phát hiện khói lửa, chỉ số tuân thủ bảo hộ (PPE) và cảnh báo xâm nhập trên một giao diện đồ thị tương tác duy nhất.
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 mt-auto">
                 <span className="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-white/70 uppercase">
-                  Centralized UI Flow
+                  Centralized Command UI
                 </span>
                 <span className="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-white/70 uppercase">
-                  Integrated Ledger
+                  Combined Analytics
                 </span>
               </div>
             </div>
@@ -202,7 +201,7 @@ export default function BentoFeatures() {
             {/* High-tech Animated Bar Chart Graphic */}
             <div className="md:w-1/2 flex items-center justify-center z-10 relative min-h-[200px]">
               <div className="w-48 h-40 bg-black/40 border border-white/10 rounded-xl p-4 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-                <span className="text-xs font-mono text-white/40 block">TỔNG HỢP GIAO DỊCH KẾT NỐI AI</span>
+                <span className="text-xs font-mono text-white/40 block">TẦN SUẤT SỰ KIỆN AI AN NINH</span>
                 
                 {/* Animated Bar charts */}
                 <div className="flex items-end justify-between h-20 gap-4 px-2">
@@ -221,8 +220,8 @@ export default function BentoFeatures() {
                 </div>
 
                 <div className="flex justify-between items-center border-t border-white/5 pt-2 text-[10px] font-mono text-white/40">
-                  <span>HIỆU SUẤT TRUNG BÌNH:</span>
-                  <span className="text-white font-bold">92.4%</span>
+                  <span>HIỆU SUẤT TRUNG BÌNH CHUNG:</span>
+                  <span className="text-white font-bold">99.4%</span>
                 </div>
               </div>
             </div>

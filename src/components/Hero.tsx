@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Play } from 'lucide-react';
 import BlurText from './BlurText';

@@ -20,7 +20,7 @@ export default function ConsciousInnovation() {
             <span className="text-gradient-peach">&amp; Trải Nghiệm Có Mục Tiêu</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-3xl leading-relaxed">
-            Tại CyberDX, chúng tôi tin rằng công nghệ AI không sinh ra để thay thế con người, mà để phục vụ và nâng tầm giá trị nhân bản một cách bền vững.
+            Tại hệ thống của chúng tôi, phát triển công nghệ AI đi đôi với trách nhiệm bảo vệ quyền riêng tư và đạo đức dữ liệu hình ảnh một cách bền vững.
           </p>
         </div>
 
@@ -32,10 +32,10 @@ export default function ConsciousInnovation() {
               <Heart size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
-              Nhân Bản Làm Gốc
+              Bảo Vệ Quyền Riêng Tư
             </h3>
-            <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-              Mọi thuật toán so khớp được thiết kế để tôn trọng khả năng thực tế của người lao động phổ thông, không phân biệt bằng cấp hay xuất thân.
+            <p className="text-white/50 text-sm leading-relaxed">
+              Quyền riêng tư được ưu tiên hàng đầu bằng cách chỉ trích xuất dữ liệu chỉ số phân tích, cam kết không lưu trữ hình ảnh nhạy cảm trái phép.
             </p>
           </div>
 
@@ -45,10 +45,10 @@ export default function ConsciousInnovation() {
               <Shield size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
-              Bảo Mật Tuyệt Đối
+              Bảo Mật Zero-Trust
             </h3>
-            <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-              Áp dụng triết lý Zero-Trust. Toàn bộ thông tin liên lạc và hồ sơ gốc được mã hóa an toàn, chỉ truyền đi các dữ liệu chỉ số khớp việc tối giản.
+            <p className="text-white/50 text-sm leading-relaxed">
+              Ứng dụng điện toán biên để xử lý video trực tiếp tại nguồn, hạn chế tối đa việc truyền tải dữ liệu thô ra môi trường mạng bên ngoài.
             </p>
           </div>
 
@@ -58,10 +58,10 @@ export default function ConsciousInnovation() {
               <Target size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
-              Đúng Người Đúng Việc
+              Phòng Ngừa Chủ Động
             </h3>
-            <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-              Tập trung giải quyết bài toán cốt lõi: giúp người lao động có việc làm ổn định nhanh nhất và doanh nghiệp có nhân sự chất lượng tối ưu nhất.
+            <p className="text-white/50 text-sm leading-relaxed">
+              Thay vì giám sát vi mô gây áp lực lên con người, AI tập trung cảnh báo sớm các sự cố khẩn cấp nguy hại như ngã té, xâm nhập và cháy nổ.
             </p>
           </div>
 
@@ -71,10 +71,10 @@ export default function ConsciousInnovation() {
               <Users size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
-              Đồng Tạo Dựng
+              Giải Pháp May Đo
             </h3>
-            <p className="text-white/50 text-sm lg:text-base leading-relaxed">
-              Hợp tác chặt chẽ cùng các doanh nghiệp Việt Nam để may đo giải pháp phù hợp nhất với thói quen và nhu cầu thực tiễn của thị trường.
+            <p className="text-white/50 text-sm leading-relaxed">
+              Các mô hình AI được tinh chỉnh liên tục để tương thích tối đa với điều kiện ánh sáng, góc nhìn và đặc trưng riêng của doanh nghiệp Việt Nam.
             </p>
           </div>
         </div>
