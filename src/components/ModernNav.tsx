@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 interface ModernNavProps {
   onContact?: () => void;
+  onGoHome?: () => void;
 }
 
 interface NavLinkItem {
@@ -14,44 +15,47 @@ interface NavLinkItem {
 
 const NAV_LINKS: NavLinkItem[] = [
   {
-    label: "Ngành Nghề",
+    label: "Industries",
     dropdownItems: [
-      { label: "Sản xuất & Nhà máy", slug: "san-xuat-nha-may", href: "/san-xuat-nha-may/" },
-      { label: "Kho vận & Hàng hóa", slug: "kho-van-hang-hoa", href: "/kho-van-hang-hoa/" },
-      { label: "Bán lẻ & Dịch vụ", slug: "ban-le-dich-vu", href: "/ban-le-dich-vu/" },
-      { label: "Giáo dục & Đào tạo", slug: "giao-duc-dao-tao-2", href: "/giao-duc-dao-tao-2/" },
-      { label: "Khách sạn & Du lịch", slug: "khach-san-du-lich", href: "/khach-san-du-lich/" },
-      { label: "Bệnh viện & Y tế", slug: "benh-vien-co-so-y-te", href: "/benh-vien-co-so-y-te/" },
+      { label: "Manufacturing & Factories", slug: "san-xuat-nha-may", href: "/san-xuat-nha-may/" },
+      { label: "Logistics & Warehousing", slug: "kho-van-hang-hoa", href: "/kho-van-hang-hoa/" },
+      { label: "Retail & Services", slug: "ban-le-dich-vu", href: "/ban-le-dich-vu/" },
+      { label: "Education & Training", slug: "giao-duc-dao-tao-2", href: "/giao-duc-dao-tao-2/" },
+      { label: "Hospitality & Tourism", slug: "khach-san-du-lich", href: "/khach-san-du-lich/" },
+      { label: "Hospitals & Healthcare", slug: "ben-vien-co-so-y-te", href: "/ben-vien-co-so-y-te/" },
     ],
   },
   {
-    label: "Giải Pháp AI",
+    label: "AI Solutions",
     dropdownItems: [
-      { label: "Nhận diện khuôn mặt", slug: "nhan-dien-khuon-mat", href: "/nhan-dien-khuon-mat/" },
-      { label: "Nhận diện biển số xe", slug: "nhan-dien-bien-so-xe-tu-dong", href: "/nhan-dien-bien-so-xe-tu-dong/" },
-      { label: "Phát hiện khói & cháy", slug: "phat-hien-khoi-chay", href: "/phat-hien-khoi-chay/" },
-      { label: "Phát hiện xâm nhập", slug: "phat-hien-xam-nhap", href: "/phat-hien-xam-nhap/" },
-      { label: "Giám sát PPE & Đồng phục", slug: "giam-sat-ppe-dong-phuc", href: "/giam-sat-ppe-dong-phuc/" },
-      { label: "Giải pháp đếm người", slug: "giai-phap-dem-nguoi", href: "/giai-phap-dem-nguoi/" },
-      { label: "Giám sát đỗ xe cấm", slug: "giam-sat-do-xe-sai-quy-dinh", href: "/giam-sat-do-xe-sai-quy-dinh/" },
-      { label: "Nhận diện hành vi", slug: "nhan-dien-phan-tich-hanh-vi", href: "/nhan-dien-phan-tich-hanh-vi/" },
-      { label: "Bản đồ nhiệt & Lộ trình", slug: "ban-do-nhiet-lo-trinh", href: "/ban-do-nhiet-lo-trinh/" },
+      { label: "Face Recognition", slug: "nhan-dien-khuon-mat", href: "/nhan-dien-khuon-mat/" },
+      { label: "License Plate Recognition", slug: "nhan-dien-bien-so-xe-tu-dong", href: "/nhan-dien-bien-so-xe-tu-dong/" },
+      { label: "Smoke & Fire Detection", slug: "phat-hien-khoi-chay", href: "/phat-hien-khoi-chay/" },
+      { label: "Intrusion Detection", slug: "phat-hien-xam-nhap", href: "/phat-hien-xam-nhap/" },
+      { label: "PPE & Uniform Monitoring", slug: "giam-sat-ppe-dong-phuc", href: "/giam-sat-ppe-dong-phuc/" },
+      { label: "People Counting", slug: "giai-phap-dem-nguoi", href: "/giai-phap-dem-nguoi/" },
+      { label: "Illegal Parking Detection", slug: "giam-sat-do-xe-sai-quy-dinh", href: "/giam-sat-do-xe-sai-quy-dinh/" },
+      { label: "Behavior Recognition", slug: "nhan-dien-phan-tich-hanh-vi", href: "/nhan-dien-phan-tich-hanh-vi/" },
+      { label: "Heatmap & Trajectory", slug: "ban-do-nhiet-lo-trinh", href: "/ban-do-nhiet-lo-trinh/" },
     ],
   },
   {
-    label: "Thư Viện",
+    label: "Library",
     dropdownItems: [
-      { label: "Câu Hỏi Thường Gặp", slug: "cau-hoi-thuong-gap", href: "/cau-hoi-thuong-gap/" },
-      { label: "Dự Án Tiêu Biểu", slug: "case-studies", href: "/case-studies/" },
-      { label: "Điều khoản sử dụng", slug: "dieu-khoan-su-dung", href: "/dieu-khoan-su-dung/" },
-      { label: "Chính sách bảo mật", slug: "chinh-sach-bao-mat", href: "/chinh-sach-bao-mat/" },
+      { label: "Frequently Asked Questions", slug: "cau-hoi-thuong-gap", href: "/cau-hoi-thuong-gap/" },
+      { label: "Case Studies", slug: "case-studies", href: "/case-studies/" },
+      { label: "Careers", slug: "career", href: "/career/" },
+      { label: "News & Articles", slug: "unlocking-intelligence-ai-video-analytics", href: "/unlocking-intelligence-ai-video-analytics/" },
+      { label: "Terms of Service", slug: "dieu-khoan-su-dung", href: "/dieu-khoan-su-dung/" },
+      { label: "Privacy Policy", slug: "chinh-sach-bao-mat", href: "/chinh-sach-bao-mat/" },
     ],
   },
-  { label: "Triết Lý", href: "#philosophy" },
-  { label: "Quy Trình", href: "#workflow" },
+  { label: "About", href: "#about" },
+  { label: "Platform", href: "#platform" },
+  { label: "Workflow", href: "#workflow" },
 ];
 
-export default function ModernNav({ onContact }: ModernNavProps) {
+export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -109,31 +113,41 @@ export default function ModernNav({ onContact }: ModernNavProps) {
   return (
     <>
       <nav
-        className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-300"
+        className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-300 pointer-events-none"
       >
-        <div
-          className={`max-w-7xl mx-auto flex items-center justify-between py-3 px-6 rounded-full transition-all duration-300 ${
-            scrolled
-              ? "bg-[#080808]/70 border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] backdrop-blur-xl"
-              : "bg-transparent border-transparent"
-          } border`}
-          style={{
-            backdropFilter: scrolled ? "blur(20px)" : "none",
-            WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-          }}
-        >
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 flex-shrink-0" onClick={closeMobile}>
-            <img
-              src="/logo_cyberdx-removebg-preview.png"
-              alt="CyberDX"
-              className="h-20 w-auto object-contain mix-blend-screen drop-shadow-[0_4px_12px_rgba(216,91,106,0.3)] transition-all duration-300 hover:scale-105"
-              style={{ maxHeight: "80px" }}
-            />
-          </a>
+        <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
+          {/* Logo - Separated on the left */}
+          <div className="pointer-events-auto flex items-center">
+            <a
+              href="/"
+              className="flex items-center flex-shrink-0"
+              onClick={(e) => {
+                e.preventDefault();
+                closeMobile();
+                onGoHome?.();
+              }}
+            >
+              <img
+                src="/logo_cyberdx-removebg-preview.png"
+                alt="CyberDX"
+                className="h-14 md:h-[68px] w-auto object-contain mix-blend-screen transition-all duration-300 hover:scale-105"
+                style={{ maxHeight: "72px" }}
+              />
+            </a>
+          </div>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Desktop Nav Links - Centered capsule */}
+          <div
+            className={`hidden lg:flex items-center gap-2.5 py-1.5 px-5 rounded-full transition-all duration-300 bg-[#08080a]/65 border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-md pointer-events-auto border ${
+              scrolled
+                ? "bg-[#050507]/90 border-[#d85b6a]/20 shadow-[0_12px_36px_rgba(0,0,0,0.7)] backdrop-blur-xl scale-[0.98]"
+                : ""
+            }`}
+            style={{
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+            }}
+          >
             {NAV_LINKS.map((link) => {
               const hasDropdown = !!link.dropdownItems;
               const isActive = activeDropdown === link.label;
@@ -141,7 +155,7 @@ export default function ModernNav({ onContact }: ModernNavProps) {
               return (
                 <div
                   key={link.label}
-                  className="relative py-2"
+                  className="relative py-1.5"
                   onMouseEnter={() => hasDropdown && handleMouseEnter(link.label)}
                   onMouseLeave={() => hasDropdown && handleMouseLeave()}
                 >
@@ -150,9 +164,14 @@ export default function ModernNav({ onContact }: ModernNavProps) {
                     onClick={(e) => {
                       if (hasDropdown) {
                         e.preventDefault();
+                        setActiveDropdown(activeDropdown === link.label ? null : link.label);
+                      } else if (link.href && link.href.startsWith("#")) {
+                        e.preventDefault();
+                        window.location.hash = link.href;
+                        onGoHome?.();
                       }
                     }}
-                    className={`px-4 py-2.5 text-[15px] font-black uppercase tracking-widest transition-all duration-300 rounded-full flex items-center gap-1.5 ${
+                    className={`px-4 py-2 text-[14px] font-black uppercase tracking-widest transition-all duration-300 rounded-full flex items-center gap-1.5 ${
                       isActive
                         ? "bg-[#d85b6a] text-white shadow-[0_4px_14px_rgba(216,91,106,0.4)] scale-105"
                         : "text-white/85 hover:text-white hover:bg-white/5"
@@ -161,7 +180,7 @@ export default function ModernNav({ onContact }: ModernNavProps) {
                     {link.label}
                     {hasDropdown && (
                       <ChevronDown
-                        size={14}
+                        size={13}
                         className={`transition-transform duration-300 ${
                           isActive ? "rotate-180" : ""
                         }`}
@@ -197,8 +216,8 @@ export default function ModernNav({ onContact }: ModernNavProps) {
             })}
           </div>
 
-          {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-4">
+          {/* CTA & Mobile Toggle - Separated on the right */}
+          <div className="pointer-events-auto flex items-center gap-3">
             <a
               href="#contact"
               onClick={(e) => {
@@ -206,16 +225,16 @@ export default function ModernNav({ onContact }: ModernNavProps) {
                 onContact?.();
                 closeMobile();
               }}
-              className="hidden sm:flex items-center gap-2 bg-[#d85b6a] text-white rounded-full px-8 py-3.5 text-sm font-black uppercase tracking-widest hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.4)] transition-all duration-300 hover:scale-105 active:scale-95"
+              className="hidden sm:flex items-center gap-2 bg-[#d85b6a] text-white rounded-full px-7 py-3 text-xs font-black uppercase tracking-widest hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 border border-white/10"
             >
-              Liên Hệ Ngay
-              <ArrowUpRight size={15} />
+              Contact Us
+              <ArrowUpRight size={14} />
             </a>
 
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden text-white/90 hover:text-white p-2 rounded-full bg-white/5 border border-white/10 transition-colors"
+              className="lg:hidden text-white/90 hover:text-white p-3 rounded-full bg-[#08080a]/65 border border-white/10 shadow-md backdrop-blur-md transition-colors"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -229,11 +248,21 @@ export default function ModernNav({ onContact }: ModernNavProps) {
         <div className="fixed inset-0 z-40 bg-[#020202]/95 backdrop-blur-2xl flex flex-col justify-between p-6 transition-all duration-300 lg:hidden">
           {/* Top Header */}
           <div className="flex items-center justify-between pt-16">
-            <img
-              src="/logo_cyberdx-removebg-preview.png"
-              alt="CyberDX"
-              className="h-16 w-auto object-contain mix-blend-screen"
-            />
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                closeMobile();
+                onGoHome?.();
+              }}
+            >
+              <img
+                src="/logo_cyberdx-removebg-preview.png"
+                alt="CyberDX"
+                className="h-10 w-auto object-contain mix-blend-screen"
+                style={{ maxHeight: "40px" }}
+              />
+            </a>
             <button
               onClick={closeMobile}
               className="text-white/80 hover:text-white p-2 rounded-full bg-white/5 border border-white/10"
@@ -257,6 +286,11 @@ export default function ModernNav({ onContact }: ModernNavProps) {
                         e.preventDefault();
                         toggleMobileDropdown(link.label);
                       } else {
+                        if (link.href && link.href.startsWith("#")) {
+                          e.preventDefault();
+                          window.location.hash = link.href;
+                          onGoHome?.();
+                        }
                         closeMobile();
                       }
                     }}
@@ -303,7 +337,7 @@ export default function ModernNav({ onContact }: ModernNavProps) {
             }}
             className="w-full flex items-center justify-center gap-2 bg-[#d85b6a] text-white rounded-full py-4 text-sm font-bold uppercase tracking-wider hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.3)] transition-all duration-300 cursor-pointer"
           >
-            Bắt Đầu Trải Nghiệm
+            Get Started
             <ArrowUpRight size={16} />
           </button>
         </div>

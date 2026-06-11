@@ -22,6 +22,10 @@ export { default as StatsSection } from "./StatsSection";
 export { default as FinalCTA } from "./FinalCTA";
 export { default as ModernFooter } from "./ModernFooter";
 export { default as ConsciousInnovation } from "./ConsciousInnovation";
+export { default as CxHero } from "./CxHero";
+export { default as CxPlatform } from "./CxPlatform";
+export { default as CxFeatures } from "./CxFeatures";
+export { default as CxIndustries } from "./CxIndustries";
 export { default as DetailModal } from "./DetailModal";
 export { default as DetailPage } from "./DetailPage";
 

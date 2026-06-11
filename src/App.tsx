@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import {
   ContactModal,
   ModernNav,
-  ModernHero,
-  ProblemSection,
-  SolutionSection,
-  BentoFeatures,
+  CxHero,
+  AboutSection,
+  CxFeatures,
+  CxPlatform,
   WorkflowSection,
+  SolutionSection,
+  CxIndustries,
   StatsSection,
-  ConsciousInnovation,
+  BlogSection,
   FinalCTA,
   ModernFooter,
   DetailPage,
@@ -67,7 +69,26 @@ export default function App() {
     } else {
       // Revert back to root path if we were on a detail subpage
       if (currentSlug !== "" && DETAIL_DATA[currentSlug]) {
-        window.history.pushState(null, "", "/");
+        window.history.pushState(null, "", `/${window.location.hash}`);
+      }
+    }
+    
+    // Scroll handling:
+    if (activeDetailSlug) {
+      // Navigating into a subpage: always scroll to top
+      window.scrollTo({ top: 0, behavior: "instant" });
+    } else {
+      // Navigating back to homepage
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 350);
+      } else {
+        window.scrollTo({ top: 0, behavior: "instant" });
       }
     }
   }, [activeDetailSlug]);
@@ -100,7 +121,7 @@ export default function App() {
       {activeDetailSlug ? (
         <>
           {/* Subpage View: Fully replaces the landing page content with absolute path URL */}
-          <ModernNav onContact={() => setModalOpen(true)} />
+          <ModernNav onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
           
           <DetailPage
             slug={activeDetailSlug}
@@ -110,40 +131,45 @@ export default function App() {
             onContact={() => setModalOpen(true)}
           />
 
-          <ModernFooter onContact={() => setModalOpen(true)} />
+          <ModernFooter onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
         </>
       ) : (
         <>
           {/* Home / Landing Page View */}
-          {/* Modern floating capsule navigation */}
-          <ModernNav onContact={() => setModalOpen(true)} />
+          <ModernNav onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
 
-          {/* Hero section with AI Recruitment dashboard mockup */}
-          <ModernHero onContact={() => setModalOpen(true)} />
+          {/* Recreated CXVIEW Hero Section */}
+          <CxHero onContact={() => setModalOpen(true)} />
 
-          {/* Pain points of traditional recruitment */}
-          <ProblemSection />
+          {/* Recreated About Section */}
+          <AboutSection />
 
-          {/* CyberDX AI advanced recruitment solutions */}
-          <SolutionSection />
+          {/* Recreated features list (9 features grid) */}
+          <CxFeatures />
 
-          {/* Premium Bento Grid features (AI CV Matcher, Assessments, Hubs) */}
-          <BentoFeatures />
+          {/* Recreated Platform Section (with interactive tabs & mock dashboard) */}
+          <CxPlatform />
 
-          {/* Easy 3-step operational workflow for candidates & recruiters */}
+          {/* Recreated Step-by-step section */}
           <WorkflowSection />
 
-          {/* Real statistics showing platform efficiency and scale */}
+          {/* Recreated B2B/B2C Solutions Comparison Section */}
+          <SolutionSection onContact={() => setModalOpen(true)} />
+
+          {/* Recreated Industry applications */}
+          <CxIndustries />
+
+          {/* Recreated Real statistics */}
           <StatsSection />
 
-          {/* Philosophy pillar similar to cxview's conscious innovation */}
-          <ConsciousInnovation />
+          {/* Recreated Blog and News grid */}
+          <BlogSection />
 
-          {/* Final Call to Action */}
+          {/* Recreated Final CTA and static contact form */}
           <FinalCTA onContact={() => setModalOpen(true)} />
 
-          {/* Clean minimal footer */}
-          <ModernFooter onContact={() => setModalOpen(true)} />
+          {/* Recreated Clean minimal footer */}
+          <ModernFooter onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
         </>
       )}
 

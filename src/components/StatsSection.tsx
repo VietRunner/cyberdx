@@ -3,31 +3,31 @@ import { Users, Zap, Compass, CheckCircle2 } from "lucide-react";
 const STATS = [
   {
     value: "< 2s",
-    label: "Tốc Độ Cảnh Báo",
-    desc: "Thời gian phát tín hiệu cảnh báo hỏa hoạn hoặc xâm nhập từ lúc phát hiện sự cố.",
+    label: "Alert Response Time",
+    desc: "Time to trigger smoke/fire or security intrusion alerts from incident onset.",
     icon: Zap,
     color: "text-[#d85b6a] bg-[#d85b6a]/10 border-[#d85b6a]/20",
   },
   {
     value: "99.2%",
-    label: "Độ Chính Xác AI",
-    desc: "Độ chính xác nhận diện biển số xe và nhận diện khuôn mặt trong các thử nghiệm thực tế.",
+    label: "AI Accuracy Rate",
+    desc: "Accuracy in license plate identification and face recognition in real-world environments.",
     icon: Compass,
-    color: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+    color: "text-[#d85b6a] bg-[#d85b6a]/10 border-[#d85b6a]/20",
   },
   {
     value: "10,000+",
-    label: "Camera Đã Kết Nối",
-    desc: "Số lượng camera IP đã được tích hợp và vận hành ổn định trên nền tảng Edge AI.",
+    label: "Connected Cameras",
+    desc: "Total IP camera channels integrated and running stably on our Edge AI platform.",
     icon: Users,
-    color: "text-green-400 bg-green-500/10 border-green-500/20",
+    color: "text-[#d85b6a] bg-[#d85b6a]/10 border-[#d85b6a]/20",
   },
   {
     value: "45%",
-    label: "Giảm Thiểu Thất Thoát",
-    desc: "Tỷ lệ giảm thiểu hao hụt hàng hóa và sự cố an toàn tại các cơ sở sản xuất.",
+    label: "Loss Reduction",
+    desc: "Reduction rate in cargo shrinkage and safety incidents at manufacturing facilities.",
     icon: CheckCircle2,
-    color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    color: "text-[#d85b6a] bg-[#d85b6a]/10 border-[#d85b6a]/20",
   },
 ];
 
@@ -43,14 +43,14 @@ export default function StatsSection() {
         {/* Title */}
         <div className="flex flex-col items-start gap-4 mb-16 max-w-3xl text-left">
           <div className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-sm font-bold text-[#d85b6a] uppercase tracking-wider font-mono">
-            Hiệu Quả Thực Tế
+            Proven Performance
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-[1.05]">
-            Lợi Ích Vượt Trội <br />
-            Đo Lường Bằng <span className="text-gradient-peach">Những Con Số</span>
+            OUTSTANDING BENEFITS <br />
+            MEASURED BY <span className="text-gradient-peach">NUMBERS</span>
           </h2>
           <p className="text-white/70 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl">
-            Nền tảng của chúng tôi chứng minh hiệu quả đột phá bằng cách chuyển đổi hệ thống giám sát thụ động thành mạng lưới dữ liệu chủ động bảo vệ doanh nghiệp.
+            Our platform delivers breakthrough results by transforming passive surveillance systems into proactive data networks protecting businesses.
           </p>
         </div>
 

@@ -289,7 +289,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               <div className="text-left flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono">
                   <Layers size={16} className="text-[#d85b6a]" />
-                  Điểm nhấn nổi bật
+                  Key Highlights & Features
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {data.features.map((feature, i) => (
@@ -310,7 +310,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               <div className="text-left flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono">
                   <Cpu size={16} className="text-purple-400" />
-                  Quy trình vận hành thông minh
+                  Smart Operating Workflow
                 </div>
                 <div className="flex flex-col gap-4">
                   {data.workflow.map((step, i) => (
@@ -340,7 +340,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                   </div>
                   <div className="flex items-center gap-1 text-[10px] font-mono text-green-400">
                     <TrendingUp size={12} />
-                    <span>+24.8% HIỆU SUẤT</span>
+                    <span>+24.8% PERFORMANCE</span>
                   </div>
                 </div>
 
@@ -378,7 +378,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 onClick={handleContactAction}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-wider text-xs px-8 py-4 rounded-full shadow-[0_8px_24px_rgba(216,91,106,0.35)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
               >
-                {data.category === "Thư Viện" ? "Nhận Tài Liệu Chi Tiết" : "Đăng Ký Nhận Tư Vấn"}
+                {data.category === "Library" ? "Download Documentation" : "Request Consultation"}
                 <ArrowUpRight size={16} />
               </button>
             </div>

@@ -20,3 +20,12 @@ pnpm-debug.log*
 .idea/
 .vscode/
 *.png
+
+# Agent & Scratch files
+.agents/
+.agent
+scratch/
+scratch_*
+scratch_screenshot.*
+test_write.txt
+temp-edge-profile/
