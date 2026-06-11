@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { DETAIL_DATA } from "../utils/detailData";
+import { BLOG_POSTS } from "./BlogSection";
 
 // Helper function to map features to specific AI solutions or Projects
 function getFeatureCardDetails(featureText: string) {
@@ -124,16 +125,6 @@ function getFeatureCardDetails(featureText: string) {
       image: "/project-vietrunner.jpg",
       iconName: "Layers",
       href: "/unlocking-intelligence-ai-video-analytics/"
-    };
-  }
-  if (text.includes("new headquarters") || text.includes("headquarters")) {
-    return {
-      slug: "cxview-new-headquarters-hcmc",
-      title: "New HCMC Headquarters",
-      description: "Read about our grand office opening and new corporate branding milestone in Ho Chi Minh City.",
-      image: "/project-htland.jpg",
-      iconName: "Home",
-      href: "/cxview-new-headquarters-hcmc/"
     };
   }
   if (text.includes("mũ") || text.includes("bảo hộ") || text.includes("ppe") || text.includes("đồng phục") || text.includes("helmet") || text.includes("protective") || text.includes("uniform")) {
@@ -432,6 +423,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
   }, [slug, data]);
 
   const isBlogPost = data && data.category === "Library" && ![
+    "blog",
     "cau-hoi-thuong-gap",
     "case-studies",
     "dieu-khoan-su-dung",
@@ -454,11 +446,11 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
         const a = target.closest('a');
         if (a) {
           const href = a.getAttribute('href') || '';
-          if (href.startsWith('/') || href.includes('cxview.ai') || href.startsWith(window.location.origin)) {
+          if (href.startsWith('/') || href.includes('cyberdx.tech') || href.startsWith(window.location.origin)) {
             e.preventDefault();
             let linkPath = href;
-            if (href.includes('cxview.ai')) {
-              const parts = href.split('cxview.ai');
+            if (href.includes('cyberdx.tech')) {
+              const parts = href.split('cyberdx.tech');
               linkPath = parts[parts.length - 1];
             }
             const cleanSlug = linkPath.replace(/^\/|\/$/g, "");
@@ -477,6 +469,101 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
   }, [slug, data, isBlogPost]);
 
   if (!data) return null;
+  if (slug === "blog") {
+    return (
+      <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
+        {/* Dynamic light glows */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
+
+        <div className="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-10 text-left">
+          {/* Back button */}
+          <motion.div 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-2 text-sm font-bold text-white/50 hover:text-white transition-all bg-white/5 hover:bg-white/10 px-5 py-2.5 rounded-full border border-white/10 cursor-pointer shadow-[0_4px_12px_rgba(0,0,0,0.5)] transform hover:scale-105 active:scale-95"
+            >
+              <ArrowLeft size={16} />
+              Back to Homepage
+            </button>
+          </motion.div>
+
+          {/* Heading */}
+          <div className="flex flex-col gap-4">
+            <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
+              <Sparkles size={12} className="text-[#d85b6a]" />
+              Library &amp; Insights
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-none text-white font-sans">
+              CyberDX Blog &amp; News
+            </h1>
+
+            <p className="text-base sm:text-lg font-bold text-white/40 uppercase font-mono tracking-wider">
+              Insights, articles, and updates on AI, computer vision, and technology
+            </p>
+
+            <div className="h-[2px] w-24 bg-gradient-to-r from-[#d85b6a] to-purple-500" />
+          </div>
+
+          {/* Blog Listing Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
+            {BLOG_POSTS.map((post) => (
+              <article key={post.id} className={`bg-white/[0.01] border border-white/5 rounded-3xl overflow-hidden hover:border-[#d85b6a]/30 hover:bg-white/[0.02] transition-all flex flex-col group shadow-lg`}>
+                <div className="relative aspect-video w-full overflow-hidden bg-[#08080a]">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6 flex flex-col gap-3 flex-1">
+                  <h3 className="text-lg font-black text-white group-hover:text-[#ff8a9a] transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-white/60 text-sm font-semibold line-clamp-3 leading-relaxed flex-1">
+                    {post.description}
+                  </p>
+                  <p className="text-white/30 text-xs font-bold font-mono tracking-wider mt-1">
+                    {post.hashtags}
+                  </p>
+                  <div className="pt-2 border-t border-white/5 mt-2">
+                    {post.postUrl.startsWith("/") ? (
+                      <button
+                        onClick={() => {
+                          const slug = post.postUrl.replace(/^\/|\/$/g, "");
+                          document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: slug }));
+                        }}
+                        className="inline-flex items-center gap-1 text-xs font-black text-[#ff8a9a] uppercase tracking-wider hover:translate-x-1 transition-all cursor-pointer bg-transparent border-0 p-0"
+                      >
+                        Read Article
+                        <ArrowUpRight size={12} />
+                      </button>
+                    ) : (
+                      <a
+                        href={post.postUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-black text-[#ff8a9a] uppercase tracking-wider hover:translate-x-1 transition-all"
+                      >
+                        Read Full Post
+                        <ArrowUpRight size={12} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 
   if (isBlogPost) {
     return (
@@ -1406,7 +1493,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </button>
         </motion.div>
 
-        {/* 1. Hero Subpage Section (CXVIEW style - clean header with colored light motion) */}
+        {/* 1. Hero Subpage Section (CyberDX style - clean header with colored light motion) */}
         <div className="py-12 md:py-16 flex flex-col gap-6 text-left max-w-4xl">
           <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
             <Sparkles size={12} className="text-[#d85b6a]" />
@@ -1444,7 +1531,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 2. Overview Section (CXVIEW style - left: portrait image with red bounding box + secondary dome camera, right: text + metrics) */}
+        {/* 2. Overview Section (CyberDX style - left: portrait image with red bounding box + secondary dome camera, right: text + metrics) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left py-8">
           <div className="lg:col-span-5 relative w-full flex justify-center py-6">
             {/* Main AI visual card with red bounding box */}
@@ -1544,7 +1631,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </motion.div>
         )}
 
-        {/* 3. How It Works Section (CXVIEW style - 4 vertical purple/glassmorphic cards side-by-side) */}
+        {/* 3. How It Works Section (CyberDX style - 4 vertical purple/glassmorphic cards side-by-side) */}
         <div className="flex flex-col gap-8 text-left py-8">
           <div className="flex flex-col gap-3">
             <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">
@@ -1678,7 +1765,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </motion.div>
 
-        {/* 5. All-in-One Intelligence Dashboard Section (CXVIEW style - left: interactive mockup, right: dashboard text content) */}
+        {/* 5. All-in-One Intelligence Dashboard Section (CyberDX style - left: interactive mockup, right: dashboard text content) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left py-8">
           <div className="lg:col-span-6 w-full">
             {renderVisualMockup()}
@@ -1703,7 +1790,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 6. Key Benefits Section (CXVIEW style - left: title + CTA, right: vertical list with numbered dividers) */}
+        {/* 6. Key Benefits Section (CyberDX style - left: title + CTA, right: vertical list with numbered dividers) */}
         {data.dashboardBenefits && data.dashboardBenefits.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left py-8 items-start">
             <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-32">

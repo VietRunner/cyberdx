@@ -45,7 +45,7 @@ const NAV_LINKS: NavLinkItem[] = [
       { label: "Frequently Asked Questions", slug: "cau-hoi-thuong-gap", href: "/cau-hoi-thuong-gap/" },
       { label: "Case Studies", slug: "case-studies", href: "/case-studies/" },
       { label: "Careers", slug: "career", href: "/career/" },
-      { label: "News & Articles", slug: "unlocking-intelligence-ai-video-analytics", href: "/unlocking-intelligence-ai-video-analytics/" },
+      { label: "News & Articles", slug: "blog", href: "/blog/" },
       { label: "Terms of Service", slug: "dieu-khoan-su-dung", href: "/dieu-khoan-su-dung/" },
       { label: "Privacy Policy", slug: "chinh-sach-bao-mat", href: "/chinh-sach-bao-mat/" },
     ],

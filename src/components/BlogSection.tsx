@@ -7,7 +7,7 @@ interface BlogPost {
   postUrl: string;
 }
 
-const BLOG_POSTS: BlogPost[] = [
+export const BLOG_POSTS: BlogPost[] = [
   {
     id: "provera",
     title: "CyberDX x AI Provera Announce Strategic Partnership",
@@ -31,23 +31,14 @@ const BLOG_POSTS: BlogPost[] = [
     title: "AI Camera Deployment for a Fruit Drying & Export Manufacturing Plant",
     description: "Library | Case Study | Solutions | Industrial Manufacturing ...",
     image: "https://cxview.ai/wp-content/uploads/2026/03/ChatGPT-Image-Mar-26-2026-01_43_43-PM.png",
-    hashtags: "#CXVIEW #AI #Manufacturing #SmartFactory",
+    hashtags: "#CyberDX #AI #Manufacturing #SmartFactory",
     postUrl: "/ai-camera-deployment-fruit-drying-export-manufacturing/"
-  },
-  {
-    id: "our-first-christmas-together",
-    title: "Our First Christmas Together, Building More Than Just Work",
-    description: "At CXVIEW, culture is built in moments like these. ...",
-    image: "https://cxview.ai/wp-content/uploads/2025/12/CXVIEW-1st-Christmas.jpg",
-    hashtags: "#CXVIEW #TeamCulture #Family",
-    postUrl: "/our-first-christmas-together/"
-  },
-  {
+  },  {
     id: "unlocking-intelligence-ai-video-analytics",
     title: "Unlocking Intelligence with AI Video Analytics",
     description: "Library | Blog | Solutions | AI Video Analytics ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/Intrustion-Detection-Solution.jpg",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
+    hashtags: "#CyberDX #AI #VideoAnalytics",
     postUrl: "/unlocking-intelligence-ai-video-analytics/"
   },
   {
@@ -55,7 +46,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "How AI Video Analytics Improve Customer Experience",
     description: "Library | Blog | Solutions | Retails ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/1756709212105.png",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
+    hashtags: "#CyberDX #AI #VideoAnalytics",
     postUrl: "/how-ai-video-analytics-customer-experience/"
   },
   {
@@ -63,7 +54,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "The Biggest Challenge in Modern Manufacturing: Intelligent Security and Visibility",
     description: "Library | Blog | Solutions | Industrial Manufacturing ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/case-study-7x-roi-capital.webp",
-    hashtags: "#CXVIEW #AI #Manufacturing #SmartFactory",
+    hashtags: "#CyberDX #AI #Manufacturing #SmartFactory",
     postUrl: "/the-biggest-challenge-modern-manufacturing/"
   },
   {
@@ -71,23 +62,14 @@ const BLOG_POSTS: BlogPost[] = [
     title: "AI Video Analytics in Smart Surveillance & Operational Efficiency",
     description: "Library | Blog | Solutions | Industrial Manufacturing ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/smart-factory-digital-manufacturing.webp",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
+    hashtags: "#CyberDX #AI #VideoAnalytics",
     postUrl: "/ai-video-analytics-smart-surveillence-operational-efficiency/"
-  },
-  {
-    id: "cxview-new-headquarters-hcmc",
-    title: "CXVIEW Rebrands and Opens New Headquarters in HCMC",
-    description: "NEW SPACE. NEW ENERGY. NEW RESPONSIBILITIES. The new office in HCMC serves as CXVIEW’s sole headquarters, marking a major milestone in the company’s journey toward innovation and g...",
-    image: "https://cxview.ai/wp-content/uploads/2025/09/z7111644702053_e6c48d7a6ea7d2a401cf4d4b7fd01ba2.jpg",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
-    postUrl: "/cxview-new-headquarters-hcmc/"
-  },
-  {
+  },  {
     id: "top-trends-in-retail-ai-automation",
     title: "Top Trends in Retail Technology 2025: AI, Automation, and Customer Insights",
     description: "Library | Blog | Solutions | Retails ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/360_F_1568827215_TmyClZpoK3aY8AnPjRnMenKZInakONW6.jpg",
-    hashtags: "#CXVIEW #AI #Retail #ComputerVision",
+    hashtags: "#CyberDX #AI #Retail #ComputerVision",
     postUrl: "/top-trends-in-retail-ai-automation/"
   },
   {
@@ -95,7 +77,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "Decoding Retail Chain Success with AI Video Analytics",
     description: "Library | Blog | Solutions | Retails ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/Cannibalization-.png",
-    hashtags: "#CXVIEW #AI #Retail #ComputerVision",
+    hashtags: "#CyberDX #AI #Retail #ComputerVision",
     postUrl: "/retail-chain-ai-video-analytics/"
   },
   {
@@ -103,23 +85,14 @@ const BLOG_POSTS: BlogPost[] = [
     title: "AI Video Analytics for Safer Factories",
     description: "Library | Blog | Solutions | Industrial Manufacturing ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/warehouse-interior-1-scaled.webp",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
+    hashtags: "#CyberDX #AI #VideoAnalytics",
     postUrl: "/ai-video-analytics-safer-factories/"
-  },
-  {
-    id: "message-from-the-board-of-directors",
-    title: "Message from CXVIEW Board of Directors",
-    description: "Library | News &#038; Events ...",
-    image: "https://cxview.ai/wp-content/uploads/2025/09/Avatar-FB-scaled.png",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
-    postUrl: "/message-from-the-board-of-directors/"
-  },
-  {
+  },  {
     id: "important-use-cases-computer-vision-retail",
     title: "10 Important Use Cases of Computer Vision in Retail in 2025",
     description: "Library | Blog | Solutions | Retails ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/Gemini_Generated_Image_te2fwrte2fwrte2f.png",
-    hashtags: "#CXVIEW #AI #Retail #ComputerVision",
+    hashtags: "#CyberDX #AI #Retail #ComputerVision",
     postUrl: "/important-use-cases-computer-vision-retail/"
   },
   {
@@ -127,7 +100,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "How Vision AI Defines Workplace Safety and Danger Zone Detection",
     description: "Library | Blog | Solutions | Industrial Manufacturing ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/1-1.webp",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
+    hashtags: "#CyberDX #AI #VideoAnalytics",
     postUrl: "/how-visionai-defines-workplace-safety/"
   },
   {
@@ -135,7 +108,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "Modern Logistics: How AI Video Analytics Improves Efficiency and Lowers Risk",
     description: "Library | Case Study | Solutions | Warehouse &#038; Logistics ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/warehouse-interior-1-scaled.webp",
-    hashtags: "#CXVIEW #AI #VideoAnalytics",
+    hashtags: "#CyberDX #AI #VideoAnalytics",
     postUrl: "/modern-logistics-ai-video-analytics/"
   },
   {
@@ -143,7 +116,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "From High-Risk to High-Yield: AI Vision in Animal Feed Manufacturing",
     description: "Library | Case Study | Solutions | Industrial Manufacturing ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/smart-factory-digital-manufacturing.webp",
-    hashtags: "#CXVIEW #AI #Manufacturing #SmartFactory",
+    hashtags: "#CyberDX #AI #Manufacturing #SmartFactory",
     postUrl: "/ai-vision-in-animal-feed-manufacturing/"
   },
   {
@@ -151,7 +124,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "Retail Foot Traffic Analytics: The Foundation for Data-Driven",
     description: "Library | Case Study | Solutions | Retail ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/Retail-Foot-Traffic-Analytics-the-foundation-of-data-driven-case-study.jpg",
-    hashtags: "#CXVIEW #AI #Retail #ComputerVision",
+    hashtags: "#CyberDX #AI #Retail #ComputerVision",
     postUrl: "/retail-foot-traffic-analytics-data-driven/"
   },
   {
@@ -159,13 +132,14 @@ const BLOG_POSTS: BlogPost[] = [
     title: "AI Video Analytics for Retail: The Gifts from Nature Retail Chain",
     description: "Library | Case Study | Solutions | Retail ...",
     image: "https://cxview.ai/wp-content/uploads/2025/09/The-Gifts-from-Nature-Retail-Chain-case-study.jpg",
-    hashtags: "#CXVIEW #AI #Retail #ComputerVision",
+    hashtags: "#CyberDX #AI #Retail #ComputerVision",
     postUrl: "/ai-video-analytics-retail-chain/"
   },
 ];
 
 
 export default function BlogSection() {
+  const displayedPosts = BLOG_POSTS.filter(post => post.id === "provera" || post.id === "announcement");
   return (
     <section id="blog" className="dx-blog">
       <div className="container">
@@ -175,7 +149,7 @@ export default function BlogSection() {
           </div>
 
           <div className="dx-blog-grid">
-            {BLOG_POSTS.map((post) => (
+            {displayedPosts.map((post) => (
               <article key={post.title} className={`dx-blog-card dx-blog-card--${post.id}`}>
                 <img
                   src={post.image}
@@ -210,6 +184,17 @@ export default function BlogSection() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => {
+                document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: "blog" }));
+              }}
+              className="inline-flex items-center gap-2 bg-[#d85b6a] text-white rounded-full px-8 py-3.5 text-xs font-black uppercase tracking-widest hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+            >
+              View All Articles
+            </button>
           </div>
         </div>
       </div>
