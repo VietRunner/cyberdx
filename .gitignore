@@ -19,7 +19,6 @@ yarn-error.log*
 pnpm-debug.log*
 .idea/
 .vscode/
-*.png
 
 # Agent & Scratch files
 .agents/
