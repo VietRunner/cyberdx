@@ -28,7 +28,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
       <div className="dx-footer-top">
         {/* Col 1: CTA */}
         <div className="dx-footer-col dx-footer-col-cta">
-          <img src="/logo_cyberdx-removebg-preview.png" alt="CyberDX" className="dx-footer-logo" />
+          <img src="/Apex.jpg" alt="ApexDX" className="dx-footer-logo" />
           <div className="dx-footer-cta-title">LET'S CONNECT</div>
           <p className="dx-footer-cta-text">
             If you have any software related issues or questions, feel free to
@@ -60,7 +60,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
 
         <div className="dx-footer-bottom-mid">
           <div className="dx-footer-email-label">Email us</div>
-          <a href="mailto:sale@cyberdx.tech" className="dx-footer-email">SALE@CYBERDX.TECH</a>
+          <a href="mailto:sale@apexdx.tech" className="dx-footer-email">SALE@CYBERDX.TECH</a>
         </div>
 
         <div className="dx-footer-bottom-center">
@@ -68,7 +68,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
         </div>
 
         <div className="dx-footer-bottom-right">
-          <span className="dx-footer-copy">© CyberDX 2026</span>
+          <span className="dx-footer-copy">© ApexDX 2026</span>
           <span className="dx-footer-rights">All rights reserved</span>
         </div>
       </div>

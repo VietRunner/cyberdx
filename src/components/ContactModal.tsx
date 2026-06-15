@@ -6,7 +6,7 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ open, onClose }: ContactModalProps) {
-  const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL || "https://form.cyberdx.tech/api/contact";
+  const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL || "https://form.apexdx.tech/api/contact";
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);

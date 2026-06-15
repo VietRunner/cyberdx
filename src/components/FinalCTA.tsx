@@ -152,7 +152,7 @@ export default function FinalCTA({}: FinalCTAProps) {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    placeholder="CyberDX Co., Ltd"
+                    placeholder="ApexDX Co., Ltd"
                     className="px-5 py-4 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 text-sm focus:border-[#d85b6a] focus:outline-none transition-colors w-full"
                   />
                 </div>

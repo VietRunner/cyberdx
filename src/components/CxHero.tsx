@@ -233,7 +233,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
             <div className="rounded-xl overflow-hidden border border-white/5 bg-black/60 relative aspect-[16/9]">
               <img
                 src="/all-in-one-dashboard.png"
-                alt="CyberDX AI Dashboard"
+                alt="ApexDX AI Dashboard"
                 className="w-full h-full object-cover opacity-85 group-hover:scale-[1.01] transition-transform duration-700 pointer-events-none"
               />
               {/* Ambient scanner light overlay */}

@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/contact": {
-        target: "https://form.cyberdx.tech",
+        target: "https://form.apexdx.tech",
         changeOrigin: true,
         secure: true,
       },

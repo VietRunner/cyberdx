@@ -570,7 +570,7 @@ export default function CxPlatform() {
                             </div>
                           </div>
                           <div className="mt-4">
-                            <span className="text-xs font-mono font-bold text-[#d85b6a] block uppercase">CyberDX Edge Box v2</span>
+                            <span className="text-xs font-mono font-bold text-[#d85b6a] block uppercase">ApexDX Edge Box v2</span>
                             <span className="text-[10px] text-white/40 mt-1 block font-mono">Process 16 IP camera streams simultaneously at the edge with high-performance NPU processing.</span>
                           </div>
                         </div>

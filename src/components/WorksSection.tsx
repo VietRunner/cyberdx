@@ -64,7 +64,7 @@ export default function WorksSection() {
               <h2 className="txt24 medium h100">Products &amp; Cases</h2>
             </div>
             <div className="txt18 works-wd sz14-mob">
-              A selection of digital products and platforms that reflect CyberDX
+              A selection of digital products and platforms that reflect ApexDX
               capabilities across retail, community, and PropTech.
             </div>
           </div>

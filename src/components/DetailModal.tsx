@@ -37,24 +37,24 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
 
     if (!slug || !data) {
       // Restore default SEO tags when modal is closed
-      document.title = "CyberDX | AI-Powered Software & Recruitment in Vietnam";
+      document.title = "ApexDX | AI-Powered Software & Recruitment in Vietnam";
       
       const descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) {
-        descMeta.setAttribute("content", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+        descMeta.setAttribute("content", "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
       }
       
       const canonicalLink = document.querySelector('link[rel="canonical"]');
       if (canonicalLink) {
-        canonicalLink.setAttribute("href", "https://cyberdx.tech/");
+        canonicalLink.setAttribute("href", "https://apexdx.tech/");
       }
       
       // Clear OG & Twitter tags
-      setMetaProperty("og:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
-      setMetaProperty("og:description", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
-      setMetaProperty("og:url", "https://cyberdx.tech/");
-      setMetaName("twitter:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
-      setMetaName("twitter:description", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+      setMetaProperty("og:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:description", "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+      setMetaProperty("og:url", "https://apexdx.tech/");
+      setMetaName("twitter:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaName("twitter:description", "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
       
       // Remove dynamically added Rank Math class schema
       const existingSchema = document.querySelector("script.rank-math-schema");
@@ -75,7 +75,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
     window.history.pushState(null, "", `#/${slug}`);
 
     // --- Dynamic Title, Description & Canonical ---
-    const pageTitle = `${data.title} - CyberDX AI`;
+    const pageTitle = `${data.title} - ApexDX AI`;
     document.title = pageTitle;
     
     let descMeta = document.querySelector('meta[name="description"]');
@@ -92,24 +92,24 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
       canonicalLink.setAttribute("rel", "canonical");
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.setAttribute("href", `https://cyberdx.tech/#/${slug}`);
+    canonicalLink.setAttribute("href", `https://apexdx.tech/#/${slug}`);
 
     // --- Open Graph & Twitter Social Tags ---
     setMetaProperty("og:locale", "vi_VN");
     setMetaProperty("og:type", "article");
     setMetaProperty("og:title", pageTitle);
     setMetaProperty("og:description", data.description);
-    setMetaProperty("og:url", `https://cyberdx.tech/#/${slug}`);
-    setMetaProperty("og:site_name", "CyberDX");
-    setMetaProperty("og:image", "https://cyberdx.tech/logo_cyberdx.jpg");
-    setMetaProperty("og:image:secure_url", "https://cyberdx.tech/logo_cyberdx.jpg");
+    setMetaProperty("og:url", `https://apexdx.tech/#/${slug}`);
+    setMetaProperty("og:site_name", "ApexDX");
+    setMetaProperty("og:image", "https://apexdx.tech/Apex.jpg");
+    setMetaProperty("og:image:secure_url", "https://apexdx.tech/Apex.jpg");
     setMetaProperty("og:image:width", "1200");
     setMetaProperty("og:image:height", "630");
 
     setMetaName("twitter:card", "summary_large_image");
     setMetaName("twitter:title", pageTitle);
     setMetaName("twitter:description", data.description);
-    setMetaName("twitter:image", "https://cyberdx.tech/logo_cyberdx.jpg");
+    setMetaName("twitter:image", "https://apexdx.tech/Apex.jpg");
 
     // --- Rich JSON-LD Rank Math-style Schema ---
     const existingSchema = document.querySelector("script.rank-math-schema");
@@ -126,24 +126,24 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
       "@graph": [
         {
           "@type": ["Person", "Organization"],
-          "@id": "https://cyberdx.tech/#person",
-          "name": "CyberDX",
+          "@id": "https://apexdx.tech/#person",
+          "name": "ApexDX",
           "logo": {
             "@type": "ImageObject",
-            "@id": "https://cyberdx.tech/#logo",
-            "url": "https://cyberdx.tech/logo_cyberdx-removebg-preview.png",
-            "contentUrl": "https://cyberdx.tech/logo_cyberdx-removebg-preview.png",
-            "caption": "CyberDX",
+            "@id": "https://apexdx.tech/#logo",
+            "url": "https://apexdx.tech/Apex.jpg",
+            "contentUrl": "https://apexdx.tech/Apex.jpg",
+            "caption": "ApexDX",
             "inLanguage": "vi-VN",
             "width": "180",
             "height": "80"
           },
           "image": {
             "@type": "ImageObject",
-            "@id": "https://cyberdx.tech/#logo",
-            "url": "https://cyberdx.tech/logo_cyberdx-removebg-preview.png",
-            "contentUrl": "https://cyberdx.tech/logo_cyberdx-removebg-preview.png",
-            "caption": "CyberDX",
+            "@id": "https://apexdx.tech/#logo",
+            "url": "https://apexdx.tech/Apex.jpg",
+            "contentUrl": "https://apexdx.tech/Apex.jpg",
+            "caption": "ApexDX",
             "inLanguage": "vi-VN",
             "width": "180",
             "height": "80"
@@ -151,21 +151,21 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
         },
         {
           "@type": "WebSite",
-          "@id": "https://cyberdx.tech/#website",
-          "url": "https://cyberdx.tech",
-          "name": "CyberDX",
+          "@id": "https://apexdx.tech/#website",
+          "url": "https://apexdx.tech",
+          "name": "ApexDX",
           "publisher": {
-            "@id": "https://cyberdx.tech/#person"
+            "@id": "https://apexdx.tech/#person"
           },
           "inLanguage": "vi-VN"
         },
         {
           "@type": "WebPage",
-          "@id": `https://cyberdx.tech/#/${slug}/#webpage`,
-          "url": `https://cyberdx.tech/#/${slug}`,
+          "@id": `https://apexdx.tech/#/${slug}/#webpage`,
+          "url": `https://apexdx.tech/#/${slug}`,
           "name": pageTitle,
           "isPartOf": {
-            "@id": "https://cyberdx.tech/#website"
+            "@id": "https://apexdx.tech/#website"
           },
           "inLanguage": "vi-VN"
         },
@@ -176,17 +176,17 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
           "dateModified": "2026-06-02T08:00:00+07:00",
           "author": {
             "@type": "Person",
-            "name": "CyberDX Admin",
-            "url": "https://cyberdx.tech"
+            "name": "ApexDX Admin",
+            "url": "https://apexdx.tech"
           },
           "publisher": {
-            "@id": "https://cyberdx.tech/#person"
+            "@id": "https://apexdx.tech/#person"
           },
           "description": data.description,
           "name": pageTitle,
-          "@id": `https://cyberdx.tech/#/${slug}/#richSnippet`,
+          "@id": `https://apexdx.tech/#/${slug}/#richSnippet`,
           "isPartOf": {
-            "@id": `https://cyberdx.tech/#/${slug}/#webpage`
+            "@id": `https://apexdx.tech/#/${slug}/#webpage`
           }
         }
       ]
@@ -368,7 +368,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
             <div className="relative z-10 p-6 border-t border-white/5 bg-[#030303]/90 backdrop-blur-md flex flex-col sm:flex-row items-center gap-4 justify-between">
               <div className="text-left hidden md:block">
                 <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest block">
-                  CyberDX AI Ecosystem
+                  ApexDX AI Ecosystem
                 </span>
                 <span className="text-xs font-bold text-white/60">
                   Zero-Trust Recruitment Solutions

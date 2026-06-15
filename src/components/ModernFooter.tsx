@@ -27,8 +27,8 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
               className="inline-block"
             >
               <img
-                src="/logo_cyberdx-removebg-preview.png"
-                alt="CyberDX"
+                src="/Apex.jpg"
+                alt="ApexDX"
                 className="h-16 w-auto object-contain mix-blend-screen"
                 style={{ maxHeight: "64px" }}
               />
@@ -110,7 +110,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">
-            &copy; {currentYear} CyberDX AI Ecosystem. All rights reserved.
+            &copy; {currentYear} ApexDX AI Ecosystem. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <span className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">

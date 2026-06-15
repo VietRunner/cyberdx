@@ -90,7 +90,7 @@ export default function AboutSection() {
               className="text-xl md:text-2xl lg:text-[28px] font-normal leading-relaxed text-white/90 text-justify"
             >
               Founded with the mission to pioneer in Computer Vision, 
-              CyberDX specializes in transforming conventional surveillance camera systems into exceptionally 
+              ApexDX specializes in transforming conventional surveillance camera systems into exceptionally 
               intelligent analytical tools. We proudly empower businesses to optimize operational efficiency, 
               detect risks early, and construct secure, highly productive workspaces.
             </motion.p>

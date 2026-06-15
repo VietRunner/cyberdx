@@ -291,7 +291,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       el.setAttribute("content", content);
     };
 
-    const pageTitle = `${data.title} - CyberDX AI`;
+    const pageTitle = `${data.title} - ApexDX AI`;
     document.title = pageTitle;
     
     let descMeta = document.querySelector('meta[name="description"]');
@@ -308,24 +308,24 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       canonicalLink.setAttribute("rel", "canonical");
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.setAttribute("href", `https://cyberdx.tech/${slug}/`);
+    canonicalLink.setAttribute("href", `https://apexdx.tech/${slug}/`);
 
     // --- Open Graph & Twitter Social Tags ---
     setMetaProperty("og:locale", "vi_VN");
     setMetaProperty("og:type", "article");
     setMetaProperty("og:title", pageTitle);
     setMetaProperty("og:description", data.description);
-    setMetaProperty("og:url", `https://cyberdx.tech/${slug}/`);
-    setMetaProperty("og:site_name", "CyberDX");
-    setMetaProperty("og:image", "https://cyberdx.tech/logo_cyberdx.jpg");
-    setMetaProperty("og:image:secure_url", "https://cyberdx.tech/logo_cyberdx.jpg");
+    setMetaProperty("og:url", `https://apexdx.tech/${slug}/`);
+    setMetaProperty("og:site_name", "ApexDX");
+    setMetaProperty("og:image", "https://apexdx.tech/Apex.jpg");
+    setMetaProperty("og:image:secure_url", "https://apexdx.tech/Apex.jpg");
     setMetaProperty("og:image:width", "1200");
     setMetaProperty("og:image:height", "630");
 
     setMetaName("twitter:card", "summary_large_image");
     setMetaName("twitter:title", pageTitle);
     setMetaName("twitter:description", data.description);
-    setMetaName("twitter:image", "https://cyberdx.tech/logo_cyberdx.jpg");
+    setMetaName("twitter:image", "https://apexdx.tech/Apex.jpg");
 
     const existingSchema = document.querySelector("script.rank-math-schema");
     if (existingSchema) {
@@ -341,14 +341,14 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       "@graph": [
         {
           "@type": ["Person", "Organization"],
-          "@id": "https://cyberdx.tech/#person",
-          "name": "CyberDX",
+          "@id": "https://apexdx.tech/#person",
+          "name": "ApexDX",
           "logo": {
             "@type": "ImageObject",
-            "@id": "https://cyberdx.tech/#logo",
-            "url": "https://cyberdx.tech/logo_cyberdx-removebg-preview.png",
-            "contentUrl": "https://cyberdx.tech/logo_cyberdx-removebg-preview.png",
-            "caption": "CyberDX",
+            "@id": "https://apexdx.tech/#logo",
+            "url": "https://apexdx.tech/Apex.jpg",
+            "contentUrl": "https://apexdx.tech/Apex.jpg",
+            "caption": "ApexDX",
             "inLanguage": "vi-VN",
             "width": "180",
             "height": "80"
@@ -356,21 +356,21 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
         },
         {
           "@type": "WebSite",
-          "@id": "https://cyberdx.tech/#website",
-          "url": "https://cyberdx.tech",
-          "name": "CyberDX",
+          "@id": "https://apexdx.tech/#website",
+          "url": "https://apexdx.tech",
+          "name": "ApexDX",
           "publisher": {
-            "@id": "https://cyberdx.tech/#person"
+            "@id": "https://apexdx.tech/#person"
           },
           "inLanguage": "vi-VN"
         },
         {
           "@type": "WebPage",
-          "@id": `https://cyberdx.tech/#/${slug}/#webpage`,
-          "url": `https://cyberdx.tech/#/${slug}`,
+          "@id": `https://apexdx.tech/#/${slug}/#webpage`,
+          "url": `https://apexdx.tech/#/${slug}`,
           "name": pageTitle,
           "isPartOf": {
-            "@id": "https://cyberdx.tech/#website"
+            "@id": "https://apexdx.tech/#website"
           },
           "inLanguage": "vi-VN"
         },
@@ -381,16 +381,16 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           "dateModified": "2026-06-02T08:00:00+07:00",
           "author": {
             "@type": "Person",
-            "name": "CyberDX Admin"
+            "name": "ApexDX Admin"
           },
           "publisher": {
-            "@id": "https://cyberdx.tech/#person"
+            "@id": "https://apexdx.tech/#person"
           },
           "description": data.description,
           "name": pageTitle,
-          "@id": `https://cyberdx.tech/#/${slug}/#richSnippet`,
+          "@id": `https://apexdx.tech/#/${slug}/#richSnippet`,
           "isPartOf": {
-            "@id": `https://cyberdx.tech/#/${slug}/#webpage`
+            "@id": `https://apexdx.tech/#/${slug}/#webpage`
           }
         }
       ]
@@ -404,17 +404,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
     return () => {
       // Revert dynamic SEO head elements when leaving DetailPage
-      document.title = "CyberDX | AI-Powered Software & Recruitment in Vietnam";
-      const defaultDesc = "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.";
+      document.title = "ApexDX | AI-Powered Software & Recruitment in Vietnam";
+      const defaultDesc = "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.";
       if (descMeta) descMeta.setAttribute("content", defaultDesc);
       
       const canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) canonical.setAttribute("href", "https://cyberdx.tech/");
+      if (canonical) canonical.setAttribute("href", "https://apexdx.tech/");
 
-      setMetaProperty("og:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
       setMetaProperty("og:description", defaultDesc);
-      setMetaProperty("og:url", "https://cyberdx.tech/");
-      setMetaName("twitter:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:url", "https://apexdx.tech/");
+      setMetaName("twitter:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
       setMetaName("twitter:description", defaultDesc);
 
       const dynamicSchema = document.querySelector("script.rank-math-schema");
@@ -446,11 +446,11 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
         const a = target.closest('a');
         if (a) {
           const href = a.getAttribute('href') || '';
-          if (href.startsWith('/') || href.includes('cyberdx.tech') || href.startsWith(window.location.origin)) {
+          if (href.startsWith('/') || href.includes('apexdx.tech') || href.startsWith(window.location.origin)) {
             e.preventDefault();
             let linkPath = href;
-            if (href.includes('cyberdx.tech')) {
-              const parts = href.split('cyberdx.tech');
+            if (href.includes('apexdx.tech')) {
+              const parts = href.split('apexdx.tech');
               linkPath = parts[parts.length - 1];
             }
             const cleanSlug = linkPath.replace(/^\/|\/$/g, "");
@@ -499,7 +499,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-none text-white font-sans">
-              CyberDX Blog &amp; News
+              ApexDX Blog &amp; News
             </h1>
 
             <p className="text-base sm:text-lg font-bold text-white/40 uppercase font-mono tracking-wider">
@@ -674,7 +674,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       case "nhan-dien-phan-tich-hanh-vi":
         return "/intrusion-detection.png";
       default:
-        return "/logo_cyberdx.jpg";
+        return "/Apex.jpg";
     }
   };
 
@@ -1493,7 +1493,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </button>
         </motion.div>
 
-        {/* 1. Hero Subpage Section (CyberDX style - clean header with colored light motion) */}
+        {/* 1. Hero Subpage Section (ApexDX style - clean header with colored light motion) */}
         <div className="py-12 md:py-16 flex flex-col gap-6 text-left max-w-4xl">
           <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
             <Sparkles size={12} className="text-[#d85b6a]" />
@@ -1531,7 +1531,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 2. Overview Section (CyberDX style - left: portrait image with red bounding box + secondary dome camera, right: text + metrics) */}
+        {/* 2. Overview Section (ApexDX style - left: portrait image with red bounding box + secondary dome camera, right: text + metrics) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left py-8">
           <div className="lg:col-span-5 relative w-full flex justify-center py-6">
             {/* Main AI visual card with red bounding box */}
@@ -1554,7 +1554,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </div>
 
             {/* Overlapping secondary dome camera / technical device card */}
-            {data.category !== "Library" && (
+            {slug === "case-studies" && (
               <div className="absolute -bottom-6 -right-2 md:-right-6 w-36 h-36 rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black/90 p-1 hidden sm:block z-25">
                 <div 
                   className="w-full h-full bg-cover bg-center rounded-xl opacity-90"
@@ -1571,7 +1571,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </h2>
               <div className="h-0.5 w-16 bg-[#d85b6a]" />
               <p className="text-white/70 text-base leading-relaxed font-semibold">
-                CyberDX provides advanced automatic AI video analytics systems, monitoring real-time video streams to deliver the most accurate insights and alerts. The solution enhances security, optimizes operational productivity, and cuts down manual monitoring costs.
+                ApexDX provides advanced automatic AI video analytics systems, monitoring real-time video streams to deliver the most accurate insights and alerts. The solution enhances security, optimizes operational productivity, and cuts down manual monitoring costs.
               </p>
             </div>
 
@@ -1631,7 +1631,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </motion.div>
         )}
 
-        {/* 3. How It Works Section (CyberDX style - 4 vertical purple/glassmorphic cards side-by-side) */}
+        {/* 3. How It Works Section (ApexDX style - 4 vertical purple/glassmorphic cards side-by-side) */}
         <div className="flex flex-col gap-8 text-left py-8">
           <div className="flex flex-col gap-3">
             <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">
@@ -1765,7 +1765,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </motion.div>
 
-        {/* 5. All-in-One Intelligence Dashboard Section (CyberDX style - left: interactive mockup, right: dashboard text content) */}
+        {/* 5. All-in-One Intelligence Dashboard Section (ApexDX style - left: interactive mockup, right: dashboard text content) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left py-8">
           <div className="lg:col-span-6 w-full">
             {renderVisualMockup()}
@@ -1781,7 +1781,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </h2>
             
             <p className="text-white/70 text-base leading-relaxed font-semibold">
-              CyberDX centralizes all analytical data and events from your IP cameras into a secure, real-time online Dashboard. This allows security teams to easily monitor status, receive instant push notifications, and review events with video evidence.
+              ApexDX centralizes all analytical data and events from your IP cameras into a secure, real-time online Dashboard. This allows security teams to easily monitor status, receive instant push notifications, and review events with video evidence.
             </p>
             
             <p className="text-white/60 text-sm leading-relaxed font-semibold">
@@ -1790,7 +1790,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 6. Key Benefits Section (CyberDX style - left: title + CTA, right: vertical list with numbered dividers) */}
+        {/* 6. Key Benefits Section (ApexDX style - left: title + CTA, right: vertical list with numbered dividers) */}
         {data.dashboardBenefits && data.dashboardBenefits.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left py-8 items-start">
             <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-32">
