@@ -1,27 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-
+import { SplineScene } from "@/components/ui/splite";
 interface CxHeroProps {
   onContact?: () => void;
 }
 
 export default function CxHero({ onContact }: CxHeroProps) {
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  // 3D parallax on mouse move
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY, currentTarget } = e;
-    const { left, top, width, height } = currentTarget.getBoundingClientRect();
-    const x = (clientX - left - width / 2) / 35; // max rotation degrees
-    const y = (clientY - top - height / 2) / 35;
-    setCoords({ x, y });
-  };
-
-  const handleMouseLeave = () => {
-    setCoords({ x: 0, y: 0 });
-  };
 
   // Canvas tech-flow grid particles animation
   useEffect(() => {
@@ -115,8 +101,6 @@ export default function CxHero({ onContact }: CxHeroProps) {
   return (
     <section
       id="home"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       className="relative min-h-screen bg-black flex flex-col justify-center items-center px-4 pt-36 pb-32 overflow-hidden"
     >
       {/* Background canvas for tech particles */}
@@ -214,72 +198,17 @@ export default function CxHero({ onContact }: CxHeroProps) {
           </a>
         </motion.div>
 
-        {/* Premium Dashboard Visual Mockup with 3D perspective and hover animations (from cxview.ai) */}
+        {/* 3D Spline Scene of the Robot (con robot di chuyen theo chuot) */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 45 }}
-          className="relative w-full max-w-5xl mx-auto overflow-visible z-10"
+          className="relative w-full max-w-6xl mx-auto overflow-hidden z-10 aspect-[16/9]"
         >
-          <div
-            className="w-full rounded-2xl border border-white/10 shadow-[0_24px_80px_rgba(216,91,106,0.15)] bg-[#0c0c0e] p-2 transition-all duration-300 ease-out group"
-            style={{
-              perspective: "1000px",
-              transform: `rotateX(${-coords.y}deg) rotateY(${coords.x}deg)`,
-              transformStyle: "preserve-3d",
-            }}
-          >
-            {/* Main Dashboard Screen Image */}
-            <div className="rounded-xl overflow-hidden border border-white/5 bg-black/60 relative aspect-[16/9]">
-              <img
-                src="/all-in-one-dashboard.png"
-                alt="ApexDX AI Dashboard"
-                className="w-full h-full object-cover opacity-85 group-hover:scale-[1.01] transition-transform duration-700 pointer-events-none"
-              />
-              {/* Ambient scanner light overlay */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#d85b6a]/5 via-transparent to-transparent pointer-events-none" />
-            </div>
-
-            {/* Floating AI Card 1: Alert Alert (top-left) */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -left-6 md:-left-12 bg-[#0c0c0f]/90 border border-red-500/30 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md text-left max-w-xs z-20"
-            >
-              <div className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-500 flex items-center justify-center text-red-500 font-bold text-xs animate-pulse">
-                !
-              </div>
-              <div>
-                <span className="text-[9px] font-mono text-white/40 uppercase block">Intrusion Alert</span>
-                <span className="text-xs font-bold text-white block">Perimeter Intrusion Detected</span>
-              </div>
-            </motion.div>
-
-            {/* Floating AI Card 2: LPR Detection (bottom-right) */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -bottom-6 -right-6 md:-right-12 bg-[#0c0c0f]/90 border border-[#d85b6a]/30 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md text-left z-20"
-            >
-              <div className="w-8 h-8 rounded-lg bg-[#d85b6a]/15 border border-[#d85b6a] flex items-center justify-center text-[#ff8a9a] font-bold text-xs">
-                AI
-              </div>
-              <div>
-                <span className="text-[9px] font-mono text-[#ff8a9a] uppercase block">LPR Identification</span>
-                <span className="text-xs font-mono font-bold text-white">29A-999.99</span>
-              </div>
-            </motion.div>
-
-            {/* Floating AI Card 3: Camera active status (top-right) */}
-            <motion.div
-              animate={{ x: [0, 8, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-              className="absolute top-1/4 -right-8 md:-right-16 bg-[#0c0c0f]/90 border border-green-500/20 p-3 rounded-lg shadow-2xl flex items-center gap-2.5 backdrop-blur-md z-20"
-            >
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
-              <span className="text-[10px] font-mono font-bold text-white/80">CAM_04: ONLINE</span>
-            </motion.div>
-          </div>
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
         </motion.div>
       </div>
 

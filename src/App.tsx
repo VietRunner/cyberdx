@@ -16,6 +16,7 @@ import {
   DetailPage,
 } from "./components";
 import { DETAIL_DATA } from "./utils/detailData";
+import { SpotlightHover } from "./components/ui/spotlight-hover";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -117,7 +118,13 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <div className="relative w-full min-h-screen bg-black overflow-hidden">
+      {/* Global interactive spotlight glow following mouse pointer */}
+      <SpotlightHover
+        size={600}
+        className="z-50 opacity-60"
+      />
+
       {activeDetailSlug ? (
         <>
           {/* Subpage View: Fully replaces the landing page content with absolute path URL */}
@@ -175,6 +182,6 @@ export default function App() {
 
       {/* Persistent global contact modal for both home page and subpage CTAs */}
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </>
+    </div>
   );
 }

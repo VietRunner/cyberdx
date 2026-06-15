@@ -18,8 +18,8 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/5 text-left">
           {/* Brand Col */}
           <div className="md:col-span-6 flex flex-col gap-4">
-            <a 
-              href="/" 
+            <a
+              href="/"
               onClick={(e) => {
                 e.preventDefault();
                 onGoHome?.();
@@ -44,8 +44,8 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
               Navigation
             </h4>
             <div className="flex flex-col gap-2.5">
-              <a 
-                href="/" 
+              <a
+                href="/"
                 onClick={(e) => {
                   e.preventDefault();
                   onGoHome?.();
@@ -54,22 +54,22 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
               >
                 Home
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 onClick={(e) => handleHashClick(e, "#about")}
                 className="text-white/60 hover:text-white text-sm transition-colors duration-200"
               >
                 About Us
               </a>
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 onClick={(e) => handleHashClick(e, "#features")}
                 className="text-white/60 hover:text-white text-sm transition-colors duration-200"
               >
                 AI Features
               </a>
-              <a 
-                href="#platform" 
+              <a
+                href="#platform"
                 onClick={(e) => handleHashClick(e, "#platform")}
                 className="text-white/60 hover:text-white text-sm transition-colors duration-200"
               >
@@ -88,10 +88,10 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
                 HOTLINE: +84 77 800 3426
               </span>
               <span className="text-white/60 text-sm">
-                Email: info@cxview.ai
+                Email: sale@apexdx.com
               </span>
               <span className="text-white/60 text-sm leading-relaxed">
-                Office: Ground Floor, City House Building, 485B Nguyen Dinh Chieu, Nguyen Dinh Chieu Ward, District 3, Ho Chi Minh City, Vietnam
+                Office:Quoc lo 13, Phuong Hiep Binh, Thanh Pho Ho Chi Minh, Viet Nam
               </span>
               <a
                 href="#contact"
