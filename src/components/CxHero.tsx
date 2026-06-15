@@ -1,13 +1,56 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { SplineScene } from "@/components/ui/splite";
+
+const ROBOT_PHRASES = [
+  "INITIALIZING APEXDX SYSTEM...",
+  "REAL-TIME SURVEILLANCE FEED ACTIVE",
+  "AI PATTERN RECOGNITION ONLINE",
+  "MONITORING FOR ANOMALIES...",
+  "OPERATIONAL METRICS PROCESSED",
+  "WELCOME TO APEXDX INTELLIGENCE"
+];
+
 interface CxHeroProps {
   onContact?: () => void;
 }
 
 export default function CxHero({ onContact }: CxHeroProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  // Typewriter state for Robot speech bubble
+  const [currentText, setCurrentText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: number;
+    const activePhrase = ROBOT_PHRASES[phraseIndex];
+    const typingSpeed = isDeleting ? 25 : 55;
+
+    const handleType = () => {
+      if (!isDeleting) {
+        setCurrentText(activePhrase.substring(0, currentText.length + 1));
+        if (currentText === activePhrase) {
+          timer = setTimeout(() => setIsDeleting(true), 2500);
+          return;
+        }
+      } else {
+        setCurrentText(activePhrase.substring(0, currentText.length - 1));
+        if (currentText === "") {
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % ROBOT_PHRASES.length);
+          return;
+        }
+      }
+
+      timer = setTimeout(handleType, typingSpeed);
+    };
+
+    timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, phraseIndex]);
 
   // Canvas tech-flow grid particles animation
   useEffect(() => {
@@ -205,6 +248,24 @@ export default function CxHero({ onContact }: CxHeroProps) {
           transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 45 }}
           className="relative w-full max-w-6xl mx-auto overflow-hidden z-10 aspect-[16/9]"
         >
+          {/* Floating Robot Speech / AI Status Pill */}
+          <div className="absolute top-[6%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 flex items-center gap-2.5 bg-black/70 border border-[#d85b6a]/30 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-[0_0_30px_rgba(216,91,106,0.2)] min-w-[280px] sm:min-w-[340px] justify-center">
+            <span className="w-2 h-2 rounded-full bg-[#d85b6a] animate-ping flex-shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#d85b6a] absolute left-[20px] flex-shrink-0" />
+            <div className="text-[10px] sm:text-xs font-mono text-[#ff8a9a] tracking-wider font-semibold select-none flex items-center">
+              <span>{currentText}</span>
+              <span className="w-1 h-3.5 bg-[#d85b6a] ml-1.5 animate-pulse" />
+            </div>
+          </div>
+
+          {/* Holographic Chest Logo Overlay */}
+          <div className="absolute top-[54%] left-[50.8%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 flex flex-col items-center">
+            <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.35em] text-[#d85b6a]/80 mb-0.5 uppercase select-none">SYSTEM ACTIVE</div>
+            <div className="font-sans font-black text-2xl sm:text-3xl tracking-[0.2em] pl-[0.2em] text-white drop-shadow-[0_0_15px_rgba(216,91,106,0.7)] select-none">
+              <span className="text-[#d85b6a]">A</span>PEXDX
+            </div>
+          </div>
+
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"

@@ -28,7 +28,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
       <div className="dx-footer-top">
         {/* Col 1: CTA */}
         <div className="dx-footer-col dx-footer-col-cta">
-          <img src="/Apex.jpg" alt="ApexDX" className="dx-footer-logo" />
+          <img src="/Apex_DX_rm.png" alt="ApexDX" className="dx-footer-logo" />
           <div className="dx-footer-cta-title">LET'S CONNECT</div>
           <p className="dx-footer-cta-text">
             If you have any software related issues or questions, feel free to

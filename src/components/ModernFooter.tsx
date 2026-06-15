@@ -27,7 +27,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
               className="inline-block"
             >
               <img
-                src="/Apex.jpg"
+                src="/Apex_DX_rm.png"
                 alt="ApexDX"
                 className="h-16 w-auto object-contain mix-blend-screen"
                 style={{ maxHeight: "64px" }}

@@ -18,7 +18,7 @@ export default function Nav({ onContact }: { onContact?: () => void }) {
       <header className="dx-header">
         <div className="dx-header-inner">
           <a href="#top" className="dx-logo-link" onClick={close}>
-            <img src="/Apex.jpg" alt="ApexDX" className="dx-nav-logo-img" />
+            <img src="/Apex_DX_rm.png" alt="ApexDX" className="dx-nav-logo-img" />
           </a>
 
           {/* Desktop nav */}
@@ -50,7 +50,7 @@ export default function Nav({ onContact }: { onContact?: () => void }) {
             {/* Top bar */}
             <div className="dx-mob-top">
               <a href="#top" className="dx-logo-link" onClick={close}>
-                <img src="/Apex.jpg" alt="ApexDX" className="dx-nav-logo-img" />
+                <img src="/Apex_DX_rm.png" alt="ApexDX" className="dx-nav-logo-img" />
               </a>
               <button className="dx-mob-close" onClick={close}>CLOSE</button>
             </div>

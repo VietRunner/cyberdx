@@ -128,7 +128,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
               }}
             >
               <img
-                src="/Apex.jpg"
+                src="/Apex_DX_rm.png"
                 alt="ApexDX"
                 className="h-14 md:h-[68px] w-auto object-contain mix-blend-screen transition-all duration-300 hover:scale-105"
                 style={{ maxHeight: "72px" }}
@@ -257,7 +257,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
               }}
             >
               <img
-                src="/Apex.jpg"
+                src="/Apex_DX_rm.png"
                 alt="ApexDX"
                 className="h-10 w-auto object-contain mix-blend-screen"
                 style={{ maxHeight: "40px" }}
