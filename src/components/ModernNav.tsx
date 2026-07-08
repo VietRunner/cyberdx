@@ -42,7 +42,6 @@ const NAV_LINKS: NavLinkItem[] = [
   {
     label: "Library",
     dropdownItems: [
-      { label: "Frequently Asked Questions", slug: "cau-hoi-thuong-gap", href: "/cau-hoi-thuong-gap/" },
       { label: "Case Studies", slug: "case-studies", href: "/case-studies/" },
       { label: "Careers", slug: "career", href: "/career/" },
       { label: "News & Articles", slug: "blog", href: "/blog/" },
@@ -106,17 +105,17 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
     e.preventDefault();
     setActiveDropdown(null);
     closeMobile();
-    // Dispatch custom event to let App.tsx catch and render details
+    
     document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: slug }));
   };
 
   return (
     <>
       <nav
-        className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-300 pointer-events-none"
+        className="fixed top-4 left-0 right-0 z-50 pl-0 pr-4 md:pr-8 transition-all duration-300 pointer-events-none"
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
-          {/* Logo - Separated on the left */}
+        <div className="max-w-none mx-0 flex items-center justify-between w-full">
+          
           <div className="pointer-events-auto flex items-center">
             <a
               href="/"
@@ -128,15 +127,15 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
               }}
             >
               <img
-                src="/Apex_DX_rm.png"
-                alt="ApexDX"
-                className="h-14 md:h-[68px] w-auto object-contain mix-blend-screen transition-all duration-300 hover:scale-105"
-                style={{ maxHeight: "72px" }}
+                src="/cyberdx_logo-removebg-preview.png"
+                alt="CyberDX"
+                className="h-24 md:h-32 lg:h-36 w-auto object-contain mix-blend-screen transition-all duration-300 hover:scale-105"
+                style={{ maxHeight: "144px" }}
               />
             </a>
           </div>
 
-          {/* Desktop Nav Links - Centered capsule */}
+          
           <div
             className={`hidden lg:flex items-center gap-2.5 py-1.5 px-5 rounded-full transition-all duration-300 bg-[#08080a]/65 border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-md pointer-events-auto border ${
               scrolled
@@ -188,7 +187,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                     )}
                   </a>
 
-                  {/* Dropdown Card */}
+                  
                   <AnimatePresence>
                     {hasDropdown && isActive && (
                       <motion.div
@@ -216,7 +215,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
             })}
           </div>
 
-          {/* CTA & Mobile Toggle - Separated on the right */}
+          
           <div className="pointer-events-auto flex items-center gap-3">
             <a
               href="#contact"
@@ -231,7 +230,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
               <ArrowUpRight size={14} />
             </a>
 
-            {/* Mobile Hamburger */}
+            
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden text-white/90 hover:text-white p-3 rounded-full bg-[#08080a]/65 border border-white/10 shadow-md backdrop-blur-md transition-colors"
@@ -243,10 +242,10 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
         </div>
       </nav>
 
-      {/* Mobile Drawer (Accordion style) */}
+      
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-[#020202]/95 backdrop-blur-2xl flex flex-col justify-between p-6 transition-all duration-300 lg:hidden">
-          {/* Top Header */}
+          
           <div className="flex items-center justify-between pt-16">
             <a
               href="/"
@@ -257,10 +256,10 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
               }}
             >
               <img
-                src="/Apex_DX_rm.png"
-                alt="ApexDX"
-                className="h-10 w-auto object-contain mix-blend-screen"
-                style={{ maxHeight: "40px" }}
+                src="/cyberdx_logo-removebg-preview.png"
+                alt="CyberDX"
+                className="h-20 w-auto object-contain mix-blend-screen"
+                style={{ maxHeight: "80px" }}
               />
             </a>
             <button
@@ -271,7 +270,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
             </button>
           </div>
 
-          {/* Links */}
+          
           <div className="flex flex-col gap-4 my-auto overflow-y-auto max-h-[60vh] pr-2">
             {NAV_LINKS.map((link) => {
               const hasDropdown = !!link.dropdownItems;
@@ -309,7 +308,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                     )}
                   </a>
 
-                  {/* Mobile Dropdown items accordion */}
+                  
                   {hasDropdown && isMobileActive && (
                     <div className="flex flex-col gap-3 pl-4 pt-3 pb-2 border-l border-white/10 mt-1">
                       {link.dropdownItems?.map((item) => (
@@ -329,7 +328,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
             })}
           </div>
 
-          {/* Bottom CTA */}
+          
           <button
             onClick={() => {
               closeMobile();

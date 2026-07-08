@@ -32,7 +32,7 @@ export default function FeaturesGrid() {
         padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
       }}
     >
-      {/* Section header */}
+      
       <div
         style={{
           display: 'flex',
@@ -47,7 +47,7 @@ export default function FeaturesGrid() {
         <h2 className="section-heading">The difference is everything.</h2>
       </div>
 
-      {/* 4-column grid */}
+      
       <div
         style={{
           display: 'grid',
@@ -74,7 +74,7 @@ export default function FeaturesGrid() {
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
             >
-              {/* Icon circle */}
+              
               <div
                 className="liquid-glass-strong"
                 style={{

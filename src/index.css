@@ -15,22 +15,22 @@
   }
 }
 
-/* ============================================================
-   BREAKPOINTS REFERENCE
-   2560+  : 4K / ultrawide
-   1920   : Full HD desktop
-   1440   : Large laptop / external monitor
-   1280   : Standard laptop
-   1024   : Small laptop / large tablet landscape
-   768    : Tablet portrait (iPad)
-   480    : Large phone (iPhone Plus/Pro Max)
-   375    : Standard phone (iPhone)
-   320    : Small phone
-   ============================================================ */
 
-/* ============================================================
-   BASE
-   ============================================================ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html, body, #root {
   margin: 0;
   min-height: 100%;
@@ -50,7 +50,7 @@ html, body, #root {
   --header-h: 72px;
   --container-pad: clamp(16px, 4vw, 80px);
 
-  /* ── Liquid Glass tokens ── */
+  
   --glass-bg: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.25);
   --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
@@ -69,9 +69,9 @@ img {
   height: auto;
 }
 
-/* ============================================================
-   ACCENT OVERRIDES  (Webflow teal → soft red)
-   ============================================================ */
+
+
+
 .green,
 .txt160 .green,
 .txt180 .green,
@@ -101,9 +101,9 @@ img {
   border-color: rgba(216,91,106,0.32) !important;
 }
 
-/* ============================================================
-   IMAGE PLACEHOLDERS
-   ============================================================ */
+
+
+
 .image-placeholder {
   display: block;
   width: 100%;
@@ -127,22 +127,22 @@ img {
   .work-img.image-placeholder { min-height: 160px; }
 }
 
-/* ============================================================
-   LOGO SVG
-   ============================================================ */
+
+
+
 .site-logo { display: block; width: 100%; height: auto; object-fit: contain; }
 .nav-logo-img    { max-width: 140px; max-height: 40px; }
 .footer-logo-img { max-width: 140px; max-height: 52px; }
 
-/* ============================================================
-   ABOUT DIVIDER
-   ============================================================ */
+
+
+
 .about-cont-wrp {
   position: relative !important;
   opacity: 1 !important;
 }
 
-/* Force abt-hr always visible */
+
 .about-cont-wrp .abt-hr {
   background: #d85b6a !important;
   opacity: 1 !important;
@@ -151,7 +151,7 @@ img {
 }
 .about-cont-wrp .abt-hr.mob { display: none !important; }
 
-/* Gạch — flex item co giãn giữa tên và text */
+
 .about-cont-wrp .abt-hr {
   display: block !important;
   flex: 1 !important;
@@ -166,16 +166,16 @@ img {
   border-radius: 0 !important;
 }
 
-/* Ẩn cái mob duplicate */
+
 .about-cont-wrp .abt-hr.mob { display: none !important; }
 
 @media screen and (max-width: 767px) {
   .about-cont-wrp .abt-hr { display: none !important; }
 }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+
+
+
 .dx-header {
   position: relative;
   background: rgba(0, 0, 0, 0.4);
@@ -186,7 +186,7 @@ img {
   z-index: 10;
 }
 
-/* Mobile — fixed khi scroll */
+
 @media screen and (max-width: 768px) {
   .dx-header {
     position: fixed;
@@ -199,7 +199,7 @@ img {
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  /* Đẩy hero xuống để không bị header đè */
+  
   .dx-hero {
     padding-top: var(--header-h);
   }
@@ -228,7 +228,7 @@ img {
 
 .dx-nav-logo-img {
   display: block;
-  width: 380px;
+  width: 460px;
   height: auto;
   max-height: 128px;
   object-fit: contain;
@@ -240,7 +240,7 @@ img {
 
 @media screen and (max-width: 768px) {
   .dx-nav-logo-img {
-    width: 300px;
+    width: 360px;
     height: auto;
     max-height: 100px;
   }
@@ -285,7 +285,7 @@ img {
 }
 .dx-cta-btn:hover { background: #217070; }
 
-/* Hamburger — hidden on desktop */
+
 .dx-hamburger {
   display: none;
   flex-direction: column;
@@ -303,7 +303,7 @@ img {
   transition: opacity 0.2s;
 }
 
-/* Header responsive */
+
 @media screen and (max-width: 1024px) {
   :root { --header-h: 64px; }
   .dx-nav-links { gap: clamp(16px, 2vw, 32px); }
@@ -323,21 +323,21 @@ img {
   }
 }
 
-/* ============================================================
-   HERO SECTION
-   ============================================================ */
 
-/* ── FONT SIZE TOKEN — change ONE value to resize all hero words ──
-   Desktop default: clamp(min, fluid, max)
-   min  = smallest size on very small screens
-   fluid= scales with viewport width (vw)
-   max  = caps on large screens
-   ─────────────────────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
 :root {
-  --hero-fs: clamp(79px, 11.1vw, 179px);  /* ← EDIT THIS to resize hero words */
-  --hero-fw: 600;                          /* ← EDIT THIS: 400=thin 600=semi 700=bold 800=heavy */
-  --hero-lh: 0.94;                         /* ← line-height */
-  --hero-ls: -0.04em;                      /* ← letter-spacing */
+  --hero-fs: clamp(79px, 11.1vw, 179px);  
+  --hero-fw: 600;                          
+  --hero-lh: 0.94;                         
+  --hero-ls: -0.04em;                      
 }
 
 .dx-hero {
@@ -350,7 +350,7 @@ img {
   background-repeat: no-repeat;
 }
 
-/* Video background */
+
 .dx-hero--video {
   background-image: none;
   background: #000000;
@@ -390,7 +390,7 @@ img {
   z-index: 2;
 }
 
-/* Đảm bảo nội dung nằm trên overlay */
+
 .dx-hero > .dx-hero-inner {
   position: relative;
   z-index: 3;
@@ -405,7 +405,7 @@ img {
   padding: clamp(20px, 3vh, 48px) var(--container-pad);
 }
 
-/* Logo — absolute center */
+
 .dx-hero-logo {
   position: absolute;
   left: 50%;
@@ -417,10 +417,10 @@ img {
   z-index: 2;
 }
 
-/* ── GRID: 2 columns, 2 rows ──────────────────────────────────
-   Col 1 (auto): DYNAMIX / SPEED
-   Col 2 (auto): tagline / INNOVATIONS
-   ──────────────────────────────────────────────────────────── */
+
+
+
+
 .dx-hero-grid {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -436,14 +436,14 @@ img {
   align-items: flex-end;
 }
 
-/* Row 1, Col 1 — DYNAMIX */
+
 .dx-cell-dynamix {
   grid-column: 1;
   grid-row: 1;
   align-items: flex-end;
 }
 
-/* Row 1, Col 2 — tagline: sits top-right, aligned bottom of row 1 */
+
 .dx-cell-tagline {
   grid-column: 2;
   grid-row: 1;
@@ -453,20 +453,20 @@ img {
   padding-left: 24px;
 }
 
-/* Row 2, Col 1 — SPEED */
+
 .dx-cell-speed {
   grid-column: 1;
   grid-row: 2;
 }
 
-/* Row 2, Col 2 — INNOVATIONS */
+
 .dx-cell-innovations {
   grid-column: 2;
   grid-row: 2;
   justify-content: flex-end;
 }
 
-/* ── Hero word ── */
+
 .dx-hero-word {
   font-family: "Manrope", sans-serif;
   font-size: var(--hero-fs);
@@ -483,7 +483,7 @@ img {
   color: var(--dx-accent);
 }
 
-/* ── Tagline ── */
+
 .dx-hero-tagline {
   margin: 0;
   text-align: right;
@@ -492,43 +492,43 @@ img {
   color: rgba(255,255,255,0.62);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   RESPONSIVE — only font-size and layout adjustments
-   ══════════════════════════════════════════════════════════════ */
 
-/* 4K / Ultrawide 2560+ */
+
+
+
+
 @media screen and (min-width: 2560px) {
   :root { --hero-fs: clamp(143px, 7.1vw, 232px); }
   .dx-hero-logo { width: clamp(180px, 9vw, 280px); }
   .dx-hero-tagline { font-size: 20px; }
 }
 
-/* Large desktop 1441–1920 */
+
 @media screen and (max-width: 1920px) and (min-width: 1441px) {
   :root { --hero-fs: clamp(107px, 8.1vw, 161px); }
 }
 
-/* Standard laptop 1281–1440 */
+
 @media screen and (max-width: 1440px) and (min-width: 1281px) {
   :root { --hero-fs: clamp(89px, 8.9vw, 143px); }
   .dx-hero-logo { width: clamp(100px, 10vw, 160px); }
 }
 
-/* Small laptop 1025–1280 */
+
 @media screen and (max-width: 1280px) and (min-width: 1025px) {
   :root { --hero-fs: clamp(79px, 8.9vw, 125px); }
   .dx-hero-logo { width: clamp(88px, 9.5vw, 140px); }
   .dx-hero-tagline { font-size: clamp(11px, 0.8vw, 13px); }
 }
 
-/* Tablet landscape 769–1024 */
+
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   :root { --hero-fs: clamp(57px, 8.1vw, 99px); }
   .dx-hero-logo { width: clamp(80px, 11vw, 130px); top: 40%; }
   .dx-hero-tagline { font-size: 12px; }
 }
 
-/* Tablet portrait 481–768 — stack tagline above, keep grid */
+
 @media screen and (max-width: 768px) and (min-width: 481px) {
   :root { --hero-fs: clamp(43px, 7.6vw, 79px); }
   .dx-hero-inner {
@@ -548,7 +548,7 @@ img {
 
 
 
-/* ── PHONE (≤480px) — theo mẫu: logo giữa trên, tagline phải, chữ dọc dưới ── */
+
 @media screen and (max-width: 480px) {
   :root { --hero-fs: clamp(48px, 14vw, 72px); }
 
@@ -560,7 +560,7 @@ img {
     padding: 12px 16px 16px;
   }
 
-  /* Logo: absolute center of hero section */
+  
   .dx-hero-logo {
     position: absolute !important;
     left: 50% !important;
@@ -570,7 +570,7 @@ img {
     flex-shrink: 0;
   }
 
-  /* Grid: dọc, margin-top auto để dồn xuống dưới */
+  
   .dx-hero-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -578,18 +578,18 @@ img {
     margin-top: auto;
   }
 
-  /* Thứ tự: tagline → SPEED → DYNAMIX → INNOVATIONS */
+  
   .dx-cell-tagline     { grid-column: 1; grid-row: 1; justify-content: flex-end; padding: 0 0 8px; }
   .dx-cell-speed       { grid-column: 1; grid-row: 2; justify-content: flex-start; }
   .dx-cell-dynamix     { grid-column: 1; grid-row: 3; justify-content: flex-start; }
-  /* Fix: innovations căn trái giống SPEED và DYNAMIX */
+  
   .dx-cell-innovations { grid-column: 1; grid-row: 4; justify-content: flex-start !important; }
 
   .dx-hero-word        { white-space: nowrap; line-height: 0.88; }
   .dx-hero-tagline     { text-align: right; font-size: 13px; width: 100%; color: rgba(255,255,255,0.75); }
 }
 
-/* Landscape phone */
+
 @media screen and (max-height: 500px) and (orientation: landscape) {
   :root { --hero-fs: clamp(36px, 7vw, 64px); }
   .dx-hero-inner {
@@ -601,9 +601,9 @@ img {
 }
 
 
-/* ============================================================
-   MOBILE MENU OVERLAY
-   ============================================================ */
+
+
+
 .dx-hamburger {
   background: none;
   border: none;
@@ -611,7 +611,7 @@ img {
   cursor: pointer;
 }
 
-/* Hamburger → X animation */
+
 .dx-hamburger--open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -625,7 +625,7 @@ img {
   transition: transform 0.22s ease, opacity 0.18s ease;
 }
 
-/* Full-screen overlay */
+
 .dx-mob-overlay {
   position: fixed;
   inset: 0;
@@ -650,7 +650,7 @@ img {
   padding: 0 clamp(20px, 6vw, 40px) clamp(24px, 5vh, 40px);
 }
 
-/* Top bar */
+
 .dx-mob-top {
   display: flex;
   align-items: center;
@@ -674,7 +674,7 @@ img {
 }
 .dx-mob-close:hover { background: #217070; }
 
-/* Nav links */
+
 .dx-mob-nav {
   display: flex;
   flex-direction: column;
@@ -705,7 +705,7 @@ img {
   opacity: 0.8;
 }
 
-/* Bottom CTA */
+
 .dx-mob-cta {
   display: flex;
   align-items: center;
@@ -729,18 +729,18 @@ img {
 
 
 
-/* ============================================================
-   SEC-HEAD-WRP — section header (Products & Cases, etc.)
-   ============================================================ */
+
+
+
 .sec-head-wrp {
 display: flex;
 align-items: flex-start;
-justify-content: flex-start;  /* ← đổi từ space-between */
-gap: 24px;                    /* ← kéo lại gần */
+justify-content: flex-start;  
+gap: 24px;                    
 padding-bottom: clamp(32px, 4vw, 56px);
 }
 
-/* Compact spacing between Connected and Products & Cases */
+
 .services-hor-scroll-cont {
   min-height: auto !important;
 }
@@ -774,9 +774,9 @@ padding-bottom: clamp(32px, 4vw, 56px);
   .works-wd { max-width: 100%; }
 }
 
-/* ============================================================
-   CONTACT MODAL
-   ============================================================ */
+
+
+
 .dx-modal-overlay {
   position: fixed;
   inset: 0;
@@ -964,7 +964,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
 .dx-modal-submit:hover:not(:disabled) { opacity: 0.85; }
 .dx-modal-submit:disabled { opacity: 0.55; cursor: not-allowed; }
 
-/* Success state */
+
 .dx-modal-success {
   display: flex;
   flex-direction: column;
@@ -988,13 +988,13 @@ padding-bottom: clamp(32px, 4vw, 56px);
   max-width: 300px;
 }
 
-/* ============================================================
-   WORK CARD — image + mobile layout
-   ============================================================ */
+
+
+
 
 .work-card { background: #0d0d0d !important; }
 
-/* Image wrapper: absolute 60% centered — desktop */
+
 .work-img-wrap {
   position: absolute !important;
   bottom: 0;
@@ -1048,7 +1048,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
 }
 
 
-/* Desktop: show CTA only on hover */
+
 .work-card .work-hover-div {
   opacity: 0;
   pointer-events: none;
@@ -1060,13 +1060,13 @@ padding-bottom: clamp(32px, 4vw, 56px);
   pointer-events: auto;
 }
 
-/* Mobile info — hidden on desktop */
+
 .dx-mob-card-info { display: none; }
 
-/* ── MOBILE ≤768px ── */
+
 @media screen and (max-width: 768px) {
 
-  /* Giữ nguyên Webflow elements, chỉ reposition */
+  
   .work-card {
     min-height: unset !important;
     display: flex !important;
@@ -1074,12 +1074,12 @@ padding-bottom: clamp(32px, 4vw, 56px);
     padding-bottom: 0 !important;
   }
 
-  /* work-abs (description) — ẩn trên mobile, dùng dx-mob-card-desc thay */
+  
   .work-card .work-abs {
     display: none !important;
   }
 
-  /* work-hover-div — để Webflow animate, chỉ reposition về cuối */
+  
   .work-card .work-hover-div {
     position: static !important;
     opacity: 1 !important;
@@ -1091,7 +1091,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
     order: 1;
   }
 
-  /* Tên project trong hover-div */
+  
   .work-card .work-hover-div .txt18.pc-hide {
     display: block !important;
     font-size: 15px !important;
@@ -1099,7 +1099,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
     color: #fff !important;
   }
 
-  /* Image: in flow */
+  
   .work-img-wrap {
     position: static !important;
     transform: none !important;
@@ -1137,7 +1137,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
     filter: brightness(0.9) !important;
   }
 
-  /* Mobile desc block */
+  
   .dx-mob-card-info {
     display: block;
     order: 2;
@@ -1151,16 +1151,16 @@ padding-bottom: clamp(32px, 4vw, 56px);
   }
 }
 
-/* ============================================================
-   FOOTER — matches reference design
-   ============================================================ */
+
+
+
 .dx-footer {
   background: #0d0d0d;
   padding: clamp(48px, 6vw, 80px) var(--container-pad) 0;
   margin-top: clamp(40px, 6vw, 80px);
 }
 
-/* ── TOP ROW ── */
+
 .dx-footer-top {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 160px 160px;
@@ -1186,7 +1186,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
 
 .dx-footer-col { display: flex; flex-direction: column; gap: 16px; }
 
-/* Logo col */
+
 .dx-footer-logo {
   width: clamp(220px, 22vw, 340px);
   height: auto;
@@ -1206,7 +1206,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   gap: 10px;
 }
 
-/* CTA col */
+
 .dx-footer-cta-title {
   font-size: clamp(18px, 1.6vw, 24px);
   font-weight: 700;
@@ -1240,7 +1240,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
 }
 .dx-footer-btn:hover { opacity: 0.85; }
 
-/* Menu / Contact cols */
+
 .dx-footer-col-label {
   font-size: 11px;
   font-weight: 600;
@@ -1260,7 +1260,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
 .dx-footer-link:hover { color: #fff; }
 .dx-footer-link-ul { text-decoration: underline; text-underline-offset: 3px; }
 
-/* ── BOTTOM ROW ── */
+
 .dx-footer-bottom {
   display: grid;
   grid-template-columns: 160px 1fr auto 1fr;
@@ -1322,7 +1322,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
 }
 .dx-footer-policy:hover { color: #fff; }
 
-/* ── Responsive ── */
+
 @media screen and (max-width: 1024px) {
   .dx-footer-top { grid-template-columns: minmax(0, 1fr) 140px 140px; }
 }
@@ -1349,33 +1349,33 @@ padding-bottom: clamp(32px, 4vw, 56px);
   .dx-footer-bottom { grid-template-columns: 1fr; }
   .dx-footer-bottom-right { align-items: flex-start; }
 }
-/* ============================================================
-   SERVICES — mobile reorder 01→02→03→04→05
-   ============================================================ */
+
+
+
    @media screen and (max-width: 768px) {
     .services-hor-scroll {
       display: flex !important;
       flex-direction: column !important;
     }
   
-    .service-card:nth-child(1) { order: 1; } /* 01 */
-    .service-card:nth-child(2) { order: 3; } /* 03 */
-    .service-card:nth-child(3) { order: 5; } /* 05 */
-    .service-card:nth-child(4) { order: 2; } /* 02 */
-    .service-card:nth-child(5) { order: 4; } /* 04 */
+    .service-card:nth-child(1) { order: 1; } 
+    .service-card:nth-child(2) { order: 3; } 
+    .service-card:nth-child(3) { order: 5; } 
+    .service-card:nth-child(4) { order: 2; } 
+    .service-card:nth-child(5) { order: 4; } 
   }
 
-/* ============================================================
-   BACKGROUND THEME OVERRIDES — pure black site background
-   ============================================================ */
 
-/* Main page background sections */
+
+
+
+
 .dx-hero,
 .dx-hero--video {
   background: #000 !important;
 }
 
-/* All Webflow section wrappers background → transparent (video shows through) */
+
 .section,
 .w-section,
 [class*="-section"],
@@ -1385,7 +1385,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   background: transparent !important;
 }
 
-/* Remove any leftover grey cards/containers background → semi-transparent black */
+
 .why-card,
 .service-card,
 .rev-card,
@@ -1397,20 +1397,19 @@ padding-bottom: clamp(32px, 4vw, 56px);
   background: rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Specific sections — transparent so HLS video backgrounds show through */
+
 .about,
 .why,
 .services,
 .agent-build,
 .dx-footer,
-.reviews,
 .works {
   background: transparent !important;
 }
 
-/* ============================================================
-   AGENT BUILD SECTION
-   ============================================================ */
+
+
+
 .agent-build {
   padding: clamp(56px, 8vw, 110px) 0;
   position: relative;
@@ -1560,9 +1559,9 @@ padding-bottom: clamp(32px, 4vw, 56px);
 }
 
 
-/* ============================================================
-   LIQUID GLASS — utility classes (glassmorphism effects)
-   ============================================================ */
+
+
+
 
 .liquid-glass {
   background: rgba(255, 255, 255, 0.01);
@@ -1630,9 +1629,9 @@ padding-bottom: clamp(32px, 4vw, 56px);
   pointer-events: none;
 }
 
-/* ============================================================
-   BLOG
-   ============================================================ */
+
+
+
 
 .dx-blog {
   padding: clamp(56px, 8vw, 110px) 0;
@@ -1788,51 +1787,9 @@ padding-bottom: clamp(32px, 4vw, 56px);
 
 }
 
-/* Reviews marquee — continuous conveyor style */
-.dx-reviews-shell {
-  overflow: hidden;
-  width: 100%;
-}
 
-.dx-reviews-track {
-  display: flex;
-  width: max-content;
-  gap: 0;
-  animation: dx-reviews-marquee 60s linear infinite;
-  will-change: transform;
-}
 
-.dx-reviews-group {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  padding-right: 20px;
-}
 
-.dx-review-card {
-  flex: 0 0 clamp(320px, 34vw, 520px);
-  max-width: clamp(320px, 34vw, 520px);
-  min-width: 0;
-  min-height: 520px;
-  display: flex;
-  flex-direction: column;
-}
-
-.dx-review-card .txt24.light {
-  margin-top: 40px;
-}
-
-.dx-review-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.dx-review-card-name {
-}
-
-/* Bento Grid */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1847,214 +1804,19 @@ padding-bottom: clamp(32px, 4vw, 56px);
   }
 }
 
-/* Dashboard Mockup styles */
-.dashboard-mockup {
-  border-radius: 14px;
-  overflow: hidden;
-  backdrop-filter: blur(2px);
-  padding: clamp(14px, 1.8vw, 22px);
-}
 
-.dx-blog-card--provera {
-  padding: 0;
-}
-
-.dx-blog-card--provera .dx-blog-image {
-  border-radius: 14px 14px 0 0;
-  width: 100%;
-}
-
-.dx-blog-card--provera .dx-blog-content {
-  padding: clamp(14px, 1.6vw, 18px) clamp(16px, 1.2vw, 20px) clamp(16px, 1.3vw, 20px);
-}
-
-.dx-blog-card--announcement .dx-blog-content {
-  padding: clamp(14px, 1.6vw, 18px) clamp(16px, 1.2vw, 20px) clamp(16px, 1.3vw, 20px);
-}
-
-.dx-blog-image {
-  width: 100%;
-  display: block;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  image-rendering: auto;
-  border-radius: 12px;
-}
-
-.dx-blog-image--provera {
-  width: 100%;
-  object-fit: contain;
-  object-position: center;
-  background: #f0f1f6;
-}
-
-.dx-blog-image--announcement {
-  object-position: center 42%;
-}
-
-.dx-blog-content {
-  flex: 1;
-  padding: clamp(14px, 1.6vw, 18px) clamp(4px, 0.8vw, 10px) 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-height: 360px;
-}
-
-.dx-blog-title {
-  margin: 0;
-  font-size: clamp(18px, 1.8vw, 28px);
-  line-height: 1.28;
-  color: #fff;
-  letter-spacing: 0.01em;
-}
-
-.dx-blog-description {
-  margin: 0;
-  font-size: clamp(13px, 0.95vw, 15px);
-  line-height: 1.72;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.dx-blog-hashtags {
-  margin: 0;
-  margin-top: auto;
-  font-size: clamp(12px, 0.9vw, 14px);
-  line-height: 1.55;
-  color: rgba(42, 143, 143, 0.95);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-
-.dx-blog-btn {
-  align-self: flex-start;
-  margin-top: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 11px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: linear-gradient(135deg, rgba(42, 143, 143, 0.28), rgba(255, 255, 255, 0.07));
-  color: #f2fffd;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.dx-blog-btn:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: linear-gradient(135deg, rgba(42, 143, 143, 0.4), rgba(255, 255, 255, 0.12));
-}
-
-@media screen and (max-width: 768px) {
-  .dx-blog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dx-blog-image {
-    width: 100%;
-  }
-
-  .dx-blog-card--provera {
-    padding: clamp(14px, 1.8vw, 22px);
-  }
-
-  .dx-blog-card--provera .dx-blog-image {
-    border-radius: 12px;
-  }
-
-  .dx-blog-card--provera .dx-blog-content {
-    padding: clamp(14px, 1.6vw, 18px) clamp(4px, 0.8vw, 10px) 0;
-  }
-
-  .dx-blog-content {
-    min-height: 0;
-  }
-
-  .dx-footer-logo {
-    margin-top: 0;
-  }
-
-}
-
-/* Reviews marquee — continuous conveyor style */
-.dx-reviews-shell {
-  overflow: hidden;
-  width: 100%;
-}
-
-.dx-reviews-track {
-  display: flex;
-  width: max-content;
-  gap: 0;
-  animation: dx-reviews-marquee 60s linear infinite;
-  will-change: transform;
-}
-
-.dx-reviews-group {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  padding-right: 20px;
-}
-
-.dx-review-card {
-  flex: 0 0 clamp(320px, 34vw, 520px);
-  max-width: clamp(320px, 34vw, 520px);
-  min-width: 0;
-  min-height: 520px;
-  display: flex;
-  flex-direction: column;
-}
-
-.dx-review-card .txt24.light {
-  margin-top: 40px;
-}
-
-.dx-review-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.dx-review-card-name {
-}
-
-/* Bento Grid */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 1024px) {
-  .bento-grid {
-    grid-template-columns: repeat(1, 1fr);
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/* Dashboard Mockup styles */
 .dashboard-mockup {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(8, 8, 8, 0.7);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Scroll Indicators / Glow elements */
+
 .glow-spotlight {
   background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(216, 91, 106, 0.08), transparent 40%);
 }
 
-/* Radar sweep rotation */
+
 @keyframes radar-sweep {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -2064,7 +1826,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   animation: radar-sweep 6s linear infinite;
 }
 
-/* Pulsing waves */
+
 @keyframes pulse-wave {
   0% { transform: scale(0.95); opacity: 0.4; }
   50% { transform: scale(1.05); opacity: 0.8; }
@@ -2074,7 +1836,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   animation: pulse-wave 3s ease-in-out infinite;
 }
 
-/* CCTV AI Laser Scan Animation */
+
 @keyframes laser-scan {
   0% { top: 0%; opacity: 0; }
   10% { opacity: 1; }
@@ -2094,7 +1856,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   animation: laser-scan 4s linear infinite;
 }
 
-/* Modern Glass Overwrite */
+
 .modern-glass {
   background: rgba(8, 8, 8, 0.65);
   backdrop-filter: blur(24px) saturate(180%);
@@ -2111,7 +1873,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   transform: translateY(-3px);
 }
 
-/* Text Gradients */
+
 .text-gradient-peach {
   background: linear-gradient(135deg, #fff 30%, #fbc2eb 70%, #d85b6a 100%);
   -webkit-background-clip: text;
@@ -2124,7 +1886,7 @@ padding-bottom: clamp(32px, 4vw, 56px);
   -webkit-text-fill-color: transparent;
 }
 
-/* Background Gradients */
+
 .bg-gradient-brand {
   background: linear-gradient(135deg, #d85b6a 0%, #ff8a9a 50%, #fc8eac 100%);
 }

@@ -89,7 +89,7 @@ export default function CxIndustries() {
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[130px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        
         <div className="flex flex-col items-start gap-4 mb-20 max-w-3xl text-left">
           <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
             Industries Served
@@ -103,7 +103,7 @@ export default function CxIndustries() {
           </p>
         </div>
 
-        {/* Industries Grid */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {INDUSTRIES.map((ind, idx) => (
             <motion.div
@@ -115,19 +115,19 @@ export default function CxIndustries() {
               onClick={(e) => handleItemClick(e, ind.slug)}
               className="p-8 rounded-2xl bg-[#0a0a0c] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-500 flex flex-col justify-between min-h-[420px] group relative overflow-hidden cursor-pointer hover:shadow-[0_8px_32px_rgba(216,91,106,0.15)] hover:-translate-y-1.5"
             >
-              {/* High-res Image Background Backdrop with hover zoom - highly visible */}
+              
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-45 group-hover:opacity-75 group-hover:scale-110 transition-all duration-700 pointer-events-none z-0" 
                 style={{ backgroundImage: `url('${ind.imagePath}')` }}
               />
 
-              {/* Dark overlay screen to ensure absolute text readability */}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/85 to-black/30 z-0 pointer-events-none" />
 
-              {/* Glowing color screen on hover */}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-[#d85b6a]/10 via-[#d85b6a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
 
-              {/* Decorative Subtle Grid Backdrop */}
+              
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_30px] opacity-10 pointer-events-none z-0" />
 
               <div className="relative z-10 text-left">
@@ -152,7 +152,7 @@ export default function CxIndustries() {
               </div>
 
               <div className="relative z-10 text-left">
-                {/* List of sub-features */}
+                
                 <div className="flex flex-wrap gap-1.5 mb-8">
                   {ind.features.map((feat) => (
                     <span

@@ -6,12 +6,10 @@ export { default as AboutSection } from "./AboutSection";
 export { default as WhySection } from "./WhySection";
 export { default as ServicesSection } from "./ServicesSection";
 export { default as AgentBuildSection } from "./AgentBuildSection";
-export { default as WorksSection } from "./WorksSection";
-export { default as ReviewsSection } from "./ReviewsSection";
 export { default as BlogSection } from "./BlogSection";
 export { default as FooterSection } from "./FooterSection";
 
-// Modern Premium SaaS / AI Landing Page components (cảm hứng cxview.ai)
+
 export { default as ModernNav } from "./ModernNav";
 export { default as ModernHero } from "./ModernHero";
 export { default as ProblemSection } from "./ProblemSection";

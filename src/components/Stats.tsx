@@ -19,7 +19,7 @@ export default function Stats() {
         padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
       }}
     >
-      {/* HLS Video background — desaturated */}
+      
       <HlsVideo
         src={HLS_SRC}
         style={{
@@ -33,11 +33,11 @@ export default function Stats() {
         }}
       />
 
-      {/* Top/bottom fades */}
+      
       <div className="video-fade-top" />
       <div className="video-fade-bottom" />
 
-      {/* Stats card */}
+      
       <div
         style={{
           position: 'relative',

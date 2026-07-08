@@ -15,7 +15,7 @@ export default function Navbar() {
           transition: 'all 0.3s ease',
         }}
       >
-        {/* Logo */}
+        
         <a href="#" className="flex-shrink-0">
           <img
             src={logoIcon}
@@ -25,7 +25,7 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Center nav pill — desktop only */}
+        
         <div
           className="liquid-glass hidden md:flex items-center gap-1 rounded-full px-1.5 py-1"
         >
@@ -51,7 +51,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
+        
         <div className="md:hidden flex items-center">
           <a
             href="#contact"

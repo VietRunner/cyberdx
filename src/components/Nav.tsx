@@ -18,10 +18,10 @@ export default function Nav({ onContact }: { onContact?: () => void }) {
       <header className="dx-header">
         <div className="dx-header-inner">
           <a href="#top" className="dx-logo-link" onClick={close}>
-            <img src="/Apex_DX_rm.png" alt="ApexDX" className="dx-nav-logo-img" />
+            <img src="/cyberdx_logo-removebg-preview.png" alt="CyberDX" className="dx-nav-logo-img" />
           </a>
 
-          {/* Desktop nav */}
+          
           <nav className="dx-nav-links">
             {NAV_LINKS.map((l) => (
               <a key={l.label} href={l.href} className="dx-nav-link">{l.label}</a>
@@ -30,7 +30,7 @@ export default function Nav({ onContact }: { onContact?: () => void }) {
 
           <a href="#" className="dx-cta-btn" onClick={(e) => { e.preventDefault(); onContact?.(); }}>GET IN TOUCH</a>
 
-          {/* Hamburger */}
+          
           <button
             className={`dx-hamburger${open ? " dx-hamburger--open" : ""}`}
             onClick={() => setOpen((v) => !v)}
@@ -43,19 +43,19 @@ export default function Nav({ onContact }: { onContact?: () => void }) {
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
+      
       {open && (
         <div className="dx-mob-overlay">
           <div className="dx-mob-inner">
-            {/* Top bar */}
+            
             <div className="dx-mob-top">
               <a href="#top" className="dx-logo-link" onClick={close}>
-                <img src="/Apex_DX_rm.png" alt="ApexDX" className="dx-nav-logo-img" />
+                <img src="/cyberdx_logo-removebg-preview.png" alt="CyberDX" className="dx-nav-logo-img" />
               </a>
               <button className="dx-mob-close" onClick={close}>CLOSE</button>
             </div>
 
-            {/* Links */}
+            
             <nav className="dx-mob-nav">
               {NAV_LINKS.map((l) => (
                 <a key={l.label} href={l.href} className="dx-mob-link" onClick={close}>
@@ -67,7 +67,7 @@ export default function Nav({ onContact }: { onContact?: () => void }) {
               ))}
             </nav>
 
-            {/* CTA */}
+            
             <a href="#" className="dx-mob-cta" onClick={(e) => { e.preventDefault(); close(); onContact?.(); }}>
               LET'S DISCUSS
             </a>

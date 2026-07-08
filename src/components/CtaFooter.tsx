@@ -12,7 +12,7 @@ export default function CtaFooter() {
         background: '#000',
       }}
     >
-      {/* HLS Video background */}
+      
       <HlsVideo
         src={HLS_SRC}
         style={{
@@ -25,11 +25,11 @@ export default function CtaFooter() {
         }}
       />
 
-      {/* Top/bottom fades */}
+      
       <div className="video-fade-top" />
       <div className="video-fade-bottom" />
 
-      {/* CTA Content */}
+      
       <div
         style={{
           position: 'relative',
@@ -99,7 +99,7 @@ export default function CtaFooter() {
         </div>
       </div>
 
-      {/* Footer bar */}
+      
       <div
         style={{
           position: 'relative',

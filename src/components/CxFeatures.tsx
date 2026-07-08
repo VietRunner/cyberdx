@@ -77,7 +77,7 @@ const FEATURES: FeatureCard[] = [
 
 export default function CxFeatures() {
   const handleFeatureClick = (slug: string) => {
-    // Open subpage details by dispatching custom event
+    
     document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: slug }));
   };
 
@@ -86,12 +86,12 @@ export default function CxFeatures() {
       id="features"
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
-      {/* Background ambient lighting */}
+      
       <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        
         <div className="flex flex-col items-start gap-4 mb-16 max-w-3xl text-left">
           <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
             Featured Solutions
@@ -105,7 +105,7 @@ export default function CxFeatures() {
           </p>
         </div>
 
-        {/* Dynamic Grid: 9 Features */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.map((feature, index) => (
             <motion.div

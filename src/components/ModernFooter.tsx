@@ -16,7 +16,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
     <footer className="relative bg-black py-16 px-4 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/5 text-left">
-          {/* Brand Col */}
+          
           <div className="md:col-span-6 flex flex-col gap-4">
             <a
               href="/"
@@ -27,8 +27,8 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
               className="inline-block"
             >
               <img
-                src="/Apex_DX_rm.png"
-                alt="ApexDX"
+                src="/cyberdx_logo-removebg-preview.png"
+                alt="CyberDX"
                 className="h-16 w-auto object-contain mix-blend-screen"
                 style={{ maxHeight: "64px" }}
               />
@@ -38,7 +38,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
             </p>
           </div>
 
-          {/* Nav Links Col */}
+          
           <div className="md:col-span-3 flex flex-col gap-4">
             <h4 className="text-white font-black text-sm lg:text-base uppercase tracking-wider font-mono">
               Navigation
@@ -78,7 +78,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
             </div>
           </div>
 
-          {/* Legal / Contacts Col */}
+          
           <div className="md:col-span-3 flex flex-col gap-4">
             <h4 className="text-white font-black text-sm lg:text-base uppercase tracking-wider font-mono">
               Contact & Support
@@ -88,7 +88,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
                 HOTLINE: +84 77 800 3426
               </span>
               <span className="text-white/60 text-sm">
-                Email: sale@apexdx.com
+                Email: sale@cyberdx.com
               </span>
               <span className="text-white/60 text-sm leading-relaxed">
                 Office:Quoc lo 13, Phuong Hiep Binh, Thanh Pho Ho Chi Minh, Viet Nam
@@ -107,10 +107,10 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">
-            &copy; {currentYear} ApexDX AI Ecosystem. All rights reserved.
+            &copy; {currentYear} CyberDX AI Ecosystem. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <span className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">

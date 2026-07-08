@@ -3,6 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { SplineScene } from "@/components/ui/splite";
 
+const ROBOT_SCENE_URL = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
+
 const ROBOT_PHRASES = [
   "INITIALIZING APEXDX SYSTEM...",
   "REAL-TIME SURVEILLANCE FEED ACTIVE",
@@ -19,7 +21,7 @@ interface CxHeroProps {
 export default function CxHero({ onContact }: CxHeroProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Typewriter state for Robot speech bubble
+  
   const [currentText, setCurrentText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -52,7 +54,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, phraseIndex]);
 
-  // Canvas tech-flow grid particles animation
+  
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -97,7 +99,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw connections
+      
       ctx.strokeStyle = "rgba(216, 91, 106, 0.05)";
       ctx.lineWidth = 1;
       for (let i = 0; i < count; i++) {
@@ -115,7 +117,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
         }
       }
 
-      // Update & Draw particles
+      
       ctx.fillStyle = "rgba(216, 91, 106, 0.3)";
       for (let i = 0; i < count; i++) {
         const p = particles[i];
@@ -146,20 +148,20 @@ export default function CxHero({ onContact }: CxHeroProps) {
       id="home"
       className="relative min-h-screen bg-black flex flex-col justify-center items-center px-4 pt-36 pb-32 overflow-hidden"
     >
-      {/* Background canvas for tech particles */}
+      
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-70"
       />
 
-      {/* Background radial glow mapping the red theme */}
+      
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(216,91,106,0.08)_0%,transparent_70%)] pointer-events-none" />
       
-      {/* Radiant Glowing Orbs (Soft coral ambient lights) */}
+      
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d85b6a]/10 rounded-full blur-[140px] pointer-events-none z-0 animate-pulse" style={{ animationDuration: "10s" }} />
       <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[110px] pointer-events-none z-0" />
 
-      {/* SVG Grid lines to add modern visual depth */}
+      
       <svg
         className="absolute inset-0 w-full h-full opacity-25 z-0 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +185,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
       </svg>
 
       <div className="max-w-7xl mx-auto w-full flex flex-col items-center relative z-10 text-center px-4">
-        {/* Animated Badge */}
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -196,7 +198,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
           </span>
         </motion.div>
 
-        {/* Centered Headline - Bold, massive uppercase typography matching CXVIEW */}
+        
         <motion.h1
           initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -207,7 +209,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
           <span className="text-[#d85b6a]">SHAPES VALUE</span>
         </motion.h1>
 
-        {/* Sub-headline */}
+        
         <motion.p
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -219,7 +221,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
           preventing operational risks, and protecting corporate assets in real-time.
         </motion.p>
 
-        {/* Action Buttons */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -241,14 +243,14 @@ export default function CxHero({ onContact }: CxHeroProps) {
           </a>
         </motion.div>
 
-        {/* 3D Spline Scene of the Robot (con robot di chuyen theo chuot) */}
+        
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 45 }}
           className="relative w-full max-w-6xl mx-auto overflow-hidden z-10 aspect-[16/9]"
         >
-          {/* Floating Robot Speech / AI Status Pill */}
+          
           <div className="absolute top-[6%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 flex items-center gap-2.5 bg-black/70 border border-[#d85b6a]/30 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-[0_0_30px_rgba(216,91,106,0.2)] min-w-[280px] sm:min-w-[340px] justify-center">
             <span className="w-2 h-2 rounded-full bg-[#d85b6a] animate-ping flex-shrink-0" />
             <span className="w-1.5 h-1.5 rounded-full bg-[#d85b6a] absolute left-[20px] flex-shrink-0" />
@@ -258,22 +260,14 @@ export default function CxHero({ onContact }: CxHeroProps) {
             </div>
           </div>
 
-          {/* Holographic Chest Logo Overlay */}
-          <div className="absolute top-[54%] left-[50.8%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 flex flex-col items-center">
-            <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.35em] text-[#d85b6a]/80 mb-0.5 uppercase select-none">SYSTEM ACTIVE</div>
-            <div className="font-sans font-black text-2xl sm:text-3xl tracking-[0.2em] pl-[0.2em] text-white drop-shadow-[0_0_15px_rgba(216,91,106,0.7)] select-none">
-              <span className="text-[#d85b6a]">A</span>PEXDX
-            </div>
-          </div>
-
           <SplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            scene={ROBOT_SCENE_URL}
             className="w-full h-full"
           />
         </motion.div>
       </div>
 
-      {/* Subtle bottom fade to next section */}
+      
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none" />
     </section>
   );

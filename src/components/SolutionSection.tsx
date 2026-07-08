@@ -11,11 +11,11 @@ export default function SolutionSection({ onContact }: SolutionCardProps) {
       id="solution"
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
-      {/* Visual background elements */}
+      
       <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[130px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        
         <div className="flex flex-col items-center text-center gap-4 mb-20">
           <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
             Solution Segments
@@ -29,9 +29,9 @@ export default function SolutionSection({ onContact }: SolutionCardProps) {
           </p>
         </div>
 
-        {/* 2-Column Split: B2B vs B2C */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Box 1: B2B Solutions */}
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function SolutionSection({ onContact }: SolutionCardProps) {
                 Large-scale AI Camera systems deeply integrated into the existing infrastructure of factories, warehouses, office buildings, and smart cities.
               </p>
 
-              {/* Core Offerings */}
+              
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#d85b6a]/10 flex items-center justify-center text-[#d85b6a]">
@@ -91,7 +91,7 @@ export default function SolutionSection({ onContact }: SolutionCardProps) {
             </div>
           </motion.div>
 
-          {/* Box 2: B2C Solutions */}
+          
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export default function SolutionSection({ onContact }: SolutionCardProps) {
                 Optimize store performance and customer shopping experiences via traffic analysis, behavior analytics, and multi-point asset protection.
               </p>
 
-              {/* Core Offerings */}
+              
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#d85b6a]/10 flex items-center justify-center text-[#d85b6a]">
