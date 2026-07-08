@@ -112,9 +112,9 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
   return (
     <>
       <nav
-        className="fixed top-4 left-0 right-0 z-50 pl-0 pr-4 md:pr-8 transition-all duration-300 pointer-events-none"
+        className="absolute top-0 left-0 right-0 z-50 pl-0 pr-4 md:pr-8 transition-all duration-300 pointer-events-none"
       >
-        <div className="max-w-none mx-0 flex items-center justify-between w-full">
+        <div className="max-w-none mx-0 flex items-start justify-between w-full">
           
           <div className="pointer-events-auto flex items-center">
             <a
@@ -137,7 +137,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
 
           
           <div
-            className={`hidden lg:flex items-center gap-2.5 py-1.5 px-5 rounded-full transition-all duration-300 bg-[#08080a]/65 border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-md pointer-events-auto border ${
+            className={`hidden lg:flex items-center gap-2.5 py-1.5 px-5 mt-2 rounded-full transition-all duration-300 bg-[#08080a]/65 border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-md pointer-events-auto border ${
               scrolled
                 ? "bg-[#050507]/90 border-[#d85b6a]/20 shadow-[0_12px_36px_rgba(0,0,0,0.7)] backdrop-blur-xl scale-[0.98]"
                 : ""
@@ -216,7 +216,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
           </div>
 
           
-          <div className="pointer-events-auto flex items-center gap-3">
+          <div className="pointer-events-auto flex items-center gap-3 mt-2">
             <a
               href="#contact"
               onClick={(e) => {
