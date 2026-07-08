@@ -9,7 +9,7 @@ export default function ProblemSection() {
       <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#d85b6a]/5 rounded-full blur-[100px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        
         <div className="flex flex-col items-start gap-4 mb-16 max-w-3xl text-left">
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-4 py-1.5 text-sm font-bold text-yellow-500 uppercase tracking-wider font-mono">
             Thách Thức Vận Hành
@@ -23,9 +23,9 @@ export default function ProblemSection() {
           </p>
         </div>
 
-        {/* Split Grid: Recruiters vs Workers */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Box 1: An Ninh & An Toàn */}
+          
           <div className="p-8 rounded-2xl modern-glass flex flex-col justify-between gap-8 group">
             <div>
               <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-[#d85b6a] mb-6">
@@ -38,7 +38,7 @@ export default function ProblemSection() {
                 Những lỗ hổng đe dọa sự an toàn của con người và tài sản doanh nghiệp.
               </p>
 
-              {/* Problems list */}
+              
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <Timer size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
@@ -77,7 +77,7 @@ export default function ProblemSection() {
             </div>
           </div>
 
-          {/* Box 2: Vận Hành & Quản Lý */}
+          
           <div className="p-8 rounded-2xl modern-glass flex flex-col justify-between gap-8 group">
             <div>
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
@@ -90,7 +90,7 @@ export default function ProblemSection() {
                 Những nút thắt làm lãng phí tài nguyên và chi phí cơ hội của doanh nghiệp.
               </p>
 
-              {/* Problems list */}
+              
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
                   <ShieldAlert size={18} className="text-purple-400 flex-shrink-0 mt-0.5" />

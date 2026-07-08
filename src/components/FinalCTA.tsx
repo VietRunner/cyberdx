@@ -18,7 +18,7 @@ export default function FinalCTA({}: FinalCTAProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
+    
     setTimeout(() => {
       setSubmitted(true);
       setFormData({
@@ -43,7 +43,7 @@ export default function FinalCTA({}: FinalCTAProps) {
       id="contact"
       className="relative bg-black py-24 px-6 md:px-12 overflow-hidden border-t border-white/5"
     >
-      {/* Background glow in theme red */}
+      
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d85b6a]/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -87,7 +87,7 @@ export default function FinalCTA({}: FinalCTAProps) {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Full Name */}
+                
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-xs font-mono font-bold uppercase tracking-wider text-white/50">
                     Full Name
@@ -104,7 +104,7 @@ export default function FinalCTA({}: FinalCTAProps) {
                   />
                 </div>
 
-                {/* Email */}
+                
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-xs font-mono font-bold uppercase tracking-wider text-white/50">
                     Email Address
@@ -123,7 +123,7 @@ export default function FinalCTA({}: FinalCTAProps) {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Phone number */}
+                
                 <div className="flex flex-col gap-2">
                   <label htmlFor="phone" className="text-xs font-mono font-bold uppercase tracking-wider text-white/50">
                     Phone Number
@@ -140,7 +140,7 @@ export default function FinalCTA({}: FinalCTAProps) {
                   />
                 </div>
 
-                {/* Company Name */}
+                
                 <div className="flex flex-col gap-2">
                   <label htmlFor="company" className="text-xs font-mono font-bold uppercase tracking-wider text-white/50">
                     Company Name
@@ -152,13 +152,13 @@ export default function FinalCTA({}: FinalCTAProps) {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    placeholder="ApexDX Co., Ltd"
+                    placeholder="CyberDX Co., Ltd"
                     className="px-5 py-4 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 text-sm focus:border-[#d85b6a] focus:outline-none transition-colors w-full"
                   />
                 </div>
               </div>
 
-              {/* Inquiry details */}
+              
               <div className="flex flex-col gap-2">
                 <label htmlFor="description" className="text-xs font-mono font-bold uppercase tracking-wider text-white/50">
                   Inquiry Details
@@ -175,7 +175,7 @@ export default function FinalCTA({}: FinalCTAProps) {
                 />
               </div>
 
-              {/* Submit Button */}
+              
               <div className="mt-4 flex justify-center">
                 <button
                   type="submit"

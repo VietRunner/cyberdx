@@ -9,14 +9,14 @@ export default function CxPlatform() {
   const [mode, setMode] = useState<PlatformMode>("B2C");
   const [mockTab, setMockTab] = useState<MockTab>("live");
 
-  // State to simulate real-time alerts in dashboard mockup
+  
   const [alerts, setAlerts] = useState<string[]>([
     "09:10:12 - Illegal parking alert at Gate A",
     "09:05:43 - PPE warning: Missing safety helmet at Workshop 2",
     "08:58:19 - VIP recognized: Customer Nguyen Van A",
   ]);
 
-  // Bounding box simulation state for live camera mockups
+  
   const [simulatedBoxes, setSimulatedBoxes] = useState<Array<{
     top: string;
     left: string;
@@ -77,7 +77,7 @@ export default function CxPlatform() {
   }, []);
 
 
-  // Periodically add/update alerts to make it feel alive
+  
   useEffect(() => {
     const interval = setInterval(() => {
       const times = new Date().toTimeString().split(" ")[0];
@@ -102,7 +102,7 @@ export default function CxPlatform() {
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        
         <div className="flex flex-col items-center text-center gap-4 mb-16">
           <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
             Platform & Technology
@@ -115,7 +115,7 @@ export default function CxPlatform() {
             AI camera power for enterprises and organizations of all sizes.
           </p>
 
-          {/* B2B / B2C Toggle Switcher */}
+          
           <div className="flex bg-white/5 p-1 rounded-full border border-white/10 mt-8 relative z-20">
             <button
               onClick={() => setMode("B2C")}
@@ -140,7 +140,7 @@ export default function CxPlatform() {
           </div>
         </div>
 
-        {/* Dynamic Display Panel */}
+        
         <div className="min-h-[500px]">
           <AnimatePresence mode="wait">
             {mode === "B2B" ? (
@@ -152,7 +152,7 @@ export default function CxPlatform() {
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                {/* Benefit Card 1 */}
+                
                 <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
@@ -168,7 +168,7 @@ export default function CxPlatform() {
                   <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">EDGE COMPUTING</span>
                 </div>
 
-                {/* Benefit Card 2 */}
+                
                 <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
@@ -184,7 +184,7 @@ export default function CxPlatform() {
                   <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">BANDWIDTH SAVE</span>
                 </div>
 
-                {/* Benefit Card 3 */}
+                
                 <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
@@ -200,7 +200,7 @@ export default function CxPlatform() {
                   <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">DATA PRIVACY</span>
                 </div>
 
-                {/* Benefit Card 4 */}
+                
                 <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
@@ -225,7 +225,7 @@ export default function CxPlatform() {
                 transition={{ duration: 0.4 }}
                 className="max-w-5xl mx-auto bg-[#0a0a0c] border border-white/10 rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.8)]"
               >
-                {/* Mockup Toolbar Header */}
+                
                 <div className="bg-[#121215] border-b border-white/5 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500" />
@@ -234,7 +234,7 @@ export default function CxPlatform() {
                     <span className="text-xs text-white/40 font-mono ml-4">DX-AI-OS v1.4.2</span>
                   </div>
 
-                  {/* Internal Mockup Navigation */}
+                  
                   <div className="flex bg-black/40 p-1 rounded-lg border border-white/5">
                     <button
                       onClick={() => setMockTab("live")}
@@ -272,7 +272,7 @@ export default function CxPlatform() {
                   </div>
                 </div>
 
-                {/* Dashboard Tabs Content */}
+                
                 <div className="p-6 min-h-[360px] flex items-center justify-center bg-black/40">
                   <AnimatePresence mode="wait">
                     {mockTab === "live" && (
@@ -284,7 +284,7 @@ export default function CxPlatform() {
                         transition={{ duration: 0.3 }}
                         className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4"
                       >
-                        {/* Cam 1 - Intrusion */}
+                        
                         <div className="relative aspect-video rounded-xl bg-white/[0.01] border border-white/10 overflow-hidden group">
                           <div 
                             className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
@@ -292,7 +292,7 @@ export default function CxPlatform() {
                           />
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_60%,rgba(0,0,0,0.8)_100%)] z-10" />
                           
-                          {/* Live raster scanning effect using Framer Motion */}
+                          
                           <motion.div
                             animate={{ y: ["0%", "530%", "0%"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -307,7 +307,7 @@ export default function CxPlatform() {
                             West Corridor - Warehouse Door
                           </div>
 
-                          {/* Simulated AI Tracker Boxes */}
+                          
                           {simulatedBoxes.filter(b => b.camId === 1).map((b, i) => (
                             <motion.div
                               key={i}
@@ -323,7 +323,7 @@ export default function CxPlatform() {
                           ))}
                         </div>
 
-                        {/* Cam 2 - Retail / People Count */}
+                        
                         <div className="relative aspect-video rounded-xl bg-white/[0.01] border border-white/10 overflow-hidden group">
                           <div 
                             className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
@@ -331,7 +331,7 @@ export default function CxPlatform() {
                           />
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_60%,rgba(0,0,0,0.8)_100%)] z-10" />
                           
-                          {/* Live raster scanning effect using Framer Motion */}
+                          
                           <motion.div
                             animate={{ y: ["0%", "530%", "0%"] }}
                             transition={{ duration: 4.5, repeat: Infinity, ease: "linear", delay: 0.5 }}
@@ -346,7 +346,7 @@ export default function CxPlatform() {
                             Main Entrance - Main Lobby
                           </div>
 
-                          {/* Simulated AI Tracker Boxes */}
+                          
                           {simulatedBoxes.filter(b => b.camId === 2).map((b, i) => (
                             <motion.div
                               key={i}
@@ -362,7 +362,7 @@ export default function CxPlatform() {
                           ))}
                         </div>
 
-                        {/* Cam 3 - Smoke & Fire */}
+                        
                         <div className="relative aspect-video rounded-xl bg-white/[0.01] border border-white/10 overflow-hidden group">
                           <div 
                             className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
@@ -370,7 +370,7 @@ export default function CxPlatform() {
                           />
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_60%,rgba(0,0,0,0.8)_100%)] z-10" />
                           
-                          {/* Live raster scanning effect using Framer Motion */}
+                          
                           <motion.div
                             animate={{ y: ["0%", "530%", "0%"] }}
                             transition={{ duration: 3.5, repeat: Infinity, ease: "linear", delay: 0.2 }}
@@ -384,7 +384,7 @@ export default function CxPlatform() {
                             Outdoor Parking Area
                           </div>
 
-                          {/* Simulated AI Tracker Boxes */}
+                          
                           {simulatedBoxes.filter(b => b.camId === 3).map((b, i) => (
                             <motion.div
                               key={i}
@@ -400,7 +400,7 @@ export default function CxPlatform() {
                           ))}
                         </div>
 
-                        {/* Cam 4 - PPE */}
+                        
                         <div className="relative aspect-video rounded-xl bg-white/[0.01] border border-white/10 overflow-hidden group">
                           <div 
                             className="absolute inset-0 bg-cover bg-center opacity-65 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
@@ -408,7 +408,7 @@ export default function CxPlatform() {
                           />
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_60%,rgba(0,0,0,0.8)_100%)] z-10" />
                           
-                          {/* Live raster scanning effect using Framer Motion */}
+                          
                           <motion.div
                             animate={{ y: ["0%", "530%", "0%"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 0.8 }}
@@ -422,7 +422,7 @@ export default function CxPlatform() {
                             Production Area - Workshop B
                           </div>
 
-                          {/* Simulated AI Tracker Boxes */}
+                          
                           {simulatedBoxes.filter(b => b.camId === 4).map((b, i) => (
                             <motion.div
                               key={i}
@@ -449,16 +449,16 @@ export default function CxPlatform() {
                         transition={{ duration: 0.3 }}
                         className="w-full flex flex-col md:flex-row gap-6 items-stretch"
                       >
-                        {/* Traffic Graph Visual */}
+                        
                         <div className="flex-1 bg-white/[0.02] border border-white/5 p-6 rounded-xl w-full flex flex-col justify-between">
                           <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-6 flex items-center gap-2 text-left">
                             <BarChart3 size={15} className="text-[#d85b6a]" />
                             Hourly Foot Traffic (Today)
                           </h4>
                           
-                          {/* Bars Chart representation */}
+                          
                           <div className="flex items-end justify-between h-44 pt-4 relative">
-                            {/* Grid line guidelines */}
+                            
                             <div className="absolute inset-x-0 top-[25%] border-b border-white/5" />
                             <div className="absolute inset-x-0 top-[50%] border-b border-white/5" />
                             <div className="absolute inset-x-0 top-[75%] border-b border-white/5" />
@@ -473,7 +473,7 @@ export default function CxPlatform() {
                           </div>
                         </div>
 
-                        {/* Retail Analytics Visual Thumbnail (from cxview.ai) */}
+                        
                         <div className="w-full md:w-80 bg-white/[0.02] border border-white/5 p-6 rounded-xl flex flex-col justify-between group text-left">
                           <div>
                             <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-4">
@@ -508,9 +508,9 @@ export default function CxPlatform() {
                         transition={{ duration: 0.3 }}
                         className="w-full flex flex-col md:flex-row gap-6 text-left"
                       >
-                        {/* Status Grid & Alert Center */}
+                        
                         <div className="flex-1 flex flex-col gap-6">
-                          {/* Status Grid */}
+                          
                           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
                               <span className="text-[10px] uppercase tracking-wider text-white/40 font-mono block">CPU Edge Core</span>
@@ -535,7 +535,7 @@ export default function CxPlatform() {
                             </div>
                           </div>
 
-                          {/* Simulated Alert Center Panel */}
+                          
                           <div className="bg-[#18181b]/40 border border-white/5 p-4 rounded-xl flex-1">
                             <h5 className="text-white text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
                               <AlertCircle size={14} className="text-[#d85b6a]" />
@@ -557,20 +557,20 @@ export default function CxPlatform() {
                           </div>
                         </div>
 
-                        {/* Edge AI Device Hardware Visual */}
+                        
                         <div className="w-full md:w-80 bg-white/[0.02] border border-white/5 p-6 rounded-xl flex flex-col items-center justify-between group">
                           <div className="w-full">
                             <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest block mb-4">Edge AI Hardware</span>
                             <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-black/40 border border-white/10 p-3 flex items-center justify-center">
                               <img
-                                src="/aip.png"
+                                src="/cyberdx_logo-removebg-preview.png"
                                 alt="Edge AI Box"
                                 className="max-h-full max-w-full object-contain opacity-90 group-hover:scale-105 transition-transform duration-500"
                               />
                             </div>
                           </div>
                           <div className="mt-4">
-                            <span className="text-xs font-mono font-bold text-[#d85b6a] block uppercase">ApexDX Edge Box v2</span>
+                            <span className="text-xs font-mono font-bold text-[#d85b6a] block uppercase">CyberDX Edge Box v2</span>
                             <span className="text-[10px] text-white/40 mt-1 block font-mono">Process 16 IP camera streams simultaneously at the edge with high-performance NPU processing.</span>
                           </div>
                         </div>

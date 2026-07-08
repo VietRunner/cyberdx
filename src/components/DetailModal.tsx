@@ -12,9 +12,9 @@ interface DetailModalProps {
 export default function DetailModal({ slug, onClose }: DetailModalProps) {
   const data = slug ? DETAIL_DATA[slug] : null;
 
-  // Synchronize URL hash and dynamically update document <head> SEO metadata
+  
   useEffect(() => {
-    // Helper functions for dynamic head metas
+    
     const setMetaProperty = (property: string, content: string) => {
       let el = document.querySelector(`meta[property="${property}"]`);
       if (!el) {
@@ -36,46 +36,46 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
     };
 
     if (!slug || !data) {
-      // Restore default SEO tags when modal is closed
-      document.title = "ApexDX | AI-Powered Software & Recruitment in Vietnam";
+      
+      document.title = "CyberDX | AI-Powered Software & Recruitment in Vietnam";
       
       const descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) {
-        descMeta.setAttribute("content", "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+        descMeta.setAttribute("content", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
       }
       
       const canonicalLink = document.querySelector('link[rel="canonical"]');
       if (canonicalLink) {
-        canonicalLink.setAttribute("href", "https://apexdx.tech/");
+        canonicalLink.setAttribute("href", "https://cyberdx.tech/");
       }
       
-      // Clear OG & Twitter tags
-      setMetaProperty("og:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
-      setMetaProperty("og:description", "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
-      setMetaProperty("og:url", "https://apexdx.tech/");
-      setMetaName("twitter:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
-      setMetaName("twitter:description", "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
       
-      // Remove dynamically added Rank Math class schema
+      setMetaProperty("og:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:description", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+      setMetaProperty("og:url", "https://cyberdx.tech/");
+      setMetaName("twitter:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaName("twitter:description", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+      
+      
       const existingSchema = document.querySelector("script.rank-math-schema");
       if (existingSchema) {
         existingSchema.remove();
       }
 
-      // Revert hash if it matches a subpage
+      
       const currentHash = window.location.hash;
-      const cleanHash = currentHash.replace(/^#\//, "");
+      const cleanHash = currentHash.replace(/^#\/?/, "");
       if (DETAIL_DATA[cleanHash]) {
         window.history.pushState(null, "", window.location.pathname + window.location.search);
       }
       return;
     }
 
-    // --- Update URL Hash for route persistence ---
+    
     window.history.pushState(null, "", `#/${slug}`);
 
-    // --- Dynamic Title, Description & Canonical ---
-    const pageTitle = `${data.title} - ApexDX AI`;
+    
+    const pageTitle = `${data.title} - CyberDX AI`;
     document.title = pageTitle;
     
     let descMeta = document.querySelector('meta[name="description"]');
@@ -92,26 +92,26 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
       canonicalLink.setAttribute("rel", "canonical");
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.setAttribute("href", `https://apexdx.tech/#/${slug}`);
+    canonicalLink.setAttribute("href", `https://cyberdx.tech/#/${slug}`);
 
-    // --- Open Graph & Twitter Social Tags ---
+    
     setMetaProperty("og:locale", "vi_VN");
     setMetaProperty("og:type", "article");
     setMetaProperty("og:title", pageTitle);
     setMetaProperty("og:description", data.description);
-    setMetaProperty("og:url", `https://apexdx.tech/#/${slug}`);
-    setMetaProperty("og:site_name", "ApexDX");
-    setMetaProperty("og:image", "https://apexdx.tech/Apex.jpg");
-    setMetaProperty("og:image:secure_url", "https://apexdx.tech/Apex.jpg");
+    setMetaProperty("og:url", `https://cyberdx.tech/#/${slug}`);
+    setMetaProperty("og:site_name", "CyberDX");
+    setMetaProperty("og:image", "https://cyberdx.tech/cyberdx_logo-removebg-preview.png");
+    setMetaProperty("og:image:secure_url", "https://cyberdx.tech/cyberdx_logo-removebg-preview.png");
     setMetaProperty("og:image:width", "1200");
     setMetaProperty("og:image:height", "630");
 
     setMetaName("twitter:card", "summary_large_image");
     setMetaName("twitter:title", pageTitle);
     setMetaName("twitter:description", data.description);
-    setMetaName("twitter:image", "https://apexdx.tech/Apex.jpg");
+    setMetaName("twitter:image", "https://cyberdx.tech/cyberdx_logo-removebg-preview.png");
 
-    // --- Rich JSON-LD Rank Math-style Schema ---
+    
     const existingSchema = document.querySelector("script.rank-math-schema");
     if (existingSchema) {
       existingSchema.remove();
@@ -126,24 +126,24 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
       "@graph": [
         {
           "@type": ["Person", "Organization"],
-          "@id": "https://apexdx.tech/#person",
-          "name": "ApexDX",
+          "@id": "https://cyberdx.tech/#person",
+          "name": "CyberDX",
           "logo": {
             "@type": "ImageObject",
-            "@id": "https://apexdx.tech/#logo",
-            "url": "https://apexdx.tech/Apex.jpg",
-            "contentUrl": "https://apexdx.tech/Apex.jpg",
-            "caption": "ApexDX",
+            "@id": "https://cyberdx.tech/#logo",
+            "url": "https://cyberdx.tech/cyberdx_logo-removebg-preview.png",
+            "contentUrl": "https://cyberdx.tech/cyberdx_logo-removebg-preview.png",
+            "caption": "CyberDX",
             "inLanguage": "vi-VN",
             "width": "180",
             "height": "80"
           },
           "image": {
             "@type": "ImageObject",
-            "@id": "https://apexdx.tech/#logo",
-            "url": "https://apexdx.tech/Apex.jpg",
-            "contentUrl": "https://apexdx.tech/Apex.jpg",
-            "caption": "ApexDX",
+            "@id": "https://cyberdx.tech/#logo",
+            "url": "https://cyberdx.tech/cyberdx_logo-removebg-preview.png",
+            "contentUrl": "https://cyberdx.tech/cyberdx_logo-removebg-preview.png",
+            "caption": "CyberDX",
             "inLanguage": "vi-VN",
             "width": "180",
             "height": "80"
@@ -151,21 +151,21 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
         },
         {
           "@type": "WebSite",
-          "@id": "https://apexdx.tech/#website",
-          "url": "https://apexdx.tech",
-          "name": "ApexDX",
+          "@id": "https://cyberdx.tech/#website",
+          "url": "https://cyberdx.tech",
+          "name": "CyberDX",
           "publisher": {
-            "@id": "https://apexdx.tech/#person"
+            "@id": "https://cyberdx.tech/#person"
           },
           "inLanguage": "vi-VN"
         },
         {
           "@type": "WebPage",
-          "@id": `https://apexdx.tech/#/${slug}/#webpage`,
-          "url": `https://apexdx.tech/#/${slug}`,
+          "@id": `https://cyberdx.tech/#/${slug}/#webpage`,
+          "url": `https://cyberdx.tech/#/${slug}`,
           "name": pageTitle,
           "isPartOf": {
-            "@id": "https://apexdx.tech/#website"
+            "@id": "https://cyberdx.tech/#website"
           },
           "inLanguage": "vi-VN"
         },
@@ -176,17 +176,17 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
           "dateModified": "2026-06-02T08:00:00+07:00",
           "author": {
             "@type": "Person",
-            "name": "ApexDX Admin",
-            "url": "https://apexdx.tech"
+            "name": "CyberDX Admin",
+            "url": "https://cyberdx.tech"
           },
           "publisher": {
-            "@id": "https://apexdx.tech/#person"
+            "@id": "https://cyberdx.tech/#person"
           },
           "description": data.description,
           "name": pageTitle,
-          "@id": `https://apexdx.tech/#/${slug}/#richSnippet`,
+          "@id": `https://cyberdx.tech/#/${slug}/#richSnippet`,
           "isPartOf": {
-            "@id": `https://apexdx.tech/#/${slug}/#webpage`
+            "@id": `https://cyberdx.tech/#/${slug}/#webpage`
           }
         }
       ]
@@ -199,7 +199,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
 
   const handleContactAction = () => {
     onClose();
-    // Dispatch custom event to open the contact modal
+    
     setTimeout(() => {
       document.dispatchEvent(new CustomEvent("dx:open-contact"));
     }, 200);
@@ -209,7 +209,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
     <AnimatePresence>
       {data && (
         <div className="fixed inset-0 z-50 flex items-center justify-end overflow-hidden">
-          {/* Glass backdrop overlay */}
+          
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -218,7 +218,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
             className="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
           />
 
-          {/* Immersive Slide-over Panel */}
+          
           <motion.div
             initial={{ x: "100%", opacity: 0.95 }}
             animate={{ x: 0, opacity: 1 }}
@@ -226,11 +226,11 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
             transition={{ type: "spring", damping: 30, stiffness: 220 }}
             className="relative w-full max-w-3xl h-full bg-[#030303] border-l border-white/10 shadow-[0_0_80px_rgba(216,91,106,0.15)] flex flex-col justify-between overflow-hidden z-10"
           >
-            {/* Ambient Background Glows */}
+            
             <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#d85b6a]/5 rounded-full blur-[100px] pointer-events-none z-0" />
             <div className="absolute bottom-10 left-10 w-[250px] h-[250px] bg-purple-500/5 rounded-full blur-[90px] pointer-events-none z-0" />
 
-            {/* Sticky Header */}
+            
             <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/5 bg-[#030303]/80 backdrop-blur-md">
               <div className="flex items-center gap-2">
                 <div className="inline-flex items-center gap-1.5 bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-3 py-1 text-xs font-black text-[#ff8a9a] uppercase font-mono tracking-wider">
@@ -247,9 +247,9 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               </button>
             </div>
 
-            {/* Scrollable Content */}
+            
             <div className="flex-1 overflow-y-auto p-8 md:p-12 relative z-10 flex flex-col gap-10">
-              {/* Headings */}
+              
               <div className="text-left flex flex-col gap-4">
                 <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight">
                   {data.title}
@@ -260,14 +260,14 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 <div className="h-[2px] w-20 bg-gradient-to-r from-[#d85b6a] to-purple-500 mt-2" />
               </div>
 
-              {/* Main Description */}
+              
               <div className="text-left">
                 <p className="text-white/70 text-base md:text-lg leading-relaxed font-medium">
                   {data.description}
                 </p>
               </div>
 
-              {/* Metrics / Key Indicators Grid */}
+              
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
                 {data.metrics.map((metric, i) => (
                   <div
@@ -285,7 +285,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 ))}
               </div>
 
-              {/* Key Features / Highlights */}
+              
               <div className="text-left flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono">
                   <Layers size={16} className="text-[#d85b6a]" />
@@ -306,7 +306,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 </div>
               </div>
 
-              {/* Workflow Steps */}
+              
               <div className="text-left flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono">
                   <Cpu size={16} className="text-purple-400" />
@@ -329,7 +329,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 </div>
               </div>
 
-              {/* SVG Dynamic Live Chart Vector */}
+              
               <div className="p-6 rounded-3xl bg-black/40 border border-white/5 relative overflow-hidden flex flex-col gap-4 text-left">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -356,7 +356,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 </div>
               </div>
 
-              {/* Conclusion Banner */}
+              
               <div className="p-6 rounded-2xl bg-gradient-to-r from-[#d85b6a]/10 to-purple-500/5 border border-[#d85b6a]/20 text-left">
                 <p className="text-white/80 text-sm md:text-base font-bold italic leading-relaxed">
                   &ldquo; {data.conclusion} &rdquo;
@@ -364,11 +364,11 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               </div>
             </div>
 
-            {/* Sticky Footer CTA */}
+            
             <div className="relative z-10 p-6 border-t border-white/5 bg-[#030303]/90 backdrop-blur-md flex flex-col sm:flex-row items-center gap-4 justify-between">
               <div className="text-left hidden md:block">
                 <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest block">
-                  ApexDX AI Ecosystem
+                  CyberDX AI Ecosystem
                 </span>
                 <span className="text-xs font-bold text-white/60">
                   Zero-Trust Recruitment Solutions

@@ -26,7 +26,7 @@ export default function Hero() {
         background: '#000',
       }}
     >
-      {/* Background video */}
+      
       <video
         ref={videoRef}
         autoPlay
@@ -47,7 +47,7 @@ export default function Hero() {
         <source src={HERO_VIDEO} type="video/mp4" />
       </video>
 
-      {/* Dark overlay */}
+      
       <div
         style={{
           position: 'absolute',
@@ -57,7 +57,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Bottom gradient fade */}
+      
       <div
         style={{
           position: 'absolute',
@@ -71,7 +71,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
+      
       <div
         style={{
           position: 'relative',
@@ -85,7 +85,7 @@ export default function Hero() {
           minHeight: '1000px',
         }}
       >
-        {/* Badge */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -106,7 +106,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Heading */}
+        
         <h1
           className="text-center mb-6"
           style={{
@@ -128,7 +128,7 @@ export default function Hero() {
           />
         </h1>
 
-        {/* Subtext */}
+        
         <motion.p
           initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -146,7 +146,7 @@ export default function Hero() {
           This is web design, wildly reimagined.
         </motion.p>
 
-        {/* CTA Buttons */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -172,7 +172,7 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Partners bar */}
+        
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

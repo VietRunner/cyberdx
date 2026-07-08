@@ -46,7 +46,7 @@ export default function VideoSectionWrapper({
           }
         }
       } catch {
-        // hls.js not available — fallback
+        
         video.src = hlsSrc;
         if (!staticFrame) {
           video.play().catch(() => {});
@@ -77,7 +77,7 @@ export default function VideoSectionWrapper({
 
   return (
     <div className={className} style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* HLS video background */}
+      
       <video
         ref={videoRef}
         autoPlay={!staticFrame}
@@ -97,7 +97,7 @@ export default function VideoSectionWrapper({
         }}
       />
 
-      {/* Top gradient fade — black to transparent */}
+      
       <div
         aria-hidden="true"
         style={{
@@ -112,7 +112,7 @@ export default function VideoSectionWrapper({
         }}
       />
 
-      {/* Bottom gradient fade — transparent to black */}
+      
       <div
         aria-hidden="true"
         style={{
@@ -127,7 +127,7 @@ export default function VideoSectionWrapper({
         }}
       />
 
-      {/* Content sits on top */}
+      
       <div style={{ position: 'relative', zIndex: 2 }}>
         {children}
       </div>

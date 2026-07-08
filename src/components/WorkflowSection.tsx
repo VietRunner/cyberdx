@@ -44,7 +44,7 @@ const STEPS: WorkflowStep[] = [
 export default function WorkflowSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // Track scroll position of the workflow section
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -65,7 +65,7 @@ export default function WorkflowSection() {
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
+        
         <div className="flex flex-col items-center text-center gap-4 mb-24">
           <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
             Operation Workflow
@@ -78,12 +78,12 @@ export default function WorkflowSection() {
           </p>
         </div>
 
-        {/* Workflow Timeline Layout */}
+        
         <div className="relative">
-          {/* Background timeline line */}
+          
           <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-white/10 -translate-x-1/2 hidden lg:block" />
           
-          {/* Animated active timeline progress bar */}
+          
           <motion.div
             style={{ scaleY, transformOrigin: "top" }}
             className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#d85b6a] to-purple-600 -translate-x-1/2 hidden lg:block z-10 shadow-[0_0_10px_rgba(216,91,106,0.5)]"
@@ -98,7 +98,7 @@ export default function WorkflowSection() {
                   key={step.number}
                   className="flex flex-col lg:flex-row items-center gap-8 lg:gap-0 relative"
                 >
-                  {/* Left block */}
+                  
                   <div className={`w-full lg:w-1/2 ${isEven ? "lg:pr-20 text-left lg:text-right" : "lg:order-2 lg:pl-20 text-left"}`}>
                     <motion.div
                       initial={{ opacity: 0, y: 50 }}
@@ -123,7 +123,7 @@ export default function WorkflowSection() {
                     </motion.div>
                   </div>
 
-                  {/* Central Node representing the step number */}
+                  
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:flex items-center justify-center">
                     <motion.div
                       initial={{ scale: 0.6, opacity: 0 }}
@@ -136,7 +136,7 @@ export default function WorkflowSection() {
                     </motion.div>
                   </div>
 
-                  {/* Right block (Icon slot) */}
+                  
                   <div className={`w-full lg:w-1/2 ${isEven ? "lg:order-2 lg:pl-20 text-left" : "lg:pr-20 text-left lg:text-right"}`}>
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}

@@ -22,7 +22,7 @@ function Counter({ value, duration = 1.2 }: { value: string; duration?: number }
           const animate = () => {
             frame++;
             const progress = frame / totalFrames;
-            const easedProgress = 1 - Math.pow(1 - progress, 2); // quadratic ease-out
+            const easedProgress = 1 - Math.pow(1 - progress, 2); 
             const current = Math.round(startNum + (targetNum - startNum) * easedProgress);
             setCount(current);
 
@@ -58,12 +58,12 @@ export default function AboutSection() {
       id="about"
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
-      {/* Background ambient lighting */}
+      
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[130px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          {/* Left column: Badge and Title (staggered scroll reveal) */}
+          
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -80,7 +80,7 @@ export default function AboutSection() {
             </h2>
           </motion.div>
 
-          {/* Right column: Large descriptive text */}
+          
           <div className="lg:col-span-8 flex flex-col gap-8 text-left">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -90,12 +90,12 @@ export default function AboutSection() {
               className="text-xl md:text-2xl lg:text-[28px] font-normal leading-relaxed text-white/90 text-justify"
             >
               Founded with the mission to pioneer in Computer Vision, 
-              ApexDX specializes in transforming conventional surveillance camera systems into exceptionally 
+              CyberDX specializes in transforming conventional surveillance camera systems into exceptionally 
               intelligent analytical tools. We proudly empower businesses to optimize operational efficiency, 
               detect risks early, and construct secure, highly productive workspaces.
             </motion.p>
 
-            {/* Micro grid statistics inside About */}
+            
             <motion.div
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}

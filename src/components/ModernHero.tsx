@@ -11,15 +11,15 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
       id="home"
       className="relative min-h-screen bg-black flex flex-col justify-center items-center px-4 pt-32 pb-20 overflow-hidden"
     >
-      {/* FUTURISTIC 3D PERSPECTIVE GRID TECH TUNNEL BACKGROUND (CẢM HỨNG CXVIEW.AI) */}
+      
       <div className="absolute inset-0 z-0 bg-radial-gradient from-teal-950/20 via-black to-black pointer-events-none" />
 
-      {/* Radiant Glowing Orbs (Teal and Neon Blue ambient lights) */}
+      
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none z-0 pulse-wave-glow" />
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      {/* SVG 3D Perspective Grid Tunnel */}
+      
       <svg
         className="absolute inset-0 w-full h-full opacity-35 z-0 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           </linearGradient>
         </defs>
 
-        {/* Perspective lines radiating from center */}
+        
         <g stroke="url(#lineGrad)" strokeWidth="1.5">
           <line x1="50%" y1="50%" x2="0%" y2="0%" />
           <line x1="50%" y1="50%" x2="25%" y2="0%" />
@@ -54,7 +54,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           <line x1="50%" y1="50%" x2="100%" y2="50%" />
         </g>
 
-        {/* Concentric perspective squares/ovals getting closer as they go deep */}
+        
         <g stroke="#0d9488" strokeWidth="1" fill="none" opacity="0.5">
           <rect x="10%" y="10%" width="80%" height="80%" rx="8" />
           <rect x="20%" y="20%" width="60%" height="60%" rx="6" />
@@ -64,7 +64,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           <rect x="48%" y="48%" width="4%" height="4%" rx="1" />
         </g>
 
-        {/* Pulsing data node packets travel along grid lines */}
+        
         <circle cx="50%" cy="50%" r="4" fill="#22d3ee" className="pulse-node-1">
           <animate attributeName="cx" values="50%;10%" dur="4s" repeatCount="indefinite" />
           <animate attributeName="cy" values="50%;10%" dur="4s" repeatCount="indefinite" />
@@ -77,7 +77,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
         </circle>
       </svg>
 
-      {/* Floating grid pattern on floor */}
+      
       <div
         className="absolute bottom-0 left-0 right-0 h-1/2 opacity-[0.06] pointer-events-none z-0"
         style={{
@@ -88,9 +88,9 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
         }}
       />
 
-      {/* Content wrapper - strictly centered and styled like cxview.ai */}
+      
       <div className="max-w-7xl mx-auto w-full flex flex-col items-center relative z-10 text-center px-4">
-        {/* Intro Badge */}
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -103,7 +103,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           </span>
         </motion.div>
 
-        {/* Centered H1 - bold, all-caps, massive size, similar to cxview.ai */}
+        
         <motion.h1
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -115,7 +115,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           <span className="text-gradient-peach">DRIVES IMPACTS</span>
         </motion.h1>
 
-        {/* Centered value proposition */}
+        
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           Chúng tôi cung cấp các giải pháp phân tích video AI tiên tiến cho hệ thống giám sát an ninh. Chuyển đổi các camera thụ động thành mạng lưới dữ liệu chủ động giúp nâng cao an toàn, ngăn chặn thất thoát và tối ưu hiệu quả vận hành.
         </motion.p>
 
-        {/* Centered pill CTA button - exact cxview.ai visual style */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

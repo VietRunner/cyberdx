@@ -24,11 +24,11 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
 
   return (
     <section id="contacts" className={`dx-footer${isVisible ? " dx-footer--in" : ""}`} ref={sectionRef}>
-      {/* Top row */}
+      
       <div className="dx-footer-top">
-        {/* Col 1: CTA */}
+        
         <div className="dx-footer-col dx-footer-col-cta">
-          <img src="/Apex_DX_rm.png" alt="ApexDX" className="dx-footer-logo" />
+          <img src="/cyberdx_logo-removebg-preview.png" alt="CyberDX" className="dx-footer-logo" />
           <div className="dx-footer-cta-title">LET'S CONNECT</div>
           <p className="dx-footer-cta-text">
             If you have any software related issues or questions, feel free to
@@ -37,7 +37,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
           <a href="#" className="dx-footer-btn" onClick={(e) => { e.preventDefault(); onContact?.(); }}>CONTACT US</a>
         </div>
 
-        {/* Col 2: Menu */}
+        
         <div className="dx-footer-col dx-footer-col-menu">
           <div className="dx-footer-col-label">MENU</div>
           <a href="#about" className="dx-footer-link">ABOUT</a>
@@ -45,7 +45,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
           <a href="#cases" className="dx-footer-link">PROJECTS</a>
         </div>
 
-        {/* Col 3: Contact */}
+        
         <div className="dx-footer-col dx-footer-col-contact">
           <div className="dx-footer-col-label">CONTACT</div>
           <a href="tel:+84773679908" className="dx-footer-link dx-footer-link-ul">PHONE</a>
@@ -53,14 +53,14 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
 
       </div>
 
-      {/* Bottom row */}
+      
       <div className="dx-footer-bottom">
         <div className="dx-footer-bottom-left">
         </div>
 
         <div className="dx-footer-bottom-mid">
           <div className="dx-footer-email-label">Email us</div>
-          <a href="mailto:sale@apexdx.tech" className="dx-footer-email">SALE@CYBERDX.TECH</a>
+          <a href="mailto:sale@cyberdx.tech" className="dx-footer-email">SALE@CYBERDX.TECH</a>
         </div>
 
         <div className="dx-footer-bottom-center">
@@ -68,7 +68,7 @@ export default function FooterSection({ onContact }: { onContact?: () => void })
         </div>
 
         <div className="dx-footer-bottom-right">
-          <span className="dx-footer-copy">© ApexDX 2026</span>
+          <span className="dx-footer-copy">© CyberDX 2026</span>
           <span className="dx-footer-rights">All rights reserved</span>
         </div>
       </div>

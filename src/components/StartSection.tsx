@@ -13,7 +13,7 @@ export default function StartSection() {
         background: '#000',
       }}
     >
-      {/* HLS Video background */}
+      
       <HlsVideo
         src={HLS_SRC}
         style={{
@@ -26,12 +26,12 @@ export default function StartSection() {
         }}
       />
 
-      {/* Top fade */}
+      
       <div className="video-fade-top" />
-      {/* Bottom fade */}
+      
       <div className="video-fade-bottom" />
 
-      {/* Content */}
+      
       <div
         style={{
           position: 'relative',
@@ -46,15 +46,15 @@ export default function StartSection() {
           gap: '24px',
         }}
       >
-        {/* Badge */}
+        
         <div className="liquid-glass section-badge">How It Works</div>
 
-        {/* Heading */}
+        
         <h2 className="section-heading" style={{ maxWidth: '600px' }}>
           You dream it. We ship it.
         </h2>
 
-        {/* Body */}
+        
         <p
           className="section-body"
           style={{ maxWidth: '500px' }}
@@ -63,7 +63,7 @@ export default function StartSection() {
           All in days, not quarters.
         </p>
 
-        {/* CTA */}
+        
         <a
           href="#contact"
           id="start-get-started"

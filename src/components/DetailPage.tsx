@@ -14,85 +14,22 @@ import {
   Eye, 
   UserCheck,
   Users,
-  Ban,
-  ShoppingBag,
-  Home,
-  Globe
+  Ban
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { DETAIL_DATA } from "../utils/detailData";
 import { BLOG_POSTS } from "./BlogSection";
 
-// Helper function to map features to specific AI solutions or Projects
+
 function getFeatureCardDetails(featureText: string) {
   const text = featureText.toLowerCase();
   
-  if (text.includes("kiosify")) {
-    return {
-      slug: "kiosify",
-      title: "KIOSIFY",
-      description: "Smart self-service Kiosk solution for retail and F&B, optimizing ordering and payment workflows.",
-      image: "/project-kiosify.jpg",
-      iconName: "ShoppingBag",
-      href: "https://kiosify.com"
-    };
-  }
-  if (text.includes("vietrunner")) {
-    return {
-      slug: "vietrunner",
-      title: "VietRunner",
-      description: "A platform connecting the running community in Vietnam, supporting smart training and runner engagement.",
-      image: "/project-vietrunner.jpg",
-      iconName: "Activity",
-      href: "https://vietrunner.com"
-    };
-  }
-  if (text.includes("ht land") || text.includes("htland")) {
-    return {
-      slug: "ht-land",
-      title: "HT LAND",
-      description: "A real estate technology platform combining investment consulting and sales brokerage digitization.",
-      image: "/project-htland.jpg",
-      iconName: "Home",
-      href: "https://htland.vn"
-    };
-  }
-  if (text.includes("rever")) {
-    return {
-      slug: "rever",
-      title: "REVER",
-      description: "A leading PropTech platform standardizing property buy, sell, lease transactions via data.",
-      image: "/project-rever.jpg",
-      iconName: "Globe",
-      href: "https://rever.vn"
-    };
-  }
-  if (text.includes("aiprovera")) {
-    return {
-      slug: "aiprovera",
-      title: "AIProvera",
-      description: "An AI-integrated business process automation solution, optimizing operations at scale.",
-      image: "/aip.png",
-      iconName: "Cpu",
-      href: "https://aiprovera.com/"
-    };
-  }
-  if (text.includes("vistax")) {
-    return {
-      slug: "vistax",
-      title: "VISTAX",
-      description: "A corporate digital transformation platform, visually monitoring workflows and automating reports.",
-      image: "/vistax.png",
-      iconName: "Layers",
-      href: "https://develop.cyber-vistax.online/login"
-    };
-  }
   if (text.includes("architect") || text.includes("computer vision")) {
     return {
       slug: "ai-solutions-architect",
       title: "AI Solutions Architect",
       description: "Design, develop and optimize computer vision models and full end-to-end Data-AI pipelines.",
-      image: "/aip.png",
+      image: "/cyberdx_logo-removebg-preview.png",
       iconName: "Cpu",
       href: "/ai-solutions-architect/"
     };
@@ -102,7 +39,7 @@ function getFeatureCardDetails(featureText: string) {
       slug: "data-science-engineer",
       title: "Data Science Engineer",
       description: "Analyze visual and operational data, optimize metrics and build automated report templates.",
-      image: "/project-vietrunner.jpg",
+      image: "/cyberdx_logo-removebg-preview.png",
       iconName: "Activity",
       href: "/data-science-engineer/"
     };
@@ -112,8 +49,8 @@ function getFeatureCardDetails(featureText: string) {
       slug: "cloud-integration-developer",
       title: "Cloud Integration Developer",
       description: "Connect Edge AI local systems to central Dashboard servers via WebSocket and REST APIs.",
-      image: "/project-kiosify.jpg",
-      iconName: "Globe",
+      image: "/cyberdx_logo-removebg-preview.png",
+      iconName: "Cpu",
       href: "/cloud-integration-developer/"
     };
   }
@@ -122,7 +59,7 @@ function getFeatureCardDetails(featureText: string) {
       slug: "unlocking-intelligence-ai-video-analytics",
       title: "Unlocking Intelligence",
       description: "Learn how AI Video Analytics transforms passive surveillance into real-time business foresight.",
-      image: "/project-vietrunner.jpg",
+      image: "/cyberdx_logo-removebg-preview.png",
       iconName: "Layers",
       href: "/unlocking-intelligence-ai-video-analytics/"
     };
@@ -212,7 +149,7 @@ function getFeatureCardDetails(featureText: string) {
   return null;
 }
 
-// Helper function to render Lucide Icons dynamically
+
 const renderIcon = (name: string) => {
   switch (name) {
     case "Shield": return <Shield size={18} />;
@@ -224,9 +161,6 @@ const renderIcon = (name: string) => {
     case "Ban": return <Ban size={18} />;
     case "Activity": return <Activity size={18} />;
     case "TrendingUp": return <TrendingUp size={18} />;
-    case "ShoppingBag": return <ShoppingBag size={18} />;
-    case "Home": return <Home size={18} />;
-    case "Globe": return <Globe size={18} />;
     case "Cpu": return <Cpu size={18} />;
     case "Layers": return <Layers size={18} />;
     default: return <CheckCircle2 size={18} />;
@@ -242,7 +176,7 @@ interface DetailPageProps {
 export default function DetailPage({ slug, onBack, onContact }: DetailPageProps) {
   const data = DETAIL_DATA[slug];
 
-  // Dynamic simulation states to make the dashboard indicators tick in real-time
+  
   const [peopleCount, setPeopleCount] = useState(38);
   const [attendanceRate, setAttendanceRate] = useState(98.4);
   const [restrictedAlert, setRestrictedAlert] = useState(false);
@@ -250,15 +184,15 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      // Tick people counter
+      
       setPeopleCount(prev => Math.max(10, Math.min(80, prev + (Math.random() > 0.5 ? 1 : -1))));
-      // Tick attendance
+      
       setAttendanceRate(prev => Math.min(100, Math.max(90, +(prev + (Math.random() > 0.5 ? 0.1 : -0.1)).toFixed(1))));
-      // Randomize alert status
+      
       if (Math.random() > 0.75) {
         setRestrictedAlert(prev => !prev);
       }
-      // Randomize tracking box slightly
+      
       setBoxCoords({
         top: `${28 + Math.random() * 12}%`,
         left: `${20 + Math.random() * 12}%`
@@ -267,7 +201,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
     return () => clearInterval(timer);
   }, [slug]);
 
-  // Dynamic SEO Metadata Injection & Schema Graph compilation
+  
   useEffect(() => {
     if (!data) return;
 
@@ -291,7 +225,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       el.setAttribute("content", content);
     };
 
-    const pageTitle = `${data.title} - ApexDX AI`;
+    const pageTitle = `${data.title} - CyberDX AI`;
     document.title = pageTitle;
     
     let descMeta = document.querySelector('meta[name="description"]');
@@ -308,24 +242,24 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       canonicalLink.setAttribute("rel", "canonical");
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.setAttribute("href", `https://apexdx.tech/${slug}/`);
+    canonicalLink.setAttribute("href", `https://cyberdx.tech/${slug}/`);
 
-    // --- Open Graph & Twitter Social Tags ---
+    
     setMetaProperty("og:locale", "vi_VN");
     setMetaProperty("og:type", "article");
     setMetaProperty("og:title", pageTitle);
     setMetaProperty("og:description", data.description);
-    setMetaProperty("og:url", `https://apexdx.tech/${slug}/`);
-    setMetaProperty("og:site_name", "ApexDX");
-    setMetaProperty("og:image", "https://apexdx.tech/Apex.jpg");
-    setMetaProperty("og:image:secure_url", "https://apexdx.tech/Apex.jpg");
+    setMetaProperty("og:url", `https://cyberdx.tech/${slug}/`);
+    setMetaProperty("og:site_name", "CyberDX");
+    setMetaProperty("og:image", "https://cyberdx.tech/cyberdx_logo-removebg-preview.png");
+    setMetaProperty("og:image:secure_url", "https://cyberdx.tech/cyberdx_logo-removebg-preview.png");
     setMetaProperty("og:image:width", "1200");
     setMetaProperty("og:image:height", "630");
 
     setMetaName("twitter:card", "summary_large_image");
     setMetaName("twitter:title", pageTitle);
     setMetaName("twitter:description", data.description);
-    setMetaName("twitter:image", "https://apexdx.tech/Apex.jpg");
+    setMetaName("twitter:image", "https://cyberdx.tech/cyberdx_logo-removebg-preview.png");
 
     const existingSchema = document.querySelector("script.rank-math-schema");
     if (existingSchema) {
@@ -341,14 +275,14 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       "@graph": [
         {
           "@type": ["Person", "Organization"],
-          "@id": "https://apexdx.tech/#person",
-          "name": "ApexDX",
+          "@id": "https://cyberdx.tech/#person",
+          "name": "CyberDX",
           "logo": {
             "@type": "ImageObject",
-            "@id": "https://apexdx.tech/#logo",
-            "url": "https://apexdx.tech/Apex.jpg",
-            "contentUrl": "https://apexdx.tech/Apex.jpg",
-            "caption": "ApexDX",
+            "@id": "https://cyberdx.tech/#logo",
+            "url": "https://cyberdx.tech/cyberdx_logo-removebg-preview.png",
+            "contentUrl": "https://cyberdx.tech/cyberdx_logo-removebg-preview.png",
+            "caption": "CyberDX",
             "inLanguage": "vi-VN",
             "width": "180",
             "height": "80"
@@ -356,21 +290,21 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
         },
         {
           "@type": "WebSite",
-          "@id": "https://apexdx.tech/#website",
-          "url": "https://apexdx.tech",
-          "name": "ApexDX",
+          "@id": "https://cyberdx.tech/#website",
+          "url": "https://cyberdx.tech",
+          "name": "CyberDX",
           "publisher": {
-            "@id": "https://apexdx.tech/#person"
+            "@id": "https://cyberdx.tech/#person"
           },
           "inLanguage": "vi-VN"
         },
         {
           "@type": "WebPage",
-          "@id": `https://apexdx.tech/#/${slug}/#webpage`,
-          "url": `https://apexdx.tech/#/${slug}`,
+          "@id": `https://cyberdx.tech/#/${slug}/#webpage`,
+          "url": `https://cyberdx.tech/#/${slug}`,
           "name": pageTitle,
           "isPartOf": {
-            "@id": "https://apexdx.tech/#website"
+            "@id": "https://cyberdx.tech/#website"
           },
           "inLanguage": "vi-VN"
         },
@@ -381,16 +315,16 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           "dateModified": "2026-06-02T08:00:00+07:00",
           "author": {
             "@type": "Person",
-            "name": "ApexDX Admin"
+            "name": "CyberDX Admin"
           },
           "publisher": {
-            "@id": "https://apexdx.tech/#person"
+            "@id": "https://cyberdx.tech/#person"
           },
           "description": data.description,
           "name": pageTitle,
-          "@id": `https://apexdx.tech/#/${slug}/#richSnippet`,
+          "@id": `https://cyberdx.tech/#/${slug}/#richSnippet`,
           "isPartOf": {
-            "@id": `https://apexdx.tech/#/${slug}/#webpage`
+            "@id": `https://cyberdx.tech/#/${slug}/#webpage`
           }
         }
       ]
@@ -399,22 +333,22 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
     schemaScript.textContent = JSON.stringify(schemaData);
     document.head.appendChild(schemaScript);
 
-    // Scroll to top of subpage
+    
     window.scrollTo({ top: 0, behavior: "instant" });
 
     return () => {
-      // Revert dynamic SEO head elements when leaving DetailPage
-      document.title = "ApexDX | AI-Powered Software & Recruitment in Vietnam";
-      const defaultDesc = "ApexDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.";
+      
+      document.title = "CyberDX | AI-Powered Software & Recruitment in Vietnam";
+      const defaultDesc = "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.";
       if (descMeta) descMeta.setAttribute("content", defaultDesc);
       
       const canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) canonical.setAttribute("href", "https://apexdx.tech/");
+      if (canonical) canonical.setAttribute("href", "https://cyberdx.tech/");
 
-      setMetaProperty("og:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
       setMetaProperty("og:description", defaultDesc);
-      setMetaProperty("og:url", "https://apexdx.tech/");
-      setMetaName("twitter:title", "ApexDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:url", "https://cyberdx.tech/");
+      setMetaName("twitter:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
       setMetaName("twitter:description", defaultDesc);
 
       const dynamicSchema = document.querySelector("script.rank-math-schema");
@@ -446,11 +380,11 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
         const a = target.closest('a');
         if (a) {
           const href = a.getAttribute('href') || '';
-          if (href.startsWith('/') || href.includes('apexdx.tech') || href.startsWith(window.location.origin)) {
+          if (href.startsWith('/') || href.includes('cyberdx.tech') || href.startsWith(window.location.origin)) {
             e.preventDefault();
             let linkPath = href;
-            if (href.includes('apexdx.tech')) {
-              const parts = href.split('apexdx.tech');
+            if (href.includes('cyberdx.tech')) {
+              const parts = href.split('cyberdx.tech');
               linkPath = parts[parts.length - 1];
             }
             const cleanSlug = linkPath.replace(/^\/|\/$/g, "");
@@ -469,15 +403,52 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
   }, [slug, data, isBlogPost]);
 
   if (!data) return null;
+  if (slug === "case-studies") {
+    return (
+      <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
+        <div className="max-w-4xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-8 text-left">
+          <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-2 text-sm font-bold text-white/50 hover:text-white transition-all bg-white/5 hover:bg-white/10 px-5 py-2.5 rounded-full border border-white/10 cursor-pointer shadow-[0_4px_12px_rgba(0,0,0,0.5)] transform hover:scale-105 active:scale-95"
+            >
+              <ArrowLeft size={16} />
+              Back to Homepage
+            </button>
+          </motion.div>
+
+          <div className="flex flex-col gap-6 pt-8">
+            <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
+              <Sparkles size={12} className="text-[#d85b6a]" />
+              Case Studies
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-tight text-white font-sans">
+              Case Studies
+            </h1>
+            <p className="text-white/60 text-lg font-semibold leading-relaxed max-w-2xl">
+              New CyberDX case studies will be published here soon.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
+            <p className="text-white/50 text-sm font-bold uppercase tracking-widest font-mono">
+              No case studies available yet.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   if (slug === "blog") {
     return (
       <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
-        {/* Dynamic light glows */}
+        
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
         <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-10 text-left">
-          {/* Back button */}
+          
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -491,7 +462,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </button>
           </motion.div>
 
-          {/* Heading */}
+          
           <div className="flex flex-col gap-4">
             <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
               <Sparkles size={12} className="text-[#d85b6a]" />
@@ -499,7 +470,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-none text-white font-sans">
-              ApexDX Blog &amp; News
+              CyberDX Blog &amp; News
             </h1>
 
             <p className="text-base sm:text-lg font-bold text-white/40 uppercase font-mono tracking-wider">
@@ -509,7 +480,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             <div className="h-[2px] w-24 bg-gradient-to-r from-[#d85b6a] to-purple-500" />
           </div>
 
-          {/* Blog Listing Grid */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
             {BLOG_POSTS.map((post) => (
               <article key={post.id} className={`bg-white/[0.01] border border-white/5 rounded-3xl overflow-hidden hover:border-[#d85b6a]/30 hover:bg-white/[0.02] transition-all flex flex-col group shadow-lg`}>
@@ -568,12 +539,12 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
   if (isBlogPost) {
     return (
       <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
-        {/* Dynamic light glows */}
+        
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
         <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="max-w-4xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-8 text-left">
-          {/* Back button */}
+          
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -587,7 +558,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </button>
           </motion.div>
 
-          {/* Heading */}
+          
           <div className="flex flex-col gap-6 pt-4">
             <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
               <Sparkles size={12} className="text-[#d85b6a]" />
@@ -605,7 +576,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             <div className="h-[2px] w-24 bg-gradient-to-r from-[#d85b6a] to-purple-500" />
           </div>
 
-          {/* Featured Image */}
+          
           {data.image && (
             <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.5)] bg-[#08080a]">
               <img 
@@ -616,7 +587,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </div>
           )}
 
-          {/* Clean HTML content wrapper */}
+          
           <div className="blog-content-container py-4">
             <article 
               className="blog-content-html prose prose-invert max-w-none text-white/80 leading-relaxed text-base sm:text-lg font-semibold space-y-6"
@@ -624,7 +595,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             />
           </div>
 
-          {/* Related solutions link banner or CTA */}
+          
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -651,7 +622,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       case "san-xuat-nha-may":
         return "/san-xuat-nha-may.webp";
       case "nhan-dien-khuon-mat":
-        return "/hero-bg.gif"; // active tech scanning visual
+        return "/hero-bg.gif"; 
       case "kho-van-hang-hoa":
       case "nhan-dien-bien-so-xe-tu-dong":
       case "giam-sat-do-xe-sai-quy-dinh":
@@ -674,7 +645,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       case "nhan-dien-phan-tich-hanh-vi":
         return "/intrusion-detection.png";
       default:
-        return "/Apex.jpg";
+        return "/cyberdx_logo-removebg-preview.png";
     }
   };
 
@@ -692,7 +663,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,91,106,0.15)_0%,transparent_70%)] pointer-events-none" />
 
-            {/* Sweep laser line */}
+            
             <motion.div
               animate={{ y: ["0%", "520%", "0%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -709,7 +680,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* AI Bounding Boxes */}
+            
             <motion.div 
               animate={{ top: boxCoords.top, left: boxCoords.left }}
               transition={{ duration: 0.6, type: "spring" }}
@@ -724,7 +695,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <div className="w-3 h-3 border-b-2 border-r-2 border-green-500 self-end" />
             </div>
 
-            {/* Alert card popup */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/85 border border-[#d85b6a]/30 backdrop-blur-lg flex items-center justify-between gap-4 z-10 shadow-[0_8px_32px_rgba(0,0,0,0.8)]">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-red-950 border border-red-500/30 flex items-center justify-center text-red-500">
@@ -752,7 +723,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15)_0%,transparent_70%)] pointer-events-none" />
 
-            {/* Laser grid scanline */}
+            
             <motion.div
               animate={{ y: ["0%", "520%", "0%"] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
@@ -769,7 +740,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Forklift Bounding Box */}
+            
             <motion.div 
               animate={{ top: boxCoords.top, left: boxCoords.left }}
               transition={{ duration: 0.8, type: "spring" }}
@@ -779,7 +750,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <div className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-ping self-center" />
             </motion.div>
 
-            {/* Virtual border warning */}
+            
             <div className="absolute inset-x-0 top-1/2 h-0.5 bg-red-500/50 flex items-center justify-center z-10">
               <span className="text-[8px] bg-red-600 border border-red-500 text-white font-mono px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse -translate-y-2.5">
                 VIRTUAL LINE - RESTRICTED ENTRY
@@ -796,7 +767,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               style={{ backgroundImage: `url('${bgImage}')` }} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 pointer-events-none" />
-            {/* Heatmap color nodes overlay */}
+            
             <motion.div 
               animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -813,7 +784,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Floating People Counts widget */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/85 border border-green-500/30 backdrop-blur-lg flex items-center justify-between z-10 shadow-[0_8px_32px_rgba(0,0,0,0.8)]">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-green-950 border border-green-500/30 flex items-center justify-center text-green-400">
@@ -850,7 +821,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Attendance dynamic percentage grid mockup */}
+            
             <div className="my-auto flex flex-col items-center gap-2 z-10">
               <div className="bg-black/75 border border-white/10 p-4 rounded-2xl text-center min-w-[200px] shadow-lg">
                 <span className="text-[9px] text-white/40 font-mono uppercase block mb-1">Class Attendance Rate</span>
@@ -887,7 +858,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Profile Pop-up HUD card */}
+            
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -925,7 +896,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <span className="text-[9px] font-mono text-white/40 bg-black/60 px-2 py-1 rounded">CAM_11 - PHARMACY DEPOT DOOR</span>
             </div>
 
-            {/* Fall Warning or Restricted Warning */}
+            
             <div className="flex-1 flex items-center justify-center z-10">
               <AnimatePresence mode="wait">
                 {restrictedAlert ? (
@@ -974,14 +945,14 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             
             <div className="w-[190px] h-[230px] rounded-2xl border-2 border-purple-500/30 relative flex flex-col justify-between p-4 overflow-hidden bg-black/75 shadow-[0_0_50px_rgba(168,85,247,0.25)] z-10">
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
-                {/* SVG Human Face Silhouette/Grid */}
+                
                 <svg width="120" height="140" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-400">
                   <path d="M50 15C32.8782 15 19 28.8782 19 46C19 63.8562 28.5 82 50 105C71.5 82 81 63.8562 81 46C81 28.8782 67.1218 15 50 15Z" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
                   <ellipse cx="37" cy="45" rx="5" ry="3" stroke="currentColor" strokeWidth="1.5" />
                   <ellipse cx="63" cy="45" rx="5" ry="3" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M47 55H53V68H47V55Z" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M35 80C42 86 58 86 65 80" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  {/* Facial tracking dots */}
+                  
                   <circle cx="50" cy="28" r="2.5" fill="#a855f7" className="animate-ping" />
                   <circle cx="37" cy="45" r="2" fill="#22c55e" />
                   <circle cx="63" cy="45" r="2" fill="#22c55e" />
@@ -1020,7 +991,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent z-10 pointer-events-none" />
             
-            {/* Sweep laser line */}
+            
             <motion.div
               animate={{ y: ["0%", "520%", "0%"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -1037,7 +1008,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* AI Bounding Boxes for workers */}
+            
             <motion.div 
               animate={{ top: boxCoords.top, left: boxCoords.left }}
               transition={{ duration: 0.8, type: "spring" }}
@@ -1055,7 +1026,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <div className="w-2 h-2 bg-green-500 rounded-full self-center" />
             </div>
 
-            {/* Verification details */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/90 border border-red-500/30 backdrop-blur-lg flex items-center justify-between gap-4 z-10 shadow-2xl">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-red-950 border border-red-500 flex items-center justify-center text-red-500">
@@ -1092,7 +1063,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Dynamic visual gate crossing line */}
+            
             <div className="absolute inset-x-0 top-1/2 h-0.5 bg-yellow-500/50 z-10 flex items-center justify-between px-6 pointer-events-none">
               <span className="text-[8px] bg-yellow-500 text-black font-mono px-2 py-0.5 rounded font-black tracking-wider uppercase -translate-y-2.5">
                 VIRTUAL LINE IN/OUT
@@ -1100,7 +1071,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <div className="h-4 w-0.5 bg-yellow-500 animate-pulse" />
             </div>
 
-            {/* Flow counters widgets */}
+            
             <div className="absolute top-1/3 left-1/4 -translate-x-1/2 bg-black/85 border border-[#d85b6a]/30 p-4 rounded-2xl text-center z-10 shadow-xl min-w-[120px] backdrop-blur-md">
               <span className="text-[9px] text-white/40 font-mono uppercase block mb-1">&rarr; ENTRIES (IN)</span>
               <span className="text-3xl font-black text-white font-mono">{peopleCount + 12}</span>
@@ -1113,7 +1084,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <span className="text-[8px] text-white/30 font-mono block mt-1">MINOR VARIATION</span>
             </div>
 
-            {/* Total occupants widget */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-3.5 rounded-xl bg-black/90 border border-green-500/30 flex items-center justify-between z-10 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-green-950 border border-green-500/30 flex items-center justify-center text-green-400">
@@ -1140,7 +1111,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
             
-            {/* Red zone warning contour */}
+            
             <div className="absolute inset-0 border-[6px] border-red-500/20 pointer-events-none z-10" />
             
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
@@ -1153,7 +1124,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Red flash polygon outline of the violation area */}
+            
             <div className="absolute top-1/3 left-1/3 w-[220px] h-[100px] border-2 border-red-500 bg-red-500/10 rounded-xl z-10 flex flex-col justify-between p-2 shadow-[0_0_20px_rgba(239,68,68,0.3)] animate-pulse">
               <div className="flex justify-between items-start">
                 <span className="text-[8px] font-mono text-white bg-red-600 px-1.5 py-0.5 rounded font-black">CAR_DETECTION [97%]</span>
@@ -1165,7 +1136,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </div>
             </div>
 
-            {/* Bottom alert logs panel */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-3.5 rounded-xl bg-black/90 border border-red-500/40 backdrop-blur-lg flex items-center justify-between gap-4 z-10 shadow-2xl">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-red-950 border border-red-500/30 flex items-center justify-center text-red-500 animate-pulse">
@@ -1204,30 +1175,30 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Skeletal tracking overlay - highly high-tech */}
+            
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
               <svg width="150" height="150" viewBox="0 0 100 100" className="text-red-500 opacity-80">
-                {/* Stylized fallen human skeleton joints layout */}
-                {/* Head */}
+                
+                
                 <circle cx="35" cy="70" r="5" stroke="currentColor" strokeWidth="1.5" fill="rgba(239,68,68,0.2)" />
-                {/* Spine */}
+                
                 <line x1="35" y1="75" x2="55" y2="78" stroke="currentColor" strokeWidth="1.5" />
-                {/* Limbs */}
+                
                 <line x1="55" y1="78" x2="75" y2="75" stroke="currentColor" strokeWidth="1.5" />
                 <line x1="75" y1="75" x2="85" y2="60" stroke="currentColor" strokeWidth="1.5" />
                 <line x1="55" y1="78" x2="68" y2="90" stroke="currentColor" strokeWidth="1.5" />
-                {/* Nodes */}
+                
                 <circle cx="55" cy="78" r="2" fill="#ef4444" />
                 <circle cx="75" cy="75" r="2" fill="#ef4444" />
                 <circle cx="85" cy="60" r="2" fill="#ef4444" />
                 <circle cx="68" cy="90" r="2" fill="#ef4444" />
-                {/* Red warning focus box */}
+                
                 <rect x="20" y="50" width="72" height="46" rx="4" stroke="#ef4444" strokeWidth="1" strokeDasharray="3 3" fill="none" />
                 <text x="25" y="44" fill="#ef4444" fontSize="5" fontFamily="monospace" fontWeight="bold">BEHAVIOR: FALL DETECTED [96.8%]</text>
               </svg>
             </div>
 
-            {/* Emergency trigger notification card */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/90 border border-red-500/50 backdrop-blur-lg flex items-center justify-between gap-4 z-10 shadow-2xl">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-red-950 border border-red-500 flex items-center justify-center text-red-500 animate-bounce">
@@ -1254,7 +1225,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
             
-            {/* Animated glowing heatmap blobs */}
+            
             <motion.div 
               animate={{ scale: [1, 1.15, 1], opacity: [0.35, 0.6, 0.35] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -1277,7 +1248,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </span>
             </div>
 
-            {/* Glowing path traces vector overlay */}
+            
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-60">
               <motion.path
                 d="M 20,40 Q 50,20 80,50 T 150,90 T 250,40"
@@ -1301,14 +1272,14 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               />
             </svg>
 
-            {/* Shelf dwell time stats labels */}
+            
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 bg-black/85 border border-[#d85b6a]/30 px-3 py-1.5 rounded-lg text-left z-10 shadow-lg font-mono text-[9px]">
               <span className="text-[#ff8a9a] font-black uppercase block">DISPLAY SHELF A</span>
               <span className="text-white block mt-0.5">Density: 87% (HOTSPOT)</span>
               <span className="text-white/50 block">Dwell time: 4.8 mins</span>
             </div>
 
-            {/* Legend card widget */}
+            
             <div className="absolute bottom-6 left-6 right-6 p-3 rounded-xl bg-black/90 border border-white/5 flex items-center justify-between z-10 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#d85b6a]/15 border border-[#d85b6a]/30 flex items-center justify-center text-[#ff8a9a]">
@@ -1471,14 +1442,14 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
   return (
     <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
-      {/* Dynamic light glows */}
+      
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
       
-      {/* Main Container */}
+      
       <div className="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-16">
         
-        {/* Back Button Navigation */}
+        
         <motion.div 
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -1493,7 +1464,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </button>
         </motion.div>
 
-        {/* 1. Hero Subpage Section (ApexDX style - clean header with colored light motion) */}
+        
         <div className="py-12 md:py-16 flex flex-col gap-6 text-left max-w-4xl">
           <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
             <Sparkles size={12} className="text-[#d85b6a]" />
@@ -1531,10 +1502,10 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 2. Overview Section (ApexDX style - left: portrait image with red bounding box + secondary dome camera, right: text + metrics) */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left py-8">
           <div className="lg:col-span-5 relative w-full flex justify-center py-6">
-            {/* Main AI visual card with red bounding box */}
+            
             <div className="relative w-full aspect-[4/5] max-w-[340px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#08080a] group">
               <div 
                 className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700 pointer-events-none" 
@@ -1542,7 +1513,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent z-10 pointer-events-none" />
               
-              {/* Target tracking box */}
+              
               <div className="absolute top-[25%] left-[20%] w-[55%] h-[50%] border-2 border-red-500 rounded bg-red-500/10 z-10 flex flex-col justify-between p-2 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
                 <span className="text-[8px] font-mono text-white bg-red-600 px-1.5 py-0.5 rounded font-black self-start uppercase">
                   {data.title}
@@ -1553,15 +1524,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </div>
             </div>
 
-            {/* Overlapping secondary dome camera / technical device card */}
-            {slug === "case-studies" && (
-              <div className="absolute -bottom-6 -right-2 md:-right-6 w-36 h-36 rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black/90 p-1 hidden sm:block z-25">
-                <div 
-                  className="w-full h-full bg-cover bg-center rounded-xl opacity-90"
-                  style={{ backgroundImage: `url('/vistax.png')` }} 
-                />
-              </div>
-            )}
+            
           </div>
 
           <div className="lg:col-span-7 flex flex-col gap-8">
@@ -1571,11 +1534,11 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </h2>
               <div className="h-0.5 w-16 bg-[#d85b6a]" />
               <p className="text-white/70 text-base leading-relaxed font-semibold">
-                ApexDX provides advanced automatic AI video analytics systems, monitoring real-time video streams to deliver the most accurate insights and alerts. The solution enhances security, optimizes operational productivity, and cuts down manual monitoring costs.
+                CyberDX provides advanced automatic AI video analytics systems, monitoring real-time video streams to deliver the most accurate insights and alerts. The solution enhances security, optimizes operational productivity, and cuts down manual monitoring costs.
               </p>
             </div>
 
-            {/* Metrics cards embedded directly in Overview */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {data.metrics.map((metric, i) => (
                 <div
@@ -1595,7 +1558,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 2.5. Challenges / Khó khăn ngành (Cleaned up layout) */}
+        
         {data.challenges && data.challenges.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1631,7 +1594,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </motion.div>
         )}
 
-        {/* 3. How It Works Section (ApexDX style - 4 vertical purple/glassmorphic cards side-by-side) */}
+        
         <div className="flex flex-col gap-8 text-left py-8">
           <div className="flex flex-col gap-3">
             <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">
@@ -1650,7 +1613,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                   key={i}
                   className="flex flex-col gap-6 bg-white/[0.02] border border-white/10 p-8 rounded-3xl relative overflow-hidden hover:border-[#d85b6a]/30 transition-all hover:bg-white/[0.04] group h-full shadow-lg"
                 >
-                  {/* Circular gradient number */}
+                  
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#d85b6a]/20 to-[#d85b6a]/5 border border-[#d85b6a]/30 flex items-center justify-center text-[#ff8a9a] font-mono font-black text-lg group-hover:scale-110 transition-transform shadow-inner">
                     {i + 1}
                   </div>
@@ -1668,7 +1631,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 4. Detailed Features / Highlights Block (AI Solutions Cards) */}
+        
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1682,7 +1645,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {data.features.map((feature, i) => {
               const cardDetails = getFeatureCardDetails(feature);
-              const isCardWithImage = data.category === "Industries" || slug === "case-studies" || slug === "career";
+              const isCardWithImage = data.category === "Industries" || slug === "career";
 
               if (cardDetails && isCardWithImage) {
                 return (
@@ -1691,15 +1654,11 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                     whileHover={{ y: -8, scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     onClick={() => {
-                      if (slug === "case-studies" && cardDetails.href) {
-                        window.open(cardDetails.href, "_blank", "noopener,noreferrer");
-                      } else {
-                        document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: cardDetails.slug }));
-                      }
+                      document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: cardDetails.slug }));
                     }}
                     className="relative aspect-[16/9] sm:aspect-[16/10] rounded-3xl overflow-hidden border border-white/10 group cursor-pointer shadow-[0_12px_32px_rgba(0,0,0,0.5)] flex flex-col justify-end p-8 text-left"
                   >
-                    {/* Background Image with overlay */}
+                    
                     <div 
                       className="absolute inset-0 bg-cover bg-center opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700 pointer-events-none" 
                       style={{ backgroundImage: `url('${cardDetails.image}')` }} 
@@ -1707,10 +1666,10 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none z-10" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent pointer-events-none z-10" />
                     
-                    {/* Subtle glowing border on hover */}
+                    
                     <div className="absolute inset-0 border border-transparent group-hover:border-[#d85b6a]/40 transition-colors duration-300 rounded-3xl z-20 pointer-events-none" />
 
-                    {/* Content */}
+                    
                     <div className="relative z-20 flex flex-col gap-2">
                       <div className="flex items-center gap-2 self-start bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 text-[10px] font-black text-[#ff8a9a] uppercase font-mono tracking-wider">
                         {renderIcon(cardDetails.iconName)}
@@ -1726,7 +1685,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                       </p>
 
                       <div className="flex items-center gap-1.5 text-[10px] font-black text-[#ff8a9a] uppercase tracking-wider font-mono mt-2 opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                        {slug === "case-studies" ? "Visit Project Website" : slug === "career" ? "View Position Details" : "View AI Solution Details"}
+                        {slug === "career" ? "View Position Details" : "View AI Solution Details"}
                         <ArrowUpRight size={12} />
                       </div>
                     </div>
@@ -1734,7 +1693,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                 );
               }
 
-              // Otherwise render a standard premium glassmorphism card
+              
               return (
                 <motion.div
                   key={i}
@@ -1765,7 +1724,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </motion.div>
 
-        {/* 5. All-in-One Intelligence Dashboard Section (ApexDX style - left: interactive mockup, right: dashboard text content) */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left py-8">
           <div className="lg:col-span-6 w-full">
             {renderVisualMockup()}
@@ -1781,7 +1740,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </h2>
             
             <p className="text-white/70 text-base leading-relaxed font-semibold">
-              ApexDX centralizes all analytical data and events from your IP cameras into a secure, real-time online Dashboard. This allows security teams to easily monitor status, receive instant push notifications, and review events with video evidence.
+              CyberDX centralizes all analytical data and events from your IP cameras into a secure, real-time online Dashboard. This allows security teams to easily monitor status, receive instant push notifications, and inspect events with video evidence.
             </p>
             
             <p className="text-white/60 text-sm leading-relaxed font-semibold">
@@ -1790,7 +1749,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         </div>
 
-        {/* 6. Key Benefits Section (ApexDX style - left: title + CTA, right: vertical list with numbered dividers) */}
+        
         {data.dashboardBenefits && data.dashboardBenefits.length > 0 && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left py-8 items-start">
             <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-32">
@@ -1832,45 +1791,6 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         )}
 
-        {/* 6.5. Customer Testimonial Section */}
-        {data.testimonial && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="flex flex-col gap-6 text-left py-8"
-          >
-            <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono border-b border-white/5 pb-3">
-              <Sparkles size={18} className="text-amber-400" />
-              Partner Testimonials
-            </div>
-            
-            <div className="p-8 sm:p-12 rounded-3xl bg-white/[0.01] border border-white/5 backdrop-blur-md relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#d85b6a]/5 to-transparent pointer-events-none" />
-              <div className="absolute top-2 left-6 text-[120px] text-[#d85b6a]/10 font-serif leading-none pointer-events-none">&ldquo;</div>
-
-              <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#d85b6a] to-purple-600 flex items-center justify-center text-white text-2xl font-black shadow-lg flex-shrink-0">
-                {data.testimonial.avatarInitials}
-              </div>
-
-              <div className="flex-1 flex flex-col gap-4 text-left relative z-10">
-                <p className="text-white/90 text-lg sm:text-xl font-bold italic leading-relaxed">
-                  "{data.testimonial.quote}"
-                </p>
-                <div>
-                  <h5 className="text-white font-black text-base uppercase tracking-wide">
-                    {data.testimonial.name}
-                  </h5>
-                  <p className="text-white/40 text-xs font-semibold mt-0.5">
-                    {data.testimonial.role} &mdash; <span className="text-[#ff8a9a]">{data.testimonial.company}</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* 7. Other Industries / Solution Relations Section */}
         {data.category === "Industries" && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1910,7 +1830,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none z-10" />
                     
-                    {/* subtle border glow on hover */}
+                    
                     <div className="absolute inset-0 border border-transparent group-hover:border-[#d85b6a]/30 transition-colors duration-300 rounded-2xl z-20 pointer-events-none" />
 
                     <div className="relative z-20">
@@ -1927,7 +1847,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
         {data.category === "AI Solutions" && (
           <div className="flex flex-col gap-12 text-left">
-            {/* Applied Industries Grid */}
+            
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1975,7 +1895,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               </div>
             </motion.div>
 
-            {/* Other AI Solutions Grid */}
+            
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -2032,7 +1952,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </div>
         )}
 
-        {/* 7.5 Conclusion Banner */}
+        
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -2045,7 +1965,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </p>
         </motion.div>
 
-        {/* 8. Bottom Contact Trigger Footer CTA */}
+        
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -27,7 +27,7 @@ export default function FeaturesChess() {
         padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
       }}
     >
-      {/* Section header */}
+      
       <div
         style={{
           display: 'flex',
@@ -42,7 +42,7 @@ export default function FeaturesChess() {
         <h2 className="section-heading">Pro features. Zero complexity.</h2>
       </div>
 
-      {/* Chess rows */}
+      
       <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', maxWidth: '1100px', margin: '0 auto' }}>
         {ROWS.map((row, idx) => (
           <div
@@ -55,7 +55,7 @@ export default function FeaturesChess() {
               flexWrap: 'wrap',
             }}
           >
-            {/* Text content */}
+            
             <div
               style={{
                 flex: '1 1 300px',
@@ -94,7 +94,7 @@ export default function FeaturesChess() {
               </div>
             </div>
 
-            {/* GIF */}
+            
             <div
               className="liquid-glass"
               style={{
