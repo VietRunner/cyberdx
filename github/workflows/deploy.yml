@@ -1,0 +1,82 @@
+name: Deploy Static to Coolify
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+      - beta
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        shell: bash
+        run: |
+          set -e
+
+          SOURCE_BRANCH="${GITHUB_REF_NAME}"
+          DEPLOY_BRANCH="deploy/${SOURCE_BRANCH}"
+
+          echo "Source branch: ${SOURCE_BRANCH}"
+          echo "Deploy branch: ${DEPLOY_BRANCH}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          TEMP_DIR=$(mktemp -d)
+
+          cp -R dist/. "$TEMP_DIR/"
+          cp .github/deploy/Dockerfile "$TEMP_DIR/Dockerfile"
+          cp .github/deploy/nginx.conf "$TEMP_DIR/nginx.conf"
+
+          touch "$TEMP_DIR/.nojekyll"
+
+          if git ls-remote --exit-code origin "${DEPLOY_BRANCH}" >/dev/null 2>&1; then
+              git checkout "${DEPLOY_BRANCH}"
+          else
+              git checkout --orphan "${DEPLOY_BRANCH}"
+          fi
+
+          find . -mindepth 1 -maxdepth 1 \
+              ! -name ".git" \
+              -exec rm -rf {} +
+
+          cp -R "$TEMP_DIR"/. .
+
+          git add -A
+
+          if git diff --cached --quiet; then
+              echo "No changes."
+              exit 0
+          fi
+
+          git commit -m "Deploy ${SOURCE_BRANCH} (${GITHUB_SHA})"
+
+          git push origin "${DEPLOY_BRANCH}" --force
