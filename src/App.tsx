@@ -173,7 +173,7 @@ export default function App() {
           <BlogSection />
 
           
-          <FinalCTA onContact={() => setModalOpen(true)} />
+          <FinalCTA />
 
           
           <ModernFooter onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />

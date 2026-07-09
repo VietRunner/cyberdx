@@ -16,7 +16,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
     <footer className="relative bg-black py-16 px-4 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/5 text-left">
-          
+
           <div className="md:col-span-6 flex flex-col gap-4">
             <a
               href="/"
@@ -38,7 +38,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
             </p>
           </div>
 
-          
+
           <div className="md:col-span-3 flex flex-col gap-4">
             <h4 className="text-white font-black text-sm lg:text-base uppercase tracking-wider font-mono">
               Navigation
@@ -78,14 +78,14 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
             </div>
           </div>
 
-          
+
           <div className="md:col-span-3 flex flex-col gap-4">
             <h4 className="text-white font-black text-sm lg:text-base uppercase tracking-wider font-mono">
               Contact & Support
             </h4>
             <div className="flex flex-col gap-2.5">
               <span className="text-white/60 text-sm">
-                HOTLINE: +84 77 800 3426
+                HOTLINE: 0837136363
               </span>
               <span className="text-white/60 text-sm">
                 Email: sale@cyberdx.com
@@ -107,7 +107,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
           </div>
         </div>
 
-        
+
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">
             &copy; {currentYear} CyberDX AI Ecosystem. All rights reserved.
