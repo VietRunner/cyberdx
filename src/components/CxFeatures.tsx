@@ -118,12 +118,14 @@ export default function CxFeatures() {
               className="p-8 rounded-2xl bg-[#0a0a0c] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between min-h-[260px] cursor-pointer group hover:-translate-y-1"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
+                <div className="flex items-center gap-4 mb-5 sm:block sm:mb-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex shrink-0 items-center justify-center text-[#d85b6a] sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-0 sm:mb-3 group-hover:text-[#d85b6a] transition-colors">
+                    {feature.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-black text-white uppercase tracking-wide mb-3 group-hover:text-[#d85b6a] transition-colors">
-                  {feature.title}
-                </h3>
                 <p className="text-white/50 text-sm leading-relaxed">
                   {feature.description}
                 </p>

@@ -248,7 +248,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 45 }}
-          className="relative w-full max-w-6xl mx-auto overflow-hidden z-10 aspect-[16/9]"
+          className="relative w-full max-w-6xl mx-auto overflow-hidden z-10 aspect-[16/9] max-sm:h-[360px] max-sm:aspect-auto max-sm:overflow-visible"
         >
           
           <div className="absolute top-[6%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 flex items-center gap-2.5 bg-black/70 border border-[#d85b6a]/30 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-[0_0_30px_rgba(216,91,106,0.2)] min-w-[280px] sm:min-w-[340px] justify-center">
@@ -262,7 +262,7 @@ export default function CxHero({ onContact }: CxHeroProps) {
 
           <SplineScene
             scene={ROBOT_SCENE_URL}
-            className="w-full h-full"
+            className="w-full h-full max-sm:scale-[1.65] max-sm:translate-y-8 max-sm:origin-center"
           />
         </motion.div>
       </div>
