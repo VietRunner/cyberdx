@@ -85,7 +85,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
             </h4>
             <div className="flex flex-col gap-2.5">
               <span className="text-white/60 text-sm">
-                HOTLINE: 0837136363
+                HOTLINE: 0773679908
               </span>
               <span className="text-white/60 text-sm">
                 Email: sale@cyberdx.com
