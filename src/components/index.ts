@@ -26,6 +26,8 @@ export { default as CxFeatures } from "./CxFeatures";
 export { default as CxIndustries } from "./CxIndustries";
 export { default as DetailModal } from "./DetailModal";
 export { default as DetailPage } from "./DetailPage";
+export { default as IntroScreen } from "./IntroScreen";
+export { default as BeaverLanding } from "./BeaverLanding";
 
 
 

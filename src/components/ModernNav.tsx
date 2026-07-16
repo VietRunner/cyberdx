@@ -139,7 +139,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
           <div
             className={`hidden lg:flex items-center gap-2.5 py-1.5 px-5 mt-2 rounded-full transition-all duration-300 bg-[#08080a]/65 border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4)] backdrop-blur-md pointer-events-auto border ${
               scrolled
-                ? "bg-[#050507]/90 border-[#d85b6a]/20 shadow-[0_12px_36px_rgba(0,0,0,0.7)] backdrop-blur-xl scale-[0.98]"
+                ? "bg-[#050507]/90 border-[#f97316]/20 shadow-[0_12px_36px_rgba(0,0,0,0.7)] backdrop-blur-xl scale-[0.98]"
                 : ""
             }`}
             style={{
@@ -170,9 +170,9 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                         onGoHome?.();
                       }
                     }}
-                    className={`px-4 py-2 text-[14px] font-black uppercase tracking-widest transition-all duration-300 rounded-full flex items-center gap-1.5 ${
+                    className={`px-4 py-2 text-[12px] font-medium uppercase tracking-[0.22em] transition-all duration-300 flex items-center gap-1.5 ${
                       isActive
-                        ? "bg-[#d85b6a] text-white shadow-[0_4px_14px_rgba(216,91,106,0.4)] scale-105"
+                        ? "bg-[#f97316] text-white shadow-[0_4px_14px_rgba(249, 115, 22,0.35)]"
                         : "text-white/85 hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -202,7 +202,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                             key={item.label}
                             href={item.href}
                             onClick={(e) => handleItemClick(e, item.slug)}
-                            className="px-4 py-2.5 text-[14px] font-extrabold text-white/70 hover:text-white hover:bg-white/5 rounded-2xl transition-all duration-200 text-left block cursor-pointer"
+                            className="px-4 py-2.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200 text-left block cursor-pointer"
                           >
                             {item.label}
                           </a>
@@ -224,7 +224,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                 onContact?.();
                 closeMobile();
               }}
-              className="hidden sm:flex items-center gap-2 bg-[#d85b6a] text-white rounded-full px-7 py-3 text-xs font-black uppercase tracking-widest hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 border border-white/10"
+              className="hidden sm:flex items-center gap-2 bg-white text-[#0e0e0e] px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] hover:bg-white/90 transition-colors border border-white/10"
             >
               Contact Us
               <ArrowUpRight size={14} />
@@ -293,18 +293,18 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                         closeMobile();
                       }
                     }}
-                    className="text-2xl font-black uppercase tracking-wide text-white/90 hover:text-[#d85b6a] border-b border-white/5 pb-3 transition-colors duration-200 flex items-center justify-between"
+                    className="text-2xl font-black uppercase tracking-wide text-white/90 hover:text-[#f97316] border-b border-white/5 pb-3 transition-colors duration-200 flex items-center justify-between"
                   >
                     {link.label}
                     {hasDropdown ? (
                       <ChevronDown
                         size={20}
-                        className={`transition-transform duration-300 text-[#d85b6a] ${
+                        className={`transition-transform duration-300 text-[#f97316] ${
                           isMobileActive ? "rotate-180" : ""
                         }`}
                       />
                     ) : (
-                      <ArrowUpRight size={20} className="opacity-55 text-[#d85b6a]" />
+                      <ArrowUpRight size={20} className="opacity-55 text-[#f97316]" />
                     )}
                   </a>
 
@@ -316,7 +316,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                           key={item.label}
                           href={item.href}
                           onClick={(e) => handleItemClick(e, item.slug)}
-                          className="text-[15px] font-bold text-white/70 hover:text-[#d85b6a] transition-colors py-1.5 block text-left cursor-pointer"
+                          className="text-[15px] font-bold text-white/70 hover:text-[#f97316] transition-colors py-1.5 block text-left cursor-pointer"
                         >
                           {item.label}
                         </a>
@@ -334,7 +334,7 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
               closeMobile();
               onContact?.();
             }}
-            className="w-full flex items-center justify-center gap-2 bg-[#d85b6a] text-white rounded-full py-4 text-sm font-bold uppercase tracking-wider hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.3)] transition-all duration-300 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 bg-[#f97316] text-white rounded-full py-4 text-sm font-bold uppercase tracking-wider hover:bg-[#fb923c] shadow-[0_6px_20px_rgba(249, 115, 22,0.3)] transition-all duration-300 cursor-pointer"
           >
             Get Started
             <ArrowUpRight size={16} />

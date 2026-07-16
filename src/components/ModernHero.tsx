@@ -95,10 +95,10 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-6 py-2.5 mb-8 shadow-[0_0_20px_rgba(216,91,106,0.15)]"
+          className="inline-flex items-center gap-2 bg-[#f97316]/15 border border-[#f97316]/30 rounded-full px-6 py-2.5 mb-8 shadow-[0_0_20px_rgba(249, 115, 22,0.15)]"
         >
-          <Sparkles size={14} className="text-[#d85b6a] animate-pulse" />
-          <span className="text-xs font-black uppercase tracking-widest text-[#ff8a9a] font-mono">
+          <Sparkles size={14} className="text-[#f97316] animate-pulse" />
+          <span className="text-xs font-black uppercase tracking-widest text-[#ffb86b] font-mono">
             GIẢI PHÁP AI VIDEO & PHÂN TÍCH THỜI GIAN THỰC
           </span>
         </motion.div>
@@ -134,7 +134,7 @@ export default function ModernHero({ onContact }: ModernHeroProps) {
         >
           <button
             onClick={onContact}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-wider text-sm px-12 py-5 rounded-full shadow-[0_12px_28px_rgba(216,91,106,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#fb923c] text-white font-black uppercase tracking-wider text-sm px-12 py-5 rounded-full shadow-[0_12px_28px_rgba(249, 115, 22,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 cursor-pointer"
           >
             Trải Nghiệm Ngay
             <ArrowUpRight size={18} />

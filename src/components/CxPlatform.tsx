@@ -26,7 +26,7 @@ export default function CxPlatform() {
     camId: number;
     color: string;
   }>>([
-    { top: "35%", left: "25%", width: "80px", height: "120px", label: "HUMAN [96%]", camId: 1, color: "border-[#d85b6a] bg-[#d85b6a]/15 text-[#ff8a9a]" },
+    { top: "35%", left: "25%", width: "80px", height: "120px", label: "HUMAN [96%]", camId: 1, color: "border-[#f97316] bg-[#f97316]/15 text-[#ffb86b]" },
     { top: "40%", left: "30%", width: "70px", height: "110px", label: "CUSTOMER [92%]", camId: 2, color: "border-green-500 bg-green-500/10 text-green-400" },
     { top: "25%", left: "55%", width: "95px", height: "95px", label: "SMOKE ALERT", camId: 3, color: "border-red-500 bg-red-500/15 text-red-400" },
     { top: "45%", left: "20%", width: "75px", height: "100px", label: "PPE OK [99%]", camId: 4, color: "border-green-500 bg-green-500/10 text-green-400" },
@@ -42,7 +42,7 @@ export default function CxPlatform() {
           height: "120px",
           label: `HUMAN [${Math.floor(Math.random() * 5) + 94}%]`,
           camId: 1,
-          color: "border-[#d85b6a] bg-[#d85b6a]/15 text-[#ff8a9a]"
+          color: "border-[#f97316] bg-[#f97316]/15 text-[#ffb86b]"
         },
         {
           top: `${35 + Math.random() * 10}%`,
@@ -104,15 +104,15 @@ export default function CxPlatform() {
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="flex flex-col items-center text-center gap-4 mb-16">
-          <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
+          <span className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ffb86b] uppercase tracking-widest font-mono">
             Platform & Technology
           </span>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">
-            COMPREHENSIVE <span className="text-[#d85b6a]">AI SURVEILLANCE PLATFORM</span>
+            COMPREHENSIVE <span className="text-[#f97316]">AI SURVEILLANCE PLATFORM</span>
           </h2>
           <p className="text-white/60 text-base md:text-lg max-w-3xl leading-relaxed">
             Edge-to-Cloud computing infrastructure helps manage and leverage 
-            AI camera power for enterprises and organizations of all sizes.
+            Falcon AI Camera System power for enterprises and organizations of all sizes.
           </p>
 
           
@@ -121,7 +121,7 @@ export default function CxPlatform() {
               onClick={() => setMode("B2C")}
               className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 ${
                 mode === "B2C"
-                  ? "bg-[#d85b6a] text-white shadow-[0_4px_12px_rgba(216,91,106,0.3)]"
+                  ? "bg-[#f97316] text-white shadow-[0_4px_12px_rgba(249, 115, 22,0.3)]"
                   : "text-white/60 hover:text-white"
               }`}
             >
@@ -131,7 +131,7 @@ export default function CxPlatform() {
               onClick={() => setMode("B2B")}
               className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 ${
                 mode === "B2B"
-                  ? "bg-[#d85b6a] text-white shadow-[0_4px_12px_rgba(216,91,106,0.3)]"
+                  ? "bg-[#f97316] text-white shadow-[0_4px_12px_rgba(249, 115, 22,0.3)]"
                   : "text-white/60 hover:text-white"
               }`}
             >
@@ -153,9 +153,9 @@ export default function CxPlatform() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
                 
-                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
+                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#f97316]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316] mb-6">
                       <Zap size={24} />
                     </div>
                     <h3 className="text-lg font-black text-white uppercase tracking-wide mb-3">
@@ -165,13 +165,13 @@ export default function CxPlatform() {
                       Analyze and trigger warnings directly on Edge devices within milliseconds, without internet dependency.
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">EDGE COMPUTING</span>
+                  <span className="text-xs font-mono text-[#f97316]/60 font-bold">EDGE COMPUTING</span>
                 </div>
 
                 
-                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
+                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#f97316]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316] mb-6">
                       <Cpu size={24} />
                     </div>
                     <h3 className="text-lg font-black text-white uppercase tracking-wide mb-3">
@@ -181,13 +181,13 @@ export default function CxPlatform() {
                       Instead of uploading Terabytes of raw video, devices only transmit lightweight metadata and critical alert clips to the cloud.
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">BANDWIDTH SAVE</span>
+                  <span className="text-xs font-mono text-[#f97316]/60 font-bold">BANDWIDTH SAVE</span>
                 </div>
 
                 
-                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
+                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#f97316]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316] mb-6">
                       <Shield size={24} />
                     </div>
                     <h3 className="text-lg font-black text-white uppercase tracking-wide mb-3">
@@ -197,13 +197,13 @@ export default function CxPlatform() {
                       Sensitive personal data is processed and encrypted instantly on-site, minimizing the risk of video leaks or cyber attacks.
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">DATA PRIVACY</span>
+                  <span className="text-xs font-mono text-[#f97316]/60 font-bold">DATA PRIVACY</span>
                 </div>
 
                 
-                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
+                <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[#f97316]/30 transition-all duration-300 flex flex-col justify-between gap-6 group hover:-translate-y-1">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316] mb-6">
                       <Maximize size={24} />
                     </div>
                     <h3 className="text-lg font-black text-white uppercase tracking-wide mb-3">
@@ -213,7 +213,7 @@ export default function CxPlatform() {
                       Decentralized architecture allows seamless connection of hundreds of new cameras without bottlenecking center infrastructure.
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#d85b6a]/60 font-bold">SCALABILITY</span>
+                  <span className="text-xs font-mono text-[#f97316]/60 font-bold">SCALABILITY</span>
                 </div>
               </motion.div>
             ) : (
@@ -296,10 +296,10 @@ export default function CxPlatform() {
                           <motion.div
                             animate={{ y: ["0%", "530%", "0%"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                            className="absolute left-0 right-0 h-0.5 bg-[#d85b6a] opacity-50 z-15 shadow-[0_0_8px_rgba(216,91,106,0.8)] pointer-events-none"
+                            className="absolute left-0 right-0 h-0.5 bg-[#f97316] opacity-50 z-15 shadow-[0_0_8px_rgba(249, 115, 22,0.8)] pointer-events-none"
                           />
 
-                          <div className="absolute top-3 left-3 bg-[#d85b6a] text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 z-20">
+                          <div className="absolute top-3 left-3 bg-[#f97316] text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 z-20">
                             <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping" />
                             REC CAM 01
                           </div>
@@ -335,10 +335,10 @@ export default function CxPlatform() {
                           <motion.div
                             animate={{ y: ["0%", "530%", "0%"] }}
                             transition={{ duration: 4.5, repeat: Infinity, ease: "linear", delay: 0.5 }}
-                            className="absolute left-0 right-0 h-0.5 bg-[#d85b6a] opacity-50 z-15 shadow-[0_0_8px_rgba(216,91,106,0.8)] pointer-events-none"
+                            className="absolute left-0 right-0 h-0.5 bg-[#f97316] opacity-50 z-15 shadow-[0_0_8px_rgba(249, 115, 22,0.8)] pointer-events-none"
                           />
 
-                          <div className="absolute top-3 left-3 bg-[#d85b6a] text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 z-20">
+                          <div className="absolute top-3 left-3 bg-[#f97316] text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 z-20">
                             <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping" />
                             REC CAM 02
                           </div>
@@ -452,7 +452,7 @@ export default function CxPlatform() {
                         
                         <div className="flex-1 bg-white/[0.02] border border-white/5 p-6 rounded-xl w-full flex flex-col justify-between">
                           <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-6 flex items-center gap-2 text-left">
-                            <BarChart3 size={15} className="text-[#d85b6a]" />
+                            <BarChart3 size={15} className="text-[#f97316]" />
                             Hourly Foot Traffic (Today)
                           </h4>
                           
@@ -465,10 +465,10 @@ export default function CxPlatform() {
 
                             <div className="w-[12%] bg-white/10 h-[30%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/40 mb-1 font-mono">08h</span></div>
                             <div className="w-[12%] bg-white/10 h-[55%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/40 mb-1 font-mono">10h</span></div>
-                            <div className="w-[12%] bg-[#d85b6a] h-[85%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/80 mb-1 font-bold font-mono">12h</span></div>
+                            <div className="w-[12%] bg-[#f97316] h-[85%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/80 mb-1 font-bold font-mono">12h</span></div>
                             <div className="w-[12%] bg-white/10 h-[45%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/40 mb-1 font-mono">14h</span></div>
                             <div className="w-[12%] bg-white/10 h-[70%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/40 mb-1 font-mono">16h</span></div>
-                            <div className="w-[12%] bg-[#d85b6a]/70 h-[92%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/80 mb-1 font-mono">18h</span></div>
+                            <div className="w-[12%] bg-[#f97316]/70 h-[92%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/80 mb-1 font-mono">18h</span></div>
                             <div className="w-[12%] bg-white/10 h-[25%] rounded-t-sm flex flex-col justify-end text-center"><span className="text-[9px] text-white/40 mb-1 font-mono">20h</span></div>
                           </div>
                         </div>
@@ -523,7 +523,7 @@ export default function CxPlatform() {
                               <span className="text-[10px] uppercase tracking-wider text-white/40 font-mono block">Active Cameras</span>
                               <span className="text-2xl font-black text-white font-mono block mt-1">16 / 16</span>
                               <div className="w-full bg-white/10 h-1 rounded-full mt-2 overflow-hidden">
-                                <div className="bg-[#d85b6a] h-full" style={{ width: "100%" }} />
+                                <div className="bg-[#f97316] h-full" style={{ width: "100%" }} />
                               </div>
                             </div>
                             <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
@@ -538,17 +538,17 @@ export default function CxPlatform() {
                           
                           <div className="bg-[#18181b]/40 border border-white/5 p-4 rounded-xl flex-1">
                             <h5 className="text-white text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                              <AlertCircle size={14} className="text-[#d85b6a]" />
+                              <AlertCircle size={14} className="text-[#f97316]" />
                               Real-Time AI Alert Logs
                             </h5>
                             <div className="flex flex-col gap-2">
                               {alerts.map((alert, idx) => (
                                 <div
                                   key={idx}
-                                  className="px-3 py-2 bg-black/50 border-l-2 border-[#d85b6a] rounded-r-lg text-xs font-mono text-white/80 text-left flex justify-between items-center"
+                                  className="px-3 py-2 bg-black/50 border-l-2 border-[#f97316] rounded-r-lg text-xs font-mono text-white/80 text-left flex justify-between items-center"
                                 >
                                   <span>{alert}</span>
-                                  <span className="text-[10px] bg-[#d85b6a]/15 text-[#ff8a9a] px-1.5 py-0.5 rounded font-sans uppercase font-bold animate-pulse">
+                                  <span className="text-[10px] bg-[#f97316]/15 text-[#ffb86b] px-1.5 py-0.5 rounded font-sans uppercase font-bold animate-pulse">
                                     active
                                   </span>
                                 </div>
@@ -570,7 +570,7 @@ export default function CxPlatform() {
                             </div>
                           </div>
                           <div className="mt-4">
-                            <span className="text-xs font-mono font-bold text-[#d85b6a] block uppercase">CyberDX Edge Box v2</span>
+                            <span className="text-xs font-mono font-bold text-[#f97316] block uppercase">Falcon Edge Box v2</span>
                             <span className="text-[10px] text-white/40 mt-1 block font-mono">Process 16 IP camera streams simultaneously at the edge with high-performance NPU processing.</span>
                           </div>
                         </div>

@@ -1,6 +1,6 @@
-# MasterDynamix-style Vite React project
+# CyberDX Falcon Vite React project
 
-This project packages the current public MasterDynamix landing page structure into a Vite + React app.
+This project packages the current public CyberDX Falcon landing page structure into a Vite + React app.
 
 ## Run
 

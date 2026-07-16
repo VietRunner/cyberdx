@@ -34,7 +34,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
               />
             </a>
             <p className="text-white/50 text-sm lg:text-base leading-relaxed max-w-md">
-              Smart AI-powered surveillance camera platform, optimizing security, mitigating operational risks, and safeguarding enterprise assets in real-time.
+              CyberDX delivers Falcon, an AI Camera System with real-time video analytics, optimizing security, mitigating operational risks, and safeguarding enterprise assets.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
                   e.preventDefault();
                   onContact?.();
                 }}
-                className="text-[#d85b6a] hover:underline text-sm font-bold mt-1"
+                className="text-[#f97316] hover:underline text-sm font-bold mt-1"
               >
                 Book a Demo &rarr;
               </a>
@@ -110,7 +110,7 @@ export default function ModernFooter({ onContact, onGoHome }: ModernFooterProps)
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">
-            &copy; {currentYear} CyberDX AI Ecosystem. All rights reserved.
+            &copy; {currentYear} CyberDX. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <span className="text-white/40 text-xs font-semibold uppercase font-mono tracking-widest">
