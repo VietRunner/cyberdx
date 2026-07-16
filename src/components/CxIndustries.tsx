@@ -18,7 +18,7 @@ const INDUSTRIES: IndustryCard[] = [
     icon: <Factory size={24} />,
     title: "Manufacturing & Factories",
     sub: "Manufacturing & Factory",
-    description: "Optimize occupational safety using AI video to monitor Personal Protective Equipment (PPE), control virtual boundaries around hazardous machinery, and detect smoke/fire instantly.",
+    description: "Optimize occupational safety using AI Camera System to monitor Personal Protective Equipment (PPE), control virtual boundaries around hazardous machinery, and detect smoke/fire instantly.",
     features: ["PPE monitoring (hats, vests)", "Forklift & machinery hazards", "High-ceiling smoke & fire alarms"],
     imagePath: "/san-xuat-nha-may.webp",
     slug: "san-xuat-nha-may"
@@ -86,17 +86,17 @@ export default function CxIndustries() {
       id="industries"
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[130px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[130px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="flex flex-col items-start gap-4 mb-20 max-w-3xl text-left">
-          <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
+          <span className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ffb86b] uppercase tracking-widest font-mono">
             Industries Served
           </span>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">
             REAL-WORLD APPLICATIONS <br />
-            <span className="text-[#d85b6a]">ACROSS INDUSTRIES</span>
+            <span className="text-[#f97316]">ACROSS INDUSTRIES</span>
           </h2>
           <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
             Specialized AI models designed to meet the exact operational demands of each sector.
@@ -113,7 +113,7 @@ export default function CxIndustries() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.08 }}
               onClick={(e) => handleItemClick(e, ind.slug)}
-              className="p-8 rounded-2xl bg-[#0a0a0c] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-500 flex flex-col justify-between min-h-[420px] group relative overflow-hidden cursor-pointer hover:shadow-[0_8px_32px_rgba(216,91,106,0.15)] hover:-translate-y-1.5"
+              className="p-8 rounded-2xl bg-[#0a0a0c] border border-white/5 hover:border-[#f97316]/30 transition-all duration-500 flex flex-col justify-between min-h-[420px] group relative overflow-hidden cursor-pointer hover:shadow-[0_8px_32px_rgba(249, 115, 22,0.15)] hover:-translate-y-1.5"
             >
               
               <div 
@@ -125,22 +125,22 @@ export default function CxIndustries() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/85 to-black/30 z-0 pointer-events-none" />
 
               
-              <div className="absolute inset-0 bg-gradient-to-t from-[#d85b6a]/10 via-[#d85b6a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#f97316]/10 via-[#f97316]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
 
               
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_30px] opacity-10 pointer-events-none z-0" />
 
               <div className="relative z-10 text-left">
                 <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] group-hover:scale-110 group-hover:bg-[#d85b6a]/25 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316] group-hover:scale-110 group-hover:bg-[#f97316]/25 transition-all duration-300">
                     {ind.icon}
                   </div>
-                  <span className="text-4xl font-black text-white/5 font-mono group-hover:text-[#d85b6a]/15 transition-colors duration-300">
+                  <span className="text-4xl font-black text-white/5 font-mono group-hover:text-[#f97316]/15 transition-colors duration-300">
                     {ind.num}
                   </span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-wide group-hover:text-[#d85b6a] transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-wide group-hover:text-[#f97316] transition-colors duration-300">
                   {ind.title}
                 </h3>
                 <p className="text-white/40 text-[10px] font-mono uppercase tracking-widest mt-1 mb-4">
@@ -157,7 +157,7 @@ export default function CxIndustries() {
                   {ind.features.map((feat) => (
                     <span
                       key={feat}
-                      className="text-[10px] font-bold text-white/50 bg-white/5 border border-white/5 px-2.5 py-1 rounded-full font-mono uppercase group-hover:text-white/80 group-hover:border-[#d85b6a]/20 transition-colors"
+                      className="text-[10px] font-bold text-white/50 bg-white/5 border border-white/5 px-2.5 py-1 rounded-full font-mono uppercase group-hover:text-white/80 group-hover:border-[#f97316]/20 transition-colors"
                     >
                       {feat}
                     </span>
@@ -166,7 +166,7 @@ export default function CxIndustries() {
 
                 <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-white/50 group-hover:text-white transition-colors">
                   <span>Learn details</span>
-                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 text-[#d85b6a]" />
+                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 text-[#f97316]" />
                 </div>
               </div>
             </motion.div>

@@ -87,21 +87,21 @@ export default function CxFeatures() {
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
       
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="flex flex-col items-start gap-4 mb-16 max-w-3xl text-left">
-          <span className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
+          <span className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ffb86b] uppercase tracking-widest font-mono">
             Featured Solutions
           </span>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">
             ARTIFICIAL INTELLIGENCE <br />
-            <span className="text-[#d85b6a]">VIDEO ANALYTICS SYSTEM</span>
+            <span className="text-[#f97316]">VIDEO ANALYTICS SYSTEM</span>
           </h2>
           <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
-            Equipped with a comprehensive suite of advanced AI camera features for end-to-end risk management, minimizing patrol security costs.
+            CyberDX Falcon combines AI Camera System capabilities and real-time video analytics for end-to-end risk management while reducing manual patrol costs.
           </p>
         </div>
 
@@ -115,14 +115,14 @@ export default function CxFeatures() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               onClick={() => handleFeatureClick(feature.slug)}
-              className="p-8 rounded-2xl bg-[#0a0a0c] border border-white/5 hover:border-[#d85b6a]/30 transition-all duration-300 flex flex-col justify-between min-h-[260px] cursor-pointer group hover:-translate-y-1"
+              className="p-8 rounded-2xl bg-[#0a0a0c] border border-white/5 hover:border-[#f97316]/30 transition-all duration-300 flex flex-col justify-between min-h-[260px] cursor-pointer group hover:-translate-y-1"
             >
               <div>
                 <div className="flex items-center gap-4 mb-5 sm:block sm:mb-0">
-                  <div className="w-12 h-12 rounded-xl bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex shrink-0 items-center justify-center text-[#d85b6a] sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#f97316]/10 border border-[#f97316]/20 flex shrink-0 items-center justify-center text-[#f97316] sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-0 sm:mb-3 group-hover:text-[#d85b6a] transition-colors">
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-0 sm:mb-3 group-hover:text-[#f97316] transition-colors">
                     {feature.title}
                   </h3>
                 </div>
@@ -133,7 +133,7 @@ export default function CxFeatures() {
               
               <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-white/30 font-mono font-bold group-hover:text-white/80 transition-colors">
                 <span>[ SOLUTION DETAILS ]</span>
-                <span className="text-[#d85b6a] opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
+                <span className="text-[#f97316] opacity-0 group-hover:opacity-100 transition-opacity">&rarr;</span>
               </div>
             </motion.div>
           ))}

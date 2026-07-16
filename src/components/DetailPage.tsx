@@ -58,7 +58,7 @@ function getFeatureCardDetails(featureText: string) {
     return {
       slug: "unlocking-intelligence-ai-video-analytics",
       title: "Unlocking Intelligence",
-      description: "Learn how AI Video Analytics transforms passive surveillance into real-time business foresight.",
+      description: "Learn how AI Camera System real-time video analytics transforms passive camera feeds into real-time business foresight.",
       image: "/cyberdx_logo-removebg-preview.png",
       iconName: "Layers",
       href: "/unlocking-intelligence-ai-video-analytics/"
@@ -104,7 +104,7 @@ function getFeatureCardDetails(featureText: string) {
     return {
       slug: "phat-hien-khoi-chay",
       title: "Smoke & Fire Detection",
-      description: "Early smoke and flame detection from surveillance cameras before traditional sensors trigger.",
+      description: "Early smoke and flame detection from cameras before traditional sensors trigger.",
       image: "/smoke-fire-detection.png",
       iconName: "AlertTriangle"
     };
@@ -225,7 +225,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       el.setAttribute("content", content);
     };
 
-    const pageTitle = `${data.title} - CyberDX AI`;
+    const pageTitle = `${data.title} - CyberDX`;
     document.title = pageTitle;
     
     let descMeta = document.querySelector('meta[name="description"]');
@@ -338,17 +338,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
     return () => {
       
-      document.title = "CyberDX | AI-Powered Software & Recruitment in Vietnam";
-      const defaultDesc = "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.";
+      document.title = "CyberDX | Falcon AI Camera System & Real-Time Video Analytics";
+      const defaultDesc = "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.";
       if (descMeta) descMeta.setAttribute("content", defaultDesc);
       
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) canonical.setAttribute("href", "https://cyberdx.tech/");
 
-      setMetaProperty("og:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaProperty("og:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
       setMetaProperty("og:description", defaultDesc);
       setMetaProperty("og:url", "https://cyberdx.tech/");
-      setMetaName("twitter:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
+      setMetaName("twitter:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
       setMetaName("twitter:description", defaultDesc);
 
       const dynamicSchema = document.querySelector("script.rank-math-schema");
@@ -406,7 +406,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
   if (slug === "case-studies") {
     return (
       <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[160px] pointer-events-none z-0" />
         <div className="max-w-4xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-8 text-left">
           <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
             <button
@@ -419,8 +419,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           </motion.div>
 
           <div className="flex flex-col gap-6 pt-8">
-            <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
-              <Sparkles size={12} className="text-[#d85b6a]" />
+            <div className="inline-flex items-center gap-1.5 self-start bg-[#f97316]/15 border border-[#f97316]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ffb86b] uppercase font-mono tracking-widest shadow-inner">
+              <Sparkles size={12} className="text-[#f97316]" />
               Case Studies
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-tight text-white font-sans">
@@ -444,7 +444,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
     return (
       <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
         
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[160px] pointer-events-none z-0" />
         <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-10 text-left">
@@ -464,8 +464,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
           
           <div className="flex flex-col gap-4">
-            <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
-              <Sparkles size={12} className="text-[#d85b6a]" />
+            <div className="inline-flex items-center gap-1.5 self-start bg-[#f97316]/15 border border-[#f97316]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ffb86b] uppercase font-mono tracking-widest shadow-inner">
+              <Sparkles size={12} className="text-[#f97316]" />
               Library &amp; Insights
             </div>
 
@@ -477,13 +477,13 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               Insights, articles, and updates on AI, computer vision, and technology
             </p>
 
-            <div className="h-[2px] w-24 bg-gradient-to-r from-[#d85b6a] to-purple-500" />
+            <div className="h-[2px] w-24 bg-gradient-to-r from-[#f97316] to-purple-500" />
           </div>
 
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
             {BLOG_POSTS.map((post) => (
-              <article key={post.id} className={`bg-white/[0.01] border border-white/5 rounded-3xl overflow-hidden hover:border-[#d85b6a]/30 hover:bg-white/[0.02] transition-all flex flex-col group shadow-lg`}>
+              <article key={post.id} className={`bg-white/[0.01] border border-white/5 rounded-3xl overflow-hidden hover:border-[#f97316]/30 hover:bg-white/[0.02] transition-all flex flex-col group shadow-lg`}>
                 <div className="relative aspect-video w-full overflow-hidden bg-[#08080a]">
                   <img
                     src={post.image}
@@ -493,7 +493,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                   />
                 </div>
                 <div className="p-6 flex flex-col gap-3 flex-1">
-                  <h3 className="text-lg font-black text-white group-hover:text-[#ff8a9a] transition-colors line-clamp-2">
+                  <h3 className="text-lg font-black text-white group-hover:text-[#ffb86b] transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-white/60 text-sm font-semibold line-clamp-3 leading-relaxed flex-1">
@@ -509,7 +509,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                           const slug = post.postUrl.replace(/^\/|\/$/g, "");
                           document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: slug }));
                         }}
-                        className="inline-flex items-center gap-1 text-xs font-black text-[#ff8a9a] uppercase tracking-wider hover:translate-x-1 transition-all cursor-pointer bg-transparent border-0 p-0"
+                        className="inline-flex items-center gap-1 text-xs font-black text-[#ffb86b] uppercase tracking-wider hover:translate-x-1 transition-all cursor-pointer bg-transparent border-0 p-0"
                       >
                         Read Article
                         <ArrowUpRight size={12} />
@@ -519,7 +519,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                         href={post.postUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-black text-[#ff8a9a] uppercase tracking-wider hover:translate-x-1 transition-all"
+                        className="inline-flex items-center gap-1 text-xs font-black text-[#ffb86b] uppercase tracking-wider hover:translate-x-1 transition-all"
                       >
                         Read Full Post
                         <ArrowUpRight size={12} />
@@ -540,7 +540,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
     return (
       <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
         
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[160px] pointer-events-none z-0" />
         <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="max-w-4xl mx-auto px-4 md:px-8 w-full relative z-10 flex-1 flex flex-col gap-8 text-left">
@@ -560,8 +560,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
           
           <div className="flex flex-col gap-6 pt-4">
-            <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
-              <Sparkles size={12} className="text-[#d85b6a]" />
+            <div className="inline-flex items-center gap-1.5 self-start bg-[#f97316]/15 border border-[#f97316]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ffb86b] uppercase font-mono tracking-widest shadow-inner">
+              <Sparkles size={12} className="text-[#f97316]" />
               Blog &amp; News
             </div>
 
@@ -573,7 +573,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               {data.subtitle}
             </p>
 
-            <div className="h-[2px] w-24 bg-gradient-to-r from-[#d85b6a] to-purple-500" />
+            <div className="h-[2px] w-24 bg-gradient-to-r from-[#f97316] to-purple-500" />
           </div>
 
           
@@ -600,13 +600,13 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-8 rounded-3xl bg-gradient-to-r from-[#d85b6a]/10 to-purple-500/5 border border-[#d85b6a]/20 text-left relative overflow-hidden shadow-[0_8px_32px_rgba(216,91,106,0.05)] mt-12"
+            className="p-8 rounded-3xl bg-gradient-to-r from-[#f97316]/10 to-purple-500/5 border border-[#f97316]/20 text-left relative overflow-hidden shadow-[0_8px_32px_rgba(249, 115, 22,0.05)] mt-12"
           >
             <h4 className="text-white font-black text-lg uppercase tracking-tight mb-2">Want to know more about our technology?</h4>
             <p className="text-white/60 text-sm font-semibold mb-6">Explore how our AI Solutions can help automate operations and secure your business.</p>
             <button
               onClick={onBack}
-              className="inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-wider text-xs px-8 py-4 rounded-full shadow-[0_8px_24px_rgba(216,91,106,0.35)] transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#fb923c] text-white font-black uppercase tracking-wider text-xs px-8 py-4 rounded-full shadow-[0_8px_24px_rgba(249, 115, 22,0.35)] transition-all cursor-pointer"
             >
               Explore Solutions
               <ArrowUpRight size={16} />
@@ -655,24 +655,24 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
     switch (slug) {
       case "san-xuat-nha-may":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,91,106,0.15)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249, 115, 22,0.15)_0%,transparent_70%)] pointer-events-none" />
 
             
             <motion.div
               animate={{ y: ["0%", "520%", "0%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 right-0 h-0.5 bg-[#d85b6a] opacity-50 z-15 shadow-[0_0_8px_rgba(216,91,106,0.8)] pointer-events-none"
+              className="absolute left-0 right-0 h-0.5 bg-[#f97316] opacity-50 z-15 shadow-[0_0_8px_rgba(249, 115, 22,0.8)] pointer-events-none"
             />
 
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[10px] font-mono text-[#ff8a9a]">
-                <Activity size={12} className="animate-pulse text-[#d85b6a]" />
+              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[10px] font-mono text-[#ffb86b]">
+                <Activity size={12} className="animate-pulse text-[#f97316]" />
                 <span>FACTORY SAFETY: ACTIVE</span>
               </div>
               <span className="text-[10px] font-mono text-white/40 bg-black/60 px-2 py-1 rounded">
@@ -696,7 +696,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </div>
 
             
-            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/85 border border-[#d85b6a]/30 backdrop-blur-lg flex items-center justify-between gap-4 z-10 shadow-[0_8px_32px_rgba(0,0,0,0.8)]">
+            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/85 border border-[#f97316]/30 backdrop-blur-lg flex items-center justify-between gap-4 z-10 shadow-[0_8px_32px_rgba(0,0,0,0.8)]">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-red-950 border border-red-500/30 flex items-center justify-center text-red-500">
                   <AlertTriangle size={18} />
@@ -715,7 +715,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "kho-van-hang-hoa":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -761,7 +761,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "ban-le-dich-vu":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -806,7 +806,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "giao-duc-dao-tao-2":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-75 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -843,17 +843,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "khach-san-du-lich":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,91,106,0.1)_0%,transparent_70%)] pointer-events-none animate-pulse" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249, 115, 22,0.1)_0%,transparent_70%)] pointer-events-none animate-pulse" />
 
             <div className="flex items-center justify-between z-10">
               <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">RECEPTION VIP SCANNER</span>
-              <span className="text-[9px] font-mono text-[#ff8a9a] font-bold bg-[#d85b6a]/10 border border-[#d85b6a]/20 px-2 py-0.5 rounded animate-pulse">
+              <span className="text-[9px] font-mono text-[#ffb86b] font-bold bg-[#f97316]/10 border border-[#f97316]/20 px-2 py-0.5 rounded animate-pulse">
                 VIP IN
               </span>
             </div>
@@ -863,13 +863,13 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="mx-auto bg-black/85 border border-[#d85b6a]/30 p-3.5 rounded-xl flex items-center gap-3 backdrop-blur-md max-w-xs z-10 shadow-[0_8px_32px_rgba(0,0,0,0.8)]"
+              className="mx-auto bg-black/85 border border-[#f97316]/30 p-3.5 rounded-xl flex items-center gap-3 backdrop-blur-md max-w-xs z-10 shadow-[0_8px_32px_rgba(0,0,0,0.8)]"
             >
-              <div className="w-10 h-10 rounded-full border-2 border-[#d85b6a] bg-[#d85b6a]/10 flex items-center justify-center text-[#ff8a9a] font-bold font-mono">
+              <div className="w-10 h-10 rounded-full border-2 border-[#f97316] bg-[#f97316]/10 flex items-center justify-center text-[#ffb86b] font-bold font-mono">
                 VIP
               </div>
               <div className="text-left font-mono">
-                <span className="text-[8px] text-[#ff8a9a] uppercase block tracking-wider">LOYAL GUEST / VIP</span>
+                <span className="text-[8px] text-[#ffb86b] uppercase block tracking-wider">LOYAL GUEST / VIP</span>
                 <span className="text-xs font-black text-white block">MINH TUAN PHAM</span>
                 <span className="text-[8px] text-white/40 block">ACCURACY: 99.8% | CHECK-IN</span>
               </div>
@@ -883,7 +883,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "benh-vien-co-so-y-te":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -935,7 +935,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "nhan-dien-khuon-mat":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] flex items-center justify-center group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] flex items-center justify-center group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -984,7 +984,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
       
       case "giam-sat-ppe-dong-phuc":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -1046,7 +1046,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "giai-phap-dem-nguoi":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -1054,8 +1054,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-transparent z-10 pointer-events-none" />
             
             <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[10px] font-mono text-[#ff8a9a]">
-                <Activity size={12} className="animate-pulse text-[#d85b6a]" />
+              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[10px] font-mono text-[#ffb86b]">
+                <Activity size={12} className="animate-pulse text-[#f97316]" />
                 <span>PEOPLE COUNTER: ACTIVE</span>
               </div>
               <span className="text-[10px] font-mono text-white/40 bg-black/60 px-2 py-1 rounded">
@@ -1072,10 +1072,10 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </div>
 
             
-            <div className="absolute top-1/3 left-1/4 -translate-x-1/2 bg-black/85 border border-[#d85b6a]/30 p-4 rounded-2xl text-center z-10 shadow-xl min-w-[120px] backdrop-blur-md">
+            <div className="absolute top-1/3 left-1/4 -translate-x-1/2 bg-black/85 border border-[#f97316]/30 p-4 rounded-2xl text-center z-10 shadow-xl min-w-[120px] backdrop-blur-md">
               <span className="text-[9px] text-white/40 font-mono uppercase block mb-1">&rarr; ENTRIES (IN)</span>
               <span className="text-3xl font-black text-white font-mono">{peopleCount + 12}</span>
-              <span className="text-[8px] text-[#ff8a9a] font-mono block mt-1">+2.4% HOURLY AVG</span>
+              <span className="text-[8px] text-[#ffb86b] font-mono block mt-1">+2.4% HOURLY AVG</span>
             </div>
 
             <div className="absolute top-1/3 right-1/4 translate-x-1/2 bg-black/85 border border-white/10 p-4 rounded-2xl text-center z-10 shadow-xl min-w-[120px] backdrop-blur-md">
@@ -1104,7 +1104,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "giam-sat-do-xe-sai-quy-dinh":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -1158,7 +1158,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "nhan-dien-phan-tich-hanh-vi":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -1218,7 +1218,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "ban-do-nhiet-lo-trinh":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -1253,7 +1253,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <motion.path
                 d="M 20,40 Q 50,20 80,50 T 150,90 T 250,40"
                 fill="none"
-                stroke="#d85b6a"
+                stroke="#f97316"
                 strokeWidth="2"
                 strokeDasharray="4 4"
                 initial={{ strokeDashoffset: 0 }}
@@ -1273,8 +1273,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </svg>
 
             
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 bg-black/85 border border-[#d85b6a]/30 px-3 py-1.5 rounded-lg text-left z-10 shadow-lg font-mono text-[9px]">
-              <span className="text-[#ff8a9a] font-black uppercase block">DISPLAY SHELF A</span>
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 bg-black/85 border border-[#f97316]/30 px-3 py-1.5 rounded-lg text-left z-10 shadow-lg font-mono text-[9px]">
+              <span className="text-[#ffb86b] font-black uppercase block">DISPLAY SHELF A</span>
               <span className="text-white block mt-0.5">Density: 87% (HOTSPOT)</span>
               <span className="text-white/50 block">Dwell time: 4.8 mins</span>
             </div>
@@ -1282,7 +1282,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             
             <div className="absolute bottom-6 left-6 right-6 p-3 rounded-xl bg-black/90 border border-white/5 flex items-center justify-between z-10 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#d85b6a]/15 border border-[#d85b6a]/30 flex items-center justify-center text-[#ff8a9a]">
+                <div className="w-8 h-8 rounded-lg bg-[#f97316]/15 border border-[#f97316]/30 flex items-center justify-center text-[#ffb86b]">
                   <TrendingUp size={16} />
                 </div>
                 <div className="text-left font-mono">
@@ -1304,13 +1304,13 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "nhan-dien-bien-so-xe-tu-dong":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,91,106,0.1)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249, 115, 22,0.1)_0%,transparent_70%)] pointer-events-none" />
             
             <div className="flex items-center justify-between z-10">
               <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">LPR AUTOMATION SYSTEM</span>
@@ -1339,7 +1339,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "phat-hien-khoi-chay":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
@@ -1368,13 +1368,13 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       case "phat-hien-xam-nhap":
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,91,106,0.1)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249, 115, 22,0.1)_0%,transparent_70%)] pointer-events-none" />
             
             <div className="flex items-center justify-between z-10">
               <span className="text-[10px] font-mono text-yellow-500 uppercase tracking-widest font-black">INTRUSION RADAR</span>
@@ -1403,13 +1403,13 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
       default:
         return (
-          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(216,91,106,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(249, 115, 22,0.15)] bg-[#08080a] p-6 flex flex-col justify-between group">
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none group-hover:scale-105 transition-transform duration-700" 
               style={{ backgroundImage: `url('${bgImage}')` }} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,91,106,0.1)_0%,transparent_70%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249, 115, 22,0.1)_0%,transparent_70%)] pointer-events-none" />
             
             <div className="absolute top-1/4 left-1/4 right-1/4 bottom-1/4 border border-dashed border-white/20 rounded-xl flex items-center justify-center">
               <div className="w-12 h-12 border border-white/30 rounded-full animate-ping pointer-events-none" />
@@ -1417,7 +1417,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
             <div className="flex items-center justify-between z-10">
               <div className="flex items-center gap-2">
-                <Video size={14} className="text-[#d85b6a] animate-pulse" />
+                <Video size={14} className="text-[#f97316] animate-pulse" />
                 <span className="text-[10px] font-mono text-white/50 uppercase tracking-wider">CAM_STREAM_ANALYZER</span>
               </div>
               <div className="flex items-center gap-1 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded text-[8px] font-mono text-green-400 font-black">
@@ -1428,7 +1428,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             <div className="flex-1 flex flex-col justify-center text-left gap-1.5 z-10">
               <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest">Active Bounding Box Model</span>
               <h4 className="text-lg font-bold text-white tracking-wide uppercase">{data.title}</h4>
-              <div className="w-12 h-0.5 bg-[#d85b6a] rounded-full" />
+              <div className="w-12 h-0.5 bg-[#f97316] rounded-full" />
             </div>
 
             <div className="flex items-center justify-between text-[9px] font-mono text-white/40 z-10 border-t border-white/5 pt-4">
@@ -1443,7 +1443,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
   return (
     <div className="min-h-screen bg-[#030303] text-white pt-28 pb-16 relative overflow-hidden flex flex-col">
       
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[160px] pointer-events-none z-0" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[160px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
       
       
@@ -1466,8 +1466,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
         
         <div className="py-12 md:py-16 flex flex-col gap-6 text-left max-w-4xl">
-          <div className="inline-flex items-center gap-1.5 self-start bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ff8a9a] uppercase font-mono tracking-widest shadow-inner">
-            <Sparkles size={12} className="text-[#d85b6a]" />
+          <div className="inline-flex items-center gap-1.5 self-start bg-[#f97316]/15 border border-[#f97316]/30 rounded-full px-4 py-1.5 text-[11px] font-black text-[#ffb86b] uppercase font-mono tracking-widest shadow-inner">
+            <Sparkles size={12} className="text-[#f97316]" />
             {data.category}
           </div>
           
@@ -1479,7 +1479,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             {data.subtitle}
           </p>
 
-          <div className="h-[2px] w-24 bg-gradient-to-r from-[#d85b6a] to-purple-500 my-2" />
+          <div className="h-[2px] w-24 bg-gradient-to-r from-[#f97316] to-purple-500 my-2" />
           
           <p className="text-white/70 text-base sm:text-lg leading-relaxed font-semibold max-w-3xl">
             {data.description}
@@ -1488,7 +1488,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           <div className="pt-6 flex flex-wrap gap-4">
             <button
               onClick={onContact}
-              className="inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-widest text-xs px-8 py-4.5 rounded-full shadow-[0_8px_24px_rgba(216,91,106,0.35)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#fb923c] text-white font-black uppercase tracking-widest text-xs px-8 py-4.5 rounded-full shadow-[0_8px_24px_rgba(249, 115, 22,0.35)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100 cursor-pointer"
             >
               Request a Demo
               <ArrowUpRight size={16} />
@@ -1532,9 +1532,9 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">
                 Solution Overview: {data.title}
               </h2>
-              <div className="h-0.5 w-16 bg-[#d85b6a]" />
+              <div className="h-0.5 w-16 bg-[#f97316]" />
               <p className="text-white/70 text-base leading-relaxed font-semibold">
-                CyberDX provides advanced automatic AI video analytics systems, monitoring real-time video streams to deliver the most accurate insights and alerts. The solution enhances security, optimizes operational productivity, and cuts down manual monitoring costs.
+                CyberDX Falcon provides an advanced AI Camera System that analyzes real-time video streams to deliver accurate insights and instant alerts. The solution enhances security, optimizes operational productivity, and reduces manual monitoring costs.
               </p>
             </div>
 
@@ -1545,8 +1545,8 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                   key={i}
                   className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 shadow-md flex flex-col gap-2 relative group overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#d85b6a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <span className="text-3xl font-black text-white font-mono tracking-tight group-hover:text-[#d85b6a] transition-colors duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#f97316]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="text-3xl font-black text-white font-mono tracking-tight group-hover:text-[#f97316] transition-colors duration-300">
                     {metric.value}
                   </span>
                   <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest font-mono">
@@ -1567,17 +1567,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             className="flex flex-col gap-6 text-left py-8"
           >
             <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono border-b border-white/5 pb-3">
-              <AlertTriangle size={18} className="text-[#d85b6a]" />
+              <AlertTriangle size={18} className="text-[#f97316]" />
               Industry Challenges & Pain Points
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {data.challenges.map((challenge, i) => (
                 <div
                   key={i}
-                  className="p-8 rounded-3xl bg-white/[0.01] border border-white/5 hover:border-[#d85b6a]/30 transition-all hover:bg-white/[0.02] flex flex-col gap-4 relative group overflow-hidden"
+                  className="p-8 rounded-3xl bg-white/[0.01] border border-white/5 hover:border-[#f97316]/30 transition-all hover:bg-white/[0.02] flex flex-col gap-4 relative group overflow-hidden"
                 >
-                  <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#d85b6a]/0 via-[#d85b6a]/30 to-[#d85b6a]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <span className="text-4xl font-black text-[#d85b6a]/20 font-mono tracking-tight group-hover:text-[#d85b6a]/40 transition-colors duration-300">
+                  <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#f97316]/0 via-[#f97316]/30 to-[#f97316]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="text-4xl font-black text-[#f97316]/20 font-mono tracking-tight group-hover:text-[#f97316]/40 transition-colors duration-300">
                     {challenge.number}
                   </span>
                   <div className="flex flex-col gap-2">
@@ -1611,10 +1611,10 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               return data.workflow.map((step, i) => (
                 <div
                   key={i}
-                  className="flex flex-col gap-6 bg-white/[0.02] border border-white/10 p-8 rounded-3xl relative overflow-hidden hover:border-[#d85b6a]/30 transition-all hover:bg-white/[0.04] group h-full shadow-lg"
+                  className="flex flex-col gap-6 bg-white/[0.02] border border-white/10 p-8 rounded-3xl relative overflow-hidden hover:border-[#f97316]/30 transition-all hover:bg-white/[0.04] group h-full shadow-lg"
                 >
                   
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#d85b6a]/20 to-[#d85b6a]/5 border border-[#d85b6a]/30 flex items-center justify-center text-[#ff8a9a] font-mono font-black text-lg group-hover:scale-110 transition-transform shadow-inner">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#f97316]/20 to-[#f97316]/5 border border-[#f97316]/30 flex items-center justify-center text-[#ffb86b] font-mono font-black text-lg group-hover:scale-110 transition-transform shadow-inner">
                     {i + 1}
                   </div>
                   <div className="flex flex-col gap-2">
@@ -1639,7 +1639,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           className="flex flex-col gap-6 text-left py-8"
         >
           <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono border-b border-white/5 pb-3">
-            <Layers size={18} className="text-[#d85b6a]" />
+            <Layers size={18} className="text-[#f97316]" />
             Key Solution Highlights
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1667,16 +1667,16 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                     <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent pointer-events-none z-10" />
                     
                     
-                    <div className="absolute inset-0 border border-transparent group-hover:border-[#d85b6a]/40 transition-colors duration-300 rounded-3xl z-20 pointer-events-none" />
+                    <div className="absolute inset-0 border border-transparent group-hover:border-[#f97316]/40 transition-colors duration-300 rounded-3xl z-20 pointer-events-none" />
 
                     
                     <div className="relative z-20 flex flex-col gap-2">
-                      <div className="flex items-center gap-2 self-start bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 text-[10px] font-black text-[#ff8a9a] uppercase font-mono tracking-wider">
+                      <div className="flex items-center gap-2 self-start bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 text-[10px] font-black text-[#ffb86b] uppercase font-mono tracking-wider">
                         {renderIcon(cardDetails.iconName)}
                         <span>{cardDetails.title}</span>
                       </div>
                       
-                      <h4 className="text-white text-base sm:text-lg font-black leading-snug tracking-tight group-hover:text-[#ff8a9a] transition-colors duration-300">
+                      <h4 className="text-white text-base sm:text-lg font-black leading-snug tracking-tight group-hover:text-[#ffb86b] transition-colors duration-300">
                         {feature}
                       </h4>
                       
@@ -1684,7 +1684,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                         {cardDetails.description}
                       </p>
 
-                      <div className="flex items-center gap-1.5 text-[10px] font-black text-[#ff8a9a] uppercase tracking-wider font-mono mt-2 opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                      <div className="flex items-center gap-1.5 text-[10px] font-black text-[#ffb86b] uppercase tracking-wider font-mono mt-2 opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
                         {slug === "career" ? "View Position Details" : "View AI Solution Details"}
                         <ArrowUpRight size={12} />
                       </div>
@@ -1699,17 +1699,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                   key={i}
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="flex flex-col justify-between p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-[#d85b6a]/30 transition-all hover:bg-white/[0.04] group text-left relative overflow-hidden"
+                  className="flex flex-col justify-between p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-[#f97316]/30 transition-all hover:bg-white/[0.04] group text-left relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#d85b6a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#f97316]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-[#d85b6a]/10 rounded-2xl border border-[#d85b6a]/20 text-[#ff8a9a] flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="p-3 bg-[#f97316]/10 rounded-2xl border border-[#f97316]/20 text-[#ffb86b] flex-shrink-0 group-hover:scale-110 transition-transform">
                       {renderIcon(cardDetails?.iconName || "CheckCircle2")}
                     </div>
                     <div className="flex flex-col gap-2">
                       {cardDetails && (
-                        <span className="text-[10px] font-black font-mono text-[#ff8a9a] uppercase tracking-widest block">
+                        <span className="text-[10px] font-black font-mono text-[#ffb86b] uppercase tracking-widest block">
                           {cardDetails.title}
                         </span>
                       )}
@@ -1740,7 +1740,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             </h2>
             
             <p className="text-white/70 text-base leading-relaxed font-semibold">
-              CyberDX centralizes all analytical data and events from your IP cameras into a secure, real-time online Dashboard. This allows security teams to easily monitor status, receive instant push notifications, and inspect events with video evidence.
+              CyberDX Falcon centralizes all analytical data and events from your IP cameras into a secure, real-time online Dashboard. This allows security teams to easily monitor status, receive instant push notifications, and inspect events with video evidence.
             </p>
             
             <p className="text-white/60 text-sm leading-relaxed font-semibold">
@@ -1754,14 +1754,14 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left py-8 items-start">
             <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-32">
               <h2 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tight leading-none">
-                Core <span className="text-[#ff8a9a]">Benefits</span>
+                Core <span className="text-[#ffb86b]">Benefits</span>
               </h2>
               <p className="text-white/60 text-base leading-relaxed font-semibold">
                 Enhance security quality, automate corporate HSE workflows, minimize safety risks, and elevate brand value.
               </p>
               <button
                 onClick={onContact}
-                className="self-start inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-widest text-xs px-8 py-4.5 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 cursor-pointer"
+                className="self-start inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#fb923c] text-white font-black uppercase tracking-widest text-xs px-8 py-4.5 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 cursor-pointer"
               >
                 Contact Us Now
                 <ArrowUpRight size={16} />
@@ -1774,7 +1774,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                   key={i}
                   className="py-8 flex flex-col sm:flex-row gap-6 items-start border-t border-white/10 last:border-b last:border-white/10"
                 >
-                  <span className="text-4xl sm:text-5xl font-black text-[#d85b6a]/20 font-mono leading-none sm:w-16">
+                  <span className="text-4xl sm:text-5xl font-black text-[#f97316]/20 font-mono leading-none sm:w-16">
                     0{i + 1}
                   </span>
                   <div className="flex flex-col gap-2 font-semibold">
@@ -1799,7 +1799,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
             className="flex flex-col gap-8 text-left"
           >
             <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono border-b border-white/5 pb-3">
-              <Layers size={18} className="text-[#d85b6a]" />
+              <Layers size={18} className="text-[#f97316]" />
               Explore Other Industries
             </div>
             
@@ -1831,10 +1831,10 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none z-10" />
                     
                     
-                    <div className="absolute inset-0 border border-transparent group-hover:border-[#d85b6a]/30 transition-colors duration-300 rounded-2xl z-20 pointer-events-none" />
+                    <div className="absolute inset-0 border border-transparent group-hover:border-[#f97316]/30 transition-colors duration-300 rounded-2xl z-20 pointer-events-none" />
 
                     <div className="relative z-20">
-                      <span className="text-white font-black text-xs sm:text-sm tracking-tight leading-snug group-hover:text-[#ff8a9a] transition-colors">
+                      <span className="text-white font-black text-xs sm:text-sm tracking-tight leading-snug group-hover:text-[#ffb86b] transition-colors">
                         {item.title}
                       </span>
                     </div>
@@ -1903,7 +1903,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
               className="flex flex-col gap-6"
             >
               <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono border-b border-white/5 pb-3">
-                <Cpu size={18} className="text-[#d85b6a]" />
+                <Cpu size={18} className="text-[#f97316]" />
                 Other AI Solutions
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -1935,12 +1935,12 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
                         style={{ backgroundImage: `url('${item.image}')` }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none z-10" />
-                      <div className="absolute inset-0 border border-transparent group-hover:border-[#d85b6a]/30 transition-colors duration-300 rounded-2xl z-20 pointer-events-none" />
+                      <div className="absolute inset-0 border border-transparent group-hover:border-[#f97316]/30 transition-colors duration-300 rounded-2xl z-20 pointer-events-none" />
                       <div className="relative z-20 flex flex-col gap-1.5">
-                        <div className="p-1 bg-[#d85b6a]/20 border border-[#d85b6a]/30 rounded-lg text-[#ff8a9a] self-start w-fit">
+                        <div className="p-1 bg-[#f97316]/20 border border-[#f97316]/30 rounded-lg text-[#ffb86b] self-start w-fit">
                           {renderIcon(item.iconName)}
                         </div>
-                        <span className="text-white font-black text-xs sm:text-sm tracking-tight leading-snug group-hover:text-[#ff8a9a] transition-colors">
+                        <span className="text-white font-black text-xs sm:text-sm tracking-tight leading-snug group-hover:text-[#ffb86b] transition-colors">
                           {item.title}
                         </span>
                       </div>
@@ -1957,7 +1957,7 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="p-8 rounded-3xl bg-gradient-to-r from-[#d85b6a]/10 to-purple-500/5 border border-[#d85b6a]/20 text-left relative overflow-hidden shadow-[0_8px_32px_rgba(216,91,106,0.05)]"
+          className="p-8 rounded-3xl bg-gradient-to-r from-[#f97316]/10 to-purple-500/5 border border-[#f97316]/20 text-left relative overflow-hidden shadow-[0_8px_32px_rgba(249, 115, 22,0.05)]"
         >
           <div className="absolute top-2 left-4 text-6xl text-white/10 font-serif leading-none pointer-events-none">&ldquo;</div>
           <p className="text-white/95 text-base sm:text-lg font-extrabold italic leading-relaxed pl-6 relative z-10">
@@ -1973,17 +1973,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
           className="border-t border-white/5 pt-12 pb-6 flex flex-col md:flex-row items-center justify-between gap-8 text-left"
         >
           <div className="flex items-start gap-4">
-            <div className="p-3 bg-red-500/10 border border-red-500/20 text-[#ff8a9a] rounded-xl flex-shrink-0">
+            <div className="p-3 bg-red-500/10 border border-red-500/20 text-[#ffb86b] rounded-xl flex-shrink-0">
               <Shield size={24} />
             </div>
             <div>
-              <h4 className="text-lg font-bold text-white tracking-wide">Are you ready to upgrade your surveillance system?</h4>
-              <p className="text-sm text-white/50 font-medium">Start integrating advanced AI Video features into your business's existing camera infrastructure today.</p>
+              <h4 className="text-lg font-bold text-white tracking-wide">Are you ready to upgrade your camera system?</h4>
+              <p className="text-sm text-white/50 font-medium">Start integrating advanced AI Camera System features into your business's existing camera infrastructure today.</p>
             </div>
           </div>
           <button
             onClick={onContact}
-            className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-wider text-xs px-10 py-5 rounded-full shadow-[0_8px_24px_rgba(216,91,106,0.35)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100 cursor-pointer"
+            className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#fb923c] text-white font-black uppercase tracking-wider text-xs px-10 py-5 rounded-full shadow-[0_8px_24px_rgba(249, 115, 22,0.35)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100 cursor-pointer"
           >
             Get Consultation & Quote
             <ArrowUpRight size={16} />

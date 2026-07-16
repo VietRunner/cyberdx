@@ -23,12 +23,12 @@ export default function BentoFeatures() {
     >
       
       <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none z-0" />
-      <div className="absolute top-1/3 right-10 w-[250px] h-[250px] bg-[#d85b6a]/5 rounded-full blur-[90px] pointer-events-none z-0" />
+      <div className="absolute top-1/3 right-10 w-[250px] h-[250px] bg-[#f97316]/5 rounded-full blur-[90px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="flex flex-col items-start gap-4 mb-16 max-w-3xl text-left">
-          <div className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-sm font-bold text-[#d85b6a] uppercase tracking-wider font-mono">
+          <div className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/20 rounded-full px-4 py-1.5 text-sm font-bold text-[#f97316] uppercase tracking-wider font-mono">
             Hệ Tính Năng Đặc Quyền
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-[1.05]">
@@ -43,10 +43,10 @@ export default function BentoFeatures() {
         
         <div className="bento-grid">
           
-          <div className="lg:col-span-8 p-8 rounded-2xl modern-glass flex flex-col md:flex-row justify-between min-h-[360px] relative overflow-hidden group hover:border-[#d85b6a]/30 text-left gap-8">
+          <div className="lg:col-span-8 p-8 rounded-2xl modern-glass flex flex-col md:flex-row justify-between min-h-[360px] relative overflow-hidden group hover:border-[#f97316]/30 text-left gap-8">
             <div className="flex flex-col justify-between z-10 md:w-1/2">
               <div>
-                <div className="w-10 h-10 rounded-lg bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a] mb-6">
+                <div className="w-10 h-10 rounded-lg bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316] mb-6">
                   <BrainCircuit size={20} />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide mb-3">
@@ -69,7 +69,7 @@ export default function BentoFeatures() {
 
             
             <div className="md:w-1/2 flex items-center justify-center relative min-h-[200px] z-10">
-              <div className="w-48 h-48 rounded-full border border-white/10 relative flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(216,91,106,0.05)]">
+              <div className="w-48 h-48 rounded-full border border-white/10 relative flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(249, 115, 22,0.05)]">
                 
                 <div className="absolute w-36 h-36 rounded-full border border-white/5" />
                 <div className="absolute w-24 h-24 rounded-full border border-white/5" />
@@ -79,22 +79,22 @@ export default function BentoFeatures() {
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                   
                   <g className="radar-sweep-line">
-                    <line x1="50" y1="50" x2="50" y2="0" stroke="#d85b6a" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="50" y1="50" x2="50" y2="0" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
                     <polygon points="50,50 50,0 20,5 50,50" fill="url(#radarGlow)" opacity="0.15" />
                   </g>
                   <defs>
                     <linearGradient id="radarGlow" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#d85b6a" stopOpacity="1" />
-                      <stop offset="100%" stopColor="#d85b6a" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#f97316" stopOpacity="1" />
+                      <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
                     </linearGradient>
                   </defs>
 
                   
-                  <circle cx="35" cy="30" r="3.5" fill="#ff8a9a" className="animate-ping" />
-                  <circle cx="35" cy="30" r="2" fill="#ff8a9a" />
+                  <circle cx="35" cy="30" r="3.5" fill="#ffb86b" className="animate-ping" />
+                  <circle cx="35" cy="30" r="2" fill="#ffb86b" />
                   
-                  <circle cx="65" cy="70" r="3.5" fill="#ff8a9a" className="animate-ping" />
-                  <circle cx="65" cy="70" r="2" fill="#ff8a9a" />
+                  <circle cx="65" cy="70" r="3.5" fill="#ffb86b" className="animate-ping" />
+                  <circle cx="65" cy="70" r="2" fill="#ffb86b" />
                 </svg>
 
                 <span className="text-[10px] font-mono text-white/30 absolute bottom-4 uppercase tracking-widest">
@@ -105,9 +105,9 @@ export default function BentoFeatures() {
           </div>
 
           
-          <div className="lg:col-span-4 p-8 rounded-2xl modern-glass flex flex-col justify-between min-h-[360px] group hover:border-[#d85b6a]/30 text-left">
+          <div className="lg:col-span-4 p-8 rounded-2xl modern-glass flex flex-col justify-between min-h-[360px] group hover:border-[#f97316]/30 text-left">
             <div>
-              <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-[#d85b6a] mb-6">
+              <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-[#f97316] mb-6">
                 <ShieldCheck size={20} />
               </div>
               <h3 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-wide mb-3">
@@ -134,13 +134,13 @@ export default function BentoFeatures() {
               </div>
             </div>
 
-            <span className="text-sm text-[#d85b6a] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer mt-4">
+            <span className="text-sm text-[#f97316] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer mt-4">
               Báo cáo an ninh hệ thống <ArrowRight size={14} />
             </span>
           </div>
 
           
-          <div className="lg:col-span-4 p-8 rounded-2xl modern-glass flex flex-col justify-between min-h-[360px] group hover:border-[#d85b6a]/30 text-left">
+          <div className="lg:col-span-4 p-8 rounded-2xl modern-glass flex flex-col justify-between min-h-[360px] group hover:border-[#f97316]/30 text-left">
             <div>
               <div className="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 mb-6">
                 <Activity size={20} />
@@ -170,7 +170,7 @@ export default function BentoFeatures() {
           </div>
 
           
-          <div className="lg:col-span-8 p-8 rounded-2xl modern-glass flex flex-col md:flex-row justify-between min-h-[360px] relative overflow-hidden group hover:border-[#d85b6a]/30 text-left gap-8">
+          <div className="lg:col-span-8 p-8 rounded-2xl modern-glass flex flex-col md:flex-row justify-between min-h-[360px] relative overflow-hidden group hover:border-[#f97316]/30 text-left gap-8">
             <div className="absolute left-0 bottom-0 w-2/3 h-full opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-300 pointer-events-none">
               <div className="w-full h-full bg-radial-gradient from-white to-transparent blur-[60px]" />
             </div>
@@ -206,7 +206,7 @@ export default function BentoFeatures() {
                 
                 <div className="flex items-end justify-between h-20 gap-4 px-2">
                   <div className="flex flex-col items-center gap-1.5 flex-1">
-                    <div className="w-full bg-[#d85b6a] rounded-t transition-all duration-1000 ease-in-out" style={{ height: `${bar1}px` }} />
+                    <div className="w-full bg-[#f97316] rounded-t transition-all duration-1000 ease-in-out" style={{ height: `${bar1}px` }} />
                     <span className="text-[10px] text-white/30 font-mono">T4</span>
                   </div>
                   <div className="flex flex-col items-center gap-1.5 flex-1">

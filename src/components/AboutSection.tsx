@@ -59,7 +59,7 @@ export default function AboutSection() {
       className="relative bg-black py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
     >
       
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#d85b6a]/5 rounded-full blur-[130px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#f97316]/5 rounded-full blur-[130px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
@@ -71,12 +71,12 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-4 flex flex-col gap-4 text-left"
           >
-            <span className="inline-flex self-start items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ff8a9a] uppercase tracking-widest font-mono">
+            <span className="inline-flex self-start items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#ffb86b] uppercase tracking-widest font-mono">
               About Us
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight">
               PIONEERING <br />
-              <span className="text-[#d85b6a]">AI TECHNOLOGY</span>
+              <span className="text-[#f97316]">AI TECHNOLOGY</span>
             </h2>
           </motion.div>
 
@@ -90,8 +90,8 @@ export default function AboutSection() {
               className="text-xl md:text-2xl lg:text-[28px] font-normal leading-relaxed text-white/90 text-justify"
             >
               Founded with the mission to pioneer in Computer Vision, 
-              CyberDX specializes in transforming conventional surveillance camera systems into exceptionally 
-              intelligent analytical tools. We proudly empower businesses to optimize operational efficiency, 
+              CyberDX specializes in transforming conventional camera systems with Falcon, an AI Camera System powered by 
+              real-time video analytics. We empower businesses to optimize operational efficiency, 
               detect risks early, and construct secure, highly productive workspaces.
             </motion.p>
 
@@ -104,19 +104,19 @@ export default function AboutSection() {
               className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-white/10"
             >
               <div className="group">
-                <h4 className="text-4xl lg:text-5xl font-black text-white font-mono transition-colors group-hover:text-[#d85b6a] duration-300">
+                <h4 className="text-4xl lg:text-5xl font-black text-white font-mono transition-colors group-hover:text-[#f97316] duration-300">
                   <Counter value="2024" />
                 </h4>
                 <p className="text-sm text-white/50 uppercase tracking-wider mt-2 font-mono">Established Year</p>
               </div>
               <div className="group">
-                <h4 className="text-4xl lg:text-5xl font-black text-[#d85b6a] font-mono transition-colors group-hover:text-white duration-300">
+                <h4 className="text-4xl lg:text-5xl font-black text-[#f97316] font-mono transition-colors group-hover:text-white duration-300">
                   <Counter value="99%" />+
                 </h4>
                 <p className="text-sm text-white/50 uppercase tracking-wider mt-2 font-mono">AI Accuracy</p>
               </div>
               <div className="group">
-                <h4 className="text-4xl lg:text-5xl font-black text-white font-mono transition-colors group-hover:text-[#d85b6a] duration-300">
+                <h4 className="text-4xl lg:text-5xl font-black text-white font-mono transition-colors group-hover:text-[#f97316] duration-300">
                   <Counter value="24" />/7
                 </h4>
                 <p className="text-sm text-white/50 uppercase tracking-wider mt-2 font-mono">Real-time Monitoring</p>

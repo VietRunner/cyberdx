@@ -67,7 +67,7 @@ export default function BlogSection() {
               onClick={() => {
                 document.dispatchEvent(new CustomEvent("dx:open-detail", { detail: "blog" }));
               }}
-              className="inline-flex items-center gap-2 bg-[#d85b6a] text-white rounded-full px-8 py-3.5 text-xs font-black uppercase tracking-widest hover:bg-[#e26c7b] shadow-[0_6px_20px_rgba(216,91,106,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
+              className="inline-flex items-center gap-2 bg-[#f97316] text-white rounded-full px-8 py-3.5 text-xs font-black uppercase tracking-widest hover:bg-[#fb923c] shadow-[0_6px_20px_rgba(249, 115, 22,0.3)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-white/10"
             >
               View All Articles
             </button>

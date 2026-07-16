@@ -7,12 +7,12 @@ export default function ConsciousInnovation() {
       className="relative bg-black py-24 px-4 overflow-hidden border-t border-white/5 bg-gradient-dark-glow"
     >
       
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#d85b6a]/5 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#f97316]/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         <div className="flex flex-col items-center text-center gap-4 mb-20">
-          <div className="inline-flex items-center gap-2 bg-[#d85b6a]/10 border border-[#d85b6a]/20 rounded-full px-4 py-1.5 text-sm font-bold text-[#d85b6a] uppercase tracking-wider font-mono">
+          <div className="inline-flex items-center gap-2 bg-[#f97316]/10 border border-[#f97316]/20 rounded-full px-4 py-1.5 text-sm font-bold text-[#f97316] uppercase tracking-wider font-mono">
             Triết Lý Phát Triển
           </div>
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tight leading-[1.05]">
@@ -28,7 +28,7 @@ export default function ConsciousInnovation() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
           
           <div className="p-8 rounded-2xl modern-glass flex flex-col gap-6">
-            <div className="w-10 h-10 rounded-lg bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a]">
+            <div className="w-10 h-10 rounded-lg bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316]">
               <Heart size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
@@ -41,7 +41,7 @@ export default function ConsciousInnovation() {
 
           
           <div className="p-8 rounded-2xl modern-glass flex flex-col gap-6">
-            <div className="w-10 h-10 rounded-lg bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a]">
+            <div className="w-10 h-10 rounded-lg bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316]">
               <Shield size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
@@ -54,7 +54,7 @@ export default function ConsciousInnovation() {
 
           
           <div className="p-8 rounded-2xl modern-glass flex flex-col gap-6">
-            <div className="w-10 h-10 rounded-lg bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a]">
+            <div className="w-10 h-10 rounded-lg bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316]">
               <Target size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">
@@ -67,7 +67,7 @@ export default function ConsciousInnovation() {
 
           
           <div className="p-8 rounded-2xl modern-glass flex flex-col gap-6">
-            <div className="w-10 h-10 rounded-lg bg-[#d85b6a]/10 border border-[#d85b6a]/20 flex items-center justify-center text-[#d85b6a]">
+            <div className="w-10 h-10 rounded-lg bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center text-[#f97316]">
               <Users size={20} />
             </div>
             <h3 className="text-xl lg:text-2xl font-black text-white uppercase tracking-wide">

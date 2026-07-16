@@ -37,11 +37,11 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
 
     if (!slug || !data) {
       
-      document.title = "CyberDX | AI-Powered Software & Recruitment in Vietnam";
+      document.title = "CyberDX | Falcon AI Camera System & Real-Time Video Analytics";
       
       const descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) {
-        descMeta.setAttribute("content", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+        descMeta.setAttribute("content", "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.");
       }
       
       const canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -50,11 +50,11 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
       }
       
       
-      setMetaProperty("og:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
-      setMetaProperty("og:description", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+      setMetaProperty("og:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
+      setMetaProperty("og:description", "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.");
       setMetaProperty("og:url", "https://cyberdx.tech/");
-      setMetaName("twitter:title", "CyberDX | AI-Powered Software & Recruitment in Vietnam");
-      setMetaName("twitter:description", "CyberDX builds AI-powered software, scalable architecture, and real-time platforms to accelerate product delivery and business growth.");
+      setMetaName("twitter:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
+      setMetaName("twitter:description", "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.");
       
       
       const existingSchema = document.querySelector("script.rank-math-schema");
@@ -75,7 +75,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
     window.history.pushState(null, "", `#/${slug}`);
 
     
-    const pageTitle = `${data.title} - CyberDX AI`;
+    const pageTitle = `${data.title} - CyberDX`;
     document.title = pageTitle;
     
     let descMeta = document.querySelector('meta[name="description"]');
@@ -224,17 +224,17 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0.95 }}
             transition={{ type: "spring", damping: 30, stiffness: 220 }}
-            className="relative w-full max-w-3xl h-full bg-[#030303] border-l border-white/10 shadow-[0_0_80px_rgba(216,91,106,0.15)] flex flex-col justify-between overflow-hidden z-10"
+            className="relative w-full max-w-3xl h-full bg-[#030303] border-l border-white/10 shadow-[0_0_80px_rgba(249, 115, 22,0.15)] flex flex-col justify-between overflow-hidden z-10"
           >
             
-            <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#d85b6a]/5 rounded-full blur-[100px] pointer-events-none z-0" />
+            <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none z-0" />
             <div className="absolute bottom-10 left-10 w-[250px] h-[250px] bg-purple-500/5 rounded-full blur-[90px] pointer-events-none z-0" />
 
             
             <div className="relative z-10 flex items-center justify-between p-6 border-b border-white/5 bg-[#030303]/80 backdrop-blur-md">
               <div className="flex items-center gap-2">
-                <div className="inline-flex items-center gap-1.5 bg-[#d85b6a]/15 border border-[#d85b6a]/30 rounded-full px-3 py-1 text-xs font-black text-[#ff8a9a] uppercase font-mono tracking-wider">
-                  <Sparkles size={12} className="animate-pulse text-[#d85b6a]" />
+                <div className="inline-flex items-center gap-1.5 bg-[#f97316]/15 border border-[#f97316]/30 rounded-full px-3 py-1 text-xs font-black text-[#ffb86b] uppercase font-mono tracking-wider">
+                  <Sparkles size={12} className="animate-pulse text-[#f97316]" />
                   {data.category}
                 </div>
               </div>
@@ -257,7 +257,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                 <p className="text-xl md:text-2xl font-bold text-gradient-peach leading-snug">
                   {data.subtitle}
                 </p>
-                <div className="h-[2px] w-20 bg-gradient-to-r from-[#d85b6a] to-purple-500 mt-2" />
+                <div className="h-[2px] w-20 bg-gradient-to-r from-[#f97316] to-purple-500 mt-2" />
               </div>
 
               
@@ -274,8 +274,8 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                     key={i}
                     className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col gap-2 relative group overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#d85b6a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                    <span className="text-4xl md:text-5xl font-black text-white font-mono tracking-tight group-hover:text-[#d85b6a] transition-colors duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#f97316]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    <span className="text-4xl md:text-5xl font-black text-white font-mono tracking-tight group-hover:text-[#f97316] transition-colors duration-300">
                       {metric.value}
                     </span>
                     <span className="text-xs font-bold text-white/50 uppercase tracking-wider font-mono">
@@ -288,16 +288,16 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               
               <div className="text-left flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-sm font-black text-white uppercase tracking-widest font-mono">
-                  <Layers size={16} className="text-[#d85b6a]" />
+                  <Layers size={16} className="text-[#f97316]" />
                   Key Highlights & Features
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {data.features.map((feature, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl hover:border-[#d85b6a]/30 transition-all"
+                      className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl hover:border-[#f97316]/30 transition-all"
                     >
-                      <CheckCircle2 size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 size={18} className="text-[#f97316] flex-shrink-0 mt-0.5" />
                       <span className="text-white/80 text-sm md:text-base font-semibold leading-normal">
                         {feature}
                       </span>
@@ -348,7 +348,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
                   {[45, 60, 50, 75, 65, 85, 90, 80, 95].map((val, i) => (
                     <div key={i} className="flex-1 flex flex-col items-center gap-1">
                       <div
-                        className="w-full bg-gradient-to-t from-purple-500 to-[#d85b6a] rounded-t transition-all duration-1000"
+                        className="w-full bg-gradient-to-t from-purple-500 to-[#f97316] rounded-t transition-all duration-1000"
                         style={{ height: `${val}%`, minHeight: "10%" }}
                       />
                     </div>
@@ -357,7 +357,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               </div>
 
               
-              <div className="p-6 rounded-2xl bg-gradient-to-r from-[#d85b6a]/10 to-purple-500/5 border border-[#d85b6a]/20 text-left">
+              <div className="p-6 rounded-2xl bg-gradient-to-r from-[#f97316]/10 to-purple-500/5 border border-[#f97316]/20 text-left">
                 <p className="text-white/80 text-sm md:text-base font-bold italic leading-relaxed">
                   &ldquo; {data.conclusion} &rdquo;
                 </p>
@@ -376,7 +376,7 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
               </div>
               <button
                 onClick={handleContactAction}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#d85b6a] hover:bg-[#e26c7b] text-white font-black uppercase tracking-wider text-xs px-8 py-4 rounded-full shadow-[0_8px_24px_rgba(216,91,106,0.35)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#fb923c] text-white font-black uppercase tracking-wider text-xs px-8 py-4 rounded-full shadow-[0_8px_24px_rgba(249, 115, 22,0.35)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 {data.category === "Library" ? "Download Documentation" : "Request Consultation"}
                 <ArrowUpRight size={16} />

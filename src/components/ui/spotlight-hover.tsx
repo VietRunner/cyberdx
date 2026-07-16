@@ -75,7 +75,7 @@ export function SpotlightHover({
         height: size,
         left: spotlightLeft,
         top: spotlightTop,
-        background: 'radial-gradient(circle, rgba(216, 91, 106, 0.7) 0%, rgba(216, 91, 106, 0.25) 45%, transparent 80%)',
+        background: 'radial-gradient(circle, rgba(249, 115, 22, 0.7) 0%, rgba(249, 115, 22, 0.25) 45%, transparent 80%)',
       }}
     />
   );

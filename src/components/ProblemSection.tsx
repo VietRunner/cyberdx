@@ -6,7 +6,7 @@ export default function ProblemSection() {
       id="problem"
       className="relative bg-black py-24 px-4 overflow-hidden border-t border-white/5"
     >
-      <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#d85b6a]/5 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#f97316]/5 rounded-full blur-[100px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -28,7 +28,7 @@ export default function ProblemSection() {
           
           <div className="p-8 rounded-2xl modern-glass flex flex-col justify-between gap-8 group">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-[#d85b6a] mb-6">
+              <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-[#f97316] mb-6">
                 <AlertTriangle size={24} />
               </div>
               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wide mb-4">
@@ -41,7 +41,7 @@ export default function ProblemSection() {
               
               <div className="flex flex-col gap-4">
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
-                  <Timer size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
+                  <Timer size={18} className="text-[#f97316] flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-white font-bold text-base lg:text-lg mb-1">Ứng phó sự cố hỏa hoạn chậm trễ</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
@@ -51,7 +51,7 @@ export default function ProblemSection() {
                 </div>
 
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
-                  <Users2 size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
+                  <Users2 size={18} className="text-[#f97316] flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-white font-bold text-base lg:text-lg mb-1">Không tuân thủ an toàn (PPE)</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
@@ -61,7 +61,7 @@ export default function ProblemSection() {
                 </div>
 
                 <div className="flex items-start gap-3 bg-white/[0.01] border border-white/5 p-4 rounded-xl">
-                  <Ban size={18} className="text-[#d85b6a] flex-shrink-0 mt-0.5" />
+                  <Ban size={18} className="text-[#f97316] flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-white font-bold text-base lg:text-lg mb-1">Xâm nhập trái phép khu vực cấm</h4>
                     <p className="text-white/50 text-sm lg:text-base leading-relaxed">
