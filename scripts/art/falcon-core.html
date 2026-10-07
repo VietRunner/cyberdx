@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 800px; height: 800px; overflow: hidden; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg id="s" width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff7a1a" stop-opacity="0.55" />
+      <stop offset="0.55" stop-color="#f97316" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#f97316" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="housing" x1="0.15" y1="0.1" x2="0.85" y2="0.95">
+      <stop offset="0" stop-color="#6a7080" />
+      <stop offset="0.18" stop-color="#2b2f39" />
+      <stop offset="0.55" stop-color="#101217" />
+      <stop offset="0.82" stop-color="#23272f" />
+      <stop offset="1" stop-color="#4b3a2c" />
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55" />
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.04" />
+      <stop offset="0.7" stop-color="#ff8a2a" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#ffb066" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a3f4b" />
+      <stop offset="0.5" stop-color="#15171d" />
+      <stop offset="1" stop-color="#0a0b0e" />
+    </linearGradient>
+    <radialGradient id="glass" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#070302" />
+      <stop offset="0.3" stop-color="#2a0e03" />
+      <stop offset="0.58" stop-color="#9a3a07" />
+      <stop offset="0.82" stop-color="#ff7a1a" />
+      <stop offset="1" stop-color="#ffb066" />
+    </radialGradient>
+    <radialGradient id="pupil" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#000" />
+      <stop offset="0.7" stop-color="#0b0502" />
+      <stop offset="1" stop-color="#3a1604" />
+    </radialGradient>
+    <radialGradient id="spec" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.38" />
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0.04" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <filter id="blur30" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30" /></filter>
+    <filter id="blur6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" /></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <clipPath id="irisClip"><circle cx="400" cy="400" r="132" /></clipPath>
+  </defs>
+
+  <!-- ambient halo -->
+  <circle cx="400" cy="400" r="392" fill="url(#halo)" />
+
+  <!-- housing drop shadow + orange under-glow -->
+  <circle cx="400" cy="420" r="276" fill="#000" opacity="0.55" filter="url(#blur30)" />
+  <circle cx="420" cy="430" r="262" fill="#f97316" opacity="0.28" filter="url(#blur30)" />
+
+  <!-- housing -->
+  <circle cx="400" cy="400" r="282" fill="url(#housing)" />
+  <circle cx="400" cy="400" r="281" fill="none" stroke="url(#rim)" stroke-width="3" />
+  <circle cx="400" cy="400" r="262" fill="none" stroke="#000" stroke-opacity="0.65" stroke-width="2" />
+  <circle cx="400" cy="400" r="258" fill="none" stroke="#fff" stroke-opacity="0.09" stroke-width="1.5" />
+  <!-- machined grooves -->
+  <g fill="none" id="grooves"></g>
+  <!-- screws -->
+  <g id="screws"></g>
+
+  <!-- inner cavity -->
+  <circle cx="400" cy="400" r="222" fill="#050608" />
+  <circle cx="400" cy="400" r="222" fill="none" stroke="#fff" stroke-opacity="0.12" stroke-width="2" />
+  <circle cx="400" cy="400" r="214" fill="none" stroke="#f97316" stroke-opacity="0.35" stroke-width="1.5" />
+
+  <!-- aperture blades -->
+  <g id="blades"></g>
+
+  <!-- glass iris -->
+  <circle cx="400" cy="400" r="150" fill="#f97316" opacity="0.5" filter="url(#blur30)" />
+  <circle cx="400" cy="400" r="134" fill="url(#glass)" />
+  <circle cx="400" cy="400" r="134" fill="none" stroke="#ffd2a1" stroke-opacity="0.7" stroke-width="2" />
+  <!-- iris fibres -->
+  <g id="fibres" clip-path="url(#irisClip)" opacity="0.5"></g>
+  <!-- pupil -->
+  <circle cx="400" cy="400" r="58" fill="url(#pupil)" />
+  <circle cx="400" cy="400" r="58" fill="none" stroke="#ff9a3c" stroke-opacity="0.8" stroke-width="2.5" filter="url(#glow)" />
+
+  <!-- HUD crosshair -->
+  <g stroke="#ffb066" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)" opacity="0.95">
+    <line x1="400" y1="250" x2="400" y2="298" />
+    <line x1="400" y1="502" x2="400" y2="550" />
+    <line x1="250" y1="400" x2="298" y2="400" />
+    <line x1="502" y1="400" x2="550" y2="400" />
+  </g>
+  <!-- centre light -->
+  <circle cx="400" cy="400" r="14" fill="#ff8a2a" opacity="0.9" filter="url(#blur6)" />
+  <circle cx="400" cy="400" r="7" fill="#fff" />
+
+  <!-- glass reflections -->
+  <ellipse cx="352" cy="338" rx="62" ry="30" transform="rotate(-38 352 338)" fill="url(#spec)" clip-path="url(#irisClip)" />
+  <path d="M 292 338 A 132 132 0 0 1 392 272" fill="none" stroke="#fff" stroke-opacity="0.65" stroke-width="3" stroke-linecap="round" />
+  <circle cx="400" cy="400" r="132" fill="url(#sheen)" clip-path="url(#irisClip)" />
+  <circle cx="452" cy="462" r="9" fill="#fff" opacity="0.28" filter="url(#blur6)" />
+
+  <!-- housing top-left specular arc -->
+  <path d="M 196 300 A 232 232 0 0 1 330 190" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="5" stroke-linecap="round" filter="url(#blur6)" />
+</svg>
+
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  const C = 400, rad = (d) => (d * Math.PI) / 180;
+  const pt = (r, deg) => [C + r * Math.cos(rad(deg)), C + r * Math.sin(rad(deg))];
+
+  // grooves
+  const g = document.getElementById("grooves");
+  [[240, 0.55], [248, 0.3], [270, 0.35]].forEach(([r, o]) => {
+    g.appendChild(el("circle", { cx: C, cy: C, r, stroke: "#000", "stroke-opacity": o + 0.2, "stroke-width": 2 }));
+    g.appendChild(el("circle", { cx: C, cy: C + 1.5, r, stroke: "#fff", "stroke-opacity": o * 0.25, "stroke-width": 1 }));
+  });
+
+  // knurled edge
+  for (let i = 0; i < 120; i++) {
+    const [x1, y1] = pt(266, i * 3), [x2, y2] = pt(276, i * 3);
+    g.appendChild(el("line", { x1, y1, x2, y2, stroke: "#fff", "stroke-opacity": 0.07, "stroke-width": 1.2 }));
+  }
+
+  // screws
+  const sc = document.getElementById("screws");
+  [45, 135, 225, 315].forEach((d) => {
+    const [x, y] = pt(252, d);
+    sc.appendChild(el("circle", { cx: x, cy: y, r: 7, fill: "#0b0c10", stroke: "#fff", "stroke-opacity": 0.28, "stroke-width": 1.5 }));
+    sc.appendChild(el("line", { x1: x - 4, y1: y - 4, x2: x + 4, y2: y + 4, stroke: "#9aa0ad", "stroke-opacity": 0.6, "stroke-width": 1.5 }));
+  });
+
+  // aperture blades
+  const bl = document.getElementById("blades");
+  const N = 12, step = 360 / N;
+  for (let i = 0; i < N; i++) {
+    const a = i * step;
+    const p = [pt(214, a), pt(214, a + step + 6), pt(120, a + step + 40), pt(120, a + 14)];
+    const d = "M" + p.map((q) => q.map((v) => v.toFixed(1)).join(",")).join(" L") + " Z";
+    bl.appendChild(el("path", { d, fill: "url(#blade)", stroke: "#fff", "stroke-opacity": 0.2, "stroke-width": 1.5 }));
+    const [ex, ey] = pt(214, a + 3), [fx, fy] = pt(120, a + 17);
+    bl.appendChild(el("line", { x1: ex, y1: ey, x2: fx, y2: fy, stroke: "#f97316", "stroke-opacity": 0.55, "stroke-width": 1.4 }));
+  }
+
+  // iris fibres
+  const fb = document.getElementById("fibres");
+  for (let i = 0; i < 90; i++) {
+    const a = (i / 90) * 360;
+    const [x1, y1] = pt(58, a), [x2, y2] = pt(134, a + (i % 3) * 3);
+    fb.appendChild(el("line", { x1, y1, x2, y2, stroke: i % 2 ? "#ffd2a1" : "#3a1204", "stroke-opacity": 0.35, "stroke-width": 1.2 }));
+  }
+</script>
+</body>
+</html>

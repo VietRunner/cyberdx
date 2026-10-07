@@ -14,6 +14,8 @@ export default defineConfig({
     chunkSizeWarningLimit: 2500,
   },
   server: {
+    // Honour PORT when a launcher assigns one; plain `npm run dev` still defaults to 5173.
+    ...(process.env.PORT ? { port: Number(process.env.PORT) } : {}),
     proxy: {
       "/api/contact": {
         target: "https://form.apexdx.tech",

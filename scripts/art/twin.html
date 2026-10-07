@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 800px; height: 800px; overflow: hidden; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg id="s" width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="55%" r="50%">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.5" />
+      <stop offset="0.5" stop-color="#7c3aed" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9ddff" />
+      <stop offset="0.5" stop-color="#a98bff" />
+      <stop offset="1" stop-color="#7c4dff" />
+    </linearGradient>
+    <linearGradient id="left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a4dff" />
+      <stop offset="1" stop-color="#3b138f" />
+    </linearGradient>
+    <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a2fd0" />
+      <stop offset="1" stop-color="#220a63" />
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c4a8ff" stop-opacity="0" />
+      <stop offset="0.5" stop-color="#c4a8ff" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#c4a8ff" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="floor" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#a98bff" stop-opacity="0.65" />
+      <stop offset="0.6" stop-color="#7c3aed" stop-opacity="0.2" />
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4a8ff" stop-opacity="0.1" />
+      <stop offset="0.5" stop-color="#d9c8ff" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#c4a8ff" stop-opacity="0.1" />
+    </linearGradient>
+    <filter id="blur24" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="24" /></filter>
+    <filter id="blur4" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" /></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <mask id="floorMask"><rect width="800" height="800" fill="url(#floorFade)" /></mask>
+    <radialGradient id="floorFade" cx="50%" cy="50%" r="50%">
+      <stop offset="0.2" stop-color="#fff" /><stop offset="1" stop-color="#000" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="400" cy="440" r="360" fill="url(#halo)" />
+
+  <!-- isometric floor grid -->
+  <g id="floorGrid" mask="url(#floorMask)"></g>
+  <ellipse cx="400" cy="640" rx="250" ry="72" fill="url(#floor)" />
+
+  <!-- orbit ring (back half) -->
+  <ellipse cx="400" cy="470" rx="330" ry="96" fill="none" stroke="#c4a8ff" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="3 9" />
+
+  <!-- slab stack, bottom -> top -->
+  <g id="slabs"></g>
+
+  <!-- orbit ring (front arc highlight + node) -->
+  <path d="M 70 470 A 330 96 0 0 0 730 470" fill="none" stroke="url(#ring)" stroke-width="3.5" filter="url(#glow)" />
+  <g filter="url(#glow)">
+    <circle cx="656" cy="526" r="9" fill="#fff" />
+    <circle cx="656" cy="526" r="18" fill="none" stroke="#c4a8ff" stroke-opacity="0.6" stroke-width="2" />
+  </g>
+
+  <!-- floating data bits -->
+  <g id="bits" filter="url(#glow)"></g>
+</svg>
+
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (n, a, parent) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; };
+  const $ = (id) => document.getElementById(id);
+  const P = (pts) => pts.map((p) => p.map((v) => v.toFixed(1)).join(",")).join(" ");
+
+  // floor grid (2:1 iso)
+  {
+    const cx = 400, cy = 640, n = 12, s = 52; // tile half-width
+    const to = (u, v) => [cx + (u - v) * s, cy + (u + v) * s * 0.5];
+    for (let i = -n; i <= n; i++) {
+      const a = to(i, -n), b = to(i, n), c = to(-n, i), d = to(n, i);
+      el("line", { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: "#a98bff", "stroke-opacity": 0.28, "stroke-width": 1.2 }, $("floorGrid"));
+      el("line", { x1: c[0], y1: c[1], x2: d[0], y2: d[1], stroke: "#a98bff", "stroke-opacity": 0.28, "stroke-width": 1.2 }, $("floorGrid"));
+    }
+  }
+
+  // slab: iso rhombus top + two sides. w = half width, t = thickness
+  function slab({ cx, cy, w, t, alpha = 1, grid = 0, label }) {
+    const g = el("g", { opacity: alpha }, $("slabs"));
+    const L = [cx - w, cy], B = [cx, cy + w / 2], R = [cx + w, cy], T = [cx, cy - w / 2];
+    // shadow/underglow
+    el("polygon", { points: P([[cx - w, cy + t], [cx, cy + w / 2 + t], [cx + w, cy + t], [cx, cy - w / 2 + t]]), fill: "#8b5cf6", opacity: 0.55, filter: "url(#blur24)" }, g);
+    // sides
+    el("polygon", { points: P([L, B, [B[0], B[1] + t], [L[0], L[1] + t]]), fill: "url(#left)" }, g);
+    el("polygon", { points: P([B, R, [R[0], R[1] + t], [B[0], B[1] + t]]), fill: "url(#right)" }, g);
+    // top
+    el("polygon", { points: P([T, R, B, L]), fill: "url(#top)" }, g);
+    // top grid (digital mesh)
+    if (grid) {
+      const pp = (u, v) => [T[0] + u * (R[0] - T[0]) + v * (L[0] - T[0]), T[1] + u * (R[1] - T[1]) + v * (L[1] - T[1])];
+      for (let i = 1; i < grid; i++) {
+        const u = i / grid, a = pp(u, 0), b = pp(u, 1), c = pp(0, u), d = pp(1, u);
+        el("line", { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: "#fff", "stroke-opacity": 0.32, "stroke-width": 1.2 }, g);
+        el("line", { x1: c[0], y1: c[1], x2: d[0], y2: d[1], stroke: "#fff", "stroke-opacity": 0.32, "stroke-width": 1.2 }, g);
+      }
+      // glowing inset panel
+      const inset = [pp(0.3, 0.3), pp(0.7, 0.3), pp(0.7, 0.7), pp(0.3, 0.7)];
+      el("polygon", { points: P(inset), fill: "#5b2bd6", opacity: 0.55 }, g);
+      el("polygon", { points: P(inset), fill: "none", stroke: "#fff", "stroke-opacity": 0.8, "stroke-width": 1.6 }, g);
+    }
+    // top specular sheen
+    el("polygon", { points: P([T, [cx + w * 0.55, cy - w * 0.225], [cx - w * 0.1, cy + w * 0.05], [cx - w * 0.55, cy - w * 0.225]]), fill: "#fff", opacity: 0.18 }, g);
+    // edge highlights
+    el("polyline", { points: P([L, B, R]), fill: "none", stroke: "#fff", "stroke-opacity": 0.85, "stroke-width": 2.2, "stroke-linejoin": "round" }, g);
+    el("polyline", { points: P([T, R]), fill: "none", stroke: "#fff", "stroke-opacity": 0.45, "stroke-width": 1.6 }, g);
+    el("polyline", { points: P([T, L]), fill: "none", stroke: "#fff", "stroke-opacity": 0.6, "stroke-width": 1.6 }, g);
+    el("line", { x1: B[0], y1: B[1], x2: B[0], y2: B[1] + t, stroke: "#e6d8ff", "stroke-opacity": 0.7, "stroke-width": 1.8 }, g);
+    // side LED strip
+    el("line", { x1: L[0] + 18, y1: L[1] + t * 0.55 + 9, x2: B[0] - 18, y2: B[1] + t * 0.55 - 9, stroke: "#e9ddff", "stroke-opacity": 0.85, "stroke-width": 2.6, "stroke-linecap": "round", filter: "url(#glow)" }, g);
+    return g;
+  }
+
+  // light beams between slabs
+  function beams(xs, y0, y1) {
+    xs.forEach((x) => {
+      el("rect", { x: x - 2, y: y0, width: 4, height: y1 - y0, fill: "url(#beam)", filter: "url(#glow)" }, $("slabs"));
+    });
+  }
+
+  slab({ cx: 400, cy: 552, w: 250, t: 46, grid: 8 });
+  beams([300, 400, 500], 438, 548);
+  slab({ cx: 400, cy: 408, w: 190, t: 40, grid: 6, alpha: 0.97 });
+  beams([360, 400, 440], 300, 404);
+  slab({ cx: 400, cy: 268, w: 132, t: 34, grid: 4, alpha: 0.95 });
+
+  // top hologram: diamond over the stack
+  {
+    const g = el("g", { filter: "url(#glow)" }, $("bits"));
+    el("polygon", { points: "400,120 424,162 400,204 376,162", fill: "#e9ddff", opacity: 0.95 }, g);
+    el("polygon", { points: "400,120 424,162 400,170 376,162", fill: "#fff" }, g);
+    el("polygon", { points: "400,120 424,162 400,204 376,162", fill: "none", stroke: "#fff", "stroke-width": 2 }, g);
+  }
+  // sparkles / data cubes
+  [[120, 290, 7], [690, 330, 9], [200, 180, 5], [610, 190, 6], [95, 560, 6], [720, 620, 5], [500, 96, 4], [292, 108, 4]].forEach(([x, y, r]) => {
+    const g = el("g", { transform: `translate(${x} ${y})` }, $("bits"));
+    el("path", { d: `M0 ${-r * 2} Q0 0 ${r * 2} 0 Q0 0 0 ${r * 2} Q0 0 ${-r * 2} 0 Q0 0 0 ${-r * 2} Z`, fill: "#e9ddff" }, g);
+  });
+  [[150, 400, 16], [660, 450, 14], [250, 640, 12]].forEach(([x, y, s]) => {
+    const g = el("g", { transform: `translate(${x} ${y})` }, $("bits"));
+    el("polygon", { points: P([[0, -s / 2], [s, 0], [0, s / 2], [-s, 0]]), fill: "#d9c8ff" }, g);
+    el("polygon", { points: P([[-s, 0], [0, s / 2], [0, s / 2 + s * 0.7], [-s, s * 0.7]]), fill: "#6a3df0" }, g);
+    el("polygon", { points: P([[s, 0], [0, s / 2], [0, s / 2 + s * 0.7], [s, s * 0.7]]), fill: "#3d1aa8" }, g);
+  });
+</script>
+</body>
+</html>

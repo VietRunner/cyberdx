@@ -1,0 +1,128 @@
+/* -----------------------------------------------------------------------
+ * CyberDX design-system tokens (Apple-aesthetic, minimal-premium motion).
+ * Scoped to .dx-root so these do NOT leak into legacy pages.
+ * Dark variant: .dx-root[data-theme="dark"].
+ * ---------------------------------------------------------------------- */
+
+.dx-root {
+  /* ---- type scale ---- */
+  --dx-font-display: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --dx-font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --dx-text-display: clamp(44px, 6.4vw, 108px);   /* hero / section-breaking display */
+  --dx-text-title:   clamp(32px, 4vw, 64px);       /* section titles */
+  --dx-text-head:    clamp(22px, 2vw, 30px);       /* subsection headings */
+  --dx-text-lead:    clamp(17px, 1.3vw, 22px);     /* intro paragraph */
+  --dx-text-body:    17px;                         /* long-form body */
+  --dx-text-small:   14px;
+  --dx-text-caption: 12px;
+  --dx-text-mono:    12px;
+
+  --dx-tracking-display: -0.035em;
+  --dx-tracking-title:   -0.028em;
+  --dx-tracking-tight:   -0.015em;
+  --dx-tracking-mono:    0.14em;
+
+  /* ---- spacing (8pt grid) ---- */
+  --dx-space-1: 4px;
+  --dx-space-2: 8px;
+  --dx-space-3: 12px;
+  --dx-space-4: 16px;
+  --dx-space-6: 24px;
+  --dx-space-8: 32px;
+  --dx-space-10: 40px;
+  --dx-space-12: 48px;
+  --dx-space-16: 64px;
+  --dx-space-20: 80px;
+  --dx-space-24: 96px;
+  --dx-space-32: 128px;
+  --dx-space-40: 160px;
+
+  /* ---- section rhythm ---- */
+  --dx-section-y: clamp(80px, 10vw, 160px);
+  --dx-gutter:    clamp(16px, 4vw, 40px);
+  --dx-container: 1200px;
+
+  /* ---- color — light ---- */
+  --dx-ink:        #0a0a0b;
+  --dx-ink-2:      #3a3a42;
+  --dx-muted:      #6b6b73;
+  --dx-faint:      #a7a7af;
+  --dx-hairline:   rgba(10, 10, 11, 0.1);
+  --dx-divider:    rgba(10, 10, 11, 0.06);
+  --dx-bg:         #ffffff;
+  --dx-surface:    #fafafa;
+  --dx-surface-2:  #f4f4f6;
+
+  /* ---- brand accent (overridable per product) ---- */
+  --dx-accent:     #0071e3;
+  --dx-accent-rgb: 0, 113, 227;
+  --dx-accent-ink: #ffffff;
+
+  /* ---- radii + shadow ---- */
+  --dx-radius-sm: 8px;
+  --dx-radius:    16px;
+  --dx-radius-lg: 24px;
+  --dx-radius-xl: 32px;
+
+  --dx-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --dx-shadow:    0 8px 24px rgba(10, 10, 11, 0.08);
+  --dx-shadow-lg: 0 24px 60px rgba(10, 10, 11, 0.12);
+
+  /* ---- motion ---- */
+  --dx-ease:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dx-ease-io: cubic-bezier(0.4, 0, 0.2, 1);
+  --dx-dur-1:   160ms;
+  --dx-dur-2:   280ms;
+  --dx-dur-3:   520ms;
+  --dx-dur-4:   780ms;
+
+  color: var(--dx-ink);
+  background: var(--dx-bg);
+  font-family: var(--dx-font-display);
+  font-size: var(--dx-text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11";
+}
+
+.dx-root[data-theme="dark"] {
+  --dx-ink:        #f5f5f7;
+  --dx-ink-2:      #c7c7cc;
+  --dx-muted:      #8e8e93;
+  --dx-faint:      #636366;
+  --dx-hairline:   rgba(255, 255, 255, 0.1);
+  --dx-divider:    rgba(255, 255, 255, 0.06);
+  --dx-bg:         #000000;
+  --dx-surface:    #0f0f10;
+  --dx-surface-2:  #171718;
+  --dx-shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.4);
+  --dx-shadow:     0 10px 28px rgba(0, 0, 0, 0.5);
+  --dx-shadow-lg:  0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- Numeric sanity ---- */
+.dx-root [data-tabular] { font-variant-numeric: tabular-nums; }
+
+/* ---- Reset heading margins inside the dx scope so composition is clean ---- */
+.dx-root h1,
+.dx-root h2,
+.dx-root h3,
+.dx-root h4,
+.dx-root p,
+.dx-root ul,
+.dx-root ol { margin: 0; padding: 0; list-style: none; }
+
+/* ---- Smooth anchor scroll ---- */
+.dx-root { scroll-behavior: smooth; }
+
+/* ---- Reduce motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .dx-root,
+  .dx-root * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

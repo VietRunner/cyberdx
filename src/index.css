@@ -106,7 +106,147 @@
 @media (min-width: 768px) {
   .partner-grid > * { border-right: 1px solid #202020; }
   .partner-grid > *:nth-child(3n) { border-right: 1px solid #202020; }
-  .partner-grid > *:nth-child(5n) { border-right: none; }
+.partner-grid > *:nth-child(5n) { border-right: none; }
+}
+
+/* AI Beaver: monochrome cinematic product page */
+.beaver-app-root { overflow: visible; }
+.beaver-cinematic {
+  --beaver-pad: 1rem;
+  --beaver-ease: cubic-bezier(.19, 1, .22, 1);
+  --beaver-cursor-x: 0;
+  --beaver-cursor-y: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'Inter Tight', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: clip;
+}
+.beaver-cinematic h1, .beaver-cinematic h2, .beaver-cinematic h3, .beaver-cinematic p { margin: 0; }
+.beaver-cinematic button { appearance: none; border: 0; font: inherit; }
+.beaver-cinematic-header { inset: 0 0 auto; pointer-events: none; position: fixed; z-index: 80; }
+.beaver-cinematic-bar { align-items: center; display: flex; gap: 2rem; justify-content: space-between; padding: 1rem var(--beaver-pad); pointer-events: auto; transition: background .6s var(--beaver-ease), backdrop-filter .6s var(--beaver-ease), border-radius .6s var(--beaver-ease), margin .6s var(--beaver-ease), padding .6s var(--beaver-ease), width .6s var(--beaver-ease); }
+.beaver-header-left, .beaver-header-right, .beaver-cinematic-nav { align-items: center; display: flex; }
+.beaver-header-left { gap: clamp(1.5rem, 4vw, 4rem); }
+.beaver-header-right { gap: .5rem; }
+.beaver-cinematic-logo { align-items: center; background: transparent; color: #fff; cursor: pointer; display: inline-flex; font-size: clamp(.8rem, 1vw, 1rem); font-weight: 400; gap: .6rem; letter-spacing: -.04em; padding: 0; white-space: nowrap; }
+.beaver-cinematic-logo img { height: 2rem; object-fit: contain; width: auto; }
+.beaver-cinematic-logo sup { font-size: .5em; margin-left: .08em; vertical-align: top; }
+.beaver-cinematic-nav { gap: clamp(1.25rem, 3vw, 2.5rem); }
+.beaver-cinematic-nav button, .beaver-cinematic-nav a, .beaver-clock, .beaver-hero-tags, .beaver-scroll-hint { color: rgb(255 255 255 / .72); font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: -.01em; text-transform: uppercase; }
+.beaver-cinematic-nav button { background: transparent; cursor: pointer; padding: .25rem 0; }
+.beaver-cinematic-nav a { color: rgb(255 255 255 / .7); text-decoration: none; }
+.beaver-cinematic-nav button:hover, .beaver-cinematic-nav a:hover { color: #fff; }
+.beaver-clock { margin-right: 1rem; white-space: nowrap; }
+.beaver-clock i { color: rgb(255 255 255 / .45); font-style: normal; margin: 0 .35em; }
+.beaver-header-submit, .beaver-header-menu, .beaver-solid-cta { align-items: center; cursor: pointer; display: inline-flex; gap: .5rem; height: 2.5rem; justify-content: center; transition: background .3s var(--beaver-ease), color .3s var(--beaver-ease), transform .15s ease-out; }
+.beaver-header-submit:active, .beaver-header-menu:active, .beaver-solid-cta:active { transform: scale(.97); }
+.beaver-header-submit { background: rgb(249 115 22 / .16); color: #fff; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: -.01em; padding: 0 1rem; text-transform: uppercase; }
+.beaver-header-submit:hover { background: rgb(249 115 22 / .25); }
+.beaver-header-menu { background: rgb(249 115 22 / .16); color: #fff; width: 2.5rem; }
+.beaver-header-menu:hover { background: rgb(249 115 22 / .25); }
+.beaver-cinematic-header.is-compact .beaver-cinematic-bar { backdrop-filter: blur(12px); background: rgb(255 255 255 / .1); border-radius: 12px; margin: .75rem auto 0; padding: .25rem .25rem .25rem 1rem; width: fit-content; }
+.beaver-cinematic-header.is-compact .beaver-cinematic-logo { font-size: .9rem; }
+.beaver-cinematic-header.is-compact .beaver-cinematic-logo img { height: 1.75rem; }
+.beaver-cinematic-header.is-compact .beaver-cinematic-nav, .beaver-cinematic-header.is-compact .beaver-clock, .beaver-cinematic-header.is-compact .beaver-header-submit span { display: none; }
+.beaver-cinematic-header.is-compact .beaver-header-submit { background: #f97316; color: #000; padding: 0; width: 2.5rem; }
+
+.beaver-stage { position: relative; }
+.beaver-stage-scene { background: #000; height: 100lvh; margin-bottom: -100lvh; overflow: hidden; position: sticky; top: 0; z-index: 0; }
+.beaver-stage-parallax { inset: 0; position: absolute; transform: translate3d(calc(var(--beaver-cursor-x) * -26px), calc(var(--beaver-cursor-y) * -18px), 0) scale(1.05); }
+.beaver-scene-video { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; }
+.beaver-scene-video-product { opacity: 0; }
+.beaver-stage.is-second .beaver-scene-video-product { opacity: 1; }
+.beaver-scene-scrim { background: linear-gradient(180deg, rgb(0 0 0 / .35) 0%, rgb(0 0 0 / .15) 35%, rgb(0 0 0 / .15) 65%, rgb(0 0 0 / .55) 100%); inset: 0; pointer-events: none; position: absolute; }
+.beaver-cinematic-hero, .beaver-cinematic-about, .beaver-cinematic-product { position: relative; z-index: 1; }
+.beaver-cinematic-hero { height: 100lvh; }
+.beaver-hero-layout { bottom: 1rem; display: grid; gap: 1.25rem; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 1fr auto; inset-inline: var(--beaver-pad); position: absolute; top: 0; }
+.beaver-hero-layout h1, .beaver-product-screen h2 { align-self: end; color: #fff; font-size: clamp(4rem, 8.75vw, 7rem); font-weight: 400; grid-column: 1 / 9; grid-row: 1 / 3; letter-spacing: -.07em; line-height: .82; margin-left: -.05em; text-transform: uppercase; }
+.beaver-hero-lead { align-self: start; color: rgb(255 255 255 / .75); font-size: clamp(1.05rem, 1.3vw, 1.25rem); grid-column: 9 / 13; line-height: 1.3; max-width: 17em; padding-top: clamp(7rem, 16vh, 11rem); text-transform: uppercase; }
+.beaver-scroll-hint { align-self: center; grid-column: 5 / 9; grid-row: 2; justify-self: center; white-space: nowrap; }
+.beaver-solid-cta { align-self: end; background: #f97316; color: #000; font-family: 'Geist Mono', monospace; font-size: 10px; grid-column: 9 / 11; grid-row: 2; letter-spacing: -.01em; padding: 0 1rem; text-transform: uppercase; white-space: nowrap; }
+.beaver-solid-cta:hover { background: #ffb86b; }
+.beaver-hero-tags { align-self: center; grid-column: 11 / 13; grid-row: 2; justify-self: end; white-space: nowrap; }
+.beaver-hero-tags i { color: rgb(255 255 255 / .45); font-style: normal; margin: 0 .25em; }
+
+.beaver-cinematic-about { display: flex; flex-direction: column; margin-top: 100px; min-height: 160svh; padding-top: 1.25rem; }
+.beaver-statement-pin { align-content: end; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); height: 100svh; padding: 0 var(--beaver-pad) 56px; pointer-events: none; position: sticky; top: 0; }
+.beaver-statement-pin h2 { color: #fff; font-size: clamp(2.5rem, 5vw, 5.8rem); font-weight: 400; grid-column: 7 / 13; letter-spacing: -.06em; line-height: .92; padding-left: 48px; }
+.beaver-about-topline { align-items: end; display: grid; gap: 1.25rem; grid-template-columns: repeat(12, minmax(0, 1fr)); margin-top: -100svh; padding: 0 var(--beaver-pad) 48px; }
+.beaver-about-topline > div { grid-column: 1 / 8; }
+.beaver-about-topline > div p { font-size: clamp(1.4rem, 2vw, 2.2rem); letter-spacing: -.045em; line-height: 1.03; max-width: 30rem; text-transform: uppercase; }
+.beaver-about-topline > div p + p { color: rgb(255 255 255 / .5); margin-top: .25rem; }
+.beaver-about-stats { color: rgb(255 255 255 / .72); font-family: 'Geist Mono', monospace; font-size: 10px; grid-column: 9 / 13; justify-self: end; line-height: 1.5; max-width: 18rem; text-align: right; text-transform: uppercase; }
+.beaver-about-stats i { color: rgb(255 255 255 / .4); font-style: normal; margin: 0 .4em; }
+.beaver-about-frame { border-bottom: 1px solid rgb(255 255 255 / .2); border-top: 1px solid rgb(255 255 255 / .2); flex: 1; margin: 0 var(--beaver-pad); min-height: 55svh; position: relative; }
+.beaver-about-frame span { background: rgb(255 255 255 / .2); bottom: 0; left: 50%; position: absolute; top: 0; width: 1px; }
+.beaver-chip-row { display: flex; justify-content: end; padding: 1.25rem var(--beaver-pad); position: relative; z-index: 2; }
+.beaver-chip-row span { align-items: center; background: rgb(249 115 22 / .16); border-radius: 12px; color: #fff; display: inline-flex; font-family: 'Geist Mono', monospace; font-size: 10px; height: 1.75rem; justify-content: center; min-width: 1.75rem; }
+
+.beaver-cinematic-product { margin-top: 100px; min-height: 220svh; }
+.beaver-callout-stage { height: 100svh; overflow: hidden; pointer-events: none; position: sticky; top: 0; }
+.beaver-callout-lines { height: 100%; inset: 0; position: absolute; width: 100%; }
+.beaver-callout-lines path { fill: none; stroke: rgb(255 255 255 / .55); stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--beaver-product-progress)); stroke-width: 1; }
+.beaver-callout-lines circle { fill: #fff; transform: scale(var(--beaver-product-progress)); transform-box: fill-box; transform-origin: center; }
+.beaver-callout { color: #fff; opacity: clamp(0, calc((var(--beaver-product-progress) - .55) * 2.4), 1); position: absolute; transform: translate3d(calc(var(--beaver-cursor-x) * -40px), calc(var(--beaver-cursor-y) * -30px), 0); transition: opacity .25s linear; width: 13rem; }
+.beaver-callout strong { display: block; font-size: clamp(1.35rem, 2vw, 1.85rem); font-weight: 400; letter-spacing: -.05em; line-height: 1; }
+.beaver-callout span, .beaver-callout p { color: rgb(255 255 255 / .72); display: block; font-family: 'Geist Mono', monospace; font-size: 10px; line-height: 1.35; margin-top: .4rem; text-transform: uppercase; }
+.beaver-callout p { color: rgb(255 255 255 / .5); text-transform: none; }
+.beaver-callout-workflows { left: 20%; top: 20%; }
+.beaver-callout-agents { bottom: 21%; left: 16%; }
+.beaver-callout-integrations { right: 14%; top: 24%; }
+.beaver-callout-insights { bottom: 18%; right: 12%; }
+.beaver-product-screen { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); height: 100svh; margin-top: -100svh; padding: 0 var(--beaver-pad) 1rem; position: relative; z-index: 1; }
+.beaver-product-screen > div { align-self: end; grid-column: 1 / 9; }
+.beaver-product-screen h2 { color: #fff; display: block; font-size: clamp(4.5rem, 10.5vw, 10.5rem); margin: .45rem 0 0 -.05em; }
+.beaver-product-kicker, .beaver-product-insight { color: rgb(255 255 255 / .72); font-family: 'Geist Mono', monospace; font-size: 10px; text-transform: uppercase; }
+.beaver-product-insight { align-self: end; color: #fff; font-family: 'Inter Tight', 'Geist', sans-serif; font-size: clamp(1.05rem, 1.4vw, 1.35rem); grid-column: 10 / 13; letter-spacing: -.035em; line-height: 1.1; margin-bottom: .45rem; text-transform: none; }
+.beaver-chip-product { bottom: 0; inset-inline: 0; position: absolute; }
+
+@media (max-width: 800px) {
+  .beaver-cinematic-nav, .beaver-clock { display: none; }
+  .beaver-header-left { gap: 0; }
+  .beaver-hero-layout { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: 1fr auto auto; }
+  .beaver-hero-layout h1 { grid-column: 1 / 7; grid-row: 1; }
+  .beaver-hero-lead { align-self: end; grid-column: 1 / 7; grid-row: 2; max-width: 23rem; padding-top: 0; }
+  .beaver-scroll-hint { display: none; }
+  .beaver-solid-cta { grid-column: 1 / 4; grid-row: 3; }
+  .beaver-hero-tags { grid-column: 4 / 7; grid-row: 3; }
+  .beaver-statement-pin h2 { grid-column: 1 / 7; padding-left: 0; }
+  .beaver-about-topline > div { grid-column: 1 / 9; }
+  .beaver-about-stats { grid-column: 9 / 13; }
+  .beaver-callout-workflows { left: 8%; }
+  .beaver-callout-agents { left: 8%; }
+  .beaver-callout-integrations { right: 6%; }
+  .beaver-callout-insights { right: 5%; }
+}
+@media (max-width: 560px) {
+  .beaver-cinematic-bar { padding-block: .75rem; }
+  .beaver-cinematic-logo { font-size: 1.1rem; }
+  .beaver-header-submit span { display: none; }
+  .beaver-header-submit { padding: 0; width: 2.5rem; }
+  .beaver-hero-layout h1 { font-size: clamp(3.5rem, 18vw, 5.8rem); }
+  .beaver-product-screen h2 { font-size: clamp(4rem, 19vw, 6.4rem); }
+  .beaver-hero-tags { font-size: 8px; }
+  .beaver-cinematic-about { min-height: 140svh; }
+  .beaver-about-topline { display: block; padding-bottom: 2rem; }
+  .beaver-about-stats { margin-top: 2rem; text-align: left; }
+  .beaver-about-frame span { display: none; }
+  .beaver-statement-pin h2 { font-size: clamp(2.4rem, 11vw, 3.4rem); }
+  .beaver-callout-stage { height: 75svh; }
+  .beaver-callout { width: 9rem; }
+  .beaver-callout p { display: none; }
+  .beaver-callout-workflows { left: 7%; top: 19%; }
+  .beaver-callout-agents { bottom: 16%; left: 7%; }
+  .beaver-callout-integrations { right: 5%; top: 25%; }
+  .beaver-callout-insights { bottom: 13%; right: 5%; }
+  .beaver-product-screen { height: 75svh; margin-top: -75svh; }
+  .beaver-product-screen > div { grid-column: 1 / 13; }
+  .beaver-product-insight { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beaver-cinematic *, .beaver-cinematic *::before, .beaver-cinematic *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .beaver-scene-video-product { opacity: 1; }
+  .beaver-callout { opacity: 1; transform: none; }
 }
 
 @theme {

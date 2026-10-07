@@ -1,38 +1,23 @@
 import { useEffect, useState } from "react";
 import {
   ContactModal,
-  ModernNav,
-  CxHero,
-  AboutSection,
-  CxFeatures,
-  CxPlatform,
-  WorkflowSection,
-  SolutionSection,
-  CxIndustries,
-  StatsSection,
-  BlogSection,
-  FinalCTA,
-  ModernFooter,
-  DetailPage,
   IntroScreen,
+  FalconLanding,
   BeaverLanding,
 } from "./components";
-import { DETAIL_DATA } from "./utils/detailData";
-import { SpotlightHover } from "./components/ui/spotlight-hover";
+import TwinLanding from "./components/TwinLanding";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [activeDetailSlug, setActiveDetailSlug] = useState<string | null>(null);
 
   // Which product landing is active. Falcon = the CyberDX vision platform,
   // Beaver = the CyberDX "AI Beaver" automation product page.
-  type Product = "falcon" | "beaver";
+  type Product = "falcon" | "beaver" | "twin";
   const [activeProduct, setActiveProduct] = useState<Product>(() => {
     if (typeof window === "undefined") return "falcon";
     const q = new URLSearchParams(window.location.search).get("product");
-    if (q === "beaver" || q === "falcon") return q;
-    const stored = sessionStorage.getItem("cyberdx_product");
-    return stored === "beaver" ? "beaver" : "falcon";
+    if (q === "beaver" || q === "falcon" || q === "twin") return q;
+    return "falcon";
   });
 
   // Intro overlay: "boot" plays the full animation then the selector;
@@ -43,110 +28,55 @@ export default function App() {
     const intro = params.get("intro");
     if (intro === "select" || intro === "boot") return intro; // force intro state
     const q = params.get("product");
-    if (q === "beaver" || q === "falcon") return null; // deep link → skip intro
+    if (q === "beaver" || q === "falcon" || q === "twin") return null; // product link → skip intro
     if (sessionStorage.getItem("cyberdx_intro_seen") === "1") return null;
-    const slug = window.location.pathname.replace(/^\/|\/$/g, "");
-    if (DETAIL_DATA[slug]) return null; // deep link → skip intro
     return "boot";
   });
 
   const handleSelectProduct = (product: Product) => {
     sessionStorage.setItem("cyberdx_intro_seen", "1");
-    sessionStorage.setItem("cyberdx_product", product);
+    // AI Twin is the standalone cinematic page; TwinLanding.tsx is kept for reference.
+    if (product === "twin") {
+      window.location.assign("/ai-twin/index.html");
+      return;
+    }
+    const url = new URL(window.location.href);
+    url.pathname = "/";
+    url.search = "";
+    url.searchParams.set("product", product);
+    window.history.pushState(null, "", url);
     setActiveProduct(product);
-    if (product !== "falcon") setActiveDetailSlug(null);
     setIntroMode(null);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const openSelector = () => setIntroMode("select");
 
-  
   useEffect(() => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-
-    const handlePathRouting = () => {
-      const pathname = window.location.pathname;
-      const slug = pathname.replace(/^\/|\/$/g, ""); 
-
-      if (DETAIL_DATA[slug]) {
-        setActiveDetailSlug(slug);
-      } else {
-        setActiveDetailSlug(null);
-        
-        
-        const hash = window.location.hash;
-        if (hash) {
-          setTimeout(() => {
-            const element = document.querySelector(hash);
-            if (element) {
-              element.scrollIntoView({ behavior: "smooth" });
-            }
-          }, 300);
-        } else {
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }
+    const normalizeProductUrl = () => {
+      const url = new URL(window.location.href);
+      const product = url.searchParams.get("product");
+      if (product === "twin") {
+        window.location.replace("/ai-twin/index.html");
+        return;
       }
+      const selectedProduct: Product =
+        product === "beaver" || product === "twin" ? product : "falcon";
+
+      if (url.pathname !== "/") {
+        url.pathname = "/";
+        url.search = "";
+        url.searchParams.set("product", selectedProduct);
+        window.history.replaceState(null, "", url);
+      }
+      setActiveProduct(selectedProduct);
     };
 
-    
-    handlePathRouting();
-
-    
-    window.addEventListener("popstate", handlePathRouting);
-    return () => window.removeEventListener("popstate", handlePathRouting);
+    normalizeProductUrl();
+    window.addEventListener("popstate", normalizeProductUrl);
+    return () => window.removeEventListener("popstate", normalizeProductUrl);
   }, []);
 
-  
-  useEffect(() => {
-    const currentSlug = window.location.pathname.replace(/^\/|\/$/g, "");
-    if (activeDetailSlug) {
-      if (currentSlug !== activeDetailSlug) {
-        window.history.pushState(null, "", `/${activeDetailSlug}/`);
-      }
-    } else {
-      
-      if (currentSlug !== "" && DETAIL_DATA[currentSlug]) {
-        window.history.pushState(null, "", `/${window.location.hash}`);
-      }
-    }
-    
-    
-    if (activeDetailSlug) {
-      
-      window.scrollTo({ top: 0, behavior: "instant" });
-    } else {
-      
-      const hash = window.location.hash;
-      if (hash) {
-        setTimeout(() => {
-          const element = document.querySelector(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 350);
-      } else {
-        window.scrollTo({ top: 0, behavior: "instant" });
-      }
-    }
-  }, [activeDetailSlug]);
-
-  
-  useEffect(() => {
-    const handleOpenDetail = (e: Event) => {
-      const customEvent = e as CustomEvent<string>;
-      if (customEvent.detail && DETAIL_DATA[customEvent.detail]) {
-        setActiveDetailSlug(customEvent.detail);
-      }
-    };
-
-    document.addEventListener("dx:open-detail", handleOpenDetail);
-    return () => document.removeEventListener("dx:open-detail", handleOpenDetail);
-  }, []);
-
-  
   useEffect(() => {
     const handleOpenModal = (e: Event) => {
       e.preventDefault();
@@ -168,7 +98,15 @@ export default function App() {
   }, [introMode]);
 
   return (
-    <div className="relative w-full min-h-screen bg-black overflow-hidden">
+    <div
+      className={`relative w-full min-h-screen bg-black ${
+        activeProduct === "beaver"
+          ? "beaver-app-root"
+          : activeProduct === "twin"
+          ? ""
+          : "overflow-hidden"
+      }`}
+    >
 
       {introMode && (
         <IntroScreen
@@ -183,73 +121,25 @@ export default function App() {
         <button
           onClick={openSelector}
           aria-label="Switch AI product"
-          className="fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 rounded-full border border-[#ffb86b]/35 bg-[#f97316] px-5 py-3 text-[10px] font-mono uppercase tracking-[0.25em] text-white hover:bg-[#fb923c] transition-colors shadow-[0_12px_28px_rgba(249,115,22,0.35)] cursor-pointer"
+          className={`fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 rounded-full px-5 py-3 text-[10px] font-mono uppercase tracking-[0.25em] transition-colors cursor-pointer ${
+            activeProduct === "beaver"
+              ? "bg-white/10 text-white hover:bg-white/16 backdrop-blur-md"
+              : activeProduct === "twin"
+              ? "border border-[#8b5cf6]/40 bg-[#8b5cf6] text-white hover:bg-[#a78bfa] shadow-[0_12px_28px_rgba(139,92,246,0.4)]"
+              : "border border-[#ffb86b]/35 bg-[#f97316] text-white hover:bg-[#fb923c] shadow-[0_12px_28px_rgba(249,115,22,0.35)]"
+          }`}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           Switch AI
         </button>
       )}
 
-      {activeProduct === "beaver" ? (
+      {activeProduct === "twin" ? (
+        <TwinLanding onSwitch={openSelector} onContact={() => setModalOpen(true)} />
+      ) : activeProduct === "beaver" ? (
         <BeaverLanding onSwitch={openSelector} onContact={() => setModalOpen(true)} />
       ) : (
-        <div className="falcon-root">
-          <SpotlightHover size={600} className="z-50 opacity-60" />
-          {activeDetailSlug ? (
-        <>
-          
-          <ModernNav onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
-          
-          <DetailPage
-            slug={activeDetailSlug}
-            onBack={() => {
-              setActiveDetailSlug(null);
-            }}
-            onContact={() => setModalOpen(true)}
-          />
-
-          <ModernFooter onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
-        </>
-      ) : (
-        <>
-          
-          <ModernNav onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
-
-          
-          <CxHero onContact={() => setModalOpen(true)} />
-
-          
-          <AboutSection />
-
-          
-          <CxFeatures />
-
-          
-          <CxPlatform />
-
-          
-          <WorkflowSection />
-
-          
-          <SolutionSection onContact={() => setModalOpen(true)} />
-
-          
-          <CxIndustries />
-
-          
-          <StatsSection />
-
-          
-          <BlogSection />
-
-          
-          <FinalCTA />
-
-          
-          <ModernFooter onContact={() => setModalOpen(true)} onGoHome={() => setActiveDetailSlug(null)} />
-        </>
-          )}
-        </div>
+        <FalconLanding onContact={() => setModalOpen(true)} />
       )}
 
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />

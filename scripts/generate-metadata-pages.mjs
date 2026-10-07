@@ -1,11 +1,10 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = dirname(__dirname);
 const distDir = join(rootDir, "dist");
-const detailDataPath = join(rootDir, "src", "utils", "detailData.ts");
 
 const SITE_URL = normalizeSiteUrl(
   process.env.SITE_URL ||
@@ -27,64 +26,10 @@ const HOME_META = {
 };
 
 const sourceHtml = readFileSync(join(distDir, "index.html"), "utf8");
-const detailSource = readFileSync(detailDataPath, "utf8");
-const pageMeta = parseDetailMetadata(detailSource);
 
 writeFileSync(join(distDir, "index.html"), withMetadata(sourceHtml, HOME_META));
 
-for (const meta of pageMeta) {
-  const pageDir = join(distDir, meta.slug);
-  mkdirSync(pageDir, { recursive: true });
-  writeFileSync(join(pageDir, "index.html"), withMetadata(sourceHtml, meta));
-}
-
-console.log(`Generated metadata for ${pageMeta.length + 1} pages using ${SITE_URL}`);
-
-function parseDetailMetadata(source) {
-  const entries = [];
-  const entryPattern = /^\s{2}"([^"]+)":\s\{/gm;
-  const matches = [...source.matchAll(entryPattern)];
-
-  for (let index = 0; index < matches.length; index += 1) {
-    const match = matches[index];
-    const slug = match[1];
-    const blockStart = match.index ?? 0;
-    const blockEnd = matches[index + 1]?.index ?? source.indexOf("\n};", blockStart);
-    const block = source.slice(blockStart, blockEnd);
-    const title = getStringField(block, "title");
-    const description = getStringField(block, "description");
-    const image = getStringField(block, "image") || DEFAULT_IMAGE;
-
-    if (!title || !description) continue;
-
-    entries.push({
-      slug,
-      title: `${title} | CyberDX`,
-      description: cleanDescription(description),
-      image,
-      type: "article",
-    });
-  }
-
-  return entries;
-}
-
-function getStringField(block, fieldName) {
-  const match = block.match(new RegExp(`${fieldName}:\\s*"((?:\\\\.|[^"\\\\])*)"`));
-  return match ? unescapeString(match[1]) : "";
-}
-
-function unescapeString(value) {
-  return value
-    .replace(/\\"/g, '"')
-    .replace(/\\n/g, " ")
-    .replace(/\\t/g, " ")
-    .replace(/\\'/g, "'");
-}
-
-function cleanDescription(value) {
-  return value.replace(/\s+/g, " ").trim().slice(0, 220);
-}
+console.log(`Generated metadata for the product landing page using ${SITE_URL}`);
 
 function withMetadata(html, meta) {
   const url = meta.slug ? `${SITE_URL}/${meta.slug}/` : `${SITE_URL}/`;

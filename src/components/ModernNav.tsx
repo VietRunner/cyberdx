@@ -164,11 +164,10 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                       if (hasDropdown) {
                         e.preventDefault();
                         setActiveDropdown(activeDropdown === link.label ? null : link.label);
-                      } else if (link.href && link.href.startsWith("#")) {
-                        e.preventDefault();
-                        window.location.hash = link.href;
-                        onGoHome?.();
-                      }
+                        } else if (link.href && link.href.startsWith("#")) {
+                          e.preventDefault();
+                          window.location.hash = link.href;
+                        }
                     }}
                     className={`px-4 py-2 text-[12px] font-medium uppercase tracking-[0.22em] transition-all duration-300 flex items-center gap-1.5 ${
                       isActive
@@ -288,7 +287,6 @@ export default function ModernNav({ onContact, onGoHome }: ModernNavProps) {
                         if (link.href && link.href.startsWith("#")) {
                           e.preventDefault();
                           window.location.hash = link.href;
-                          onGoHome?.();
                         }
                         closeMobile();
                       }

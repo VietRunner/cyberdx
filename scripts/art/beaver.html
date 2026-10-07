@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 800px; height: 800px; overflow: hidden; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg id="s" width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff7a1a" stop-opacity="0.5" />
+      <stop offset="0.5" stop-color="#f97316" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#f97316" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="orb" cx="38%" cy="32%" r="75%">
+      <stop offset="0" stop-color="#fff1de" />
+      <stop offset="0.16" stop-color="#ffc07d" />
+      <stop offset="0.45" stop-color="#f97316" />
+      <stop offset="0.8" stop-color="#8f3305" />
+      <stop offset="1" stop-color="#3a1403" />
+    </radialGradient>
+    <radialGradient id="spec" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a2514" />
+      <stop offset="0.5" stop-color="#1a0f08" />
+      <stop offset="1" stop-color="#0d0805" />
+    </linearGradient>
+    <linearGradient id="tileRim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd2a1" stop-opacity="0.85" />
+      <stop offset="0.45" stop-color="#ffb066" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#ff7a1a" stop-opacity="0.6" />
+    </linearGradient>
+    <linearGradient id="tileSheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.2" />
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <filter id="blur26" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26" /></filter>
+    <filter id="blur5" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" /></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <clipPath id="orbClip"><circle cx="400" cy="400" r="98" /></clipPath>
+  </defs>
+
+  <circle cx="400" cy="400" r="396" fill="url(#halo)" />
+
+  <!-- faint dot lattice -->
+  <g id="dots" fill="#ffb066" opacity="0.16"></g>
+
+  <!-- connection lines (drawn by script) -->
+  <g id="links"></g>
+
+  <!-- hub rings -->
+  <circle cx="400" cy="400" r="168" fill="none" stroke="#f97316" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="2 9" />
+  <circle cx="400" cy="400" r="138" fill="none" stroke="#ffb066" stroke-opacity="0.3" stroke-width="1.5" />
+  <circle cx="400" cy="400" r="138" fill="none" stroke="#ffb066" stroke-opacity="0.9" stroke-width="3" stroke-dasharray="60 806" stroke-dashoffset="-120" stroke-linecap="round" filter="url(#glow)" />
+  <circle cx="400" cy="400" r="138" fill="none" stroke="#ffb066" stroke-opacity="0.9" stroke-width="3" stroke-dasharray="40 826" stroke-dashoffset="-560" stroke-linecap="round" filter="url(#glow)" />
+
+  <!-- hub orb -->
+  <circle cx="400" cy="400" r="120" fill="#f97316" opacity="0.65" filter="url(#blur26)" />
+  <circle cx="400" cy="400" r="98" fill="url(#orb)" />
+  <circle cx="400" cy="400" r="98" fill="none" stroke="#ffe3c2" stroke-opacity="0.75" stroke-width="2" />
+  <ellipse cx="366" cy="352" rx="46" ry="24" transform="rotate(-35 366 352)" fill="url(#spec)" clip-path="url(#orbClip)" />
+  <path d="M 470 470 A 98 98 0 0 1 332 468" fill="none" stroke="#ffd2a1" stroke-opacity="0.45" stroke-width="10" stroke-linecap="round" clip-path="url(#orbClip)" filter="url(#blur5)" />
+  <!-- AI sparkle -->
+  <g filter="url(#glow)">
+    <path d="M400 356 C 403 384 416 397 444 400 C 416 403 403 416 400 444 C 397 416 384 403 356 400 C 384 397 397 384 400 356 Z" fill="#fff" />
+    <path d="M440 358 C 441 366 445 370 453 371 C 445 372 441 376 440 384 C 439 376 435 372 427 371 C 435 370 439 366 440 358 Z" fill="#fff" opacity="0.9" />
+  </g>
+
+  <!-- tiles (drawn by script) -->
+  <g id="tiles"></g>
+</svg>
+
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (n, a, parent) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; };
+  const $ = (id) => document.getElementById(id);
+
+  // dot lattice
+  for (let x = 40; x <= 760; x += 40) for (let y = 40; y <= 760; y += 40) {
+    const d = Math.hypot(x - 400, y - 400);
+    if (d < 380) el("circle", { cx: x, cy: y, r: 1.6, opacity: Math.max(0.1, 1 - d / 380) }, $("dots"));
+  }
+
+  const TILE = 156, R = 36;
+  const tiles = [
+    { cx: 150, cy: 150, icon: "bolt" },
+    { cx: 650, cy: 150, icon: "gear" },
+    { cx: 150, cy: 650, icon: "chat" },
+    { cx: 650, cy: 650, icon: "db" },
+  ];
+
+  // links: cubic curve from the tile's inner edge into the orb
+  tiles.forEach((t) => {
+    const dx = t.cx < 400 ? 1 : -1, dy = t.cy < 400 ? 1 : -1;
+    const sx = t.cx + dx * (TILE / 2 - 4), sy = t.cy;
+    const ex = 400 - dx * 71, ey = 400 - dy * 71;
+    const c1 = [sx + dx * 120, sy], c2 = [ex - dx * 8, ey - dy * 120];
+    const d = `M ${sx} ${sy} C ${c1[0]} ${c1[1]} ${c2[0]} ${c2[1]} ${ex} ${ey}`;
+    el("path", { d, fill: "none", stroke: "#f97316", "stroke-width": 10, "stroke-opacity": 0.4, filter: "url(#blur5)" }, $("links"));
+    el("path", { d, fill: "none", stroke: "#ff9a3c", "stroke-width": 3.2, "stroke-linecap": "round" }, $("links"));
+    el("path", { d, fill: "none", stroke: "#fff", "stroke-opacity": 0.5, "stroke-width": 1, "stroke-dasharray": "2 10" }, $("links"));
+    const bz = (u) => {
+      const m = 1 - u;
+      return [m ** 3 * sx + 3 * m * m * u * c1[0] + 3 * m * u * u * c2[0] + u ** 3 * ex,
+              m ** 3 * sy + 3 * m * m * u * c1[1] + 3 * m * u * u * c2[1] + u ** 3 * ey];
+    };
+    [0.3, 0.62].forEach((u, k) => {
+      const [x, y] = bz(u);
+      el("circle", { cx: x, cy: y, r: k ? 6 : 8, fill: "#fff", filter: "url(#glow)" }, $("links"));
+      el("circle", { cx: x, cy: y, r: k ? 12 : 15, fill: "none", stroke: "#ffb066", "stroke-opacity": 0.5, "stroke-width": 1.5 }, $("links"));
+    });
+    // junction dots
+    el("circle", { cx: sx, cy: sy, r: 5, fill: "#ffb066", filter: "url(#glow)" }, $("links"));
+  });
+
+  // tiles
+  const icons = {
+    bolt: (g) => el("path", { d: "M8 -34 L-20 6 H-2 L-8 34 L20 -6 H2 Z", fill: "none" }, g),
+    chat: (g) => {
+      el("path", { d: "M-30 -24 H30 a8 8 0 0 1 8 8 V12 a8 8 0 0 1 -8 8 H-6 L-24 34 V20 H-30 a8 8 0 0 1 -8 -8 V-16 a8 8 0 0 1 8 -8 Z", fill: "none" }, g);
+      [-16, 0, 16].forEach((x) => el("circle", { cx: x, cy: -2, r: 3.4, fill: "#ffe3c2", stroke: "none" }, g));
+    },
+    db: (g) => {
+      el("ellipse", { cx: 0, cy: -24, rx: 30, ry: 11, fill: "none" }, g);
+      el("path", { d: "M-30 -24 V24 a30 11 0 0 0 60 0 V-24", fill: "none" }, g);
+      el("path", { d: "M-30 0 a30 11 0 0 0 60 0", fill: "none" }, g);
+    },
+    gear: (g) => {
+      const pts = [];
+      for (let i = 0; i < 16; i++) {
+        const a = (i / 16) * Math.PI * 2, r = i % 2 ? 26 : 36, w = 0.11;
+        pts.push([Math.cos(a - w) * r, Math.sin(a - w) * r], [Math.cos(a + w) * r, Math.sin(a + w) * r]);
+      }
+      el("path", { d: "M" + pts.map((p) => p.map((v) => v.toFixed(1)).join(",")).join(" L") + " Z", fill: "none" }, g);
+      el("circle", { cx: 0, cy: 0, r: 11, fill: "none" }, g);
+    },
+  };
+
+  tiles.forEach((t) => {
+    const x = t.cx - TILE / 2, y = t.cy - TILE / 2;
+    el("rect", { x: x + 6, y: y + 18, width: TILE, height: TILE, rx: R, fill: "#000", opacity: 0.6, filter: "url(#blur26)" }, $("tiles"));
+    el("rect", { x: x + 4, y: y + 8, width: TILE - 8, height: TILE - 8, rx: R, fill: "#f97316", opacity: 0.32, filter: "url(#blur26)" }, $("tiles"));
+    el("rect", { x, y, width: TILE, height: TILE, rx: R, fill: "url(#tile)" }, $("tiles"));
+    el("rect", { x, y, width: TILE, height: TILE, rx: R, fill: "url(#tileSheen)" }, $("tiles"));
+    el("rect", { x: x + 1, y: y + 1, width: TILE - 2, height: TILE - 2, rx: R - 1, fill: "none", stroke: "url(#tileRim)", "stroke-width": 2.5 }, $("tiles"));
+    el("rect", { x: x + 12, y: y + 12, width: TILE - 24, height: TILE - 24, rx: R - 10, fill: "none", stroke: "#fff", "stroke-opacity": 0.06, "stroke-width": 1.5 }, $("tiles"));
+    const g = el("g", { transform: `translate(${t.cx} ${t.cy})`, stroke: "#ffd2a1", "stroke-width": 5, "stroke-linecap": "round", "stroke-linejoin": "round", filter: "url(#glow)" }, $("tiles"));
+    icons[t.icon](g);
+    // status led
+    el("circle", { cx: x + TILE - 24, cy: y + 24, r: 5, fill: "#4ade80", filter: "url(#glow)" }, $("tiles"));
+  });
+</script>
+</body>
+</html>

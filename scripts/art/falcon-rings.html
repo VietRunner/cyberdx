@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 800px; height: 800px; overflow: hidden; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<svg id="s" width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arcA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb066" stop-opacity="0" />
+      <stop offset="0.5" stop-color="#ff8a2a" />
+      <stop offset="1" stop-color="#fff0dc" />
+    </linearGradient>
+    <linearGradient id="arcB" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#f97316" stop-opacity="0" />
+      <stop offset="0.6" stop-color="#f97316" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#ffb066" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <g id="g"></g>
+</svg>
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  const C = 400, rad = (d) => (d * Math.PI) / 180;
+  const pt = (r, deg) => [C + r * Math.cos(rad(deg)), C + r * Math.sin(rad(deg))];
+  const arc = (r, a0, a1) => {
+    const [x0, y0] = pt(r, a0), [x1, y1] = pt(r, a1);
+    return `M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`;
+  };
+  const g = document.getElementById("g");
+
+  // outer dashed ring
+  g.appendChild(el("circle", { cx: C, cy: C, r: 384, fill: "none", stroke: "#f97316", "stroke-opacity": 0.45, "stroke-width": 2, "stroke-dasharray": "3 11" }));
+  // tick ring
+  for (let i = 0; i < 120; i++) {
+    const major = i % 10 === 0, mid = i % 5 === 0;
+    const [x1, y1] = pt(352, i * 3), [x2, y2] = pt(major ? 334 : mid ? 340 : 344, i * 3);
+    g.appendChild(el("line", { x1, y1, x2, y2, stroke: major ? "#ffb066" : "#f97316", "stroke-opacity": major ? 0.95 : mid ? 0.6 : 0.34, "stroke-width": major ? 3 : 1.6, "stroke-linecap": "round" }));
+  }
+  g.appendChild(el("circle", { cx: C, cy: C, r: 322, fill: "none", stroke: "#f97316", "stroke-opacity": 0.2, "stroke-width": 1.5 }));
+
+  // glowing arc segments
+  const arcs = g.appendChild(el("g", { filter: "url(#glow)", fill: "none", "stroke-linecap": "round" }));
+  arcs.appendChild(el("path", { d: arc(302, 205, 300), stroke: "url(#arcA)", "stroke-width": 8 }));
+  arcs.appendChild(el("path", { d: arc(302, 25, 120), stroke: "url(#arcB)", "stroke-width": 8 }));
+  arcs.appendChild(el("path", { d: arc(302, 312, 340), stroke: "#ffb066", "stroke-opacity": 0.8, "stroke-width": 4 }));
+  arcs.appendChild(el("path", { d: arc(302, 132, 160), stroke: "#ffb066", "stroke-opacity": 0.8, "stroke-width": 4 }));
+
+  // compass markers (triangles pointing inward)
+  [0, 90, 180, 270].forEach((d) => {
+    const [x, y] = pt(364, d);
+    const t = el("path", { d: "M0 -12 L11 8 L-11 8 Z", fill: "#ffb066", filter: "url(#glow)", transform: `translate(${x} ${y}) rotate(${d + 90})` });
+    g.appendChild(t);
+  });
+
+  // small orbiting nodes
+  [[56, 302], [236, 302], [300, 302]].forEach(([d, r]) => {
+    const [x, y] = pt(r, d);
+    g.appendChild(el("circle", { cx: x, cy: y, r: 9, fill: "#fff", filter: "url(#glow)" }));
+    g.appendChild(el("circle", { cx: x, cy: y, r: 16, fill: "none", stroke: "#ffb066", "stroke-opacity": 0.6, "stroke-width": 1.5 }));
+  });
+</script>
+</body>
+</html>
