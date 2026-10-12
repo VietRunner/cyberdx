@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CyberDX — Pitch Decks</title>
+<style>
+  :root { --void:#050507; --cream:#F5F5F3; --orange:#F97316; --blue:#3fb6ff; --line:rgba(255,255,255,0.1); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:#050507; color:var(--cream); font-family:'Helvetica Neue', Inter, system-ui, Arial, sans-serif; min-height: 100vh; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 80px 32px; }
+  .brand { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color: rgba(245,245,243,0.6); margin-bottom: 24px; }
+  .brand strong { color: var(--cream); }
+  h1 { font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.045em; margin: 0; font-weight: 500; }
+  h1 .dim { color: rgba(245,245,243,0.5); }
+  .sub { font-size: 20px; line-height: 1.6; color: rgba(245,245,243,0.7); max-width: 720px; margin-top: 24px; }
+  .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  .card { display:block; padding: 32px; border-radius: 18px; border:1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--cream); text-decoration:none; transition: transform .2s, border-color .2s; }
+  .card:hover { transform: translateY(-4px); border-color: var(--orange); }
+  .card .tag { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color: var(--orange); margin-bottom: 20px; }
+  .card h2 { margin:0; font-size: 36px; letter-spacing: -0.025em; font-weight: 600; }
+  .card p { margin: 16px 0 24px; color: rgba(245,245,243,0.7); font-size: 15px; line-height: 1.55; }
+  .card .cta { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color: var(--orange); }
+  .card.falcon .tag, .card.falcon .cta { color: var(--blue); }
+  .card.falcon:hover { border-color: var(--blue); }
+  .card.beaver .tag, .card.beaver .cta { color: #f0b429; }
+  .card.beaver:hover { border-color: #f0b429; }
+  .foot { margin-top: 80px; font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.2em; color: rgba(245,245,243,0.5); text-transform:uppercase; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand"><strong>CyberDX</strong> · Pitch Decks · 2026</div>
+    <h1>Three products.<br/><span class="dim">Three pitch decks.</span></h1>
+    <p class="sub">Pick a deck below. Use ← / → or click to navigate slides. Hit <strong>Export to PDF</strong> on any deck to save it as a presentable PDF.</p>
+
+    <div class="grid">
+      <a href="./falcon.html" class="card falcon">
+        <div class="tag">Falcon · AI Vision</div>
+        <h2>Falcon</h2>
+        <p>Turn every camera into a real-time sensor. PPE, intrusion, smoke/fire, and more — across any site, any feed.</p>
+        <div class="cta">Open deck →</div>
+      </a>
+      <a href="./beaver.html" class="card beaver">
+        <div class="tag">AI Beaver · Automation</div>
+        <h2>AI Beaver</h2>
+        <p>Automate the work that lives between your tools. Workflows, agents, insights — one platform, 40+ connectors.</p>
+        <div class="cta">Open deck →</div>
+      </a>
+      <a href="./ai-twin.html" class="card twin">
+        <div class="tag">AI Twin · Manufacturing</div>
+        <h2>AI Twin</h2>
+        <p>A nervous system for manufacturing operations. From work request to a live digital twin of the whole plant.</p>
+        <div class="cta">Open deck →</div>
+      </a>
+    </div>
+
+    <div class="foot">cyberdx.tech · hello@cyberdx.tech</div>
+  </div>
+</body>
+</html>

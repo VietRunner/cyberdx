@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CyberDX AI Beaver — Workflow Automation · Pitch Deck</title>
+<style>
+  :root {
+    --cream: #f6f0e4;
+    --cream-2: #efe6d2;
+    --ink: #1b1a16;
+    --ink-2: #2a2824;
+    --mustard: #d4a53a;
+    --amber: #f0b429;
+    --rust: #b35310;
+    --line: rgba(27,26,22,0.12);
+    --muted: rgba(27,26,22,0.6);
+    --slide-w: 1600px;
+    --slide-h: 900px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #ded3bd;
+    color: var(--ink);
+    font-family: 'Helvetica Neue', Inter, system-ui, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .deck { display: flex; flex-direction: column; align-items: center; padding: 40px 0; gap: 32px; }
+  .slide {
+    position: relative;
+    width: var(--slide-w);
+    height: var(--slide-h);
+    background: var(--cream);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+  }
+  .slide.dark { background: var(--ink); color: var(--cream); }
+  .slide::after {
+    content:""; position:absolute; inset:0;
+    background-image:
+      radial-gradient(1200px 600px at 110% -10%, rgba(240,180,41,0.22), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(179,83,16,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .slide.dark::after {
+    background-image:
+      radial-gradient(1200px 600px at 110% -10%, rgba(240,180,41,0.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(179,83,16,0.14), transparent 60%);
+  }
+  .pad { position: absolute; inset: 72px 80px; display: flex; flex-direction: column; z-index:2; }
+
+  .brand-row { display:flex; align-items:center; justify-content:space-between; }
+  .brand { display:flex; align-items:center; gap:12px; font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+  .slide.dark .brand { color: rgba(246,240,228,0.65); }
+  .brand .dot { width:10px; height:10px; border-radius:50%; background: var(--amber); }
+  .brand strong { color: var(--ink); font-weight:700; }
+  .slide.dark .brand strong { color: var(--cream); }
+  .page-num { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.2em; color: var(--muted); }
+  .slide.dark .page-num { color: rgba(246,240,228,0.65); }
+
+  h1.title { font-size: 128px; line-height: 0.94; letter-spacing: -0.05em; margin: 48px 0 0; font-weight: 600; }
+  h1.title em { font-style: normal; color: var(--rust); }
+  h2.heading { font-size: 80px; line-height: 1.0; letter-spacing: -0.04em; margin: 0 0 24px; font-weight: 600; }
+  h3.sub { font-size: 22px; line-height: 1.5; color: var(--muted); margin: 0 0 28px; max-width: 900px; font-weight: 400; }
+  .slide.dark h3.sub { color: rgba(246,240,228,0.75); }
+  p.body { font-size: 20px; line-height: 1.6; color: var(--ink-2); max-width: 820px; margin: 0 0 20px; }
+  .slide.dark p.body { color: rgba(246,240,228,0.85); }
+  .kicker { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.3em; color: var(--rust); text-transform: uppercase; margin: 0 0 20px; }
+  .slide.dark .kicker { color: var(--amber); }
+
+  .cols-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+  .cols-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; flex: 1; }
+  .cols-4 { display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; }
+
+  .card {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    display:flex; flex-direction:column; gap: 10px;
+  }
+  .slide.dark .card {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+  }
+  .card .ic {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--amber);
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+  .card h4 { margin: 0; font-size: 22px; letter-spacing:-0.02em; font-weight: 600; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+  .slide.dark .card p { color: rgba(246,240,228,0.7); }
+
+  .stat .num { font-size: 92px; letter-spacing: -0.045em; font-weight: 700; line-height: 1; color: var(--rust); }
+  .slide.dark .stat .num { color: var(--amber); }
+  .stat .lbl { font-size: 14px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 10px; max-width: 260px; }
+  .slide.dark .stat .lbl { color: rgba(246,240,228,0.7); }
+
+  .pill { display:inline-flex; align-items:center; gap:10px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--ink); background: rgba(240,180,41,0.2); }
+  .pill.rust { background: var(--rust); color: var(--cream); border-color: transparent; }
+
+  ul.ticks { list-style: none; padding: 0; margin: 0; }
+  ul.ticks li { position:relative; padding-left: 36px; margin-bottom: 14px; font-size: 20px; color: var(--ink-2); }
+  ul.ticks li::before { content: "→"; position:absolute; left:0; top: 0; color: var(--rust); font-weight: 700; font-size: 22px; }
+  .slide.dark ul.ticks li { color: rgba(246,240,228,0.85); }
+  .slide.dark ul.ticks li::before { color: var(--amber); }
+
+  .flow { display:flex; gap: 0; margin-top: 24px; border: 1px solid var(--line); border-radius: 14px; overflow:hidden; background: rgba(255,255,255,0.4); }
+  .flow .step { flex: 1; padding: 24px; border-right: 1px solid var(--line); }
+  .flow .step:last-child { border-right: 0; }
+  .flow .step .n { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:12px; color: var(--rust); letter-spacing: 0.2em; }
+  .flow .step h5 { margin: 10px 0 6px; font-size: 18px; font-weight: 600; }
+  .flow .step p { margin:0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  .cover-badge { display:inline-flex; align-items:center; gap: 12px; padding: 10px 18px; border-radius: 999px; border:1px solid var(--line); background: rgba(255,255,255,0.5); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.3em; color: var(--ink-2); text-transform: uppercase; }
+
+  .footer-note { margin-top: auto; display:flex; justify-content:space-between; align-items:center; color: var(--muted); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; }
+  .slide.dark .footer-note { color: rgba(246,240,228,0.6); }
+
+  .controls { position: fixed; top: 16px; right: 16px; display:flex; gap:10px; z-index: 50; }
+  .btn { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--cream); color: var(--ink); cursor: pointer; }
+  .btn:hover { border-color: var(--rust); color: var(--rust); }
+  .btn.primary { background: var(--rust); color: var(--cream); border-color: transparent; }
+  .btn.primary:hover { background: #c75a10; }
+
+  .matrix { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .matrix .m-card { padding: 24px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,0.5); }
+  .matrix .m-card h5 { margin: 0 0 8px; font-size: 20px; font-weight: 600; }
+  .matrix .m-card p { margin:0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .matrix .m-card.good { background: var(--ink); color: var(--cream); border-color: transparent; }
+  .matrix .m-card.good h5 { color: var(--amber); }
+  .matrix .m-card.good p { color: rgba(246,240,228,0.75); }
+
+  .contact-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+  .contact-grid .ct { padding: 24px; border-radius: 12px; border:1px solid var(--line); background: rgba(255,255,255,0.5); }
+  .contact-grid .ct .k { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; color: var(--muted); letter-spacing:0.2em; text-transform: uppercase; margin-bottom: 10px; }
+  .contact-grid .ct .v { font-size: 22px; font-weight: 600; }
+
+  .connectors { display:grid; grid-template-columns: repeat(8, 1fr); gap: 12px; margin-top: 32px; }
+  .connectors .conn { padding: 12px 8px; border: 1px solid var(--line); border-radius: 10px; text-align:center; background: rgba(255,255,255,0.5); font-size: 13px; font-weight: 500; }
+
+  @media print {
+    @page { size: 1600px 900px; margin: 0; }
+    html, body { background: #000; }
+    .deck { padding: 0; gap: 0; }
+    .slide { page-break-after: always; break-after: page; border-radius: 0; box-shadow: none; width: 1600px; height: 900px; }
+    .slide:last-child { page-break-after: auto; }
+    .controls { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn" onclick="document.documentElement.scrollTop=0">Top</button>
+  <button class="btn primary" onclick="window.print()">Export to PDF</button>
+</div>
+
+<div class="deck">
+
+  <!-- 1 COVER -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>CyberDX / <strong>AI Beaver</strong></span></div>
+        <div class="page-num">01 / 13</div>
+      </div>
+      <div style="margin-top: 60px;"><span class="cover-badge">Workflow Automation · Pitch Deck · 2026</span></div>
+      <h1 class="title">Automate<br/>your <em>workflows.</em></h1>
+      <h3 class="sub" style="margin-top: 32px;">AI Beaver turns the repetitive work that lives between your tools into connected, intelligent workflows — so every team moves faster with less handoff drag.</h3>
+      <div class="footer-note">
+        <div>cyberdx.tech/beaver</div>
+        <div>Prepared for prospective partners and investors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 PROBLEM -->
+  <section class="slide dark">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>The Problem</span></div><div class="page-num">02 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">01 — The problem</div>
+      <h2 class="heading">Teams don't lose time<br/>doing work.<br/>They lose it <em style="color:var(--amber); font-style:normal;">between tools.</em></h2>
+      <p class="body">The average knowledge worker switches apps 1,200+ times per day. Copy-paste, status updates, approvals, syncs, exports. The real cost isn't the task — it's the drag between tasks.</p>
+      <div class="cols-3" style="margin-top: 40px;">
+        <div class="card"><div class="ic">⏱</div><h4>Handoff delay</h4><p>Requests wait days to reach the right person — context gets lost in Slack and inboxes.</p></div>
+        <div class="card"><div class="ic">🧱</div><h4>Tool silos</h4><p>CRM, finance, support, HR, docs — your work spans 15+ systems that don't talk to each other.</p></div>
+        <div class="card"><div class="ic">🤷</div><h4>No visibility</h4><p>Nobody can answer "where is this stuck?" without three Slack threads and a meeting.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 3 SOLUTION -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Our Solution</span></div><div class="page-num">03 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">02 — Solution</div>
+      <h2 class="heading">One platform.<br/>Four capabilities.</h2>
+      <p class="body">AI Beaver connects your tools, understands your processes, runs the busywork autonomously, and gives leaders real-time insight into what's actually happening.</p>
+      <div class="cols-4" style="margin-top: 32px;">
+        <div class="card"><div class="ic">🔗</div><h4>Workflows</h4><p>Build cross-tool automations in minutes with a visual canvas — or let AI build them from a prompt.</p></div>
+        <div class="card"><div class="ic">🤖</div><h4>Agents</h4><p>AI agents handle tickets, approvals, outreach, and data entry — with human-in-the-loop controls.</p></div>
+        <div class="card"><div class="ic">🔌</div><h4>Connectors</h4><p>40+ pre-built integrations across CRM, finance, support, HR, docs, chat, and dev tools.</p></div>
+        <div class="card"><div class="ic">📈</div><h4>Insights</h4><p>Real-time visibility into activation, bottlenecks, exceptions, and outcomes across every workflow.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 4 HOW IT WORKS -->
+  <section class="slide dark">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>How It Works</span></div><div class="page-num">04 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">03 — How it works</div>
+      <h2 class="heading">From trigger to outcome,<br/>end to end.</h2>
+      <div class="flow">
+        <div class="step"><div class="n">01</div><h5>Connect</h5><p>Plug in your tools in a few clicks. OAuth, API keys, or on-prem agents.</p></div>
+        <div class="step"><div class="n">02</div><h5>Describe</h5><p>Describe the workflow in plain language. AI drafts it. You edit the canvas.</p></div>
+        <div class="step"><div class="n">03</div><h5>Approve</h5><p>Set guardrails: who approves what, when AI acts alone, when a human reviews.</p></div>
+        <div class="step"><div class="n">04</div><h5>Run</h5><p>Workflows run 24/7. Agents handle long-tail cases that rules can't anticipate.</p></div>
+        <div class="step"><div class="n">05</div><h5>Measure</h5><p>Live dashboards show speed, cost saved, SLA, and exceptions worth your attention.</p></div>
+      </div>
+      <p class="body" style="margin-top: 40px;">Beaver is designed for teams, not developers. Non-technical operators can ship production workflows — IT and security get full observability and policy control.</p>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 5 CONNECTORS / USE CASES -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Integrations</span></div><div class="page-num">05 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">04 — The ecosystem</div>
+      <h2 class="heading">40+ connectors.<br/>Any workflow.</h2>
+      <div class="connectors">
+        <div class="conn">Salesforce</div><div class="conn">HubSpot</div><div class="conn">Slack</div><div class="conn">Teams</div>
+        <div class="conn">Gmail</div><div class="conn">Outlook</div><div class="conn">Notion</div><div class="conn">Confluence</div>
+        <div class="conn">Jira</div><div class="conn">Linear</div><div class="conn">Asana</div><div class="conn">ClickUp</div>
+        <div class="conn">Zendesk</div><div class="conn">Intercom</div><div class="conn">Freshdesk</div><div class="conn">GitHub</div>
+        <div class="conn">GitLab</div><div class="conn">Google Drive</div><div class="conn">SharePoint</div><div class="conn">Dropbox</div>
+        <div class="conn">QuickBooks</div><div class="conn">Xero</div><div class="conn">Stripe</div><div class="conn">NetSuite</div>
+        <div class="conn">SAP</div><div class="conn">Oracle ERP</div><div class="conn">Workday</div><div class="conn">BambooHR</div>
+        <div class="conn">Twilio</div><div class="conn">OpenAI</div><div class="conn">Anthropic</div><div class="conn">+ 10 more</div>
+      </div>
+      <p class="body" style="margin-top: 32px;">Need something custom? Beaver's SDK lets your team wrap any internal API in a connector within an afternoon.</p>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 6 USE CASES -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Use Cases</span></div><div class="page-num">06 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">05 — Where it works</div>
+      <h2 class="heading">The work<br/>that holds you back.</h2>
+      <div class="cols-3" style="margin-top: 20px;">
+        <div class="card"><h4>Sales Ops</h4><p>Lead routing, CRM hygiene, meeting prep briefs, pipeline nudges, quote-to-cash.</p></div>
+        <div class="card"><h4>Customer Support</h4><p>Ticket triage, draft replies, escalation routing, SLA breach prevention.</p></div>
+        <div class="card"><h4>Finance Ops</h4><p>Invoice processing, PO matching, expense coding, month-end close reminders.</p></div>
+        <div class="card"><h4>People Ops</h4><p>Onboarding sequences, access provisioning, policy acknowledgments, offboarding.</p></div>
+        <div class="card"><h4>Marketing</h4><p>Campaign QA, UTM audits, lead enrichment, content distribution, reporting rollups.</p></div>
+        <div class="card"><h4>Engineering</h4><p>Incident triage, release notes, dependency audits, standup summaries, docs sync.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 7 DIFFERENTIATION -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Why Beaver</span></div><div class="page-num">07 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">06 — Why us</div>
+      <h2 class="heading">Not Zapier.<br/>Not a chatbot.</h2>
+      <div class="matrix" style="margin-top: 24px;">
+        <div class="m-card">
+          <h5>Legacy automation (Zapier, Make)</h5>
+          <p>Rules-only. Breaks on edge cases. No reasoning. One trigger → one action.</p>
+        </div>
+        <div class="m-card">
+          <h5>Generic AI chat tools</h5>
+          <p>Can draft text, can't take real action in your systems. No governance, no audit, no SLA.</p>
+        </div>
+        <div class="m-card good">
+          <h5>AI Beaver — rules + reasoning</h5>
+          <p>Deterministic steps where you need reliability. AI agents where you need judgment. One platform.</p>
+        </div>
+        <div class="m-card good">
+          <h5>Enterprise-grade from day one</h5>
+          <p>SSO, SCIM, audit logs, data residency, RBAC, policy guardrails, deploy on your cloud.</p>
+        </div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 8 MARKET -->
+  <section class="slide dark">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Market</span></div><div class="page-num">08 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">07 — Market</div>
+      <h2 class="heading">The automation market<br/>is being rewritten.</h2>
+      <div class="cols-3" style="margin-top: 40px;">
+        <div class="stat"><div class="num">$32B</div><div class="lbl">Workflow automation + iPaaS market by 2028</div></div>
+        <div class="stat"><div class="num">$80B+</div><div class="lbl">Enterprise AI agent spend by 2030</div></div>
+        <div class="stat"><div class="num">1,200</div><div class="lbl">Avg daily app-switches per knowledge worker</div></div>
+      </div>
+      <p class="body" style="margin-top: 48px;">Rules-based automation has hit its ceiling. The next wave is AI-native: workflows that reason, adapt, and recover. Beaver sits at that intersection.</p>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 9 BUSINESS MODEL -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Pricing</span></div><div class="page-num">09 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">08 — Pricing</div>
+      <h2 class="heading">Priced by outcomes,<br/>not seats.</h2>
+      <div class="cols-3" style="margin-top: 32px;">
+        <div class="card">
+          <div class="pill">Team</div>
+          <h4 style="margin-top:12px;">$299 / month</h4>
+          <p>Up to 10 users. 5,000 workflow runs. All connectors. Community support.</p>
+        </div>
+        <div class="card" style="border:2px solid var(--amber);">
+          <div class="pill rust">Business</div>
+          <h4 style="margin-top:12px;">$999 / month</h4>
+          <p>Up to 50 users. 50,000 runs. AI agents. SSO/SCIM. Priority support. SLA.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Enterprise</div>
+          <h4 style="margin-top:12px;">Custom</h4>
+          <p>Unlimited runs. On-prem/VPC. Custom connectors. Dedicated CSM. 24/7 support.</p>
+        </div>
+      </div>
+      <p class="body" style="margin-top: 32px;">Overage runs are metered. Agent calls are priced separately so AI spend is transparent and controllable.</p>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 10 TRACTION -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Traction</span></div><div class="page-num">10 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">09 — Traction</div>
+      <h2 class="heading">Early customers<br/>are already compounding.</h2>
+      <div class="cols-4" style="margin-top: 32px;">
+        <div class="stat"><div class="num">-90%</div><div class="lbl">Handoff delay reduction</div></div>
+        <div class="stat"><div class="num">40+</div><div class="lbl">Integrations shipped</div></div>
+        <div class="stat"><div class="num">6x</div><div class="lbl">Faster ticket resolution</div></div>
+        <div class="stat"><div class="num">18hr</div><div class="lbl">Avg hours saved per user / week</div></div>
+      </div>
+      <ul class="ticks" style="margin-top: 48px;">
+        <li>Pilot customers across SaaS, financial services, logistics, and professional services.</li>
+        <li>Average payback period measured in weeks, not quarters.</li>
+        <li>Net revenue retention above 125% among 6-month+ cohorts.</li>
+      </ul>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 11 ROADMAP -->
+  <section class="slide dark">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Roadmap</span></div><div class="page-num">11 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">10 — Roadmap</div>
+      <h2 class="heading">The next 18 months.</h2>
+      <div class="flow">
+        <div class="step"><div class="n">Q1 2026</div><h5>Agent Studio</h5><p>Build and version AI agents with evaluations, test cases, and rollouts.</p></div>
+        <div class="step"><div class="n">Q2 2026</div><h5>Policy Guardrails</h5><p>Approval chains, data classifications, and compliance rules enforced at runtime.</p></div>
+        <div class="step"><div class="n">Q3 2026</div><h5>Marketplace</h5><p>Partner-built workflows and agents installable in one click.</p></div>
+        <div class="step"><div class="n">Q4 2026</div><h5>Beaver Copilot</h5><p>A conversational interface sitting on top of your real systems, not just your docs.</p></div>
+        <div class="step"><div class="n">Q2 2027</div><h5>Self-healing workflows</h5><p>Workflows that detect their own exceptions and propose fixes to the owner.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 12 TEAM -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>About CyberDX</span></div><div class="page-num">12 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">11 — The company</div>
+      <h2 class="heading">A product studio<br/>building operational AI.</h2>
+      <p class="body">CyberDX is a Vietnam-headquartered AI product studio shipping three production platforms: Falcon (vision), AI Beaver (automation), and AI Twin (digital twin for manufacturing). We build AI that acts on the real world — not demos.</p>
+      <div class="cols-3" style="margin-top: 40px;">
+        <div class="stat"><div class="num">3</div><div class="lbl">Shipping products</div></div>
+        <div class="stat"><div class="num">25+</div><div class="lbl">Engineers & researchers</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">Countries live</div></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- 13 CONTACT -->
+  <section class="slide dark">
+    <div class="pad">
+      <div class="brand-row"><div class="brand"><span class="dot"></span><span>Let's talk</span></div><div class="page-num">13 / 13</div></div>
+      <div class="kicker" style="margin-top:40px;">12 — The ask</div>
+      <h1 class="title" style="font-size:104px; margin-top:16px; color: var(--cream);">Automate what<br/>holds you back.</h1>
+      <p class="body" style="margin-top: 24px;">We're onboarding design-partners and strategic customers for the next cohort. Set up a 2-week pilot with your team's three most painful workflows — pay only if it works.</p>
+      <div class="contact-grid">
+        <div class="ct"><div class="k">Website</div><div class="v">cyberdx.tech/beaver</div></div>
+        <div class="ct"><div class="k">Email</div><div class="v">hello@cyberdx.tech</div></div>
+        <div class="ct"><div class="k">Location</div><div class="v">Ho Chi Minh City, VN</div></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / AI Beaver · 2026</div><div>Thank you.</div></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    const slides = document.querySelectorAll('.slide');
+    const vh = window.innerHeight;
+    let currentIndex = 0;
+    slides.forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      if (r.top < vh/2 && r.bottom > vh/2) currentIndex = i;
+    });
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      slides[Math.min(currentIndex + 1, slides.length - 1)].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      slides[Math.max(currentIndex - 1, 0)].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+</body>
+</html>

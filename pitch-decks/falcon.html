@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CyberDX Falcon — AI Vision Platform · Pitch Deck</title>
+<style>
+  :root {
+    --void: #040507;
+    --ink: #0a0d12;
+    --panel: #0f1419;
+    --line: rgba(255,255,255,0.08);
+    --ice: #eaf6ff;
+    --blue: #3fb6ff;
+    --blue-deep: #0a63c9;
+    --orange: #ff8a1f;
+    --orange-deep: #c94e00;
+    --muted: rgba(234,246,255,0.62);
+    --slide-w: 1600px;
+    --slide-h: 900px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #000;
+    color: var(--ice);
+    font-family: 'Helvetica Neue', Inter, system-ui, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .deck { display: flex; flex-direction: column; align-items: center; padding: 40px 0; gap: 32px; }
+  .slide {
+    position: relative;
+    width: var(--slide-w);
+    height: var(--slide-h);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(63,182,255,0.14), transparent 60%),
+      radial-gradient(900px 500px at 95% 100%, rgba(255,138,31,0.10), transparent 60%),
+      linear-gradient(180deg, #050810 0%, #040507 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  }
+  .slide::before {
+    content:""; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(63,182,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(63,182,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(1200px 700px at 50% 50%, #000 20%, transparent 80%);
+  }
+  .pad { position: absolute; inset: 72px 80px; display: flex; flex-direction: column; }
+
+  .brand-row { display:flex; align-items:center; justify-content:space-between; }
+  .brand { display:flex; align-items:center; gap:12px; font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+  .brand .dot { width:8px; height:8px; border-radius:50%; background: var(--blue); box-shadow: 0 0 14px var(--blue); }
+  .brand strong { color: var(--ice); font-weight:600; }
+  .page-num { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.2em; color: var(--muted); }
+
+  h1.title { font-size: 112px; line-height: 0.95; letter-spacing: -0.04em; margin: 48px 0 0; font-weight: 700; }
+  h1.title span.accent { background: linear-gradient(90deg, var(--blue), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2.heading { font-size: 72px; line-height: 1.0; letter-spacing: -0.035em; margin: 0 0 24px; font-weight: 600; }
+  h3.sub { font-size: 20px; line-height: 1.5; letter-spacing: 0.02em; color: var(--muted); margin: 0 0 28px; max-width: 900px; font-weight: 400; }
+  p.body { font-size: 20px; line-height: 1.6; color: rgba(234,246,255,0.86); max-width: 760px; margin: 0 0 20px; }
+  .kicker { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.3em; color: var(--orange); text-transform: uppercase; margin: 0 0 20px; }
+
+  .cols-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; flex: 1; }
+  .cols-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; flex: 1; }
+  .cols-4 { display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; }
+
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    display:flex; flex-direction:column; gap: 10px;
+  }
+  .card .ic {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(63,182,255,0.14), rgba(63,182,255,0.03));
+    border: 1px solid rgba(63,182,255,0.3);
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .card h4 { margin: 0; font-size: 22px; letter-spacing:-0.02em; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+  .stat { text-align:left; }
+  .stat .num { font-size: 72px; letter-spacing: -0.04em; font-weight: 700; line-height: 1; background: linear-gradient(90deg, var(--blue), var(--orange)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat .lbl { font-size: 14px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 10px; }
+
+  .pill { display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px; border:1px solid rgba(63,182,255,0.4); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--ice); background: rgba(63,182,255,0.08); }
+  .pill.orange { border-color: rgba(255,138,31,0.4); background: rgba(255,138,31,0.08); color: var(--orange); }
+
+  ul.ticks { list-style: none; padding: 0; margin: 0; }
+  ul.ticks li { position:relative; padding-left: 30px; margin-bottom: 14px; font-size: 18px; color: rgba(234,246,255,0.86); }
+  ul.ticks li::before { content: ""; position:absolute; left:0; top: 10px; width: 14px; height: 14px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
+
+  .flow {
+    display:flex; gap: 0; margin-top: 24px; border: 1px solid var(--line); border-radius: 14px; overflow:hidden;
+  }
+  .flow .step { flex: 1; padding: 24px; border-right: 1px solid var(--line); }
+  .flow .step:last-child { border-right: 0; }
+  .flow .step .n { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:12px; color: var(--orange); letter-spacing: 0.2em; }
+  .flow .step h5 { margin: 10px 0 6px; font-size: 18px; }
+  .flow .step p { margin:0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  .cover-badge { display:inline-flex; align-items:center; gap: 12px; padding: 10px 18px; border-radius: 999px; border:1px solid var(--line); background: rgba(255,255,255,0.03); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+
+  .scanline { position:absolute; left:0; right:0; height:2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); opacity:0.4; }
+
+  .footer-note { margin-top: auto; display:flex; justify-content:space-between; align-items:center; color: var(--muted); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; }
+
+  .controls { position: fixed; top: 16px; right: 16px; display:flex; gap:10px; z-index: 50; }
+  .btn { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(10,13,18,0.9); color: var(--ice); cursor: pointer; backdrop-filter: blur(8px); }
+  .btn:hover { border-color: var(--blue); color: var(--blue); }
+  .btn.primary { background: var(--orange); color: #0a0d12; border-color: transparent; }
+  .btn.primary:hover { background: #ffa040; color:#000; }
+
+  .big-quote { font-size: 42px; line-height: 1.2; letter-spacing: -0.02em; max-width: 1100px; margin: 32px 0; font-weight: 500; }
+  .big-quote .mute { color: var(--muted); }
+
+  .matrix { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .matrix .m-card { padding: 24px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,0.02); }
+  .matrix .m-card h5 { margin: 0 0 8px; font-size: 18px; }
+  .matrix .m-card p { margin:0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .matrix .m-card.good { border-color: rgba(63,182,255,0.4); }
+  .matrix .m-card.bad { border-color: rgba(255,138,31,0.4); }
+
+  .contact-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+  .contact-grid .ct { padding: 24px; border-radius: 12px; border:1px solid var(--line); }
+  .contact-grid .ct .k { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; color: var(--muted); letter-spacing:0.2em; text-transform: uppercase; margin-bottom: 10px; }
+  .contact-grid .ct .v { font-size: 20px; font-weight: 500; }
+
+  @media print {
+    @page { size: 1600px 900px; margin: 0; }
+    html, body { background: #000; }
+    .deck { padding: 0; gap: 0; }
+    .slide { page-break-after: always; break-after: page; border-radius: 0; border: 0; box-shadow: none; width: 1600px; height: 900px; }
+    .slide:last-child { page-break-after: auto; }
+    .controls { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn" onclick="document.documentElement.scrollTop=0">Top</button>
+  <button class="btn primary" onclick="window.print()">Export to PDF</button>
+</div>
+
+<div class="deck">
+
+  <!-- SLIDE 1: COVER -->
+  <section class="slide">
+    <div class="scanline" style="top:40%;"></div>
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>CyberDX / <strong>Falcon</strong></span></div>
+        <div class="page-num">01 / 13</div>
+      </div>
+      <div style="margin-top: 60px;">
+        <span class="cover-badge">AI Vision Intelligence · Pitch Deck · 2026</span>
+      </div>
+      <h1 class="title">Falcon.<br/><span class="accent">See everything.<br/>Act in real time.</span></h1>
+      <h3 class="sub" style="margin-top: 32px;">A production-grade AI vision platform that turns any camera feed into live operational intelligence — detecting anomalies, protecting people, and keeping sites running.</h3>
+      <div class="footer-note">
+        <div>cyberdx.tech</div>
+        <div>Prepared for prospective partners and investors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: PROBLEM -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>The Problem</span></div>
+        <div class="page-num">02 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">01 — The problem</div>
+      <h2 class="heading">Cameras are everywhere.<br/>Intelligence isn't.</h2>
+      <p class="body">Enterprises operate thousands of cameras — in factories, warehouses, retail stores, hospitals, campuses. But most feeds are watched by no one, reviewed only after an incident, and generate zero operational signal.</p>
+      <div class="cols-3" style="margin-top: 40px;">
+        <div class="card">
+          <div class="ic">⚠</div>
+          <h4>Incidents found too late</h4>
+          <p>PPE violations, intrusions, smoke, and unsafe behavior are discovered after the fact — if at all.</p>
+        </div>
+        <div class="card">
+          <div class="ic">👁</div>
+          <h4>Human monitoring doesn't scale</h4>
+          <p>Operators can watch 4–6 feeds effectively. Beyond that, attention degrades fast.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🧩</div>
+          <h4>Legacy VMS is blind</h4>
+          <p>Record-and-replay systems have no understanding of what's happening on screen.</p>
+        </div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: SOLUTION -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Our Solution</span></div>
+        <div class="page-num">03 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">02 — Solution</div>
+      <h2 class="heading">Falcon turns every camera<br/>into a sensor that thinks.</h2>
+      <p class="body">A unified AI vision layer that plugs into existing CCTV, IP cameras, and edge devices. Falcon detects, classifies, and responds — in milliseconds — across hundreds of streams simultaneously.</p>
+      <div class="cols-2" style="margin-top: 32px;">
+        <div class="card">
+          <div class="ic">🎯</div>
+          <h4>Pre-trained for safety & security</h4>
+          <p>PPE detection, intrusion, smoke/fire, loitering, slips & falls, crowd density — ready day one.</p>
+        </div>
+        <div class="card">
+          <div class="ic">⚡</div>
+          <h4>Edge + cloud hybrid</h4>
+          <p>Low-latency inference at the edge, orchestration in the cloud. No streaming full video out.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🔗</div>
+          <h4>Camera-agnostic</h4>
+          <p>Works with RTSP, ONVIF, Hikvision, Dahua, Axis, mobile cameras, and drone feeds.</p>
+        </div>
+        <div class="card">
+          <div class="ic">🚨</div>
+          <h4>Actionable alerts</h4>
+          <p>Routes to the right team on Slack, Teams, SMS, radio, or workflow engines — with evidence.</p>
+        </div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: HOW IT WORKS -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>How It Works</span></div>
+        <div class="page-num">04 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">03 — Architecture</div>
+      <h2 class="heading">From pixel to decision<br/>in under 300ms.</h2>
+      <div class="flow">
+        <div class="step"><div class="n">01</div><h5>Ingest</h5><p>Pull streams from any camera via RTSP/ONVIF. Edge nodes decode and buffer locally.</p></div>
+        <div class="step"><div class="n">02</div><h5>Perceive</h5><p>Vision models detect people, objects, anomalies, and events per frame.</p></div>
+        <div class="step"><div class="n">03</div><h5>Reason</h5><p>Rules engine evaluates context: zone, time, severity, repeat offenders.</p></div>
+        <div class="step"><div class="n">04</div><h5>Alert</h5><p>Right channel, right person, with video evidence and location.</p></div>
+        <div class="step"><div class="n">05</div><h5>Learn</h5><p>Feedback loops refine models for your site conditions.</p></div>
+      </div>
+      <p class="body" style="margin-top: 40px;">Falcon runs on commodity GPU edge boxes or on-prem servers — no proprietary camera hardware required. Models are fine-tuned per site in under 2 weeks.</p>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: FEATURES -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Capabilities</span></div>
+        <div class="page-num">05 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">04 — Capabilities</div>
+      <h2 class="heading">What Falcon sees.</h2>
+      <div class="cols-4" style="margin-top: 20px;">
+        <div class="card"><div class="ic">🦺</div><h4>PPE Detection</h4><p>Helmets, vests, gloves, goggles, masks — per zone, per shift.</p></div>
+        <div class="card"><div class="ic">🚷</div><h4>Intrusion</h4><p>Zone breaches, after-hours entry, perimeter breaks.</p></div>
+        <div class="card"><div class="ic">🔥</div><h4>Smoke & Fire</h4><p>Early-stage detection well before smoke alarms trigger.</p></div>
+        <div class="card"><div class="ic">👥</div><h4>Crowd & Occupancy</h4><p>Density heatmaps, queue lengths, dwell time.</p></div>
+        <div class="card"><div class="ic">🚧</div><h4>Unsafe Behavior</h4><p>Climbing, running, slips, falls, forbidden postures.</p></div>
+        <div class="card"><div class="ic">📦</div><h4>Asset Tracking</h4><p>Pallets, vehicles, tools, forklifts — presence and movement.</p></div>
+        <div class="card"><div class="ic">🚗</div><h4>License Plate</h4><p>Vehicle entry/exit, dwell, blocklists, visitor logs.</p></div>
+        <div class="card"><div class="ic">🧠</div><h4>Custom Models</h4><p>Train on your defect, your zone, your scenario in days.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: USE CASES -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Industries</span></div>
+        <div class="page-num">06 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">05 — Who it's for</div>
+      <h2 class="heading">Built for operations<br/>that can't afford to miss.</h2>
+      <div class="cols-3" style="margin-top: 20px;">
+        <div class="card"><h4>Manufacturing</h4><p>Shop-floor safety, PPE compliance, equipment zones, line efficiency.</p></div>
+        <div class="card"><h4>Logistics & Warehousing</h4><p>Forklift zones, dock safety, pedestrian conflicts, inventory movement.</p></div>
+        <div class="card"><h4>Energy & Utilities</h4><p>Perimeter security, substations, hot-work compliance, flare detection.</p></div>
+        <div class="card"><h4>Construction</h4><p>Site safety, PPE, scaffolding, equipment proximity, after-hours intrusion.</p></div>
+        <div class="card"><h4>Retail & Hospitality</h4><p>Shrink prevention, queue analytics, occupancy, uniform compliance.</p></div>
+        <div class="card"><h4>Healthcare & Education</h4><p>Patient safety, visitor flow, loitering, controlled-area access.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: DIFFERENTIATION -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Why Falcon</span></div>
+        <div class="page-num">07 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">06 — Why us</div>
+      <h2 class="heading">Not another VMS.<br/>Not another detector.</h2>
+      <div class="matrix" style="margin-top: 24px;">
+        <div class="m-card bad">
+          <h5>Legacy VMS / NVR</h5>
+          <p>Record and replay. No understanding. No alerting. Operators overwhelmed.</p>
+        </div>
+        <div class="m-card bad">
+          <h5>Single-purpose AI boxes</h5>
+          <p>One model, one task, one vendor. Locked to specific camera brands. No reasoning layer.</p>
+        </div>
+        <div class="m-card good">
+          <h5>Falcon</h5>
+          <p>Multi-model, multi-camera, multi-site. One platform, one dashboard, one API.</p>
+        </div>
+        <div class="m-card good">
+          <h5>Open & extensible</h5>
+          <p>Bring your own cameras, your own models, your own workflow integrations.</p>
+        </div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: MARKET -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Market</span></div>
+        <div class="page-num">08 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">07 — Market opportunity</div>
+      <h2 class="heading">A $45B market<br/>reinvented by AI.</h2>
+      <div class="cols-3" style="margin-top: 40px;">
+        <div class="stat"><div class="num">$45B</div><div class="lbl">Global video surveillance market by 2028</div></div>
+        <div class="stat"><div class="num">1B+</div><div class="lbl">Active surveillance cameras worldwide</div></div>
+        <div class="stat"><div class="num">22%</div><div class="lbl">CAGR for AI-powered video analytics</div></div>
+      </div>
+      <p class="body" style="margin-top: 40px;">Every existing camera is a Falcon-ready sensor. Enterprises don't need to buy new hardware — they need intelligence on top of the hardware they already own.</p>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: BUSINESS MODEL -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Business Model</span></div>
+        <div class="page-num">09 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">08 — Pricing</div>
+      <h2 class="heading">Priced per camera.<br/>Simple to scale.</h2>
+      <div class="cols-3" style="margin-top: 32px;">
+        <div class="card">
+          <div class="pill">Starter</div>
+          <h4 style="margin-top:12px;">$29 / camera / month</h4>
+          <p>Up to 20 cameras. 1 use case. Cloud edge. Standard models. Email alerts.</p>
+        </div>
+        <div class="card" style="border-color: rgba(63,182,255,0.5);">
+          <div class="pill orange">Growth</div>
+          <h4 style="margin-top:12px;">$79 / camera / month</h4>
+          <p>Up to 500 cameras. Multiple use cases. On-prem option. All integrations. SLA.</p>
+        </div>
+        <div class="card">
+          <div class="pill">Enterprise</div>
+          <h4 style="margin-top:12px;">Custom</h4>
+          <p>Unlimited scale. Custom models. Private deployment. 24/7 support. Co-development.</p>
+        </div>
+      </div>
+      <p class="body" style="margin-top: 32px;">Add-ons: custom model training, professional services, dedicated edge hardware, white-label.</p>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: TRACTION -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Traction</span></div>
+        <div class="page-num">10 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">09 — Traction</div>
+      <h2 class="heading">Already in production.</h2>
+      <div class="cols-4" style="margin-top: 32px;">
+        <div class="stat"><div class="num">1,200+</div><div class="lbl">Cameras deployed</div></div>
+        <div class="stat"><div class="num">98.4%</div><div class="lbl">PPE detection precision</div></div>
+        <div class="stat"><div class="num">&lt;300ms</div><div class="lbl">End-to-end alert latency</div></div>
+        <div class="stat"><div class="num">6+</div><div class="lbl">Industry verticals live</div></div>
+      </div>
+      <ul class="ticks" style="margin-top: 48px;">
+        <li>Deployed across manufacturing, logistics, and energy sites in Vietnam, Thailand, and Singapore.</li>
+        <li>Zero recorded safety incidents post-deployment in flagship customer sites over 9 months.</li>
+        <li>Model fine-tuning cycle reduced from 8 weeks to 10 days through our data pipeline.</li>
+      </ul>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: ROADMAP -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Roadmap</span></div>
+        <div class="page-num">11 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">10 — Roadmap</div>
+      <h2 class="heading">The next 18 months.</h2>
+      <div class="flow">
+        <div class="step"><div class="n">Q1 2026</div><h5>Vision Studio</h5><p>Self-serve model training UI. Non-ML users build detectors in hours.</p></div>
+        <div class="step"><div class="n">Q2 2026</div><h5>Autonomous Agents</h5><p>Falcon doesn't just alert — it dispatches, locks doors, pauses lines.</p></div>
+        <div class="step"><div class="n">Q3 2026</div><h5>Multi-site Twin</h5><p>Unified operations view across every facility in a global portfolio.</p></div>
+        <div class="step"><div class="n">Q4 2026</div><h5>Predictive Safety</h5><p>Forecast incidents before they happen based on behavioral patterns.</p></div>
+        <div class="step"><div class="n">Q2 2027</div><h5>Open Marketplace</h5><p>Partner-built models and workflows installable in one click.</p></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: TEAM / COMPANY -->
+  <section class="slide">
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>About CyberDX</span></div>
+        <div class="page-num">12 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">11 — The company</div>
+      <h2 class="heading">We build AI products<br/>for the physical world.</h2>
+      <p class="body">CyberDX is a Vietnam-headquartered AI product studio. We ship a portfolio of production AI — Falcon (vision), Beaver (automation), and AI Twin (digital twin for manufacturing). Our systems are deployed across factories, utilities, logistics operators, and public-sector clients.</p>
+      <div class="cols-3" style="margin-top: 40px;">
+        <div class="stat"><div class="num">3</div><div class="lbl">Shipping products</div></div>
+        <div class="stat"><div class="num">25+</div><div class="lbl">Engineers & researchers</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">Countries live</div></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon</div><div>Pitch Deck · 2026</div></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: ASK / CONTACT -->
+  <section class="slide">
+    <div class="scanline" style="top:30%;"></div>
+    <div class="pad">
+      <div class="brand-row">
+        <div class="brand"><span class="dot"></span><span>Let's talk</span></div>
+        <div class="page-num">13 / 13</div>
+      </div>
+      <div class="kicker" style="margin-top:40px;">12 — The ask</div>
+      <h1 class="title" style="font-size:88px; margin-top:16px;">Make every camera<br/><span class="accent">intelligent.</span></h1>
+      <p class="body" style="margin-top: 24px;">We're looking for pilot partners, enterprise customers, channel partners, and strategic investors for the next phase of growth. Let's run a 30-day Falcon pilot on your site.</p>
+      <div class="contact-grid">
+        <div class="ct"><div class="k">Website</div><div class="v">cyberdx.tech</div></div>
+        <div class="ct"><div class="k">Email</div><div class="v">hello@cyberdx.tech</div></div>
+        <div class="ct"><div class="k">Location</div><div class="v">Ho Chi Minh City, VN</div></div>
+      </div>
+      <div class="footer-note"><div>CyberDX / Falcon · 2026</div><div>Thank you.</div></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    const slides = document.querySelectorAll('.slide');
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+    let currentIndex = 0;
+    slides.forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      if (r.top < vh/2 && r.bottom > vh/2) currentIndex = i;
+    });
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      const next = slides[Math.min(currentIndex + 1, slides.length - 1)];
+      next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      const prev = slides[Math.max(currentIndex - 1, 0)];
+      prev.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+</body>
+</html>

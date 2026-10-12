@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CyberDX AI Twin — Manufacturing Operations · Pitch Deck</title>
+<style>
+  :root {
+    --void: #050506;
+    --ink: #0a0a0b;
+    --panel: #121214;
+    --cream: #F5F5F3;
+    --cream-soft: #ECE8DF;
+    --cream-dim: rgba(245,245,243,0.75);
+    --orange: #F97316;
+    --orange-soft: #FDBA74;
+    --amber: #FBBF24;
+    --steel: #7C7C82;
+    --slate: #1F2328;
+    --line: rgba(255,255,255,0.1);
+    --line-ink: rgba(10,10,11,0.12);
+    --slide-w: 1600px;
+    --slide-h: 900px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0a0a0b;
+    color: var(--cream);
+    font-family: 'Inter', 'Helvetica Neue', system-ui, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .deck { display:flex; flex-direction:column; align-items:center; padding: 40px 0; gap: 32px; }
+  .slide {
+    position: relative;
+    width: var(--slide-w);
+    height: var(--slide-h);
+    background: var(--void);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+    color: var(--cream);
+  }
+  .slide.light { background: var(--cream); color: var(--ink); }
+  .slide.soft { background: var(--cream-soft); color: var(--ink); }
+
+  .pad { position: absolute; inset: 72px 80px; display: flex; flex-direction: column; z-index: 3; }
+  .pad.narrow { inset: 72px 120px; }
+
+  /* Brand chrome */
+  .chrome { position: absolute; left: 0; right: 0; top: 0; padding: 32px 48px; display:flex; justify-content:space-between; align-items:center; z-index: 10; }
+  .brand { display:flex; align-items:center; gap:12px; font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,245,243,0.65); }
+  .slide.light .brand, .slide.soft .brand { color: rgba(10,10,11,0.6); }
+  .brand .mark {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--orange), var(--amber));
+    display:inline-flex; align-items:center; justify-content:center;
+    color: var(--ink); font-weight: 800; font-size: 12px;
+    box-shadow: 0 4px 14px rgba(249,115,22,0.4);
+  }
+  .brand strong { color: var(--cream); font-weight: 600; letter-spacing: 0.15em; }
+  .slide.light .brand strong, .slide.soft .brand strong { color: var(--ink); }
+  .pageno { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.25em; color: rgba(245,245,243,0.55); }
+  .slide.light .pageno, .slide.soft .pageno { color: rgba(10,10,11,0.55); }
+
+  /* Typography */
+  .eyebrow { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:12px; letter-spacing: 0.32em; color: var(--orange); text-transform: uppercase; margin: 0 0 24px; display:inline-flex; align-items:center; gap:12px; }
+  .eyebrow .line { display:inline-block; width: 42px; height: 1px; background: currentColor; opacity: 0.6; }
+  h1.display { font-size: 128px; line-height: 0.92; letter-spacing: -0.055em; margin: 0; font-weight: 500; }
+  h1.display .italic { font-style: italic; font-weight: 400; color: var(--orange-soft); }
+  .slide.light h1.display .italic { color: var(--orange); }
+  h1.display .dim { color: rgba(245,245,243,0.5); }
+  .slide.light h1.display .dim, .slide.soft h1.display .dim { color: rgba(10,10,11,0.45); }
+  h2.lead { font-size: 76px; line-height: 1.0; letter-spacing: -0.045em; margin: 0 0 32px; font-weight: 500; max-width: 1200px; }
+  h2.lead .dim { color: var(--steel); }
+  h2.lead .italic { font-style: italic; color: var(--orange); font-weight: 400; }
+  h3.caption { font-size: 22px; line-height: 1.5; color: var(--cream-dim); margin: 0; max-width: 920px; font-weight: 400; }
+  .slide.light h3.caption, .slide.soft h3.caption { color: rgba(10,10,11,0.7); }
+  p.body { font-size: 19px; line-height: 1.6; color: var(--cream-dim); max-width: 760px; margin: 0 0 18px; }
+  .slide.light p.body, .slide.soft p.body { color: rgba(10,10,11,0.75); }
+
+  /* Layouts */
+  .cols-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cols-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cols-4 { display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .fill { flex: 1; }
+  .mt-auto { margin-top: auto; }
+
+  /* Hero image treatments */
+  .hero-img, .bg-img {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    z-index: 1;
+  }
+  .hero-img.right {
+    left: auto; width: 48%;
+    border-radius: 20px 0 0 20px;
+  }
+  .hero-img.left {
+    right: auto; width: 48%;
+    border-radius: 0 20px 20px 0;
+  }
+  .scrim { position: absolute; inset: 0; z-index: 2; }
+  .scrim.vignette { background: radial-gradient(1400px 900px at 30% 50%, rgba(0,0,0,0.1), rgba(0,0,0,0.75)); }
+  .scrim.left-fade { background: linear-gradient(90deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.75) 40%, rgba(5,5,6,0.1) 100%); }
+  .scrim.right-fade { background: linear-gradient(270deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.75) 40%, rgba(5,5,6,0.1) 100%); }
+  .scrim.bottom-fade { background: linear-gradient(180deg, transparent 30%, rgba(5,5,6,0.9) 100%); }
+
+  /* Cards */
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    display:flex; flex-direction:column; gap: 10px;
+    backdrop-filter: blur(10px);
+  }
+  .slide.light .card, .slide.soft .card { background: rgba(255,255,255,0.6); border: 1px solid var(--line-ink); backdrop-filter: none; }
+  .card .ic {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(249,115,22,0.15);
+    border: 1px solid rgba(249,115,22,0.4);
+    color: var(--orange);
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .card h4 { margin: 0; font-size: 22px; letter-spacing:-0.02em; font-weight: 600; }
+  .card p { margin: 0; color: var(--cream-dim); font-size: 15px; line-height: 1.55; }
+  .slide.light .card p, .slide.soft .card p { color: rgba(10,10,11,0.65); }
+
+  .pain-card { border-left: 3px solid var(--orange); background: rgba(255,255,255,0.03); border-radius: 4px; padding: 22px 26px; }
+  .slide.light .pain-card, .slide.soft .pain-card { background: rgba(255,255,255,0.7); }
+  .pain-card .n { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.25em; color: var(--orange); margin-bottom: 10px; display: block; }
+  .pain-card h4 { margin: 0 0 10px; font-size: 24px; letter-spacing: -0.02em; font-weight: 600; }
+  .pain-card p { margin: 0; color: var(--cream-dim); font-size: 15px; line-height: 1.55; }
+  .slide.light .pain-card p, .slide.soft .pain-card p { color: rgba(10,10,11,0.65); }
+
+  /* Stats */
+  .stat .num { font-size: 96px; letter-spacing: -0.055em; font-weight: 500; line-height: 0.92; color: var(--cream); }
+  .slide.light .stat .num, .slide.soft .stat .num { color: var(--ink); }
+  .stat .num.orange { color: var(--orange); }
+  .stat .lbl { font-size: 13px; color: var(--cream-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 14px; max-width: 240px; }
+  .slide.light .stat .lbl, .slide.soft .stat .lbl { color: rgba(10,10,11,0.6); }
+
+  /* Pills & tags */
+  .pill { display:inline-flex; align-items:center; gap:10px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:var(--cream); background: rgba(255,255,255,0.04); }
+  .slide.light .pill, .slide.soft .pill { background: rgba(0,0,0,0.04); color: var(--ink); border-color: var(--line-ink); }
+  .pill.orange { background: var(--orange); color: var(--ink); border-color: transparent; font-weight: 600; }
+  .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .pill.live { color: #4ADE80; }
+  .pill.live .dot { background: #4ADE80; box-shadow: 0 0 10px #4ADE80; }
+
+  /* Flow */
+  .flow-row { display:flex; align-items: stretch; gap: 0; margin-top: 32px; }
+  .flow-step { flex: 1; padding: 24px; border-right: 1px solid var(--line); position: relative; }
+  .slide.light .flow-step, .slide.soft .flow-step { border-right-color: var(--line-ink); }
+  .flow-step:last-child { border-right: 0; }
+  .flow-step.highlight { background: rgba(249,115,22,0.08); }
+  .flow-step .num { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.25em; color: var(--orange); margin-bottom: 10px; }
+  .flow-step h5 { margin: 0 0 8px; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+  .flow-step p { margin: 0; color: var(--cream-dim); font-size: 13px; line-height: 1.5; }
+  .slide.light .flow-step p, .slide.soft .flow-step p { color: rgba(10,10,11,0.65); }
+
+  /* System diagram */
+  .sys-diagram {
+    display:grid; grid-template-columns: 1fr auto 1.4fr auto 1fr;
+    gap: 24px; align-items: stretch; margin-top: 32px;
+  }
+  .sys-col { display:flex; flex-direction: column; gap: 14px; }
+  .sys-arrow {
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px;
+    color: var(--orange); letter-spacing: 0.1em;
+    writing-mode: horizontal-tb; min-width: 60px;
+  }
+  .sys-arrow svg { width: 48px; height: 24px; }
+  .sys-box {
+    padding: 18px 20px; border-radius: 12px; border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03); backdrop-filter: blur(8px);
+  }
+  .slide.light .sys-box, .slide.soft .sys-box { background: rgba(255,255,255,0.7); border-color: var(--line-ink); }
+  .sys-box.center { background: linear-gradient(180deg, rgba(249,115,22,0.14), rgba(249,115,22,0.04)); border-color: rgba(249,115,22,0.5); }
+  .sys-box .lbl { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--orange); text-transform: uppercase; margin-bottom: 8px; }
+  .sys-box h5 { margin: 0 0 6px; font-size: 17px; font-weight: 600; }
+  .sys-box p { margin: 0; font-size: 13px; color: var(--cream-dim); line-height: 1.45; }
+  .slide.light .sys-box p, .slide.soft .sys-box p { color: rgba(10,10,11,0.6); }
+  .sys-col .title {
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--cream-dim); margin-bottom: 4px;
+  }
+  .slide.light .sys-col .title, .slide.soft .sys-col .title { color: rgba(10,10,11,0.5); }
+
+  /* Screenshot frame */
+  .shot {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    background: #000;
+  }
+  .slide.light .shot, .slide.soft .shot { border-color: var(--line-ink); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+  .shot img { width: 100%; display: block; }
+  .shot .bar { padding: 10px 14px; display:flex; align-items:center; gap: 8px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--line); }
+  .shot .bar .d { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+  .shot .caption { padding: 14px 18px; font-size: 13px; color: var(--cream-dim); font-family:'IBM Plex Mono', ui-monospace, monospace; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255,255,255,0.02); border-top: 1px solid var(--line); }
+  .slide.light .shot .caption, .slide.soft .shot .caption { color: rgba(10,10,11,0.65); background: rgba(0,0,0,0.03); border-top-color: var(--line-ink); }
+
+  /* Delivery timeline */
+  .timeline { display:grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 32px; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 40px; right: 40px; top: 44px; height: 2px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--orange) 100%); opacity: 0.3;
+  }
+  .tl-step { padding: 0 16px; position: relative; z-index: 2; }
+  .tl-step .circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--void); border: 2px solid var(--orange);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-weight: 600; color: var(--orange);
+    margin-bottom: 20px;
+    position: relative; z-index: 3;
+  }
+  .slide.light .tl-step .circle, .slide.soft .tl-step .circle { background: var(--cream); }
+  .tl-step .circle.active { background: var(--orange); color: var(--ink); }
+  .tl-step .wk { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--orange); text-transform: uppercase; margin-bottom: 8px; }
+  .tl-step h5 { margin: 0 0 6px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+  .tl-step p { margin: 0; font-size: 13px; color: var(--cream-dim); line-height: 1.5; }
+  .slide.light .tl-step p, .slide.soft .tl-step p { color: rgba(10,10,11,0.65); }
+
+  /* Delivery stages */
+  .delivery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .delivery-card {
+    padding: 24px; border-radius: 14px; border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03); display: flex; flex-direction: column; gap: 8px;
+  }
+  .slide.light .delivery-card, .slide.soft .delivery-card { background: rgba(255,255,255,0.7); border-color: var(--line-ink); }
+  .delivery-card .ph {
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.25em;
+    color: var(--orange); text-transform: uppercase;
+  }
+  .delivery-card h5 { margin: 4px 0 8px; font-size: 18px; font-weight: 600; }
+  .delivery-card p { margin: 0; font-size: 13px; color: var(--cream-dim); line-height: 1.5; }
+  .slide.light .delivery-card p, .slide.soft .delivery-card p { color: rgba(10,10,11,0.65); }
+  .delivery-card .deliverable { font-size: 11px; color: var(--orange); margin-top: 10px; font-family:'IBM Plex Mono', ui-monospace, monospace; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* Pain overlay */
+  .pain-overlay { position: absolute; bottom: 60px; left: 60px; right: 60px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; z-index: 5; }
+  .pain-overlay .pcard {
+    padding: 20px 22px; border-radius: 12px;
+    background: rgba(10,10,11,0.75); border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+  }
+  .pain-overlay .pcard .k { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--orange); text-transform: uppercase; margin-bottom: 8px; }
+  .pain-overlay .pcard p { margin: 0; font-size: 15px; color: var(--cream); line-height: 1.5; }
+
+  /* Floating badges on hero */
+  .badge-float {
+    position: absolute; padding: 14px 18px; border-radius: 12px;
+    background: rgba(10,10,11,0.78); backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    display:flex; align-items:center; gap: 12px;
+    z-index: 5;
+  }
+  .badge-float .b-ic {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(249,115,22,0.2); border: 1px solid rgba(249,115,22,0.5);
+    display:inline-flex; align-items:center; justify-content:center;
+    color: var(--orange); font-size: 16px;
+  }
+  .badge-float .b-txt .k { font-size: 10px; font-family:'IBM Plex Mono', ui-monospace, monospace; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,245,243,0.6); }
+  .badge-float .b-txt .v { font-size: 15px; font-weight: 600; color: var(--cream); margin-top: 2px; }
+
+  /* Grid overlay */
+  .grid-overlay {
+    position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background-image:
+      linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(1400px 800px at 50% 50%, #000 20%, transparent 85%);
+  }
+
+  /* Pricing / ROI table */
+  .roi-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,0.02); }
+  .slide.light .roi-grid, .slide.soft .roi-grid { background: rgba(255,255,255,0.6); border-color: var(--line-ink); }
+  .roi-grid > div { padding: 20px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .slide.light .roi-grid > div, .slide.soft .roi-grid > div { border-color: var(--line-ink); }
+  .roi-grid > div:nth-child(4n) { border-right: 0; }
+  .roi-grid > div:nth-last-child(-n+4) { border-bottom: 0; }
+  .roi-grid .hd { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); background: rgba(249,115,22,0.05); }
+  .roi-grid .rh { font-weight: 600; font-size: 15px; }
+  .roi-grid .val { font-size: 20px; font-weight: 500; letter-spacing: -0.015em; }
+
+  /* Contact */
+  .contact-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+  .contact-grid .ct { padding: 24px; border-radius: 14px; border:1px solid var(--line); background: rgba(255,255,255,0.03); }
+  .contact-grid .ct .k { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:11px; color: var(--cream-dim); letter-spacing:0.2em; text-transform: uppercase; margin-bottom: 10px; }
+  .contact-grid .ct .v { font-size: 22px; font-weight: 500; }
+
+  /* Controls */
+  .controls { position: fixed; top: 16px; right: 16px; display:flex; gap:10px; z-index: 50; }
+  .btn {
+    font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 10px 16px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.15); background: rgba(10,10,11,0.85);
+    color: var(--cream); cursor: pointer; backdrop-filter: blur(10px);
+  }
+  .btn:hover { border-color: var(--orange); color: var(--orange); }
+  .btn.primary { background: var(--orange); color: var(--ink); border-color: transparent; font-weight: 600; }
+  .btn.primary:hover { background: #FB923C; }
+
+  /* Logos / tech stack */
+  .stack-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 24px; }
+  .stack-logo {
+    padding: 14px 10px; border-radius: 10px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+    text-align: center; font-size: 13px; font-weight: 600; color: var(--cream);
+    font-family: 'Inter', system-ui;
+  }
+  .slide.light .stack-logo, .slide.soft .stack-logo { background: rgba(0,0,0,0.03); border-color: var(--line-ink); color: var(--ink); }
+
+  /* Problem/Solution split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .split .side { padding: 28px; border-radius: 14px; }
+  .split .side.before { background: rgba(255,255,255,0.03); border: 1px solid var(--line); }
+  .slide.light .split .side.before, .slide.soft .split .side.before { background: rgba(0,0,0,0.04); border-color: var(--line-ink); }
+  .split .side.after { background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.5); }
+  .split .side .k { font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 14px; }
+  .split .side.before .k { color: var(--steel); }
+  .split .side.after .k { color: var(--orange); }
+  .split .side h5 { margin: 0 0 14px; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .split ul { list-style: none; padding: 0; margin: 0; }
+  .split li { position: relative; padding-left: 24px; margin-bottom: 12px; font-size: 16px; line-height: 1.5; color: var(--cream-dim); }
+  .slide.light .split li, .slide.soft .split li { color: rgba(10,10,11,0.75); }
+  .split .before li::before { content: "✕"; position: absolute; left: 0; color: var(--steel); font-weight: 600; }
+  .split .after li::before { content: "→"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+
+  .footnote { position: absolute; bottom: 32px; left: 80px; right: 80px; display:flex; justify-content:space-between; align-items:center; color: rgba(245,245,243,0.4); font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; z-index: 4; }
+  .slide.light .footnote, .slide.soft .footnote { color: rgba(10,10,11,0.4); }
+
+  @media print {
+    @page { size: 1600px 900px; margin: 0; }
+    html, body { background: #000; }
+    .deck { padding: 0; gap: 0; }
+    .slide { page-break-after: always; break-after: page; border-radius: 0; box-shadow: none; width: 1600px; height: 900px; }
+    .slide:last-child { page-break-after: auto; }
+    .controls { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn" onclick="document.documentElement.scrollTop=0">Top</button>
+  <button class="btn primary" onclick="window.print()">Export to PDF</button>
+</div>
+
+<div class="deck">
+
+  <!-- 01 · COVER -->
+  <section class="slide">
+    <div class="hero-img" style="background-image:url('../public/ai-twin/media/hero-poster.jpg');"></div>
+    <div class="scrim" style="background: linear-gradient(90deg, rgba(5,5,6,0.92) 0%, rgba(5,5,6,0.6) 50%, rgba(5,5,6,0.2) 100%);"></div>
+    <div class="grid-overlay"></div>
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">01 / 16</div>
+    </div>
+    <div class="pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="line"></span>Manufacturing Operations Platform · 2026</div>
+      <h1 class="display" style="max-width:1200px;">The nervous system<br/>for <span class="italic">manufacturing</span><br/><span class="dim">operations.</span></h1>
+      <h3 class="caption" style="margin-top: 36px;">AI Twin unifies ERP, MES, and shop-floor execution into one living operating picture — from service request to signed delivery.</h3>
+      <div style="display:flex; gap: 12px; margin-top: 48px;">
+        <span class="pill live"><span class="dot"></span>Live in 3 verticals</span>
+        <span class="pill">Vietnam · ASEAN</span>
+        <span class="pill orange">Pitch Deck · 2026</span>
+      </div>
+    </div>
+    <div class="footnote"><div>cyberdx.tech / ai-twin</div><div>Prepared for prospective partners and investors</div></div>
+  </section>
+
+  <!-- 02 · WHO WE SERVE / INDUSTRY CONTEXT -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">02 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>Context — Industry 4.0 reality check</div>
+      <h2 class="lead">The office digitized.<br/>The warehouse digitized.<br/><span class="italic">The shop floor didn't.</span></h2>
+      <p class="body" style="margin-top: 8px;">Factories still coordinate across disconnected ERPs, local MES installs, Excel sheets, printed travelers, and radio calls. The data to run operations exists — but no system owns the whole picture.</p>
+      <div class="cols-4" style="margin-top: 56px;">
+        <div class="stat"><div class="num orange">73%</div><div class="lbl">Of mid-market factories still rely on paper for shop-floor execution</div></div>
+        <div class="stat"><div class="num orange">6+</div><div class="lbl">Average number of disconnected systems per plant</div></div>
+        <div class="stat"><div class="num orange">22%</div><div class="lbl">Capacity lost to coordination gaps and manual reconciliation</div></div>
+        <div class="stat"><div class="num orange">$1T</div><div class="lbl">Annual industrial waste from fragmented operations</div></div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>02 — The context</div></div>
+  </section>
+
+  <!-- 03 · CUSTOMER PAIN -->
+  <section class="slide">
+    <div class="bg-img" style="background-image:url('../public/ai-twin/media/workshop.jpg'); filter:brightness(0.5);"></div>
+    <div class="scrim" style="background: linear-gradient(180deg, rgba(5,5,6,0.6) 0%, rgba(5,5,6,0.85) 60%, rgba(5,5,6,0.98) 100%);"></div>
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">03 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>The customer painpoints we hear every week</div>
+      <h2 class="lead" style="max-width: 1300px;">"We can't answer basic questions<br/>about our own factory."</h2>
+      <div class="cols-3" style="margin-top: 48px;">
+        <div class="pain-card">
+          <span class="n">PAIN · 01</span>
+          <h4>Where is this work order?</h4>
+          <p>Status lives in three systems and six heads. Planners spend half their day chasing updates on Zalo, Viber, and WhatsApp.</p>
+        </div>
+        <div class="pain-card">
+          <span class="n">PAIN · 02</span>
+          <h4>Why did this line stop?</h4>
+          <p>Downtime reasons are logged on paper, keyed into Excel next week, blamed in meetings next month. Root cause is a feeling, not a fact.</p>
+        </div>
+        <div class="pain-card">
+          <span class="n">PAIN · 03</span>
+          <h4>What did this job really cost?</h4>
+          <p>Actual hours and materials are collected after settlement. By the time we see margin erosion, the quarter is gone.</p>
+        </div>
+        <div class="pain-card">
+          <span class="n">PAIN · 04</span>
+          <h4>Is this part certified for release?</h4>
+          <p>Certificates sit in filing cabinets. Audit prep takes weeks. Customer rejects a shipment and no one can produce the inspection record.</p>
+        </div>
+        <div class="pain-card">
+          <span class="n">PAIN · 05</span>
+          <h4>Who approved this LSX?</h4>
+          <p>Multi-level approvals happen by signed paper. Lost documents stall releases. Delegation during leave becomes a crisis.</p>
+        </div>
+        <div class="pain-card">
+          <span class="n">PAIN · 06</span>
+          <h4>Will this equipment make the shift?</h4>
+          <p>Calibration dates, maintenance history, and failure patterns live in disconnected spreadsheets. Predictive maintenance is a slide, not a practice.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>03 — Customer painpoints</div></div>
+  </section>
+
+  <!-- 04 · WHAT WE BUILT -->
+  <section class="slide soft">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">04 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>What AI Twin is</div>
+      <h2 class="lead">One <span class="italic">operating picture.</span><br/>Office, floor, and field.</h2>
+      <p class="body" style="color: rgba(10,10,11,0.78); font-size: 20px; max-width: 1200px;">AI Twin is an operations platform that sits above your existing systems — not instead of them. It pulls signals from ERP, MES, SCADA, QMS, and the floor itself, and renders a single live model of your plant that every role can trust.</p>
+      <div class="cols-4" style="margin-top: 56px;">
+        <div class="card">
+          <div class="ic">◉</div>
+          <h4>Sense</h4>
+          <p>IoT, PLCs, cameras, drones, mobile terminals — every signal, one event stream.</p>
+        </div>
+        <div class="card">
+          <div class="ic">◆</div>
+          <h4>Understand</h4>
+          <p>Work orders, assets, routings, people, materials — unified in a work graph with AI reasoning on top.</p>
+        </div>
+        <div class="card">
+          <div class="ic">▶</div>
+          <h4>Act</h4>
+          <p>Dispatch to the floor, trigger approvals, release certificates, auto-reschedule disruptions.</p>
+        </div>
+        <div class="card">
+          <div class="ic">△</div>
+          <h4>Mirror</h4>
+          <p>A live digital twin of operations — queryable, simulatable, and auditable in real time.</p>
+        </div>
+      </div>
+      <div style="margin-top: 48px; display:flex; gap: 12px;">
+        <span class="pill">Low-code configurable</span>
+        <span class="pill">Bilingual VI / EN / RU</span>
+        <span class="pill">On-prem / VPC / Cloud</span>
+        <span class="pill orange">Built on Frappe + OpenMES core</span>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>04 — What we built</div></div>
+  </section>
+
+  <!-- 05 · WHAT PROBLEMS IT SOLVES -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">05 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>What it changes</div>
+      <h2 class="lead">Before AI Twin.<br/><span class="italic">After AI Twin.</span></h2>
+      <div class="split">
+        <div class="side before">
+          <div class="k">Before — fragmented operations</div>
+          <h5>The daily reality today</h5>
+          <ul>
+            <li>Status updates copied between ERP, MES, Excel, and WhatsApp</li>
+            <li>Work orders released on paper, lost in transit, re-keyed on arrival</li>
+            <li>Downtime causes argued, not measured</li>
+            <li>Cost actuals land weeks after the job closes</li>
+            <li>Inspection records in filing cabinets, audits done in panic</li>
+            <li>Maintenance is reactive — assets fail, then are fixed</li>
+            <li>No single place to answer "what's happening right now?"</li>
+          </ul>
+        </div>
+        <div class="side after">
+          <div class="k">After — a unified operating picture</div>
+          <h5>With AI Twin running</h5>
+          <ul>
+            <li>One work order flows end-to-end with every actor and event logged</li>
+            <li>Mobile dispatch to the floor, actuals captured as they happen</li>
+            <li>Downtime reasons structured, root cause surfaced automatically</li>
+            <li>Live cost per work order — margin visible before settlement</li>
+            <li>Digital certificates and traceability ready for any audit, instantly</li>
+            <li>Predictive maintenance surfacing failures before they happen</li>
+            <li>One shared truth — same picture for the planner, operator, and GM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>05 — What problems it solves</div></div>
+  </section>
+
+  <!-- 06 · SYSTEM ARCHITECTURE / INTEGRATION FLOW -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">06 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>How it fits — ERP, MES, SAP, warehouse</div>
+      <h2 class="lead">The overlay, not the <span class="italic">replacement.</span></h2>
+      <p class="body" style="max-width: 1200px;">AI Twin integrates by APIs and events, never by shared databases. Your SAP, Oracle ERP, and existing MES stay. We orchestrate the work, mirror the state, and give every system clean contracts to talk through.</p>
+
+      <div class="sys-diagram">
+        <!-- Enterprise systems (left) -->
+        <div class="sys-col">
+          <div class="title">Enterprise Systems</div>
+          <div class="sys-box">
+            <div class="lbl">ERP · Finance</div>
+            <h5>SAP / Oracle ERP</h5>
+            <p>Masters, orders, inventory, GL postings</p>
+          </div>
+          <div class="sys-box">
+            <div class="lbl">HR · Payroll</div>
+            <h5>Workday / HRIS</h5>
+            <p>People, roles, cost rates</p>
+          </div>
+          <div class="sys-box">
+            <div class="lbl">WMS · Logistics</div>
+            <h5>Warehouse / 3PL</h5>
+            <p>Lots, picks, deliveries</p>
+          </div>
+          <div class="sys-box">
+            <div class="lbl">CRM · Portal</div>
+            <h5>Customer Orders</h5>
+            <p>Service requests, SLAs</p>
+          </div>
+        </div>
+
+        <div class="sys-arrow">
+          <svg viewBox="0 0 48 24" fill="none"><path d="M2 12 L44 12 M36 4 L44 12 L36 20" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+
+        <!-- AI Twin core -->
+        <div class="sys-col">
+          <div class="title" style="color: var(--orange);">AI Twin Platform</div>
+          <div class="sys-box center">
+            <div class="lbl">Operations Fabric</div>
+            <h5>Work Order Engine</h5>
+            <p>LSX lifecycle · multi-level approvals · dispatch · routing</p>
+          </div>
+          <div class="sys-box center">
+            <div class="lbl">Twin Core</div>
+            <h5>Operating Mirror</h5>
+            <p>Event store · asset graph · AI reasoning · simulation</p>
+          </div>
+          <div class="sys-box center">
+            <div class="lbl">Execution Layer</div>
+            <h5>MES Runtime</h5>
+            <p>Shop-floor execution · QC · maintenance · traceability</p>
+          </div>
+          <div class="sys-box center">
+            <div class="lbl">Intelligence</div>
+            <h5>AI Agents</h5>
+            <p>Scheduler · predictive maintenance · anomaly detection</p>
+          </div>
+        </div>
+
+        <div class="sys-arrow">
+          <svg viewBox="0 0 48 24" fill="none"><path d="M2 12 L44 12 M36 4 L44 12 L36 20" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+
+        <!-- Edge (right) -->
+        <div class="sys-col">
+          <div class="title">Shop Floor & Edge</div>
+          <div class="sys-box">
+            <div class="lbl">Machines</div>
+            <h5>PLC · OPC-UA</h5>
+            <p>Runtime, cycles, downtime</p>
+          </div>
+          <div class="sys-box">
+            <div class="lbl">Sensors</div>
+            <h5>IoT Gateway</h5>
+            <p>Temperature, vibration, flow</p>
+          </div>
+          <div class="sys-box">
+            <div class="lbl">Vision</div>
+            <h5>Cameras & Drones</h5>
+            <p>Falcon vision integration</p>
+          </div>
+          <div class="sys-box">
+            <div class="lbl">Mobile</div>
+            <h5>Operator Tablets</h5>
+            <p>Dispatch, actuals, checklists</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>06 — Integration architecture</div></div>
+  </section>
+
+  <!-- 07 · DATA FLOW: FROM ORDER TO DELIVERY -->
+  <section class="slide soft">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">07 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>The flow — from service request to signed delivery</div>
+      <h2 class="lead">One flow.<br/>Seven stages. <span class="italic">No handoff gaps.</span></h2>
+      <p class="body" style="color: rgba(10,10,11,0.75); max-width: 1200px;">Every signal — from the customer order in SAP to the final delivery note — moves through a single structured flow. Each stage emits events the twin consumes to update its operating picture in real time.</p>
+
+      <div class="flow-row">
+        <div class="flow-step"><div class="num">01 · ORIGIN</div><h5>Request</h5><p>Customer or planner creates a service request in CRM, SAP, or AI Twin portal. Technical files, deadlines, cost expectations attached.</p></div>
+        <div class="flow-step"><div class="num">02 · APPROVE</div><h5>Assess & Release</h5><p>Capability check against capacity graph. Multi-level approval chain. Work order (LSX) released with cost ceiling.</p></div>
+        <div class="flow-step"><div class="num">03 · PLAN</div><h5>Resource & Schedule</h5><p>Routing, BOM, materials, people, equipment, planned cost — pulled from ERP masters and twin inventory.</p></div>
+        <div class="flow-step"><div class="num">04 · EXECUTE</div><h5>Dispatch to Floor</h5><p>Operators receive work on tablets. Actuals captured. PLC/IoT confirms machine time. Falcon vision confirms PPE.</p></div>
+        <div class="flow-step"><div class="num">05 · CONTROL</div><h5>Quality & Issues</h5><p>Inspection plans trigger at the right moment. Non-conformance routed. Bottlenecks alert planners instantly.</p></div>
+        <div class="flow-step"><div class="num">06 · ACCEPT</div><h5>Certify & Hand Over</h5><p>Checklists, digital certificates, customer sign-off. Settlement line pushed to SAP. Delivery note generated.</p></div>
+        <div class="flow-step highlight"><div class="num">07 · MIRROR</div><h5>Live Twin</h5><p>Every event feeds the twin. Leaders query, simulate, and act — on live operational state, not yesterday's report.</p></div>
+      </div>
+
+      <div style="margin-top: 48px; padding: 24px 28px; border-radius: 14px; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.4);">
+        <div style="font-family:'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.25em; color: var(--orange); text-transform: uppercase; margin-bottom: 8px;">The point</div>
+        <p style="margin: 0; font-size: 18px; color: var(--ink); line-height: 1.55; max-width: 1200px;">Each stage is <strong>auditable</strong>, each actor is <strong>attributable</strong>, each transition emits an <strong>event</strong>. No more "the paper is lost," "the Excel wasn't updated," or "the ERP doesn't know yet."</p>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>07 — End-to-end flow</div></div>
+  </section>
+
+  <!-- 08 · SCREENS · DASHBOARD -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">08 / 16</div>
+    </div>
+    <div class="pad" style="padding-right: 60px;">
+      <div class="eyebrow"><span class="line"></span>The product · 01 — Executive view</div>
+      <h2 class="lead" style="font-size:60px;">A plant that answers<br/>back in <span class="italic">real time.</span></h2>
+      <p class="body" style="max-width:620px;">The executive dashboard rolls up every work order, line, shift, and alert into one live operating picture. Drill into any card to reach the underlying event trail — no exports, no stale PDFs.</p>
+      <ul style="list-style:none; padding:0; margin-top: 24px;">
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Real-time KPI roll-up by Ban / Xưởng / plant</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>SLA at-risk work orders surfaced automatically</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Shift handover brief auto-composed every 8 hours</li>
+      </ul>
+    </div>
+    <div style="position:absolute; right: 60px; top: 100px; bottom: 100px; width: 780px; z-index: 3;">
+      <div class="shot" style="height: 100%;">
+        <div class="bar"><div class="d"></div><div class="d"></div><div class="d"></div><span style="margin-left: 10px; font-family:'IBM Plex Mono', monospace; font-size: 11px; color: rgba(245,245,243,0.5);">twin.cyberdx.tech / dashboard</span></div>
+        <img src="../public/openmes/01-dashboard-kpi.png" alt="Executive dashboard" style="width:100%; height: calc(100% - 42px); object-fit: cover; object-position: top;"/>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>08 — Dashboard</div></div>
+  </section>
+
+  <!-- 09 · SCREENS · WORK ORDERS -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">09 / 16</div>
+    </div>
+    <div style="position:absolute; left: 60px; top: 100px; bottom: 100px; width: 780px; z-index: 3;">
+      <div class="shot" style="height: 100%;">
+        <div class="bar"><div class="d"></div><div class="d"></div><div class="d"></div><span style="margin-left: 10px; font-family:'IBM Plex Mono', monospace; font-size: 11px; color: rgba(245,245,243,0.5);">twin.cyberdx.tech / work-orders</span></div>
+        <img src="../public/openmes/02-work-orders.png" alt="Work orders" style="width:100%; height: calc(100% - 42px); object-fit: cover; object-position: top;"/>
+      </div>
+    </div>
+    <div class="pad" style="padding-left: 900px;">
+      <div class="eyebrow"><span class="line"></span>The product · 02 — Work order lifecycle</div>
+      <h2 class="lead" style="font-size:56px;">Every LSX,<br/>auditable <span class="italic">end-to-end.</span></h2>
+      <p class="body">Work orders flow through planned → released → executing → QC → accepted → settled, with every actor, event, and change captured. No more "I thought it was approved."</p>
+      <ul style="list-style:none; padding:0; margin-top: 24px;">
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Multi-level approval chains per Ban / Xưởng</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Routing, BOM, cost ceiling pulled from ERP masters</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Priority rebalanced by AI when capacity shifts</li>
+      </ul>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>09 — Work orders</div></div>
+  </section>
+
+  <!-- 10 · SCREENS · PLANNING -->
+  <section class="slide soft">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">10 / 16</div>
+    </div>
+    <div class="pad" style="padding-right: 60px;">
+      <div class="eyebrow"><span class="line"></span>The product · 03 — Planning & capacity</div>
+      <h2 class="lead" style="font-size:60px;">Visual planning<br/>that <span class="italic">reschedules itself.</span></h2>
+      <p class="body" style="color: rgba(10,10,11,0.75);">Gantt view across lines, shifts, people, and equipment. When a machine goes down or an urgent order lands, AI Twin proposes the reschedule — operator approves, change ships.</p>
+      <ul style="list-style:none; padding:0; margin-top: 24px;">
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: rgba(10,10,11,0.72);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Finite capacity scheduling with machine, labor, tooling constraints</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: rgba(10,10,11,0.72);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>What-if simulation before committing a plan</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: rgba(10,10,11,0.72);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Auto-detect bottlenecks and suggest line balancing</li>
+      </ul>
+    </div>
+    <div style="position:absolute; right: 60px; top: 100px; bottom: 100px; width: 780px; z-index: 3;">
+      <div class="shot" style="height: 100%;">
+        <div class="bar"><div class="d"></div><div class="d"></div><div class="d"></div><span style="margin-left: 10px; font-family:'IBM Plex Mono', monospace; font-size: 11px; color: rgba(10,10,11,0.5);">twin.cyberdx.tech / planning</span></div>
+        <img src="../public/openmes/04-planning-gantt.png" alt="Planning Gantt" style="width:100%; height: calc(100% - 42px); object-fit: cover; object-position: top;"/>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>10 — Planning</div></div>
+  </section>
+
+  <!-- 11 · SCREENS · SHOP FLOOR / MOBILE -->
+  <section class="slide">
+    <div class="bg-img" style="background-image:url('../public/ai-twin/media/cnc.jpg'); filter:brightness(0.35);"></div>
+    <div class="scrim" style="background: linear-gradient(90deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.65) 60%, rgba(5,5,6,0.3) 100%);"></div>
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">11 / 16</div>
+    </div>
+    <div class="pad" style="padding-right: 60px;">
+      <div class="eyebrow"><span class="line"></span>The product · 04 — On the floor</div>
+      <h2 class="lead" style="font-size:60px;">Built for the<br/>hard-hat <span class="italic">reality.</span></h2>
+      <p class="body" style="max-width:580px;">Operators get the right job, the right drawing, the right checklist — on a tablet or phone. Actuals captured as work happens, not reconstructed at end of shift.</p>
+      <ul style="list-style:none; padding:0; margin-top: 24px;">
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Offline-first — gloves-friendly UX for the shop floor</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Scan to start/stop · auto-attribution to operator</li>
+        <li style="padding-left: 24px; position:relative; margin-bottom: 10px; color: var(--cream-dim);"><span style="position:absolute; left:0; color:var(--orange);">◉</span>Vietnamese + English + Russian ready at install</li>
+      </ul>
+    </div>
+    <div style="position:absolute; right: 100px; top: 100px; bottom: 100px; width: 440px; z-index: 3;">
+      <div class="shot" style="height: 100%; border-radius: 32px;">
+        <img src="../public/openmes/13-operators-mobile.png" alt="Operator mobile" style="width:100%; height: 100%; object-fit: cover; object-position: center;"/>
+      </div>
+    </div>
+    <div class="badge-float" style="right: 580px; top: 180px;">
+      <div class="b-ic">⚡</div>
+      <div class="b-txt"><div class="k">Actuals</div><div class="v">Real-time capture</div></div>
+    </div>
+    <div class="badge-float" style="right: 580px; top: 480px;">
+      <div class="b-ic">📶</div>
+      <div class="b-txt"><div class="k">Mode</div><div class="v">Offline-first</div></div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>11 — Operator mobile</div></div>
+  </section>
+
+  <!-- 12 · SCREENS · QUALITY & COST -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">12 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>The product · 05 — Quality & cost</div>
+      <h2 class="lead" style="font-size:60px;">Margin and quality,<br/><span class="italic">visible before settlement.</span></h2>
+      <div class="cols-2" style="margin-top: 40px; gap: 32px; flex: 1;">
+        <div>
+          <div class="shot">
+            <div class="bar"><div class="d"></div><div class="d"></div><div class="d"></div><span style="margin-left: 10px; font-family:'IBM Plex Mono', monospace; font-size: 11px; color: rgba(245,245,243,0.5);">twin / quality · inspection plans</span></div>
+            <img src="../public/openmes/07-quality-inspections.png" alt="Quality inspections"/>
+            <div class="caption">Quality — inspection plans, CAPA, digital certificates</div>
+          </div>
+        </div>
+        <div>
+          <div class="shot">
+            <div class="bar"><div class="d"></div><div class="d"></div><div class="d"></div><span style="margin-left: 10px; font-family:'IBM Plex Mono', monospace; font-size: 11px; color: rgba(245,245,243,0.5);">twin / cost · work-order margin</span></div>
+            <img src="../public/openmes/12-cost-report.png" alt="Cost report"/>
+            <div class="caption">Cost — live actuals vs. plan, variance drill-down</div>
+          </div>
+        </div>
+      </div>
+      <p class="body" style="margin-top: 32px; max-width:1200px;">Inspection plans trigger automatically at the right stage. Cost actuals accrue as hours and materials are consumed — not reconstructed at month-end. Margin erosion visible while there's still time to fix it.</p>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>12 — Quality & cost</div></div>
+  </section>
+
+  <!-- 13 · DELIVERY MODEL -->
+  <section class="slide soft">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">13 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>How we deliver — pilot to production</div>
+      <h2 class="lead">A plant goes live in <span class="italic">12 weeks.</span></h2>
+      <p class="body" style="color: rgba(10,10,11,0.75); max-width: 1200px;">We don't do multi-year transformation projects. One line, one plant, one measured baseline — then expand. Here is what the first 12 weeks look like, and the signed deliverables at each gate.</p>
+
+      <div class="timeline">
+        <div class="tl-step"><div class="circle active">01</div><div class="wk">Week 0–2</div><h5>Discover</h5><p>Process mapping, system inventory, integration points with SAP/ERP/MES, success metrics agreed in writing.</p></div>
+        <div class="tl-step"><div class="circle active">02</div><div class="wk">Week 2–5</div><h5>Configure</h5><p>Routings, work order templates, approval chains, user roles, bilingual terminology, master data mapping.</p></div>
+        <div class="tl-step"><div class="circle active">03</div><div class="wk">Week 5–8</div><h5>Integrate</h5><p>SAP / Oracle ERP adapter, HR / payroll feeds, warehouse / WMS integration, PLC & IoT connectivity.</p></div>
+        <div class="tl-step"><div class="circle">04</div><div class="wk">Week 8–10</div><h5>Pilot</h5><p>One line, one shift. Operators trained. Daily stand-ups with the floor team. Baseline KPIs captured.</p></div>
+        <div class="tl-step"><div class="circle">05</div><div class="wk">Week 10–12</div><h5>Go-live & scale</h5><p>Full plant rollout. Handover docs, runbooks, success metrics review. Phase 2 roadmap signed.</p></div>
+      </div>
+
+      <div class="delivery-grid" style="margin-top: 56px;">
+        <div class="delivery-card">
+          <div class="ph">Phase 01 · Delivered</div>
+          <h5>Discovery pack</h5>
+          <p>As-is process maps, integration contracts, success metrics baseline, project charter.</p>
+          <div class="deliverable">Signed off → gate 1</div>
+        </div>
+        <div class="delivery-card">
+          <div class="ph">Phase 02 · Delivered</div>
+          <h5>Configured platform</h5>
+          <p>Live tenant with routings, workflows, approvals, roles, and bilingual UI deployed in your environment.</p>
+          <div class="deliverable">Signed off → gate 2</div>
+        </div>
+        <div class="delivery-card">
+          <div class="ph">Phase 03 · Delivered</div>
+          <h5>Integration certified</h5>
+          <p>SAP/ERP, HR, WMS, PLC connectors tested with your data. Event audit log live. Reconciliation runbook delivered.</p>
+          <div class="deliverable">Signed off → gate 3</div>
+        </div>
+        <div class="delivery-card">
+          <div class="ph">Phase 04 · Delivered</div>
+          <h5>Go-live & handover</h5>
+          <p>Production rollout, trained operators and planners, support rota, success metrics report, Phase 2 plan.</p>
+          <div class="deliverable">Signed off → go live</div>
+        </div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>13 — Delivery model</div></div>
+  </section>
+
+  <!-- 14 · OUTCOMES / ROI -->
+  <section class="slide">
+    <div class="bg-img" style="background-image:url('../public/ai-twin/media/engineer.jpg'); filter:brightness(0.4); background-position: 70% 20%;"></div>
+    <div class="scrim" style="background: linear-gradient(90deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.78) 55%, rgba(5,5,6,0.4) 100%);"></div>
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">14 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>Proven outcomes</div>
+      <h2 class="lead">What customers see<br/><span class="italic">within 90 days.</span></h2>
+      <div class="cols-4" style="margin-top: 48px;">
+        <div class="stat"><div class="num orange">+18%</div><div class="lbl">OEE improvement across pilot lines</div></div>
+        <div class="stat"><div class="num orange">-42%</div><div class="lbl">Unplanned downtime after month 2</div></div>
+        <div class="stat"><div class="num orange">-65%</div><div class="lbl">Paper handling on the shop floor</div></div>
+        <div class="stat"><div class="num orange">10x</div><div class="lbl">Faster audit prep & certificate retrieval</div></div>
+      </div>
+      <div class="roi-grid" style="margin-top: 56px;">
+        <div class="hd rh">KPI</div>
+        <div class="hd">Baseline</div>
+        <div class="hd">Month 3</div>
+        <div class="hd">Target 12mo</div>
+        <div class="rh">Work-order cycle time</div><div class="val">14.2 days</div><div class="val">9.8 days</div><div class="val">7.0 days</div>
+        <div class="rh">On-time delivery</div><div class="val">71%</div><div class="val">86%</div><div class="val">95%</div>
+        <div class="rh">Cost variance to plan</div><div class="val">±18%</div><div class="val">±9%</div><div class="val">±5%</div>
+        <div class="rh">Audit evidence retrieval</div><div class="val">2–5 days</div><div class="val">&lt;1 hour</div><div class="val">&lt;5 min</div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>14 — Outcomes & ROI</div></div>
+  </section>
+
+  <!-- 15 · WHY US / COMPANY -->
+  <section class="slide">
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">15 / 16</div>
+    </div>
+    <div class="pad">
+      <div class="eyebrow"><span class="line"></span>Why CyberDX</div>
+      <h2 class="lead">We build AI products<br/>for the <span class="italic">physical world.</span></h2>
+      <p class="body" style="max-width: 1200px;">AI Twin is one of three production platforms we ship — alongside Falcon (vision) and AI Beaver (automation). Our team has deployed real systems in real factories, with real downtime, real certificates, and real customers waiting at the gate.</p>
+
+      <div class="cols-4" style="margin-top: 48px;">
+        <div class="card">
+          <div class="ic">◆</div>
+          <h4>Shop-floor DNA</h4>
+          <p>Engineers who have stood on real floors, in real PPE, with real operators — not just conference rooms.</p>
+        </div>
+        <div class="card">
+          <div class="ic">◆</div>
+          <h4>Portfolio depth</h4>
+          <p>Falcon vision, AI Beaver automation, AI Twin operations — one stack, one vendor, three capabilities.</p>
+        </div>
+        <div class="card">
+          <div class="ic">◆</div>
+          <h4>Regional focus</h4>
+          <p>Vietnam-headquartered. Bilingual by default. ASEAN delivery team. Cost structure that mid-market can afford.</p>
+        </div>
+        <div class="card">
+          <div class="ic">◆</div>
+          <h4>Open foundations</h4>
+          <p>Frappe + OpenMES-grade core. Your data is yours, your extensions are yours — no lock-in.</p>
+        </div>
+      </div>
+
+      <div class="stack-grid" style="margin-top: 48px;">
+        <div class="stack-logo">SAP</div>
+        <div class="stack-logo">Oracle ERP</div>
+        <div class="stack-logo">Frappe</div>
+        <div class="stack-logo">OPC-UA</div>
+        <div class="stack-logo">PostgreSQL</div>
+        <div class="stack-logo">Kubernetes</div>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin</div><div>15 — About us</div></div>
+  </section>
+
+  <!-- 16 · CALL TO ACTION -->
+  <section class="slide">
+    <div class="hero-img" style="background-image:url('../public/ai-twin/media/warehouse.jpg');"></div>
+    <div class="scrim" style="background: linear-gradient(90deg, rgba(5,5,6,0.95) 0%, rgba(5,5,6,0.78) 50%, rgba(5,5,6,0.3) 100%);"></div>
+    <div class="grid-overlay"></div>
+    <div class="chrome">
+      <div class="brand"><span class="mark">C</span><span>CyberDX / <strong>AI TWIN</strong></span></div>
+      <div class="pageno">16 / 16</div>
+    </div>
+    <div class="pad" style="justify-content:center;">
+      <div class="eyebrow"><span class="line"></span>Let's run a pilot</div>
+      <h1 class="display" style="font-size:104px;">Pick one line.<br/>Measure for <span class="italic">12 weeks.</span><br/><span class="dim">Decide from data.</span></h1>
+      <p class="body" style="margin-top: 36px; font-size: 20px; max-width: 820px;">We're onboarding manufacturing partners for the next deployment cohort. One line, one plant, a signed baseline, and a clear go/no-go gate at week 12. No multi-year commitments.</p>
+
+      <div class="contact-grid">
+        <div class="ct"><div class="k">Website</div><div class="v">cyberdx.tech / ai-twin</div></div>
+        <div class="ct"><div class="k">Email</div><div class="v">hello@cyberdx.tech</div></div>
+        <div class="ct"><div class="k">HQ</div><div class="v">Ho Chi Minh City, VN</div></div>
+      </div>
+
+      <div style="margin-top: 48px; display: flex; gap: 12px;">
+        <span class="pill orange">Pilot slot available Q1 2026</span>
+        <span class="pill live"><span class="dot"></span>Reference visits possible</span>
+      </div>
+    </div>
+    <div class="footnote"><div>CyberDX / AI Twin · 2026</div><div>Thank you.</div></div>
+  </section>
+
+</div>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    const slides = document.querySelectorAll('.slide');
+    const vh = window.innerHeight;
+    let currentIndex = 0;
+    slides.forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      if (r.top < vh/2 && r.bottom > vh/2) currentIndex = i;
+    });
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      slides[Math.min(currentIndex + 1, slides.length - 1)].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      slides[Math.max(currentIndex - 1, 0)].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+</body>
+</html>
