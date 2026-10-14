@@ -11,15 +11,15 @@ const SITE_URL = normalizeSiteUrl(
     process.env.VITE_SITE_URL ||
     process.env.VERCEL_PROJECT_PRODUCTION_URL ||
     process.env.VERCEL_URL ||
-    "https://falcon-ai-camera.vercel.app"
+    "https://cyberdx.tech"
 );
 
 const SITE_NAME = "CyberDX";
 const DEFAULT_IMAGE = "/cyberdx_logo.jpg";
 const HOME_META = {
-  title: "CyberDX | Falcon AI Camera System & Real-Time Video Analytics",
+  title: "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry",
   description:
-    "CyberDX provides Falcon AI Camera System and real-time video analytics solutions for intelligent camera monitoring, operational safety, and enterprise automation.",
+    "CyberDX delivers three enterprise AI products: AI Falcon for vision intelligence, AI Beaver for workflow automation, and AI Twin for industrial operations.",
   image: DEFAULT_IMAGE,
   slug: "",
   type: "website",
@@ -42,7 +42,7 @@ function withMetadata(html, meta) {
   const metadata = `
     <title>${title}</title>
     <meta name="description" content="${description}" />
-    <meta name="keywords" content="Falcon, AI camera system, real-time video analytics, intelligent camera monitoring, computer vision, edge AI, real-time monitoring, security automation, enterprise AI, Vietnam technology company" />
+    <meta name="keywords" content="CyberDX, AI Falcon, AI Beaver, AI Twin, computer vision, workflow automation, industrial intelligence, enterprise AI, Vietnam technology company" />
     <meta name="author" content="CyberDX" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${escapedUrl}" />

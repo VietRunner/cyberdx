@@ -37,11 +37,11 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
 
     if (!slug || !data) {
       
-      document.title = "CyberDX | Falcon AI Camera System & Real-Time Video Analytics";
+      document.title = "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry";
       
       const descMeta = document.querySelector('meta[name="description"]');
       if (descMeta) {
-        descMeta.setAttribute("content", "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.");
+        descMeta.setAttribute("content", "CyberDX delivers three enterprise AI products: AI Falcon for vision intelligence, AI Beaver for workflow automation, and AI Twin for industrial operations.");
       }
       
       const canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -50,11 +50,11 @@ export default function DetailModal({ slug, onClose }: DetailModalProps) {
       }
       
       
-      setMetaProperty("og:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
-      setMetaProperty("og:description", "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.");
+      setMetaProperty("og:title", "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry");
+      setMetaProperty("og:description", "CyberDX delivers three enterprise AI products: AI Falcon for vision intelligence, AI Beaver for workflow automation, and AI Twin for industrial operations.");
       setMetaProperty("og:url", "https://cyberdx.tech/");
-      setMetaName("twitter:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
-      setMetaName("twitter:description", "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.");
+      setMetaName("twitter:title", "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry");
+      setMetaName("twitter:description", "CyberDX delivers three enterprise AI products: AI Falcon for vision intelligence, AI Beaver for workflow automation, and AI Twin for industrial operations.");
       
       
       const existingSchema = document.querySelector("script.rank-math-schema");

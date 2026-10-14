@@ -10,7 +10,6 @@
  * ---------------------------------------------------------------------- */
 
 import { useEffect, useState, type ReactNode } from "react";
-import { motion } from "motion/react";
 import {
   ArrowRight,
   ArrowUpRight,

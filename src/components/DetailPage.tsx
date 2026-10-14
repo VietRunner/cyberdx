@@ -338,17 +338,17 @@ export default function DetailPage({ slug, onBack, onContact }: DetailPageProps)
 
     return () => {
       
-      document.title = "CyberDX | Falcon AI Camera System & Real-Time Video Analytics";
-      const defaultDesc = "CyberDX provides Falcon AI Camera System solutions with real-time video analytics for security, safety, and operational intelligence.";
+      document.title = "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry";
+      const defaultDesc = "CyberDX delivers three enterprise AI products: AI Falcon for vision intelligence, AI Beaver for workflow automation, and AI Twin for industrial operations.";
       if (descMeta) descMeta.setAttribute("content", defaultDesc);
       
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) canonical.setAttribute("href", "https://cyberdx.tech/");
 
-      setMetaProperty("og:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
+      setMetaProperty("og:title", "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry");
       setMetaProperty("og:description", defaultDesc);
       setMetaProperty("og:url", "https://cyberdx.tech/");
-      setMetaName("twitter:title", "CyberDX | Falcon AI Camera System & Real-Time Video Analytics");
+      setMetaName("twitter:title", "CyberDX | Enterprise AI Solutions for Vision, Automation & Industry");
       setMetaName("twitter:description", defaultDesc);
 
       const dynamicSchema = document.querySelector("script.rank-math-schema");
